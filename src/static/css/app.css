@@ -46,9 +46,6 @@ body{
     border: 3px solid #0075b4;
 }
 
-.container{
-
-}
 .card{
     border-radius: 0px;
     border: none;
@@ -117,8 +114,14 @@ body{
 }
 
 .card a.info {
-    display: inline-block;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    background: rgba(0, 0, 0, 0.6);
     text-decoration: none;
+    color: #fff;
+    display: inline-block;
     padding: 10px 30px;
     margin: 100px 0 0 0;
     background-color: transparent;
@@ -126,17 +129,7 @@ body{
     opacity: 0;
     filter: alpha(opacity=0);
     -webkit-transition: all 0.4s ease-in;
-}
-
-.card a.info {
-    text-transform: uppercase;
-    text-align: center;
-    position: relative;
-    font-size: 17px;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    text-decoration: none;
-    color: #fff;
+    transition: all 0.4s ease-in;
 }
 
 .card:hover a.info{
