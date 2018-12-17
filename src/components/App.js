@@ -1,44 +1,27 @@
 import React, { Component } from 'react';
-import '../static/css/App.css'
-import CourseCard from'./CourseCard'
+import '../static/css/App.css';
+import CourseCard from'./CourseCard';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import reducer from '../reducers';
+import thunk from 'redux-thunk';
+import Test from './Test'
+
+const store = createStore(reducer,applyMiddleware(thunk))
+
 
 class App extends Component {
 
   render() {
     return (
+      <Provider store={store}>
         <div className="container"> 
           <div className="row mp-auto">
-            <ResponseCourses />
+            {/* {this.renderCard()} */}
+            <Test />
           </div>
         </div>
-    )
-  }
-}
-
-class ResponseCourses extends Component{
-  constructor(){
-    super();
-    this.state = {data : [] };
-  }
-
-  async componentDidMount(){
-    const response = await fetch('https://courses.openedu.urfu.ru/api/courses/v1/courses/');
-    const json = await response.json();
-    this.setState({ data: json.results });
-  }
-
-  renderCard(){
-    return this.state.data.map((item, index) => {
-      return (
-        <CourseCard value={item} key={index}/>
-      )
-    })
-  }
-
-  render() {
-    return (
-      this.renderCard()
-    
+      </Provider>
     )
   }
 }
