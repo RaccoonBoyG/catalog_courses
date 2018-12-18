@@ -16,10 +16,8 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="container"> 
-          <div className="row mp-auto">
             {/* {this.renderCard()} */}
             <Test />
-          </div>
         </div>
       </Provider>
     )

@@ -1,41 +1,61 @@
-export function fetchPostsRequest(){
-    return {
-      type: "FETCH_REQUEST"
-    }
-}
-  
-export function fetchPostsSuccess(payload) {
-    return {
-      type: "FETCH_SUCCESS",
-      payload
-    }
-}
-  
-export function fetchPostsError() {
-    return {
-      type: "FETCH_ERROR"
-    }
+
+const ROOT_URL = `https://courses.openedu.urfu.ru/api/courses/v1/courses/`
+
+export const FETCH_PRODUCTS_BEGIN   = 'FETCH_PRODUCTS_BEGIN';
+export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
+export const FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE';
+
+export const fetchProductsBegin = () => ({
+  type: FETCH_PRODUCTS_BEGIN
+});
+
+export const fetchProductsSuccess = data => ({
+  type: FETCH_PRODUCTS_SUCCESS,
+  payload: { data }
+});
+
+export const fetchProductsFailure = error => ({
+  type: FETCH_PRODUCTS_FAILURE,
+  payload: { error }
+});
+
+export function fetchProducts() {
+  return dispatch => {
+    dispatch(fetchProductsBegin());
+    return fetch(ROOT_URL)
+      .then(handleErrors)
+      .then(res => res.json())
+      .then(json => {
+        dispatch(fetchProductsSuccess(json.results));
+        return json.results;
+      })
+      .catch(error => dispatch(fetchProductsFailure(error)));
+  };
 }
 
-export function fetchPostsWithRedux() {
-	return (dispatch) => {
-  	dispatch(fetchPostsRequest());
-    return fetchPosts().then(([response, json]) =>{
-    	if(response.status === 200){
-      	dispatch(fetchPostsSuccess(json))
-      }
-      else{
-      	dispatch(fetchPostsError())
-      }
-    })
+// Handle HTTP errors since fetch won't.
+function handleErrors(response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
   }
+  return response;
 }
+// export const receivedPosts = json => ({
+//   type: FETCH_API,
+//   payload: json.results,
+// });
 
-function fetchPosts() {
-  const URL = "https://jsonplaceholder.typicode.com/posts";
-  return fetch(URL, { method: 'GET'})
-     .then( response => Promise.all([response, response.json()]));
-}
+// export function fetchPosts() {
+//   return dispatch =>{
+//     return fetch(ROOT_URL)
+//     .then(
+//       response => response.json()
+//     )
+//     .then((json) => {
+//       dispatch(receivedPosts(json))
+//     })
+//   }
+// }
 
 // async function fetchPosts(subreddit) {
 //     return dispatch => {

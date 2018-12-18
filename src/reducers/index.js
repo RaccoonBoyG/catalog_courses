@@ -1,8 +1,6 @@
-import { combineReducers } from 'redux';
-import dataInfo from './courses';
+import { combineReducers } from "redux";
+import data from "./courses";
 
-const reducer = combineReducers({
-    dataInfo
+export default combineReducers({
+  data
 });
-
-export default reducer
