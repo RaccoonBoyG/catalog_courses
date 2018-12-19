@@ -33,7 +33,6 @@ export function fetchProducts() {
   };
 }
 
-// Handle HTTP errors since fetch won't.
 function handleErrors(response) {
   if (!response.ok) {
     throw Error(response.statusText);
