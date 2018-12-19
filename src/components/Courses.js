@@ -3,12 +3,11 @@ import { connect } from 'react-redux';
 import {fetchProducts} from '../actions/index';
 import CourseCard from'./CourseCard';
 
-class Test extends Component {
+class Courses extends Component {
   componentDidMount(){
     this.props.dispatch(fetchProducts())
   }
 	render(){
-        console.log(this.props.data)
 	  return (
       <div className="row mp-auto">
         {this.props.data.map((item,key)=> {
@@ -27,5 +26,5 @@ const mapStateToProps = (state) =>({
 })
 
   
-export default connect(mapStateToProps)(Test);
+export default connect(mapStateToProps)(Courses);
   

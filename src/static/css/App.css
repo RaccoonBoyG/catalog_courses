@@ -1,7 +1,7 @@
 
 body{
     /* background-color: #282c34; */
-    background-color:#fff;
+    background-color:#ffffff;
     font-family: 'PFBulletinSansPro-Regular';
     font-style: normal;
     line-height: 1.2em;
@@ -36,22 +36,18 @@ body{
 }
 
 .btn{
-    text-transform: uppercase;
-    font-size: 20px;
-    border-radius: 0px;
-    padding: 10px 35px;
+    padding: 5px 10px;
     color: #0075b4;
-    background: #fff;
-    border: 3px solid #0075b4;
+    border: 1px solid #0075b4;
 }
 
 .card{
     border-radius: 0px;
     border: none;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     cursor: pointer;
     width: 350px;
-    box-shadow: 0px 0px 100px -35px rgba(0,0,0,0.75);
+    /* box-shadow: 0px 0px 100px -35px rgba(117, 117, 117, 0.75); */
     float: left;
     overflow: hidden;
     position: relative;
@@ -73,7 +69,8 @@ body{
 
 .card:hover{
     transition: all 0.1s ease-out 0.1s;
-    box-shadow: 0px 0px 70px -10px #0075b4;
+    /* box-shadow: 0px 0px 70px -10px #0075b4; */
+    box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.5);
 }
 
 .card-title{
