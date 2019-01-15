@@ -36,10 +36,11 @@ body{
 
 .btn{
     padding: 5px 10px;
-    color: #0075b4;
-    border: 1px solid #0075b4;
+    color: rgb(143, 143, 143);
+    border: 1px solid rgb(143, 143, 143);
+    border-radius: 0px;
 }
 
 .container {
-    margin-top: 180px;
+    margin-top: 170px;
 }

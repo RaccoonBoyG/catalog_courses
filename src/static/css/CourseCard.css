@@ -4,11 +4,11 @@
     border: none;
     margin-bottom: 50px;
     cursor: pointer;
-    width: 350px;
     /* box-shadow: 0px 0px 100px -35px rgba(117, 117, 117, 0.75); */
     float: left;
     overflow: hidden;
     position: relative;
+    z-index: 2;
 }
 
 .card-img {
@@ -22,6 +22,7 @@
     font-weight:300;
     height: 175px;
     border: none;
+    background-color: #ededed99;
 }
 
 
