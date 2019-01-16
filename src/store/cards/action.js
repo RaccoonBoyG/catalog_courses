@@ -5,12 +5,11 @@ export function fetchCards() {
   return async dispatch => {
     try{
       let getCard = await openeduService.getCardAPI()
-      dispatch(fetchSelectors.fetchProductsSuccess(getCard))
+      dispatch(fetchSelectors.fetchCardsSuccess(getCard))
 
     } catch(error){
       console.log(error)
     }
-    
   }
 }
 

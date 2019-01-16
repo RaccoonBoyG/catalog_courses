@@ -4,6 +4,7 @@ import {fetchCards} from '../store/cards/action';
 import CourseCard from'./CourseCard';
 
 class Courses extends Component {
+
   _loadMoreItems(){
     // fetch page 0
     this.props.dispatch(fetchCards());
@@ -18,7 +19,7 @@ class Courses extends Component {
   }
 
   componentDidMount() {
-    this._loadMoreItems()
+    this._loadMoreItems();
     window.addEventListener('scroll', this.onScroll, false);
   }
 
@@ -27,11 +28,9 @@ class Courses extends Component {
   }
 
   onScroll = () => {
-    if (
-      (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 1100)
-      // this.props.data.length
-    ) {
-      console.log("FETCH_DATA")
+    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 1100) && !this.props.loading) 
+    {
+      
     }
   }
 
@@ -46,7 +45,8 @@ class Courses extends Component {
 }
 
 const mapStateToProps = (state) =>({
-  data: state.cards.items
+  data: state.cards.items,
+  loading: state.cards.loading
 })
 
   
