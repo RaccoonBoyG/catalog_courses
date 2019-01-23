@@ -36,7 +36,7 @@ body{
 
 .btn{
     padding: 5px 10px;
-    color: rgb(143, 143, 143);
+    /* color: rgb(143, 143, 143); */
     border: 1px solid rgb(143, 143, 143);
     border-radius: 0px;
 }

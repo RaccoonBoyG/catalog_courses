@@ -1,44 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {fetchCards} from '../store/cards/action';
+import {fetchCards, LoadMore} from '../store/cards/action';
 import CourseCard from'./CourseCard';
+import '../static/css/Courses.css';
 
 class Courses extends Component {
 
-  _loadMoreItems(){
-    // fetch page 0
-    this.props.dispatch(fetchCards());
+  _renderItems(size) {
+    return this.props.data.slice(0, size).map((item, key) => {
+      return (
+        <CourseCard value={item} key={key} />
+      )
+    });
   }
 
-  _renderItems() {
-      return this.props.data.map((item, key) => {
-        return(
-          <CourseCard value={item} key={key} /> 
-        )
-      });
+  onLoadMore(){
+    this.props.dispatch(LoadMore())
   }
 
   componentDidMount() {
-    this._loadMoreItems();
-    window.addEventListener('scroll', this.onScroll, false);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll, false);
-  }
-
-  onScroll = () => {
-    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 1100) && !this.props.loading) 
-    {
-      
-    }
+    this.props.dispatch(fetchCards())
   }
 
 	render(){
 	  return (
-      <div className="row mp-auto">
-        {/* {this._loadMoreItems()} */}
-        {this._renderItems()}
+      <div>
+        <div className="row mp-auto">
+          {/* {this._loadMoreItems()} */}
+          {this._renderItems(this.props.num_obj)}
+          
+        </div>
+        <div className="load-container mp-auto">
+          <button className="btn btn-dark loadmore" id='kek' onClick={ this.onLoadMore.bind(this) }>Показать ещё</button>
+        </div>
       </div>
     )
   }
@@ -46,7 +40,7 @@ class Courses extends Component {
 
 const mapStateToProps = (state) =>({
   data: state.cards.items,
-  loading: state.cards.loading
+  num_obj: state.cards.num_obj
 })
 
   

@@ -6,8 +6,12 @@ import './static/css/index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import { Route, BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root')
+ReactDOM.render(  
+    <BrowserRouter>
+      <Route path="/" component={App} />
+    </BrowserRouter>, document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

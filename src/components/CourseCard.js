@@ -32,18 +32,20 @@ class CourseCard extends Component{
     render(){
         return ( 
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4">
-            <div className="card">
-                <div className="hovereffect">
-                    <img className="card-img" src={this.state.link} alt={this.state.name}/>
-                    <div className="overlay">
+            <a href="">
+                <div className="card">
+                    <div className="hovereffect">
+                        <img className="card-img" src={this.state.link} alt={this.state.name}/>
+                        <div className="overlay">
+                        </div>
+                    </div>
+                    <div className="card-body" data-toggle="tooltip" data-placement="left" title={this.state.name} >
+                        <p className="d-inline-block"><small className="text-muted"><FontAwesomeIcon icon={faGraduationCap} size="1x"/> Ural Fediral University</small></p>
+                        <p className="card-title"><strong style={{overflow: 'hidden', textOverflow: 'ellipsis'}}>{this.truncate(this.state.name,6)}</strong></p>
+                        <p className="card-text"><FontAwesomeIcon icon={faClock} size="1x"/> Начало: {this.state.start_display}</p>
                     </div>
                 </div>
-                <div className="card-body" data-toggle="tooltip" data-placement="left" title={this.state.name} >
-                    <p className="d-inline-block"><small className="text-muted"><FontAwesomeIcon icon={faGraduationCap} size="1x"/> Ural Fediral University</small></p>
-                    <p className="card-title"><strong style={{overflow: 'hidden', textOverflow: 'ellipsis'}}>{this.truncate(this.state.name,6)}</strong></p>
-                    <p className="card-text"><FontAwesomeIcon icon={faClock} size="1x"/> Начало: {this.state.start_display}</p>
-                </div>
-            </div>
+            </a>
         </div>
         )
     }

@@ -4,31 +4,21 @@ const initialState = {
   items: [],
   loading: false,
   error: null,
-  paginates: []
+  num_obj: 10
 };
 
 export default function cardsReducer(state = initialState, action) {
   switch(action.type) {
-    case types.FETCH_PRODUCTS_BEGIN:
+    case types.LOAD_MORE:
       return {
         ...state,
-        loading: true,
-        error: null
+        num_obj: state.num_obj+10
       };
 
     case types.FETCH_CARDS_SUCCESS:
       return {
         ...state,
-        loading: false,
         items: action.payload.data
-      };
-
-    case types.FETCH_PRODUCTS_FAILURE:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload.error,
-        items: []
       };
 
     default:
@@ -38,16 +28,12 @@ export default function cardsReducer(state = initialState, action) {
 
 //selectors
 
-export const fetchProductsBegin = () => ({
-  type: types.FETCH_PRODUCTS_BEGIN
+export const LoadMoreData = num_obj => ({
+  type: types.LOAD_MORE,
+  payload: { num_obj }
 });
 
 export const fetchCardsSuccess = data => ({
   type: types.FETCH_CARDS_SUCCESS,
   payload: { data }
-});
-
-export const fetchProductsFailure = error => ({
-  type: types.FETCH_PRODUCTS_FAILURE,
-  payload: { error }
 });

@@ -1,0 +1,13 @@
+.loadmore{
+    position: relative;
+}
+
+.load-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    margin: 15px 0px; 
+}
