@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import logo from '../static/img/logo_full.png'
-import HeaderBackground from './HeaderBackground';
 
 class Header extends Component {
     constructor(){
@@ -53,7 +52,7 @@ class Header extends Component {
 	render(){
 	  return (
         <div className="navbar-container">
-        <div className="filter-back"></div><HeaderBackground />
+        <div className="filter-back"></div>
             <nav className="navbar navbar-expand-lg navbar-light ">
 
             <a className="navbar-brand" href="/">

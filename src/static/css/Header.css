@@ -30,6 +30,10 @@
     z-index: 2;
 }
 
+.navbar-container{
+    background-image: url('https://images.unsplash.com/photo-1541497847618-a97abd7a8fe3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80');
+    background-repeat: no-repeat;
+}
 
 .nav-background{
     /* background-image: url('//openedu.urfu.ru/files/courses_catalog/bg-nav.jpeg'); */
