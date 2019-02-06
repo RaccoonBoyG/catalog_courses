@@ -25,9 +25,9 @@ class CourseAbout extends Component {
             <HeaderSecond />
             <div className="jumbotron animated fadeIn">
               <div className="container">
-                <h3 className="display-3">{this.props.data.name}</h3>
+                <h1>{this.props.data.name}</h1>
                 <div className="question-text" dangerouslySetInnerHTML={{__html: this.props.data.overview}}/>
-                <p><a className="btn btn-primary btn-lg" href="https://www.google.com/" role="button">Learn more »</a></p>
+                <p><a className="btn btn-primary btn-lg" role="button">TODO: get enrollment state over API</a></p>
               </div>
             </div>
             <Footer />

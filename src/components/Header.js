@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../static/css/Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGraduationCap, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { searchInput } from '../store/cards/action';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
