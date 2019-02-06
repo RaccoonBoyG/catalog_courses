@@ -113,6 +113,11 @@
     transition: .17s;
 }
 
+.navbar-brand .logo {
+    width: 50px;
+}
+
+
 /* .form-control:hover{
     box-shadow: none;
 }
