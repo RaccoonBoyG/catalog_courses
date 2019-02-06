@@ -98,7 +98,7 @@ class Header extends Component {
     )
   }
 }
- //<img src="//openedu.urfu.ru/files/courses_catalog/UrFULogo1.png" alt="..." className='nav-title-icon'/>
+
 const mapStateToProps = (state) =>({
     input: state.cards.myValue,
   })
