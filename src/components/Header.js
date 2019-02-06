@@ -92,13 +92,13 @@ class Header extends Component {
             </nav>
             <div className="nav-tilte-image">
                 <h2>Легко учиться, легко творить</h2>
-                <img src="//openedu.urfu.ru/files/courses_catalog/UrFULogo1.png" alt="..." className='nav-title-icon'/>
+                
             </div>
         </div>
     )
   }
 }
-
+ //<img src="//openedu.urfu.ru/files/courses_catalog/UrFULogo1.png" alt="..." className='nav-title-icon'/>
 const mapStateToProps = (state) =>({
     input: state.cards.myValue,
   })
