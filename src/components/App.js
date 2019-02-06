@@ -19,8 +19,8 @@ class App extends Component {
         <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Catalog} />
-          <Route path="/:id" component={CourseAbout} />
           <Route path="/org" component={Organization} />
+          <Route path="/:id" component={CourseAbout} />
         </Switch>
         </BrowserRouter>
       </Provider>
