@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchOrg } from '../store/organizations/action';
 import '../static/css/CourseAbout.css';
-import HeaderSecond from './HeaderSecond';
+import Header from './Header';
 import Footer from './Footer';
 import 'animate.css/animate.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -24,7 +24,7 @@ class CourseAbout extends Component {
         render(){
           return (
           <div>
-            <HeaderSecond />
+            <Header />
             <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4">
                 <div className="card animated fadeInUp">
                     <div className="hovereffect">
