@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 import logo from '../static/img/logo_full.png'
 import HeaderBackground from './HeaderBackground';
-import HeaderTitle from './HeaderTitle';
 
 class Header extends Component {
     constructor(){
@@ -92,7 +91,6 @@ class Header extends Component {
                 </div>
             </div>
             </nav>
-            <HeaderTitle />
         </div>
     )
   }

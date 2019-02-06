@@ -7,6 +7,7 @@ import '../static/css/Courses.css';
 // import { faTh, faThList } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withRouter } from 'react-router-dom';
+import HeaderTitle from './HeaderTitle';
 
 class Courses extends Component {
 
@@ -41,7 +42,7 @@ class Courses extends Component {
             <span className="cardview"><FontAwesomeIcon icon={faTh} size="lg"/></span>
             <span className="cardview"><FontAwesomeIcon icon={faThList} size="lg"/></span>
         </div> */}
-
+        <HeaderTitle />
         <div className="row mp-auto">
           {/* {this._loadMoreItems()} */}
           {this._renderItemsCard(this.props.num_obj)}
