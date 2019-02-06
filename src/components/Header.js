@@ -6,7 +6,7 @@ import { searchInput } from '../store/cards/action';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import logo from '../static/img/logo.png'
+import logo from '../static/img/logo_full.png'
 
 class Header extends Component {
     constructor(){
@@ -56,8 +56,7 @@ class Header extends Component {
             <nav className="navbar navbar-expand-lg navbar-light ">
 
             <a className="navbar-brand" href="/">
-            <img className="logo" src={logo} alt="Открытые образовательные программы"/>
-             Открытые образовательные программы и курсы УрФУ
+                <img className="logo" src={logo} alt="Открытые образовательные программы"/>
              </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
