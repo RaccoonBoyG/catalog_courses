@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAbout } from '../store/about/action';
 import '../static/css/CourseAbout.css';
-import HeaderSecond from './HeaderSecond';
+import Header from './Header';
 import Footer from './Footer';
 import 'animate.css/animate.min.css';
 
@@ -22,7 +22,7 @@ class CourseAbout extends Component {
         render(){
           return (
           <div>
-            <HeaderSecond />
+            <Header />
             <div className="jumbotron animated fadeIn">
               <div className="container">
                 <h1>{this.props.data.name}</h1>
