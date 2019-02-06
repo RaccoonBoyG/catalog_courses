@@ -4,7 +4,8 @@ const initialState = {
   items: [],
   loading: false,
   error: null,
-  num_obj: 10
+  num_obj: 10,
+  myValue: ''
 };
 
 export default function cardsReducer(state = initialState, action) {
@@ -20,7 +21,12 @@ export default function cardsReducer(state = initialState, action) {
         ...state,
         items: action.payload.data
       };
-
+      
+      case types.SEARCH_INPUT:
+      return {
+        ...state,
+        myValue: action.payload.input
+      };
     default:
       return state;
   }
@@ -37,3 +43,8 @@ export const fetchCardsSuccess = data => ({
   type: types.FETCH_CARDS_SUCCESS,
   payload: { data }
 });
+
+export const searchInputData = input => ({
+  type: types.SEARCH_INPUT,
+  payload: { input }
+})

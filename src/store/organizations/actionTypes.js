@@ -1,0 +1,1 @@
+export const FETCH_ORG_SUCCESS = 'FETCH_ORG_SUCCESS';

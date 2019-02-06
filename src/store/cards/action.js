@@ -18,3 +18,21 @@ export function LoadMore(){
     dispatch(fetchSelectors.LoadMoreData())
   }
 }
+
+// export function chooseViewCard(){
+//   return dispatch => {
+//     dispatch(fetchSelectors.chooseViewDataCard())
+//   }
+// }
+
+// export function chooseViewList(){
+//   return dispatch => {
+//     dispatch(fetchSelectors.chooseViewDataList())
+//   }
+// }
+
+export function searchInput(){
+  return dispatch => {
+    dispatch(fetchSelectors.searchInputData())
+  }
+}

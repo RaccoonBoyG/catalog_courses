@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import '../static/css/Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGraduationCap, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { searchInput } from '../store/cards/action';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
     constructor(){
@@ -39,6 +42,11 @@ class Header extends Component {
         this.setState({animateClass:'animated'})
     }
 
+    handlerInputSearch(e){
+        this.props.dispatch(searchInput(e.target.value))
+        console.log(this.props.myValue)
+    }
+
 	render(){
 	  return (
         <div className="navbar-container">
@@ -51,34 +59,34 @@ class Header extends Component {
             <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <ul className="navbar-nav mr-auto">
                 <div className="form-inline mt-2 my-lg-0 tabindex=0"> 
-                <FontAwesomeIcon icon={faSearch} size="1x"/><input className="form-control mr-sm-2" type="search" placeholder="Найти" aria-label="Search" />
+                <FontAwesomeIcon icon={faSearch} size="1x"/><input className="form-control mr-sm-2" type="search" placeholder="Найти" aria-label="Search" onChange={this.handlerInputSearch.bind(this)} />
                 </div>
             </ul>
-                {/* <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li className="nav-item">
-                    <a className="nav-link" href="/">About</a>
+                    <Link to='/org' className="nav-link">Организации</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/">Support</a>
+                    <a className="nav-link" href="/">Программы</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/">Contact</a>
+                    <a className="nav-link" href="/">О нас</a>
                 </li>
-                </ul> */}
+            </ul>
                 <div>
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link" href="/">Регистрация</a>
+                            <a className="nav-link" href="https://courses.openedu.urfu.ru/register">Регистрация</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">Вход</a>
+                            <a className="nav-link" href="https://courses.openedu.urfu.ru/login">Вход</a>
                         </li>
                     </ul>
                 </div>
             </div>
             </nav>
             <div className="nav-tilte-image">
-                <h2>Легко учиться, легко <span className={`animated-tag ${this.state.animateClass}`}>{this.state.textValue}!</span></h2>
+                <h2>Легко учиться, легко творить</h2>
                 <img src="//openedu.urfu.ru/files/courses_catalog/UrFULogo1.png" alt="..." className='nav-title-icon'/>
             </div>
         </div>
@@ -86,5 +94,8 @@ class Header extends Component {
   }
 }
 
+const mapStateToProps = (state) =>({
+    input: state.cards.myValue,
+  })
   
-export default Header;
+export default connect(mapStateToProps)(Header);

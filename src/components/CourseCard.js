@@ -4,6 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import '../static/css/CourseCard.css';
+import 'animate.css/animate.min.css';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {fetchAbout} from '../store/about/action';
+
 
 class CourseCard extends Component{
     constructor(props){
@@ -12,8 +17,13 @@ class CourseCard extends Component{
             name: this.props.value.name,
             link: '//openedu.urfu.ru/files/courses_catalog/'+this.props.value.number+'.jpg',
             start_display: this.props.value.start_display,
+            id: this.props.value.id
 
         }
+    }
+
+    postIdAPI(){
+        this.props.dispatch(fetchAbout(this.props.value.id))
     }
 
     truncate(str,len){
@@ -28,12 +38,12 @@ class CourseCard extends Component{
         }
         return str_truncate
     }
-
+    // fadeInUp
     render(){
         return ( 
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4">
-            <a href="">
-                <div className="card">
+            <Link to={`${this.state.id}`} onClick={this.postIdAPI.bind(this)}>
+                <div className="card animated fadeInUp">
                     <div className="hovereffect">
                         <img className="card-img" src={this.state.link} alt={this.state.name}/>
                         <div className="overlay">
@@ -45,10 +55,14 @@ class CourseCard extends Component{
                         <p className="card-text"><FontAwesomeIcon icon={faClock} size="1x"/> Начало: {this.state.start_display}</p>
                     </div>
                 </div>
-            </a>
+            </Link>
         </div>
         )
     }
 }
 
-export default CourseCard;
+const mapStateToProps = (state) =>({
+    state
+  })
+
+export default connect(mapStateToProps)(CourseCard);

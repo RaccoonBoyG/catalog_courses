@@ -1,2 +1,5 @@
 export const FETCH_CARDS_SUCCESS = 'FETCH_CARDS_SUCCESS';
 export const LOAD_MORE = 'LOAD_MORE';
+export const CHOOSE_VIEW_CARD = 'CHOOSE_VIEW_CARD';
+export const CHOOSE_VIEW_LIST = 'CHOOSE_VIEW_LIST';
+export const SEARCH_INPUT = 'SEARCH_INPUT';
