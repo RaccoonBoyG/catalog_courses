@@ -55,8 +55,8 @@ class Header extends Component {
         <div className="filter-back"></div><div className="nav-background"></div>
             <nav className="navbar navbar-expand-lg navbar-light ">
 
-            <a className="navbar-brand" href="/"><FontAwesomeIcon icon={faGraduationCap} size="1x"/>
-            <img src={logo} alt="Открытые образовательные программы"/>
+            <a className="navbar-brand" href="/">
+            <img className="logo" src={logo} alt="Открытые образовательные программы"/>
              Открытые образовательные программы и курсы УрФУ
              </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
