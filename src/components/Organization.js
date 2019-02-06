@@ -34,7 +34,7 @@ class CourseAbout extends Component {
                     </div>
                     <div className="card-body" data-toggle="tooltip" data-placement="left" title={this.props.data.name} >
                         <p className="d-inline-block"><small className="text-muted"><FontAwesomeIcon icon={faGraduationCap} size="1x"/> Ural Fediral University</small></p>
-                        <p className="card-title"><strong style={{overflow: 'hidden', textOverflow: 'ellipsis'}}>{this.truncate(this.props.data.description,6)}</strong></p>
+                        <p className="card-title"><strong style={{overflow: 'hidden', textOverflow: 'ellipsis'}}>{this.props.data.description}</strong></p>
                     </div>
                 </div>
             </div>
