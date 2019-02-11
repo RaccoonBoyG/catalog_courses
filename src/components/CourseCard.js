@@ -62,7 +62,8 @@ class CourseCard extends Component{
 }
 
 const mapStateToProps = (state) =>({
-    state
+    data: state.cards.items
   })
+
 
 export default connect(mapStateToProps)(CourseCard);

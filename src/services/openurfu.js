@@ -1,11 +1,33 @@
 
-const OPENEDU_ENDPOINT = `https://courses.openedu.urfu.ru`;
-const DEFAULT_QUERY = 1
+const OPENEDU_ENDPOINT = `https://courses.openedu.urfu.ru/api`;
+const COURSES_ENDPOINT = `/courses/v1/courses/`;
+const DEFAULT_QUERY = 1;
+const PAGE_PARAM = `?page=`;
 
 class OpeneduService{
 
     async getCardAPI(){
-        let url = `${OPENEDU_ENDPOINT}/api/courses/v1/courses/?page=${DEFAULT_QUERY}`;
+        let url = `${OPENEDU_ENDPOINT}${COURSES_ENDPOINT}${PAGE_PARAM}${DEFAULT_QUERY}`;
+        let response = await fetch(url)
+        if (!response.ok) {
+            throw new Error(`OpeneduService getCardAPI failed, HTTP status ${response.status}`);
+        }
+        let data = await response.json();
+        let arr = []
+        data.results.map((item) => {
+            return arr.push({
+                    name: item.name,
+                    start_display: item.start_display,
+                    number: item.number,
+                    short_description: item.short_description,
+                    id: item.id
+            });
+        });
+        return arr
+    }
+
+    async getCardLoadMoreAPI({page}){
+        let url = `${OPENEDU_ENDPOINT}${COURSES_ENDPOINT}${PAGE_PARAM}${page}`;
         let response = await fetch(url)
         if (!response.ok) {
             throw new Error(`OpeneduService getCardAPI failed, HTTP status ${response.status}`);
@@ -16,21 +38,17 @@ class OpeneduService{
             throw new Error(`OpeneduService getCardAPI failed, pagination not returned`);
         }
         let arr = []
-        // pagination.num_pages
-        for (var i=1; i <= pagination.num_pages; i++) {
-            let response = await fetch(`${OPENEDU_ENDPOINT}/api/courses/v1/courses/?page=${i}`)
-            if(response.status===200){
-                let data = await response.json()
-                data.results.map((item) => {
-                    return arr.push({
-                            name: item.name,
-                            start_display: item.start_display,
-                            number: item.number,
-                            short_description: item.short_description,
-                            id: item.id
-                    });
+
+        if(page <= pagination.num_pages ){
+            data.results.map((item) => {
+                return arr.push({
+                        name: item.name,
+                        start_display: item.start_display,
+                        number: item.number,
+                        short_description: item.short_description,
+                        id: item.id
                 });
-            }
+            });
         }
         return arr
     }

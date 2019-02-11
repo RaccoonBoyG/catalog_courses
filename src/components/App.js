@@ -8,8 +8,9 @@ import '../static/css/App.css';
 import {Route, BrowserRouter, Switch } from 'react-router-dom';
 import CourseAbout from './CourseAbout';
 import Organization from './Organization';
+import {composeWithDevTools} from 'redux-devtools-extension'
 
-const store = createStore(reducer,applyMiddleware(thunk))
+const store = createStore(reducer,composeWithDevTools(applyMiddleware(thunk)))
 
 class App extends Component {
 

@@ -2,30 +2,64 @@ import * as types from './actionTypes';
 
 const initialState = {
   items: [],
-  loading: false,
-  error: null,
   num_obj: 10,
-  myValue: ''
+  myValue: '',
+  err: null,
+  page: 2
 };
 
-export default function cardsReducer(state = initialState, action) {
-  switch(action.type) {
+export default function cardsReducer(state = initialState, {
+  type,
+  payload
+}) {
+  switch (type) {
     case types.LOAD_MORE:
       return {
         ...state,
-        num_obj: state.num_obj+10
+        num_obj: state.num_obj + 10
       };
 
     case types.FETCH_CARDS_SUCCESS:
       return {
         ...state,
-        items: action.payload.data
+        items: payload.data
+      }
+
+    case types.FETCH_CARDS_START:
+      return {
+        ...state
       };
-      
-      case types.SEARCH_INPUT:
+
+    case types.FETCH_CARDS_FAILURE:
       return {
         ...state,
-        myValue: action.payload.input
+        payload: payload.err,
+        error: true
+      };
+
+    case types.LOAD_MORE_SUCCESS:
+      return {
+        ...state,
+        items: payload.data,
+        page: state.page + 1
+      };
+
+    case types.LOAD_MORE_START:
+      return {
+        ...state
+      };
+
+    case types.LOAD_MORE_FAILURE:
+      return {
+        ...state,
+        payload: payload.err,
+        error: true
+      };
+
+    case types.SEARCH_INPUT:
+      return {
+        ...state,
+        myValue: payload.input
       };
     default:
       return state;
@@ -34,17 +68,49 @@ export default function cardsReducer(state = initialState, action) {
 
 //selectors
 
-export const LoadMoreData = num_obj => ({
-  type: types.LOAD_MORE,
-  payload: { num_obj }
+export const LoadMoreDataLength = state => state.cards.page;
+
+export const LoadMoreDataArr = state => state.cards.items;
+
+export const LoadMoreDataSuccess = data => ({
+  type: types.LOAD_MORE_SUCCESS,
+  payload: {
+    data
+  }
+});
+
+export const LoadMoreDataFailure = err => ({
+  type: types.LOAD_MORE_FAILURE,
+  payload: {
+    err
+  }
+});
+
+export const LoadMoreDataStart = () => ({
+  type: types.LOAD_MORE_START
 });
 
 export const fetchCardsSuccess = data => ({
   type: types.FETCH_CARDS_SUCCESS,
-  payload: { data }
+  payload: {
+    data
+  }
+});
+
+export const fetchCardsFailure = err => ({
+  type: types.FETCH_CARDS_FAILURE,
+  payload: {
+    err
+  }
+});
+
+export const fetchCardsStart = () => ({
+  type: types.FETCH_CARDS_START
 });
 
 export const searchInputData = input => ({
   type: types.SEARCH_INPUT,
-  payload: { input }
-})
+  payload: {
+    input
+  }
+});

@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 class Search extends Component {
 
     handlerInputSearch(e){
-        this.props.dispatch(searchInput(e.target.value))
+        this.props.searchInput(e.target.value)
     }
 
 	render(){
@@ -31,5 +31,9 @@ class Search extends Component {
 const mapStateToProps = (state) =>({
     input: state.cards.myValue,
   })
+
+const mapDispatchToProps = {
+    searchInput
+}
   
-export default connect(mapStateToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
