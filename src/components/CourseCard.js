@@ -49,7 +49,7 @@ class CourseCard extends Component{
                         <div className="overlay">
                         </div>
                     </div>
-                    <div className="card-body" data-toggle="tooltip" data-placement="left" title={this.state.name} >
+                    <div className="card-body" data-toggle="tooltip" data-placement="left" title={this.props.name} >
                         <p className="d-inline-block"><small className="text-muted"><FontAwesomeIcon icon={faGraduationCap} size="1x"/> Ural Fediral University</small></p>
                         <p className="card-title"><strong style={{overflow: 'hidden', textOverflow: 'ellipsis'}}>{this.truncate(this.state.name,6)}</strong></p>
                         <p className="card-text"><FontAwesomeIcon icon={faClock} size="1x"/> Начало: {this.state.start_display}</p>

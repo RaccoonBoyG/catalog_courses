@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {fetchCards, LoadMore} from '../store/cards/action';
 import CourseCard from'./CourseCard';
-import CourseList from './CourseList';
 import '../static/css/Courses.css';
 // import { faTh, faThList } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,18 +10,12 @@ import HeaderTitle from './HeaderTitle';
 
 class Courses extends Component {
 
+  // slice(0,size).map ...
+  
   _renderItemsCard(size) {
-    return this.props.data.slice(0, size).map((item, key) => {
+    return this.props.data.map((item, key) => {
       return (
         <CourseCard value={item} key={key} />
-      )
-    });
-  }
-
-  _renderItemsList(size){
-    return this.props.data.slice(0, size).map((item, key) => {
-      return (
-        <CourseList value={item} key={key} />
       )
     });
   }
@@ -57,9 +50,10 @@ class Courses extends Component {
 }
 
 const mapStateToProps = (state) =>({
-  data: state.cards.items,
   num_obj: state.cards.num_obj,
-  choose: state.cards.choose
+  choose: state.cards.choose,
+  data: state.cards.items.filter(card => card.name.includes(state.cards.myValue))
+  
 })
 
   

@@ -31,8 +31,9 @@ export function LoadMore(){
 //   }
 // }
 
-export function searchInput(){
+export function searchInput(value){
   return dispatch => {
-    dispatch(fetchSelectors.searchInputData())
+    console.log(value)
+    dispatch(fetchSelectors.searchInputData(value))
   }
 }

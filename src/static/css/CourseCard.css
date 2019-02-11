@@ -9,6 +9,7 @@
     overflow: hidden;
     position: relative;
     z-index: 2;
+    min-width: 22rem;
 }
 
 .card-img {

@@ -1,9 +1,7 @@
 import * as types from './actionTypes';
 
 const initialState = {
-  items: [],
-  loading: false,
-  error: null
+  items: []
 };
 
 export default function organizationsReducer(state = initialState, action) {

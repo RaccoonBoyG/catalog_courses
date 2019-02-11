@@ -1,14 +1,9 @@
-import openeduService from '../../services/openurfu'
-import * as fetchSelectors from '../organizations/reducer'
+import openeduService from '../../services/openurfu';
+import * as fetchSelectors from '../organizations/reducer';
 
-export function fetchOrg(id) {
+export function fetchOrg() {
   return async dispatch => {
-    try{
-      let getOrg = await openeduService.getOrgAPI(id)
+      let getOrg = await openeduService.getOrgAPI()
       dispatch(fetchSelectors.fetchOrgSuccess(getOrg))
-
-    } catch(error){
-      console.log(error)
-    }
   }
 }

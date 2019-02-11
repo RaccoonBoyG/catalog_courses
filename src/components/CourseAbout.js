@@ -27,7 +27,7 @@ class CourseAbout extends Component {
               <div className="container">
                 <h1>{this.props.data.name}</h1>
                 <div className="question-text" dangerouslySetInnerHTML={{__html: this.props.data.overview}}/>
-                <p><a className="btn btn-primary btn-lg" role="button">TODO: get enrollment state over API</a></p>
+                <p><button className="btn btn-primary btn-lg">TODO: get enrollment state over API</button></p>
               </div>
             </div>
             <Footer />
