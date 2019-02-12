@@ -7,6 +7,7 @@ import '../static/css/Courses.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { withRouter } from 'react-router-dom';
 import HeaderTitle from './HeaderTitle';
+import ButtonLoadMore from './ButtonLoadMore';
 
 class Courses extends Component {
 
@@ -24,26 +25,33 @@ class Courses extends Component {
     this.props.fetchCards()
   }
 
-	render(){
-    console.log(this.props.data)
+  Button(){
     const {LoadMoreTest} = this.props
+    return (
+    <div className="load-container mp-auto">
+      <button className="btn btn-dark loadmore" id='loadmore-btn' onClick={LoadMoreTest}>Показать ещё</button>
+    </div>
+    )
+  }
+
+	render(){
 	  return (
       <div>
         <HeaderTitle />
         <div className="row mp-auto">
+        
           {this._renderItemsCard()}
           
         </div>
-        <div className="load-container mp-auto">
-          <button className="btn btn-dark loadmore" id='kek' onClick={LoadMoreTest}>Показать ещё</button>
-        </div>
+        {this.props.buttonState ? <ButtonLoadMore /> : null}
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) =>({
-  data: state.cards.items
+  data: state.cards.items,
+  buttonState: state.cards.isHideButton
   // .filter(card => card.name.includes(state.cards.myValue))
   
 })

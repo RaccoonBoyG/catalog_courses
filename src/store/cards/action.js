@@ -17,15 +17,24 @@ export function fetchCards() {
 
 export function LoadMoreTest() {
   return async (dispatch, getState) => {
-    const page = fetchSelectors.LoadMoreDataLength(getState())
+    const page = fetchSelectors.LoadMoreDataPage(getState())
+    const length = fetchSelectors.LoadMoreDataLength(getState()) + 10;
     dispatch(fetchSelectors.LoadMoreDataStart())
-    try{
-      let getCard = await openeduService.getCardLoadMoreAPI({page})
-      dispatch(fetchSelectors.LoadMoreDataSuccess(getCard))
+    let getBodySize = await openeduService.getCardBodySizeCheck()
+    let getCard = await openeduService.getCardLoadMoreAPI({page})
+    if(length <= getBodySize){
+      try {
+        dispatch(fetchSelectors.LoadMoreDataSuccess(getCard))
+        console.log(length, getBodySize)
 
-    } catch(error){
-      dispatch(fetchSelectors.LoadMoreDataFailure(error))
-      console.log(error)
+      } catch(error){
+        dispatch(fetchSelectors.LoadMoreDataFailure(error))
+        console.log(error)
+      }      
+    } else {
+        console.log(length, getBodySize)
+        dispatch(fetchSelectors.LoadMoreDataSuccess(getCard))
+        dispatch(fetchSelectors.LoadMoreDataHideButton())
     }
   }
 }

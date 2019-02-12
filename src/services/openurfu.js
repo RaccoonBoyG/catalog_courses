@@ -26,6 +26,20 @@ class OpeneduService{
         return arr
     }
 
+    async getCardBodySizeCheck(){
+        let url = `${OPENEDU_ENDPOINT}${COURSES_ENDPOINT}${PAGE_PARAM}${DEFAULT_QUERY}`;
+        let response = await fetch(url)
+        if (!response.ok) {
+            throw new Error(`OpeneduService getCardAPI failed, HTTP status ${response.status}`);
+        }
+        let data = await response.json();
+        let pagination = data.pagination;
+        if (!pagination) {
+            throw new Error(`OpeneduService getCardAPI failed, pagination not returned`);
+        }
+        return pagination.count
+    }
+
     async getCardLoadMoreAPI({page}){
         let url = `${OPENEDU_ENDPOINT}${COURSES_ENDPOINT}${PAGE_PARAM}${page}`;
         let response = await fetch(url)

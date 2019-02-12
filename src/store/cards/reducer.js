@@ -5,7 +5,8 @@ const initialState = {
   num_obj: 10,
   myValue: '',
   err: null,
-  page: 2
+  page: 2,
+  isHideButton: true,
 };
 
 export default function cardsReducer(state = initialState, {
@@ -40,7 +41,7 @@ export default function cardsReducer(state = initialState, {
     case types.LOAD_MORE_SUCCESS:
       return {
         ...state,
-        items: payload.data,
+        items: state.items.concat(payload.data),
         page: state.page + 1
       };
 
@@ -49,7 +50,13 @@ export default function cardsReducer(state = initialState, {
         ...state
       };
 
-    case types.LOAD_MORE_FAILURE:
+    case types.LOAD_MORE_HIDE_BUTTON:
+      return {
+        ...state,
+        isHideButton: false
+      };
+
+      case types.LOAD_MORE_FAILURE:
       return {
         ...state,
         payload: payload.err,
@@ -68,9 +75,16 @@ export default function cardsReducer(state = initialState, {
 
 //selectors
 
-export const LoadMoreDataLength = state => state.cards.page;
+export const LoadMoreDataPage = state => state.cards.page;
 
-export const LoadMoreDataArr = state => state.cards.items;
+export const LoadMoreDataLength = state => state.cards.items.length;
+
+export const LoadMoreDataHideButton = buttonState => ({
+  type: types.LOAD_MORE_HIDE_BUTTON,
+  payload: {
+    buttonState
+  }
+})
 
 export const LoadMoreDataSuccess = data => ({
   type: types.LOAD_MORE_SUCCESS,
