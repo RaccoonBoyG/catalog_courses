@@ -20,7 +20,8 @@ class OpeneduService{
                     start_display: item.start_display,
                     number: item.number,
                     short_description: item.short_description,
-                    id: item.id
+                    id: item.id,
+                    image: item.media.image.small
             });
         });
         return arr
@@ -60,7 +61,8 @@ class OpeneduService{
                         start_display: item.start_display,
                         number: item.number,
                         short_description: item.short_description,
-                        id: item.id
+                        id: item.id,
+                        image: item.media.image.small
                 });
             });
         }
@@ -69,7 +71,7 @@ class OpeneduService{
 
     async getAboutItem(id){
         // let response_about = await this.getAboutCourseAPI()
-        let response_about2 = await fetch(`${OPENEDU_ENDPOINT}/api/courses/v1/courses/${id}`)
+        let response_about2 = await fetch(`${OPENEDU_ENDPOINT}/courses/v1/courses/${id}`)
         let data = await response_about2.json()
         return ({
                 name: data.name,
@@ -83,7 +85,7 @@ class OpeneduService{
 
 
     async getOrgAPI(){
-        let response = await fetch(`${OPENEDU_ENDPOINT}/api/organizations/v0/organizations/`)
+        let response = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/organizations/`)
         let arr = []
         if(response.status===200){
             let data = await response.json()
@@ -93,7 +95,7 @@ class OpeneduService{
                     short_name: item.short_name,
                     description: item.description,
                     logo: item.logo,
-                    activate: item.activate
+                    active: item.active
                 })
             })
         }

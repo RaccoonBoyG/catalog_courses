@@ -7,9 +7,18 @@ import { connect } from 'react-redux';
 
 
 class Search extends Component {
+    constructor (props) {
+        super(props)
+        this.state = {
+          value: ''
+        }
+    }
 
     handlerInputSearch(e){
-        this.props.searchInput(e.target.value)
+        this.setState({
+            value: e.target.value
+        })
+        this.props.searchInput(this.state.value)
     }
 
 	render(){
@@ -28,12 +37,8 @@ class Search extends Component {
   }
 }
 
-const mapStateToProps = (state) =>({
-    input: state.cards.myValue,
-  })
-
 const mapDispatchToProps = {
     searchInput
 }
   
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default connect(null, mapDispatchToProps)(Search);

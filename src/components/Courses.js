@@ -25,15 +25,6 @@ class Courses extends Component {
     this.props.fetchCards()
   }
 
-  Button(){
-    const {LoadMoreTest} = this.props
-    return (
-    <div className="load-container mp-auto">
-      <button className="btn btn-dark loadmore" id='loadmore-btn' onClick={LoadMoreTest}>Показать ещё</button>
-    </div>
-    )
-  }
-
 	render(){
 	  return (
       <div>
@@ -52,7 +43,6 @@ class Courses extends Component {
 const mapStateToProps = (state) =>({
   data: state.cards.items,
   buttonState: state.cards.isHideButton
-  // .filter(card => card.name.includes(state.cards.myValue))
   
 })
 

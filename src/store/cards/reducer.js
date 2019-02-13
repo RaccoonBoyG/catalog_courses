@@ -3,7 +3,7 @@ import * as types from './actionTypes';
 const initialState = {
   items: [],
   num_obj: 10,
-  myValue: '',
+  input: '',
   err: null,
   page: 2,
   isHideButton: true,
@@ -66,7 +66,7 @@ export default function cardsReducer(state = initialState, {
     case types.SEARCH_INPUT:
       return {
         ...state,
-        myValue: payload.input
+        input: payload.input
       };
     default:
       return state;
@@ -74,10 +74,13 @@ export default function cardsReducer(state = initialState, {
 }
 
 //selectors
+//filter(card => card.name.includes(state.cards.myValue)),
 
 export const LoadMoreDataPage = state => state.cards.page;
 
 export const LoadMoreDataLength = state => state.cards.items.length;
+
+export const searchInputDataFilter = (state,value) => state.cards.items.filter(card => card.name.includes(value));
 
 export const LoadMoreDataHideButton = buttonState => ({
   type: types.LOAD_MORE_HIDE_BUTTON,
@@ -123,8 +126,6 @@ export const fetchCardsStart = () => ({
 });
 
 export const searchInputData = input => ({
-  type: types.SEARCH_INPUT,
-  payload: {
-    input
-  }
+    type: types.SEARCH_INPUT,
+    payload: input
 });

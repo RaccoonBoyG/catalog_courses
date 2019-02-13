@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchOrg } from '../store/organizations/action';
-import '../static/css/CourseAbout.css';
 import Header from './Header';
 import Footer from './Footer';
+import HeaderBackground from './HeaderBackground';
 import 'animate.css/animate.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { withRouter } from 'react-router-dom';
+import '../static/css/Org.css';
 
 class Organizations extends Component {
 // _renderItems(element) {
@@ -19,19 +20,23 @@ class Organizations extends Component {
   }
 
   _renderItem(){
-    this.props.data.map((item, key)=>{
-      return (
-        <div className="card ">
-          <div className="hovereffect">
-              <img className="card-img" src={'#'} alt={item.name}/>
-              <div className="overlay">
+    return this.props.data.map((item, key)=>{
+      if(item.active)
+        return (
+          <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" key={key}>
+            <div className="card ">
+              <div className="hovereffect">
+                  <img className="card-img" src={item.logo} alt={item.name}/>
+                  <div className="overlay">
+                  </div>
+                <div className="card-body" data-toggle="tooltip" data-placement="left" title={item.name} >
+                <p className="d-inline-block">
+                  <FontAwesomeIcon icon={faGraduationCap} size="1x"/> {item.name}
+                </p>
+                </div>
               </div>
+            </div>
           </div>
-          <div className="card-body" data-toggle="tooltip" data-placement="left" title={item.name} >
-              <p className="d-inline-block"><small className="text-muted"><FontAwesomeIcon icon={faGraduationCap} size="1x"/> Ural Fediral University</small></p>
-              <p className="card-title"><strong style={{overflow: 'hidden', textOverflow: 'ellipsis'}}>{item.description}</strong></p>
-          </div>
-        </div>
       )
     })
   }
@@ -39,15 +44,13 @@ class Organizations extends Component {
     render(){
       return (
       <div>
+        <HeaderBackground />
         <Header />
         <div className="container">
-          <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4">
             {this._renderItem()}
-          </div>
         </div>
         <Footer />
       </div>
-      
     )
   }
 }

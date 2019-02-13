@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
@@ -17,8 +16,8 @@ class CourseCard extends Component{
             name: this.props.value.name,
             link: '//openedu.urfu.ru/files/courses_catalog/'+this.props.value.number+'.jpg',
             start_display: this.props.value.start_display,
-            id: this.props.value.id
-
+            id: this.props.value.id,
+            image: this.props.value.image
         }
     }
 
@@ -45,7 +44,15 @@ class CourseCard extends Component{
             <Link to={`${this.state.id}`} onClick={this.postIdAPI.bind(this)}>
                 <div className="card animated fadeInUp">
                     <div className="hovereffect">
-                        <img className="card-img" src={this.state.link} alt={this.state.name}/>
+                        <img 
+                            className="card-img" 
+                            src={this.state.image} 
+                            alt={this.state.name} 
+                            onError={ (e) => {
+                                e.target.onerror = null;
+                                e.target.src="https://images.unsplash.com/photo-1532003885409-ed84d334f6cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+                                }}
+                        />
                         <div className="overlay">
                         </div>
                     </div>

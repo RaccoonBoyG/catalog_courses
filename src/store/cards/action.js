@@ -25,14 +25,12 @@ export function LoadMoreTest() {
     if(length <= getBodySize){
       try {
         dispatch(fetchSelectors.LoadMoreDataSuccess(getCard))
-        console.log(length, getBodySize)
 
       } catch(error){
         dispatch(fetchSelectors.LoadMoreDataFailure(error))
         console.log(error)
       }      
     } else {
-        console.log(length, getBodySize)
         dispatch(fetchSelectors.LoadMoreDataSuccess(getCard))
         dispatch(fetchSelectors.LoadMoreDataHideButton())
     }
@@ -46,9 +44,9 @@ export function LoadMoreTest() {
 // }
 
 export function searchInput(value){
-  return dispatch => {
-    console.log(value)
+  return (dispatch) => {
     dispatch(fetchSelectors.searchInputData(value))
+    // fetchSelectors.searchInputDataFilter(getState(),value)
   }
 }
 
