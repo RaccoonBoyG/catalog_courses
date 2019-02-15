@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../static/css/Header.css';
 import { searchInput } from '../store/cards/action';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom'
 
 import logo from '../static/img/logo_full.png'
 import Search from './Search';
@@ -19,9 +19,9 @@ class Header extends Component {
         <div className="filter-back"></div>
             <nav className="navbar navbar-expand-lg navbar-light ">
 
-            <a className="navbar-brand" href="/">
+            <NavLink className="navbar-brand" exact to="/">
                 <img className="logo" src={logo} alt="Открытые образовательные программы"/>
-             </a>
+             </NavLink>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -31,10 +31,10 @@ class Header extends Component {
             </ul>
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li className="nav-item">
-                    <Link to='/org' className="nav-link">Организации</Link>
+                    <NavLink to='/org' className="nav-link">Организации</NavLink>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="/">Программы</a>
+                    <NavLink to='/programs' className="nav-link">Программы</NavLink>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="/">О нас</a>
@@ -61,4 +61,4 @@ const mapStateToProps = (state) =>({
     input: state.cards.myValue,
   })
   
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));

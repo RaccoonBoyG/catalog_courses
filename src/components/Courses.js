@@ -5,7 +5,6 @@ import CourseCard from'./CourseCard';
 import '../static/css/Courses.css';
 // import { faTh, faThList } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { withRouter } from 'react-router-dom';
 import HeaderTitle from './HeaderTitle';
 import ButtonLoadMore from './ButtonLoadMore';
 
@@ -51,5 +50,5 @@ const mapDispatchToProps = {
   LoadMoreTest
 }
   
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Courses));
+export default connect(mapStateToProps, mapDispatchToProps)(Courses);
   

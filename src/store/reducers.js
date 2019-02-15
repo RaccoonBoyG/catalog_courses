@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
 import cards from "./cards/reducer";
-import about from "./about/reducer";
+import course_about from "./course_about/reducer";
+import programs from "./programs/reducer";
 import organizations from "./organizations/reducer";
 import { routerReducer } from 'react-router-redux';
 
 export default combineReducers({
   routing: routerReducer,
   organizations,
+  programs,
   cards,
-  about
+  course_about
 });

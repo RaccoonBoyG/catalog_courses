@@ -1,5 +1,5 @@
 import openeduService from '../../services/openurfu'
-import * as fetchSelectors from '../about/reducer'
+import * as fetchSelectors from '../course_about/reducer'
 
 export function fetchAbout(id) {
   return async dispatch => {

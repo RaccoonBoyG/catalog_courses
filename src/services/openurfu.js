@@ -71,8 +71,8 @@ class OpeneduService{
 
     async getAboutItem(id){
         // let response_about = await this.getAboutCourseAPI()
-        let response_about2 = await fetch(`${OPENEDU_ENDPOINT}/courses/v1/courses/${id}`)
-        let data = await response_about2.json()
+        let response = await fetch(`${OPENEDU_ENDPOINT}/courses/v1/courses/${id}`)
+        let data = await response.json()
         return ({
                 name: data.name,
                 start_display: data.start_display,
@@ -84,8 +84,9 @@ class OpeneduService{
     }
 
 
-    async getOrgAPI(){
-        let response = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/organizations/`)
+    async getAboutProgramItem(program){
+        // let response_about = await this.getAboutCourseAPI()
+        let response = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/programs/${program}`)
         let arr = []
         if(response.status===200){
             let data = await response.json()
@@ -99,26 +100,45 @@ class OpeneduService{
                 })
             })
         }
+    }
+
+    async getOrgAPI(){
+        let response = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/organizations/`)
+        let arr = []
+        if(response.status===200){
+            let data = await response.json()
+            data.results.map((item) => {
+                return arr.push({
+                    id: item.id,
+                    name: item.name,
+                    short_name: item.short_name,
+                    description: item.description,
+                    logo: item.logo,
+                    active: item.active
+                })
+            })
+        }
         return arr
     }
-    // async getAboutCourseAPI(){
-    //     let url = `${OPENEDU_ENDPOINT}/api/courses/v1/courses/?page=${DEFAULT_QUERY}`;
-    //     let response = await fetch(url)
-    //     if (!response.ok) {
-    //         throw new Error(`OpeneduService getAboutCourseAPI failed, HTTP status ${response.status}`);
-    //     }
-    //     let data = await response.json();
-    //     let pagination = data.pagination;
-    //     if (!pagination) {
-    //         throw new Error(`OpeneduService getAboutCourseAPI failed, pagination not returned`);
-    //     }
-    //     for (var i=1; i <= pagination.num_pages; i++) {
-    //         data.results.map(item => {
-    //             arr_about.push(item.id)
-    //         })
-    //     }
-    //     return arr_about
-    // }
+
+    async getProgramsAPI(){
+        let response = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/programs/`)
+        let arr = []
+        if(response.status===200){
+            let data = await response.json()
+            data.results.map((item) => {
+                return arr.push({
+                    id: item.id,
+                    name: item.name,
+                    short_name: item.short_name,
+                    description: item.description,
+                    logo: item.logo,
+                    active: item.active
+                })
+            })
+        }
+        return arr
+    }
 
 }
 
