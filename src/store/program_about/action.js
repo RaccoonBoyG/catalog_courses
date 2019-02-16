@@ -12,3 +12,15 @@ export function fetchAboutProgram(program) {
     }
   }
 }
+
+
+export function fetchAboutProgramList() {
+  return async (dispatch,getState) => {
+    try{
+      let getAboutProgramList = await openeduService.getAboutProgramList()
+      dispatch(fetchSelectors.fetchProgramAboutListSuccess(getAboutProgramList))
+    } catch(error){
+      console.log(error)
+    }
+  }
+}

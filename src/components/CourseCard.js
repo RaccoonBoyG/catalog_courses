@@ -13,11 +13,10 @@ class CourseCard extends Component{
     constructor(props){
         super(props);
         this.state = {
-            name: this.props.value.name,
-            link: '//openedu.urfu.ru/files/courses_catalog/'+this.props.value.number+'.jpg',
-            start_display: this.props.value.start_display,
-            id: this.props.value.id,
-            image: this.props.value.image
+            name: this.props.value===undefined ? this.props.item.display_name : this.props.value.name,
+            start_display: this.props.value===undefined ? this.props.item.start_display : this.props.value.start_display,
+            id: this.props.value===undefined ? this.props.item.id : this.props.value.id,
+            image: this.props.value===undefined ? `https://courses.openedu.urfu.ru/${this.props.item.course_image_url}` : this.props.value.image
         }
     }
 

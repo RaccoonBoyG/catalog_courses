@@ -14,19 +14,17 @@ class Programs extends Component {
     this.props.fetchPrograms()
   }
 
-  postIdAPI(){
-    console.log(this.props.match)
-    this.props.fetchAboutProgram(this.props.match.params.program)
-}
+  postIdAPI(id){
+    this.props.fetchAboutProgram(id)
+  }
 
     render(){
       const { data } = this.props
       const ProgramsList = (
         data.map(item =>{
-          console.log(item.short_name)
           return (
             <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" key={item.id}>
-            <Link to={`/programs/${item.short_name}`} onClick={this.postIdAPI.bind(this)}>
+            <Link to={{pathname: `${this.props.match.url}/${item.short_name}`}} onClick={this.postIdAPI.bind(this,item.short_name)}>
               <div className="card card-org">
                 <div className="hovereffect">
                     <img className="card-img card-org-img" src={item.logo} alt={item.name}/>

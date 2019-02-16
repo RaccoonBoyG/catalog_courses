@@ -87,19 +87,36 @@ class OpeneduService{
     async getAboutProgramItem(program){
         // let response_about = await this.getAboutCourseAPI()
         let response = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/programs/${program}`)
+        if(response.status===200){
+            let data = await response.json()
+            return {
+                id: data.id,
+                name: data.name,
+                short_name: data.short_name,
+                description: data.description,
+                logo: data.logo,
+                active: data.active
+            }
+        }
+    }
+
+    async getAboutProgramList(){
+        // let response_about = await this.getAboutCourseAPI()
+        let response = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/link_courses/`)
         let arr = []
         if(response.status===200){
             let data = await response.json()
             data.results.map((item) => {
                 return arr.push({
-                    name: item.name,
-                    short_name: item.short_name,
-                    description: item.description,
-                    logo: item.logo,
-                    active: item.active
+                    id: item.id,
+                    course: item.course,
+                    program: item.program,
+                    active: item.active,
+                    course_id: item.course_id
                 })
             })
         }
+        return arr
     }
 
     async getOrgAPI(){
