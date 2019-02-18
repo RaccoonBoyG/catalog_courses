@@ -5,8 +5,8 @@ import CourseCard from'./CourseCard';
 import '../static/css/Courses.css';
 // import { faTh, faThList } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import HeaderTitle from './HeaderTitle';
-import ButtonLoadMore from './ButtonLoadMore';
+import HeaderTitle from '../containers/HeaderTitle';
+import ButtonLoadMore from '../containers/ButtonLoadMore';
 
 class Courses extends Component {
 

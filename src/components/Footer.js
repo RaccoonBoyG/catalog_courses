@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../static/css/Footer.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { NavLink, withRouter } from 'react-router-dom'
 
 class Footer extends Component {
 
@@ -19,10 +20,10 @@ class Footer extends Component {
               <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-2">
                 <h6 className="text-uppercase mb-4 font-weight-bold">Полезные ссылки</h6>
                 <p>
-                  <a href="#!">Политика конфиденциальности</a>
+                <NavLink to='/privacy'>Политика конфиденциальности</NavLink>
                 </p>
                 <p>
-                  <a href="#!">Технические требования</a>
+                <NavLink to='/tech'>Технические требования</NavLink>
                 </p>
               </div>
               <hr className="w-200 clearfix d-md-none" />
@@ -42,7 +43,7 @@ class Footer extends Component {
             <div className="row d-flex align-items-center">
               <div className="col-md-7 col-lg-8">
                 <p className="text-center text-md-left">© 2019 Copyright:
-                  <a href="/">
+                  <a href="http://itoo.urfu.ru/ru">
                   <strong> Ural Federal University</strong>
                   </a>
                 </p>
@@ -81,4 +82,4 @@ class Footer extends Component {
 }
 
   
-export default Footer;
+export default withRouter(Footer);

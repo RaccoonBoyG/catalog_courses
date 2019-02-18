@@ -12,8 +12,11 @@ import Header from './Header';
 import {composeWithDevTools} from 'redux-devtools-extension'
 import Programs from './Programs';
 import ProgramAbout from './ProgramAbout';
-import HeaderBackground from './HeaderBackground';
+import HeaderBackground from '../containers/HeaderBackground';
 import Footer from './Footer';
+import AboutUs from '../containers/AboutUs';
+import Tech from '../containers/Tech';
+import Privacy from '../containers/Privacy'
 
 const store = createStore(reducer,composeWithDevTools(applyMiddleware(thunk)))
 
@@ -29,6 +32,9 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Catalog} />
               <Route path="/org" component={Organization} />
+              <Route path="/about" component={AboutUs} />
+              <Route path="/privacy" component={Privacy} />
+              <Route path="/tech" component={Tech} />
               <Route path="/programs/:program" component={ProgramAbout} />
               <Route path="/programs" component={Programs} />
               <Route path="/:id" component={CourseAbout} />

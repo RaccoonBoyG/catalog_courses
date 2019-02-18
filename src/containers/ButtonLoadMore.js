@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { LoadMoreTest } from '../store/cards/action';
 import '../static/css/Courses.css';
-import { withRouter } from 'react-router-dom';
 
 class ButtonLoadMore extends Component {
 
@@ -25,5 +24,5 @@ const mapDispatchToProps = {
   LoadMoreTest
 }
   
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ButtonLoadMore));
+export default connect(mapStateToProps, mapDispatchToProps)(ButtonLoadMore);
   
