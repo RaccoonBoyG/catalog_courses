@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import '../static/css/Header.css';
-import { searchInput } from '../store/cards/action';
 import { connect } from 'react-redux';
 import { NavLink, withRouter } from 'react-router-dom'
 
 import logo from '../static/img/logo_full.png'
 import Search from './Search';
+import { fetchUserState } from '../store/user/action';
 
 class Header extends Component {
 
-    handlerInputSearch(e){
-        this.props.dispatch(searchInput(e.target.value))
+    componentDidMount() {
+        this.props.fetchUserState()
     }
 
 	render(){
+        console.log(this.props.data);
+        
 	  return (
         <div className="navbar-container">
         <div className="filter-back"></div>
@@ -61,7 +63,11 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) =>({
-    input: state.cards.myValue,
+    data: state.user.itmes,
   })
+
+const mapDispatchToProps = {
+    fetchUserState
+  }
   
-export default withRouter(connect(mapStateToProps)(Header));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

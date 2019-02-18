@@ -6,10 +6,10 @@ const initialState = {
   error: null
 };
 
-export default function aboutsReducer(state = initialState, action) {
+export default function usersReducer(state = initialState, action) {
   switch(action.type) {
 
-    case types.FETCH_ABOUT_SUCCESS:
+    case types.FETCH_USER_STATE:
       return {
         ...state,
         items: action.payload.data
@@ -22,7 +22,7 @@ export default function aboutsReducer(state = initialState, action) {
 
 //selectors
 
-export const fetchAboutSuccess = data => ({
-  type: types.FETCH_ABOUT_SUCCESS,
+export const fetchUserSuccess = data => ({
+  type: types.FETCH_USER_STATE,
   payload: { data }
 });

@@ -16,7 +16,7 @@ import HeaderBackground from '../containers/HeaderBackground';
 import Footer from './Footer';
 import AboutUs from '../containers/AboutUs';
 import Tech from '../containers/Tech';
-import Privacy from '../containers/Privacy'
+import Privacy from '../containers/Privacy';
 
 const store = createStore(reducer,composeWithDevTools(applyMiddleware(thunk)))
 
@@ -38,7 +38,6 @@ class App extends Component {
               <Route path="/programs/:program" component={ProgramAbout} />
               <Route path="/programs" component={Programs} />
               <Route path="/:id" component={CourseAbout} />
-              
             </Switch>
             <Footer />
           </div>

@@ -1,5 +1,5 @@
 
-const OPENEDU_ENDPOINT = `https://courses.openedu.urfu.ru/api`;
+const OPENEDU_ENDPOINT = `http://media.ls.urfu.ru:8080/api`;
 const COURSES_ENDPOINT = `/courses/v1/courses/`;
 const DEFAULT_QUERY = 1;
 const PAGE_PARAM = `?page=`;
@@ -157,6 +157,25 @@ class OpeneduService{
         return arr
     }
 
+    async CheckAuthAPI() {
+        let response = await fetch(`${OPENEDU_ENDPOINT}/user/v1/accounts`)
+        let arr = []
+        let data = await response.json()
+
+        console.log(data);
+        
+        // if(response.status===200){
+        //     let data = await response.json()
+        //     data.map((item) => {
+        //         return arr.push({
+        //             username: item.username,
+        //             is_active: item.is_active,
+        //             profile_image: item.profile_image.has_image ? item.profile_image.map(image=> image.image_url_full) : null
+        //         })
+        //     })
+        // }
+        // return arr
+    }
 }
 
 export default new OpeneduService()

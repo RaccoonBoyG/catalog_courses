@@ -1,0 +1,1 @@
+export const FETCH_USER_STATE = 'FETCH_USER_STATE';
