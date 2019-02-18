@@ -4,6 +4,7 @@ import course_about from "./course_about/reducer";
 import program_about from "./program_about/reducer";
 import programs from "./programs/reducer";
 import organizations from "./organizations/reducer";
+import user from "./user/reducer";
 import { routerReducer } from 'react-router-redux';
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
   programs,
   cards,
   course_about,
-  program_about
+  program_about,
+  user
 });
