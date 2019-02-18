@@ -3,6 +3,7 @@ const OPENEDU_ENDPOINT = `http://media.ls.urfu.ru:8080/api`;
 const COURSES_ENDPOINT = `/courses/v1/courses/`;
 const DEFAULT_QUERY = 1;
 const PAGE_PARAM = `?page=`;
+export const MEDIA_LS_URL = `http://media.ls.urfu.ru:8080`;
 
 class OpeneduService{
 

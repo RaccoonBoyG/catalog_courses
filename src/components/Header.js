@@ -6,6 +6,7 @@ import { NavLink, withRouter } from 'react-router-dom'
 import logo from '../static/img/logo_full.png'
 import Search from './Search';
 import { fetchUserState } from '../store/user/action';
+import {MEDIA_LS_URL} from '../services/openurfu';
 
 class Header extends Component {
 
@@ -48,10 +49,10 @@ class Header extends Component {
                 <div>
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link" href="https://courses.openedu.urfu.ru/register">Регистрация</a>
+                            <a className="nav-link" href={`${MEDIA_LS_URL}/register`}>Регистрация</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="https://courses.openedu.urfu.ru/login">Вход</a>
+                            <a className="nav-link" href={`${MEDIA_LS_URL}/login`}>Вход</a>
                         </li>
                     </ul>
                 </div>
