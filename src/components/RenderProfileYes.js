@@ -8,19 +8,21 @@ import {MEDIA_LS_URL} from '../services/openurfu';
 class RenderProfileYes extends Component {
 
 	render(){
-        console.log(this.props)
-	  return (
+        const { data } = this.props
+    return data.map((item)=>{
+        return (
         <div>
-        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li className="nav-item">
-                {/* <img src={this.props.data.profile_image} alt={this.props.data.username} /> */}
-            </li>
-            <li className="nav-item">
-                <p>Test</p>
-            </li>
-        </ul>
-    </div>
-    )
+            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li className="nav-item">
+                    <img className="rounded" src={item.profile_image} alt={item.username} />
+                </li>
+                <li className="nav-item">
+                    <p>{item.username}</p>
+                </li>
+            </ul>
+        </div>
+        )
+    })
   }
 }
 
