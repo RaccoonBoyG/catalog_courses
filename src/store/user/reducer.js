@@ -35,19 +35,19 @@ export default function usersReducer(state = initialState, {type, payload}) {
 //selectors
 
 export const fetchUserSuccess = data => ({
-    type: types.FETCH_CARDS_SUCCESS,
+    type: types.FETCH_USER_STATE_SUCCESS,
     payload: {
       data
     }
   });
   
   export const fetchUserFailure = err => ({
-    type: types.FETCH_CARDS_FAILURE,
+    type: types.FETCH_USER_STATE_FAILURE,
     payload: {
       err
     }
   });
   
   export const fetchUserStart = () => ({
-    type: types.FETCH_CARDS_START
+    type: types.FETCH_USER_STATE_START
   });
