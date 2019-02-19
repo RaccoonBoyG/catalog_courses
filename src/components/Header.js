@@ -18,7 +18,7 @@ class Header extends Component {
 
 	render(){
     const { isAuth } = this.props
-        
+        console.log(isAuth)
 	  return (
         <div className="navbar-container">
         <div className="filter-back"></div>
@@ -48,7 +48,7 @@ class Header extends Component {
                     <NavLink to='/about' className="nav-link">О нас</NavLink>
                 </li>
             </ul>
-                {isAuth ? <RenderProfileYes /> : <RenderProfileNo />}
+                {isAuth ? <RenderProfileNo /> : <RenderProfileYes />}
             </div>
             </nav>
         </div>
