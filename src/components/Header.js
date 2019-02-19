@@ -17,8 +17,8 @@ class Header extends Component {
     }
 
 	render(){
-    const { isAuth } = this.props
-        console.log(isAuth)
+    const { isAuth, data } = this.props
+        console.log(isAuth, data)
 	  return (
         <div className="navbar-container">
         <div className="filter-back"></div>
@@ -57,7 +57,7 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) =>({
-    data: state.user.itmes,
+    data: state.user.items_user,
     isAuth: state.user.isAuth
   })
 

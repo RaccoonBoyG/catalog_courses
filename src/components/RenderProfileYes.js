@@ -25,7 +25,7 @@ class RenderProfileYes extends Component {
 }
 
 const mapStateToProps = (state) =>({
-    data: state.user.itmes
+    data: state.user.items_user
   })
   
 export default connect(mapStateToProps)(RenderProfileYes);

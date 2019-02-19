@@ -1,7 +1,7 @@
 import * as types from './actionTypes';
 
 const initialState = {
-  items: {},
+  items_user: [],
   loading: false,
   error: null,
   isAuth: false
@@ -13,7 +13,7 @@ export default function usersReducer(state = initialState, {type, payload}) {
     case types.FETCH_USER_STATE_SUCCESS:
       return {
         ...state,
-        items: payload.data
+        items_user: payload.data
       }
 
     case types.FETCH_USER_STATE_START:
