@@ -15,17 +15,21 @@ class CourseAbout extends Component {
     this.props.fetchAbout(this.props.match.params.id)
   }
 
+  checkCourseEnroll(){
+    const { course_id } = this.props
+    return course_id.map(item => item.course_id!==this.props.match.params.id ? <ButtonEnroll /> : <ButtonReadMore />)
+  }
+
     render(){
       const { isAuth, data } = this.props
-      console.log(this.props.course_id)
       return (
       <div>
         <div className="jumbotron animated fadeIn">
-          {isAuth ? null : <ButtonReadMore />}
+          {isAuth ? null : this.checkCourseEnroll()}
           <div className="container">
             <h1>{data.name}</h1>
             <div className="question-text" dangerouslySetInnerHTML={{__html: data.overview}}/>
-              {isAuth ? <ButtonEnroll /> : null}
+              {isAuth ? this.checkCourseEnroll() : null}
           </div>
         </div>
       </div>
