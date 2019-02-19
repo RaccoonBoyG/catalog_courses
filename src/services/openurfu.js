@@ -176,7 +176,7 @@ class OpeneduService{
 
     async ResponseStatusAPI() {
         let response = await fetch(`${OPENEDU_ENDPOINT}/user/v1/accounts`)
-        return response
+        return response.status
     }
 }
 
