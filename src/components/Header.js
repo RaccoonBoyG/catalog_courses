@@ -7,6 +7,8 @@ import logo from '../static/img/logo_full.png'
 import Search from './Search';
 import { fetchUserState } from '../store/user/action';
 import {MEDIA_LS_URL} from '../services/openurfu';
+import RenderProfileYes from './RenderProfileYes';
+import RenderProfileNo from './RenderProfileNo';
 
 class Header extends Component {
 
@@ -15,32 +17,7 @@ class Header extends Component {
     }
 
 	render(){
-    const { isAuth,data } = this.props
-    const RenderProfileNo = () => (
-        <div>
-            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li className="nav-item">
-                    <a className="nav-link" href={`${MEDIA_LS_URL}/register`}>Регистрация</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href={`${MEDIA_LS_URL}/login`}>Вход</a>
-                </li>
-            </ul>
-        </div>
-    )
-
-    const RenderProfileYes = () => (
-        <div>
-            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li className="nav-item">
-                    <img src={data.profile_image} alt={data.username} />
-                </li>
-                <li className="nav-item">
-                    <p>{data.username}</p>
-                </li>
-            </ul>
-        </div>
-    )
+    const { isAuth } = this.props
         
 	  return (
         <div className="navbar-container">
@@ -71,7 +48,7 @@ class Header extends Component {
                     <NavLink to='/about' className="nav-link">О нас</NavLink>
                 </li>
             </ul>
-                {isAuth ? RenderProfileNo : RenderProfileYes}
+                {isAuth ? <RenderProfileYes /> : <RenderProfileNo />}
             </div>
             </nav>
         </div>
