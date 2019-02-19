@@ -167,7 +167,7 @@ class OpeneduService{
                 return arr.push({
                     username: item.username,
                     is_active: item.is_active,
-                    profile_image: item.profile_image.has_image ? item.profile_image.map(image=> image.image_url_full) : null
+                    profile_image: item.profile_image.map(image=> image.image_url_full)
                 })
             })
         }
