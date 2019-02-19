@@ -8,7 +8,9 @@ export function fetchUserState() {
       if(responseStatus===200) {
         try{
           let getUser = await openeduService.CheckAuthAPI()
+          let getCourseEnroll = await openeduService.CheckEnrollCourseAPI()
           dispatch(fetchSelectors.fetchUserSuccess(getUser))
+          dispatch(fetchSelectors.fetchCourseEnroll(getCourseEnroll))
     
         } catch(error){
           dispatch(fetchSelectors.fetchUserFailure(error))

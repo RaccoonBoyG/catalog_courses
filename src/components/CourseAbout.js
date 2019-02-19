@@ -17,6 +17,7 @@ class CourseAbout extends Component {
 
     render(){
       const { isAuth, data } = this.props
+      console.log(this.props.course_id)
       return (
       <div>
         <div className="jumbotron animated fadeIn">
@@ -35,7 +36,8 @@ class CourseAbout extends Component {
 
 const mapStateToProps = (state) =>({
   data: state.course_about.items,
-  isAuth: state.user.isAuth
+  isAuth: state.user.isAuth,
+  course_id: state.user.course
 })
 
 const mapDispatchToProps = {
