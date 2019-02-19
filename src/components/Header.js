@@ -9,6 +9,7 @@ import { fetchUserState } from '../store/user/action';
 import {MEDIA_LS_URL} from '../services/openurfu';
 import RenderProfileYes from './RenderProfileYes';
 import RenderProfileNo from './RenderProfileNo';
+import MyCourses from '../containers/MyCourses';
 
 class Header extends Component {
 
@@ -47,6 +48,7 @@ class Header extends Component {
                 <li className="nav-item">
                     <NavLink to='/about' className="nav-link">О нас</NavLink>
                 </li>
+                {isAuth ? null : <MyCourses />}
             </ul>
                 {isAuth ? <RenderProfileNo /> : <RenderProfileYes />}
             </div>

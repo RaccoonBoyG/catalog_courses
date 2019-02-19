@@ -14,9 +14,6 @@ class RenderProfileYes extends Component {
         return (
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li className="nav-item">
-                    <a href={`${MEDIA_LS_URL}/dashboard`} className="nav-link">Мои курсы</a>
-                </li>
-                <li className="nav-item">
                     <img className="rounded custom-profile-img" src={item.profile_image} alt={item.username} />
                     <li class="nav-item dropdown">
                         <a 
@@ -31,9 +28,9 @@ class RenderProfileYes extends Component {
                         {item.username}
                         </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a className="dropdown-item" href={`${MEDIA_LS_URL}/u/${item.username}`}>Профиль</a>
-                    <a className="dropdown-item" href={`${MEDIA_LS_URL}/account/settings`}>Настройки</a>
-                    <a className="dropdown-item" href={`${MEDIA_LS_URL}/logout`}>Выйти</a>
+                        <a className="dropdown-item" href={`${MEDIA_LS_URL}/u/${item.username}`}>Профиль</a>
+                        <a className="dropdown-item" href={`${MEDIA_LS_URL}/account/settings`}>Настройки</a>
+                        <a className="dropdown-item" href={`${MEDIA_LS_URL}/logout`}>Выйти</a>
                     </div>
                     </li>
                 </li>
