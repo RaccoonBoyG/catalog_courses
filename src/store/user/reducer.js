@@ -6,13 +6,25 @@ const initialState = {
   error: null
 };
 
-export default function usersReducer(state = initialState, action) {
-  switch(action.type) {
+export default function usersReducer(state = initialState, {type, payload}) {
+  switch(type) {
 
-    case types.FETCH_USER_STATE:
+    case types.FETCH_USER_STATE_SUCCESS:
       return {
         ...state,
-        items: action.payload.data
+        items: payload.data
+      }
+
+    case types.FETCH_USER_STATE_START:
+      return {
+        ...state
+      };
+
+    case types.FETCH_USER_STATE_FAILURE:
+      return {
+        ...state,
+        payload: payload.err,
+        error: true
       };
 
     default:
@@ -23,6 +35,19 @@ export default function usersReducer(state = initialState, action) {
 //selectors
 
 export const fetchUserSuccess = data => ({
-  type: types.FETCH_USER_STATE,
-  payload: { data }
-});
+    type: types.FETCH_CARDS_SUCCESS,
+    payload: {
+      data
+    }
+  });
+  
+  export const fetchUserFailure = err => ({
+    type: types.FETCH_CARDS_FAILURE,
+    payload: {
+      err
+    }
+  });
+  
+  export const fetchUserStart = () => ({
+    type: types.FETCH_CARDS_START
+  });

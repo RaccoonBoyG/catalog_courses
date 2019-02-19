@@ -161,21 +161,17 @@ class OpeneduService{
     async CheckAuthAPI() {
         let response = await fetch(`${OPENEDU_ENDPOINT}/user/v1/accounts`)
         let arr = []
-        let data = await response.json()
-
-        console.log(data);
-        
-        // if(response.status===200){
-        //     let data = await response.json()
-        //     data.map((item) => {
-        //         return arr.push({
-        //             username: item.username,
-        //             is_active: item.is_active,
-        //             profile_image: item.profile_image.has_image ? item.profile_image.map(image=> image.image_url_full) : null
-        //         })
-        //     })
-        // }
-        // return arr
+        if(response.status===200){
+            let data = await response.json()
+            data.map((item) => {
+                return arr.push({
+                    username: item.username,
+                    is_active: item.is_active,
+                    profile_image: item.profile_image.has_image ? item.profile_image.map(image=> image.image_url_full) : null
+                })
+            })
+        }
+        return arr
     }
 }
 
