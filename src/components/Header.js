@@ -15,8 +15,32 @@ class Header extends Component {
     }
 
 	render(){
-        console.log(this.props.data);
-        console.log(this.props.isAuth);
+    const { isAuth,data } = this.props
+    const RenderProfileNo = () => (
+        <div>
+            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li className="nav-item">
+                    <a className="nav-link" href={`${MEDIA_LS_URL}/register`}>Регистрация</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href={`${MEDIA_LS_URL}/login`}>Вход</a>
+                </li>
+            </ul>
+        </div>
+    )
+
+    const RenderProfileYes = () => (
+        <div>
+            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li className="nav-item">
+                    <img src={data.profile_image} alt={data.username} />
+                </li>
+                <li className="nav-item">
+                    <p>{data.username}</p>
+                </li>
+            </ul>
+        </div>
+    )
         
 	  return (
         <div className="navbar-container">
@@ -47,16 +71,7 @@ class Header extends Component {
                     <NavLink to='/about' className="nav-link">О нас</NavLink>
                 </li>
             </ul>
-                <div>
-                    <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li className="nav-item">
-                            <a className="nav-link" href={`${MEDIA_LS_URL}/register`}>Регистрация</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href={`${MEDIA_LS_URL}/login`}>Вход</a>
-                        </li>
-                    </ul>
-                </div>
+                {isAuth ? RenderProfileNo : RenderProfileYes}
             </div>
             </nav>
         </div>
