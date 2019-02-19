@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { fetchAbout } from '../store/course_about/action';
 import '../static/css/CourseAbout.css';
 import 'animate.css/animate.min.css';
+import ButtonEnroll from '../containers/ButtonEnroll';
+import ButtonReadMore from '../containers/ButtonReadMore';
 
 class CourseAbout extends Component {
 // _renderItems(element) {
@@ -14,13 +16,15 @@ class CourseAbout extends Component {
   }
 
     render(){
+      const { isAuth, data } = this.props
       return (
       <div>
         <div className="jumbotron animated fadeIn">
+          {isAuth ? null : <ButtonReadMore />}
           <div className="container">
-            <h1>{this.props.data.name}</h1>
-            <div className="question-text" dangerouslySetInnerHTML={{__html: this.props.data.overview}}/>
-            <p><button className="btn btn-primary btn-lg">TODO: get enrollment state over API</button></p>
+            <h1>{data.name}</h1>
+            <div className="question-text" dangerouslySetInnerHTML={{__html: data.overview}}/>
+              {isAuth ? <ButtonEnroll /> : null}
           </div>
         </div>
       </div>
@@ -30,7 +34,8 @@ class CourseAbout extends Component {
 }
 
 const mapStateToProps = (state) =>({
-  data: state.course_about.items
+  data: state.course_about.items,
+  isAuth: state.user.isAuth
 })
 
 const mapDispatchToProps = {

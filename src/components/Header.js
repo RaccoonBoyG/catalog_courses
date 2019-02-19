@@ -25,30 +25,30 @@ class Header extends Component {
 
             <NavLink className="navbar-brand" exact to="/">
                 <img className="logo" src={logo} alt="Открытые образовательные программы"/>
-             </NavLink>
+            </NavLink>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul className="navbar-nav mr-auto">
-                <Search />
-            </ul>
+                <ul className="navbar-nav mr-auto">
+                    <Search />
+                </ul>
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li className="nav-item">
-                    <NavLink to='/' className="nav-link">Каталог</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to='/org' className="nav-link">Организации</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to='/programs' className="nav-link">Программы</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to='/about' className="nav-link">О нас</NavLink>
-                </li>
-                {isAuth ? null : <MyCourses />}
-            </ul>
-                {isAuth ? <RenderProfileNo /> : <RenderProfileYes />}
+                    <li className="nav-item">
+                        <NavLink to='/' className="nav-link">Каталог</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to='/org' className="nav-link">Организации</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to='/programs' className="nav-link">Программы</NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to='/about' className="nav-link">О нас</NavLink>
+                    </li>
+                    {isAuth ? null : <MyCourses />}
+                </ul>
+                    {isAuth ? <RenderProfileNo /> : <RenderProfileYes />}
             </div>
             </nav>
         </div>
