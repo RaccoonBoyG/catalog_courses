@@ -6,7 +6,6 @@ import { NavLink, withRouter } from 'react-router-dom'
 import logo from '../static/img/logo_full.png'
 import Search from './Search';
 import { fetchUserState } from '../store/user/action';
-import {MEDIA_LS_URL} from '../services/openurfu';
 import RenderProfileYes from './RenderProfileYes';
 import RenderProfileNo from './RenderProfileNo';
 import MyCourses from '../containers/MyCourses';

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../static/css/Header.css';
 import { connect } from 'react-redux';
-import { NavLink, withRouter } from 'react-router-dom'
 import '../static/css/Profile.css';
 
 import {MEDIA_LS_URL} from '../services/openurfu';
@@ -15,7 +14,8 @@ class RenderProfileYes extends Component {
             <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li className="nav-item">
                     <img className="rounded custom-profile-img" src={item.profile_image} alt={item.username} />
-                    <li class="nav-item dropdown">
+                </li>
+                <li class="nav-item dropdown">
                         <a 
                             className="nav-link dropdown-toggle" 
                             href={`${MEDIA_LS_URL}/dashboard`}
@@ -33,7 +33,6 @@ class RenderProfileYes extends Component {
                         <a className="dropdown-item" href={`${MEDIA_LS_URL}/logout`}>Выйти</a>
                     </div>
                     </li>
-                </li>
             </ul>
         )
     })

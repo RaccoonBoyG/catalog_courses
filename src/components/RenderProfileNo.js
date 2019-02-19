@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../static/css/Header.css';
-import { NavLink, withRouter } from 'react-router-dom'
 
 import {MEDIA_LS_URL} from '../services/openurfu';
 
