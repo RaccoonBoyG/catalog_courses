@@ -6,8 +6,8 @@ import { NavLink, withRouter } from 'react-router-dom'
 import logo from '../static/img/logo_full.png'
 import Search from './Search';
 import { fetchUserState } from '../store/user/action';
-import RenderProfileYes from './RenderProfileYes';
-import RenderProfileNo from './RenderProfileNo';
+import RenderProfileYes from '../containers/RenderProfileYes';
+import RenderProfileNo from '../containers/RenderProfileNo';
 import MyCourses from '../containers/MyCourses';
 
 class Header extends Component {
@@ -17,8 +17,7 @@ class Header extends Component {
     }
 
 	render(){
-    const { isAuth, data } = this.props
-        console.log(isAuth, data)
+    const { isAuth } = this.props
 	  return (
         <div className="navbar-container">
         <div className="filter-back"></div>

@@ -5,7 +5,6 @@ export function fetchUserState() {
     return async (dispatch) => {
       let responseStatus = await openeduService.ResponseStatusAPI()
       dispatch(fetchSelectors.fetchUserStart())
-      console.log(responseStatus)
       if(responseStatus===200) {
         try{
           let getUser = await openeduService.CheckAuthAPI()
