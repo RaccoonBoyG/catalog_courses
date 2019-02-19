@@ -173,6 +173,11 @@ class OpeneduService{
         }
         return arr
     }
+
+    async ResponseStatusAPI() {
+        let response = await fetch(`${OPENEDU_ENDPOINT}/user/v1/accounts`)
+        return response
+    }
 }
 
 export default new OpeneduService()

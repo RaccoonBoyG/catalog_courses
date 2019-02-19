@@ -16,6 +16,7 @@ class Header extends Component {
 
 	render(){
         console.log(this.props.data);
+        console.log(this.props.isAuth);
         
 	  return (
         <div className="navbar-container">
@@ -65,6 +66,7 @@ class Header extends Component {
 
 const mapStateToProps = (state) =>({
     data: state.user.itmes,
+    isAuth: state.user.isAuth
   })
 
 const mapDispatchToProps = {
