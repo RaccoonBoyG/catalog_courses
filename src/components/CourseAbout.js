@@ -19,15 +19,14 @@ class CourseAbout extends Component {
 
     render(){
       const { isAuth, data, course_enroll_user } = this.props
-      console.log(course_enroll_user)
       return (
       <div>
         <div className="jumbotron animated fadeIn">
-          {isAuth ? <ButtonReadMore /> : null }
+          {isAuth&&course_enroll_user ? <ButtonReadMore /> : null }
           <div className="container">
             <h1>{data.name}</h1>
             <div className="question-text" dangerouslySetInnerHTML={{__html: data.overview}}/>
-              {isAuth ? null : <ButtonEnroll />}
+              {isAuth&&course_enroll_user ? null : <ButtonEnroll />}
           </div>
         </div>
       </div>
