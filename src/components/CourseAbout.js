@@ -17,18 +17,15 @@ class CourseAbout extends Component {
 
   checkCourseEnroll(){
     const { course_id } = this.props
-    course_id.map(item => {
-      if(item.course_id===this.props.match.params.id){
-        console.log(item.course_id,this.props.match.params.id)
-      } else {
-        console.log(item.course_id,this.props.match.params.id)
-      }
+    course_id.some(item => {
+      console.log('some', item.course_id);
+      return (item.course_id === this.props.match.params.id)
     })
   }
 
     render(){
       const { isAuth, data } = this.props
-      this.checkCourseEnroll()
+      console.log(this.checkCourseEnroll())
       return (
       <div>
         <div className="jumbotron animated fadeIn">
