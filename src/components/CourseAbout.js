@@ -17,11 +17,11 @@ class CourseAbout extends Component {
 
   checkCourseEnroll(){
     const { course_id } = this.props
-    return course_id.map(item => {
+    course_id.map(item => {
       if(item.course_id===this.props.match.params.id){
-        return console.log(item.course_id,this.props.match.params.id)
+        console.log(item.course_id,this.props.match.params.id)
       } else {
-        return console.log(item.course_id,this.props.match.params.id)
+        console.log(item.course_id,this.props.match.params.id)
       }
     })
   }
