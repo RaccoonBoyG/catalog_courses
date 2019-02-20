@@ -17,6 +17,7 @@ class CourseAbout extends Component {
 
   checkCourseEnroll(){
     const { course_id } = this.props
+    console.log(course_id,' :', typeof(course_id), typeof(this.props.match.params.id))
     course_id.some(item => {
       console.log('some', item.course_id);
       return (item.course_id === this.props.match.params.id)
