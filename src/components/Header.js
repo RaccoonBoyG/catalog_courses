@@ -46,9 +46,9 @@ class Header extends Component {
                     <li className="nav-item">
                         <NavLink to='/about' className="nav-link">О нас</NavLink>
                     </li>
-                    {isAuth ? null : <MyCourses />}
+                    { isAuth ? <MyCourses /> : null }
                 </ul>
-                    {isAuth ? <RenderProfileNo /> : <RenderProfileYes />}
+                    { isAuth ? <RenderProfileYes /> : <RenderProfileNo /> }
             </div>
             </nav>
         </div>

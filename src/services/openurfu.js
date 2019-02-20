@@ -174,18 +174,15 @@ class OpeneduService{
         return arr
     }
 
-    async CheckEnrollCourseAPI() {
+    async CheckEnrollCourseAPI(id) {
         let response = await fetch(`${OPENEDU_ENDPOINT}/enrollment/v1/enrollment`)
-        let arr = []
         if(response.status===200){
             let data = await response.json()
-            data.map((item) => {
-                return arr.push({
-                    course_id: item.course_details.course_id
-                })
+            return data.map((item) => {
+                    if(item.course_details.course_id===id)
+                        return true
             })
         }
-        return arr
     }
 
     async ResponseStatusAPI() {
