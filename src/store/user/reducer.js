@@ -38,7 +38,7 @@ export default function usersReducer(state = initialState, {type, payload}) {
     case types.FETCH_USER_COURSE_ENROLL:
       return {
         ...state,
-        course_enroll_user: true
+        course_enroll_user: payload.course
       }
 
     default:
