@@ -178,10 +178,7 @@ class OpeneduService{
         let response = await fetch(`${OPENEDU_ENDPOINT}/enrollment/v1/enrollment`)
         if(response.status===200){
             let data = await response.json()
-            return data.map((item) => {
-                    if(item.course_details.course_id===id)
-                        return true
-            })
+            return data.map((item) => item.course_details.course_id===id ? true : false)
         }
     }
 

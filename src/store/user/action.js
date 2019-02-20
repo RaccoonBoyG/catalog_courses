@@ -28,7 +28,9 @@ export function fetchEnrollState(id) {
     if(responseStatus===200) {
       try{
         let getCourseEnroll = await openeduService.CheckEnrollCourseAPI(id)
-        console.log(getCourseEnroll)
+        console.log(getCourseEnroll.some(item=>{
+          return item===true
+        }))
         dispatch(fetchSelectors.fetchCourseEnroll(getCourseEnroll))
   
       } catch(error){
