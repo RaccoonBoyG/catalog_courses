@@ -19,7 +19,7 @@ class CourseAbout extends Component {
     const { course_id } = this.props
     return course_id.some(item => {
       console.log('some', item.course_id);
-      return (item.course_id === this.props.match.params.id)
+      return (item.course_id !== this.props.match.params.id)
     })
   }
 
