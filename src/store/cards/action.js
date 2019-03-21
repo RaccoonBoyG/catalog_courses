@@ -22,6 +22,8 @@ export function LoadMoreTest() {
     dispatch(fetchSelectors.LoadMoreDataStart())
     let getBodySize = await openeduService.getCardBodySizeCheck()
     let getCard = await openeduService.getCardLoadMoreAPI({page})
+    console.log(getBodySize);
+    
     if(length <= getBodySize){
       try {
         dispatch(fetchSelectors.LoadMoreDataSuccess(getCard))

@@ -186,6 +186,7 @@ class OpeneduService{
         let response = await fetch(`${OPENEDU_ENDPOINT}/user/v1/accounts`)
         return response.status
     }
+
 }
 
 export default new OpeneduService()
