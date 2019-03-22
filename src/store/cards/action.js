@@ -2,19 +2,19 @@ import openeduService from '../../services/openurfu'
 import * as fetchSelectors from '../cards/reducer'
 
 export function fetchCards() {
-  return async (dispatch, getState) => {
-    const page = fetchSelectors.LoadMoreDataPage(getState())
+  return async (dispatch) => {
     dispatch(fetchSelectors.fetchCardsStart())
     try{
       let getCard = await openeduService.getCardAPI()
+      let getNextPage = await openeduService.getNextPageAPI()
       dispatch(fetchSelectors.fetchCardsSuccess(getCard))
+      if(getNextPage === null){
+        dispatch(fetchSelectors.LoadMoreDataHideButton())
+      }
 
     } catch(error){
       dispatch(fetchSelectors.fetchCardsFailure(error))
       console.log(error)
-    }
-    if(page === 1){
-      dispatch(fetchSelectors.LoadMoreDataHideButton())
     }
   }
 }
