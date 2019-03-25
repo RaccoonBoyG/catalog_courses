@@ -7,13 +7,24 @@ export const MEDIA_LS_URL = `http://media.ls.urfu.ru:8080`;
 
 class OpeneduService{
 
-    async getCardAPI(){
-        let url = `${OPENEDU_ENDPOINT}${COURSES_ENDPOINT}${PAGE_PARAM}${DEFAULT_QUERY}`;
-        let response = await fetch(url)
+    async getDataAPI(url) {
+        let defaultUrl = `${OPENEDU_ENDPOINT}${COURSES_ENDPOINT}${PAGE_PARAM}${DEFAULT_QUERY}`;
+        let response = null
+        if(url!=undefined){
+            response = await fetch(url)
+        } else {
+            response = await fetch(defaultUrl)
+        }
+        
         if (!response.ok) {
-            throw new Error(`OpeneduService getCardAPI failed, HTTP status ${response.status}`);
+            throw new Error(`OpeneduService getDataAPI failed, HTTP status ${response.status}`);
         }
         let data = await response.json();
+        return data
+    }
+
+    async getCardAPI(){
+        let data = await this.getDataAPI()
         let arr = []
         data.results.map((item) => {
             return arr.push({
@@ -28,12 +39,7 @@ class OpeneduService{
         return arr
     }
     async getNextPageAPI() {
-        let url = `${OPENEDU_ENDPOINT}${COURSES_ENDPOINT}${PAGE_PARAM}${DEFAULT_QUERY}`;
-        let response = await fetch(url)
-        if (!response.ok) {
-            throw new Error(`OpeneduService getCardAPI failed, HTTP status ${response.status}`);
-        }
-        let data = await response.json();
+        let data = await this.getDataAPI()
         let pagination = data.pagination;
         if (!pagination) {
             throw new Error(`OpeneduService getCardAPI failed, pagination not returned`);
@@ -41,12 +47,7 @@ class OpeneduService{
         return pagination.next
     }
     async getCardBodySizeCheck(){
-        let url = `${OPENEDU_ENDPOINT}${COURSES_ENDPOINT}${PAGE_PARAM}${DEFAULT_QUERY}`;
-        let response = await fetch(url)
-        if (!response.ok) {
-            throw new Error(`OpeneduService getCardAPI failed, HTTP status ${response.status}`);
-        }
-        let data = await response.json();
+        let data = await this.getDataAPI()
         let pagination = data.pagination;
         if (!pagination) {
             throw new Error(`OpeneduService getCardAPI failed, pagination not returned`);
@@ -56,11 +57,7 @@ class OpeneduService{
 
     async getCardLoadMoreAPI({page}){
         let url = `${OPENEDU_ENDPOINT}${COURSES_ENDPOINT}${PAGE_PARAM}${page}`;
-        let response = await fetch(url)
-        if (!response.ok) {
-            throw new Error(`OpeneduService getCardAPI failed, HTTP status ${response.status}`);
-        }
-        let data = await response.json();
+        let data = await this.getDataAPI(url)
         let pagination = data.pagination;
         if (!pagination) {
             throw new Error(`OpeneduService getCardAPI failed, pagination not returned`);
@@ -84,8 +81,8 @@ class OpeneduService{
 
     async getAboutItem(id){
         // let response_about = await this.getAboutCourseAPI()
-        let response = await fetch(`${OPENEDU_ENDPOINT}/courses/v1/courses/${id}`)
-        let data = await response.json()
+        let url = `${OPENEDU_ENDPOINT}/courses/v1/courses/${id}`;
+        let data = await this.getDataAPI(url)
         return ({
                 name: data.name,
                 start_display: data.start_display,
@@ -99,99 +96,87 @@ class OpeneduService{
 
     async getAboutProgramItem(program){
         // let response_about = await this.getAboutCourseAPI()
-        let response = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/programs/${program}`)
-        if(response.status===200){
-            let data = await response.json()
-            return {
-                id: data.id,
-                name: data.name,
-                short_name: data.short_name,
-                description: data.description,
-                logo: data.logo,
-                active: data.active
-            }
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/programs/${program}`;
+        let data = await this.getDataAPI(url)
+        return {
+            id: data.id,
+            name: data.name,
+            short_name: data.short_name,
+            description: data.description,
+            logo: data.logo,
+            active: data.active
         }
     }
 
     async getAboutProgramList(){
         // let response_about = await this.getAboutCourseAPI()
-        let response = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/link_courses/`)
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/link_courses/`;
         let arr = []
-        if(response.status===200){
-            let data = await response.json()
-            data.results.map((item) => {
-                return arr.push({
-                    id: item.id,
-                    course: item.course,
-                    program: item.program,
-                    active: item.active,
-                    course_id: item.course_id
-                })
+        let data = await this.getDataAPI(url)
+        data.results.map((item) => {
+            return arr.push({
+                id: item.id,
+                course: item.course,
+                program: item.program,
+                active: item.active,
+                course_id: item.course_id
             })
-        }
+        })
         return arr
     }
 
     async getOrgAPI(){
-        let response = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/organizations/`)
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/organizations/`;
         let arr = []
-        if(response.status===200){
-            let data = await response.json()
-            data.results.map((item) => {
-                return arr.push({
-                    id: item.id,
-                    name: item.name,
-                    short_name: item.short_name,
-                    description: item.description,
-                    logo: item.logo,
-                    active: item.active
-                })
+        let data = await this.getDataAPI(url)
+        data.results.map((item) => {
+            return arr.push({
+                id: item.id,
+                name: item.name,
+                short_name: item.short_name,
+                description: item.description,
+                logo: item.logo,
+                active: item.active
             })
-        }
+        })
         return arr
     }
 
     async getProgramsAPI(){
-        let response = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/programs/`)
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/programs/`;
         let arr = []
-        if(response.status===200){
-            let data = await response.json()
-            data.results.map((item) => {
-                return arr.push({
-                    id: item.id,
-                    name: item.name,
-                    short_name: item.short_name,
-                    description: item.description,
-                    logo: item.logo,
-                    active: item.active
-                })
+        let data = await this.getDataAPI(url)
+        data.results.map((item) => {
+            return arr.push({
+                id: item.id,
+                name: item.name,
+                short_name: item.short_name,
+                description: item.description,
+                logo: item.logo,
+                active: item.active
             })
-        }
+        })
         return arr
     }
 
     async CheckAuthAPI() {
-        let response = await fetch(`${OPENEDU_ENDPOINT}/user/v1/accounts`)
+        let url = `${OPENEDU_ENDPOINT}/user/v1/accounts`
         let arr = []
-        if(response.status===200){
-            let data = await response.json()
-            data.map((item) => {
-                return arr.push({
-                    username: item.username,
-                    is_active: item.is_active,
-                    profile_image: item.profile_image.image_url_full
-                })
+        let data = await this.getDataAPI(url)
+        data.map((item) => {
+            return arr.push({
+                username: item.username,
+                is_active: item.is_active,
+                profile_image: item.profile_image.image_url_full
             })
-        }
+        })
         return arr
     }
 
     async CheckEnrollCourseAPI(id) {
-        let response = await fetch(`${OPENEDU_ENDPOINT}/enrollment/v1/enrollment`)
-        if(response.status===200){
-            let data = await response.json()
-            return data.map((item) => item.course_details.course_id===id ? true : false)
-        }
+        let url = await fetch(`${OPENEDU_ENDPOINT}/enrollment/v1/enrollment`)
+        let data = await this.getDataAPI(url)
+        return data.map((item) => item.course_details.course_id===id ? true : false)
     }
 
     async ResponseStatusAPI() {
