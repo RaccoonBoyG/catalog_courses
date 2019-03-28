@@ -4,6 +4,8 @@ import * as fetchSelectors from '../user/reducer'
 export function fetchUserState() {
   return async (dispatch) => {
     let responseStatus = await openeduService.ResponseStatusAPI()
+    console.log(responseStatus);
+    
     dispatch(fetchSelectors.fetchUserStart())
     if(responseStatus===200) {
       try{

@@ -179,6 +179,12 @@ class OpeneduService{
         return data.map((item) => item.course_details.course_id===id ? true : false)
     }
 
+    async CheckEnrollCourseItooAPI(id) {
+        let url = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/enrollment/${id}`)
+        let data = await this.getDataAPI(url)
+        return data.map((item) => item.course_details.course_id===id ? true : false)
+    }
+
     async ResponseStatusAPI() {
         let response = await fetch(`${OPENEDU_ENDPOINT}/user/v1/accounts`)
         return response.status

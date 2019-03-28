@@ -7,7 +7,7 @@ class AboutUs extends Component {
 
 	render(){
 	  return (
-    <div className="container jumbotron about">
+    <div className="container jumbotron aboutUs">
         <div className="about-back"></div>
 
         
