@@ -4,13 +4,14 @@ import * as fetchSelectors from '../user/reducer'
 export function fetchUserState() {
   return async (dispatch) => {
     let responseStatus = await openeduService.ResponseStatusAPI()
-    console.log(responseStatus);
     
     dispatch(fetchSelectors.fetchUserStart())
     if(responseStatus===200) {
       try{
+        
         let getUser = await openeduService.CheckAuthAPI()
         let getCourseEnroll = await openeduService.CheckEnrollCourseAPI()
+        console.log(getUser, getCourseEnroll);
         dispatch(fetchSelectors.fetchUserSuccess(getUser))
         dispatch(fetchSelectors.fetchCourseEnroll(getCourseEnroll))
   
