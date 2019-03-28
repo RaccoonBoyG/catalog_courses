@@ -174,7 +174,7 @@ class OpeneduService{
     }
 
     async CheckEnrollCourseAPI(id) {
-        let url = await fetch(`${OPENEDU_ENDPOINT}/enrollment/v1/enrollment`)
+        let url = `${OPENEDU_ENDPOINT}/enrollment/v1/enrollment`
         let data = await this.getDataAPI(url)
         return data.map((item) => item.course_details.course_id===id ? true : false)
     }
