@@ -160,7 +160,7 @@ class OpeneduService{
     }
 
     async CheckAuthAPI() {
-        let response = `${OPENEDU_ENDPOINT}/user/v1/accounts`
+        let response = await fetch(`${OPENEDU_ENDPOINT}/user/v1/accounts`)
         let arr = []
         let data = await response.json()
         data.map((item) => {
