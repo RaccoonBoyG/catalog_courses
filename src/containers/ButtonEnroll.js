@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../static/css/CourseAbout.css';
 import 'animate.css/animate.min.css';
 import  { MEDIA_LS_URL } from '../services/openurfu';
+import $ from 'jquery';
 
 class ButtonEnroll extends Component {
   constructor(props){
@@ -17,7 +18,7 @@ class ButtonEnroll extends Component {
     if (document.cookie && document.cookie !== '') {
         var cookies = document.cookie.split(';');
         for (var i = 0; i < cookies.length; i++) {
-            var cookie = jQuery.trim(cookies[i]);
+            var cookie = $.trim(cookies[i]);
             // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
