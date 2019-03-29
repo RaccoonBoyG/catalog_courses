@@ -44,7 +44,7 @@ class ButtonEnroll extends Component {
        },
       method: 'post',
       credentials: "same-origin",
-      body: new FormData(opts)
+      body: JSON.stringify(opts)
     })
     console.log(await postEnroll);
     
