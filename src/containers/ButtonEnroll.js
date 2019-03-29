@@ -52,7 +52,7 @@ class ButtonEnroll extends Component {
 
     render(){
       return (
-        <form id='form' style='{display:none;}'>
+        <form id='form'>
           <button className="btn btn-primary btn-lg" onClick={this.changeEnroll.bind(this)}>Записаться на курс</button>
         </form>
         
