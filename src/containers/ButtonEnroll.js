@@ -37,9 +37,10 @@ class ButtonEnroll extends Component {
     }
     let postEnroll = await fetch(`${MEDIA_LS_URL}/change_enrollment`, {
       headers: {
+        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         "Accept": "text-plain, */*",
         "X-Requested-With": "XMLHttpRequest",
-        "X-CSRF-TOKEN": token
+        "X-CSRFToken": token
        },
       method: 'post',
       credentials: "same-origin",
