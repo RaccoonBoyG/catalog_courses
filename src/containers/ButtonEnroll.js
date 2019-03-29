@@ -13,12 +13,19 @@ class ButtonEnroll extends Component {
 }
 
   async changeEnroll(){
+    let token = document.querySelector(`meta[name="csrftoken"]`).getAttribute(`content`);
     let opts = {
       course_id:	`${this.state.value}`,
       enrollment_action:	`enroll`
     }
     let postEnroll = await fetch(`${MEDIA_LS_URL}/change_enrollment`, {
+      headers: {
+        "Accept": "text-plain, */*",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-CSRF-TOKEN": token
+       },
       method: 'post',
+      credentials: "same-origin",
       body: JSON.stringify(opts)
     })
     console.log(await postEnroll);
