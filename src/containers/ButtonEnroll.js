@@ -12,9 +12,9 @@ class ButtonEnroll extends Component {
     }
 }
 
-  changeEnroll(){
+  changeEnroll(course_key){
     let postEnroll = fetch(`${MEDIA_LS_URL}/change_enrollment`, {
-      course_id:	`${this.state.value}`,
+      course_id:	`${course_key}`,
       enrollment_action:	`enroll`
     })
     console.log(postEnroll);
@@ -23,7 +23,7 @@ class ButtonEnroll extends Component {
 
     render(){
       return (
-        <button className="btn btn-primary btn-lg" onClick={this.changeEnroll}>Записаться на курс</button>
+        <button className="btn btn-primary btn-lg" onClick={this.changeEnroll(this.state.value)}>Записаться на курс</button>
     )
   }
 }
