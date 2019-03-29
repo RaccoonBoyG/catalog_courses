@@ -160,9 +160,9 @@ class OpeneduService{
     }
 
     async CheckAuthAPI() {
-        let response = await fetch(`${OPENEDU_ENDPOINT}/user/v1/accounts`)
+        let url = `${OPENEDU_ENDPOINT}/user/v1/accounts`
         let arr = []
-        let data = await response.json()
+        let data = await this.getDataAPI(url)
         data.map((item) => {
             return arr.push({
                 username: item.username,
@@ -180,7 +180,7 @@ class OpeneduService{
     }
 
     async CheckEnrollCourseItooAPI(id) {
-        let url = await fetch(`${OPENEDU_ENDPOINT}/itoo_api/v0/enrollment/${id}`)
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/enrollment/${id}`
         let data = await this.getDataAPI(url)
         return data.map((item) => item.course_details.course_id===id ? true : false)
     }

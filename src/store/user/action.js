@@ -10,10 +10,10 @@ export function fetchUserState() {
       try{
         
         let getUser = await openeduService.CheckAuthAPI()
-        let getCourseEnroll = await openeduService.CheckEnrollCourseAPI()
-        console.log(getUser, getCourseEnroll);
+        // let getCourseEnroll = await openeduService.CheckEnrollCourseAPI()
+        // console.log(getUser, getCourseEnroll);
         dispatch(fetchSelectors.fetchUserSuccess(getUser))
-        dispatch(fetchSelectors.fetchCourseEnroll(getCourseEnroll))
+        // dispatch(fetchSelectors.fetchCourseEnroll(getCourseEnroll))
   
       } catch(error){
         dispatch(fetchSelectors.fetchUserFailure(error))
