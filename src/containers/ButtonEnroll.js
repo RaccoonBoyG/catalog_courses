@@ -44,7 +44,7 @@ class ButtonEnroll extends Component {
        },
       method: 'post',
       credentials: "same-origin",
-      body: JSON.stringify(opts)
+      body: new FormData(opts)
     })
     console.log(await postEnroll);
     
@@ -52,7 +52,10 @@ class ButtonEnroll extends Component {
 
     render(){
       return (
-        <button className="btn btn-primary btn-lg" onClick={this.changeEnroll.bind(this)}>Записаться на курс</button>
+        <form id='form' style='display:none;'>
+          <button className="btn btn-primary btn-lg" onClick={this.changeEnroll.bind(this)}>Записаться на курс</button>
+        </form>
+        
     )
   }
 }
