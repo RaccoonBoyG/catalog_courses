@@ -5,10 +5,15 @@ import 'animate.css/animate.min.css';
 import  { MEDIA_LS_URL } from '../services/openurfu';
 
 class ButtonReadMore extends Component {
-
+  constructor(props){
+    super(props);
+    this.state = {
+        value: this.props.value
+    }
+}
 
     render(){
-      let url = `${MEDIA_LS_URL}/courses/${this.props.match.params.id}/info`
+      let url = `${MEDIA_LS_URL}/courses/${this.state.value}/info`
       return (
         <a href={url}>
           <button className="btn btn-primary btn-lg">Перейти к курсу</button>

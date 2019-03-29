@@ -5,7 +5,6 @@ import 'animate.css/animate.min.css';
 
 class ButtonEnroll extends Component {
 
-
     render(){
       return (
         <button className="btn btn-primary btn-lg">Записаться</button>

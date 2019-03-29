@@ -22,7 +22,7 @@ class CourseAbout extends Component {
       return (
       <div>
         <div className="jumbotron animated fadeIn">
-          { isAuth&&course_enroll_user ? <ButtonReadMore /> : <ButtonEnroll /> }
+          { isAuth&&course_enroll_user ? <ButtonReadMore value={this.props.match.params.id}/> : <ButtonEnroll /> }
           <div className="container">
             <h1>{data.name}</h1>
             <div className="question-text" dangerouslySetInnerHTML={{__html: data.overview}}/>
