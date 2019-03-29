@@ -13,9 +13,13 @@ class ButtonEnroll extends Component {
 }
 
   async changeEnroll(){
-    let postEnroll = await fetch(`${MEDIA_LS_URL}/change_enrollment`, {
+    let opts = {
       course_id:	`${this.state.value}`,
       enrollment_action:	`enroll`
+    }
+    let postEnroll = await fetch(`${MEDIA_LS_URL}/change_enrollment`, {
+      method: 'post',
+      body: JSON.stringify(opts)
     })
     console.log(await postEnroll);
     
