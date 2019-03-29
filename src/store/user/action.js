@@ -36,7 +36,6 @@ export function fetchEnrollState(id) {
             return item===true
           })
         ) 
-        console.log(filterCourseEnroll)
         
         dispatch(fetchSelectors.fetchCourseEnroll(filterCourseEnroll))
   
