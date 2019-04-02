@@ -31,6 +31,14 @@ class ButtonEnroll extends Component {
 
   async changeEnroll(){
     let token = this.getCookie('csrftoken');
+    let params = {
+      course_id:	`${this.state.value}`,
+      enrollment_action:	`enroll`
+    }
+    let formData = new FormData();
+    for (var i in params){
+      formData.append(i, params[i])
+    }
     let postEnroll = await fetch(`${MEDIA_LS_URL}/change_enrollment`, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
@@ -40,8 +48,7 @@ class ButtonEnroll extends Component {
        },
       method: 'post',
       credentials: "same-origin",
-      course_id:	`${this.state.value}`,
-      enrollment_action:	`enroll`
+      body: formData
     })
     console.log(await postEnroll);
     

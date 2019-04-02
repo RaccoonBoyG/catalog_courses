@@ -15,6 +15,7 @@ class CourseAbout extends Component {
   componentDidMount() {
     this.props.fetchAbout(this.props.match.params.id)
     this.props.fetchEnrollState(this.props.match.params.id)
+    window.scrollTo(0, 0)
   }
 
     render(){
