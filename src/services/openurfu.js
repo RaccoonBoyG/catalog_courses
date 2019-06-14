@@ -10,7 +10,7 @@ class OpeneduService{
     async getDataAPI(url) {
         let defaultUrl = `${OPENEDU_ENDPOINT}${COURSES_ENDPOINT}${PAGE_PARAM}${DEFAULT_QUERY}`;
         let response = null
-        if(url!=undefined){
+        if(url!==undefined){
             response = await fetch(url)
         } else {
             response = await fetch(defaultUrl)
@@ -93,7 +93,6 @@ class OpeneduService{
         });
     }
 
-
     async getAboutProgramItem(program){
         // let response_about = await this.getAboutCourseAPI()
         let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/programs/${program}`;
@@ -102,6 +101,22 @@ class OpeneduService{
             id: data.id,
             name: data.name,
             short_name: data.short_name,
+            slug: data.slug,
+            description: data.description,
+            logo: data.logo,
+            active: data.active
+        }
+    }
+
+    async getAboutOrgItem(organizations){
+        // let response_about = await this.getAboutCourseAPI()
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/organizations/${organizations}`;
+        let data = await this.getDataAPI(url)
+        return {
+            id: data.id,
+            name: data.name,
+            short_name: data.short_name,
+            slug: data.slug,
             description: data.description,
             logo: data.logo,
             active: data.active
@@ -110,14 +125,14 @@ class OpeneduService{
 
     async getAboutProgramList(){
         // let response_about = await this.getAboutCourseAPI()
-        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/link_courses/`;
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/link_courses_program/`;
         let arr = []
         let data = await this.getDataAPI(url)
         data.results.map((item) => {
             return arr.push({
                 id: item.id,
                 course: item.course,
-                program: item.program,
+                program_slug: item.program_slug,
                 active: item.active,
                 course_id: item.course_id
             })
@@ -134,9 +149,27 @@ class OpeneduService{
                 id: item.id,
                 name: item.name,
                 short_name: item.short_name,
+                slug: item.slug,
                 description: item.description,
                 logo: item.logo,
                 active: item.active
+            })
+        })
+        return arr
+    }
+
+    async getAboutOrgList(){
+        // let response_about = await this.getAboutCourseAPI()
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/link_courses_org/`;
+        let arr = []
+        let data = await this.getDataAPI(url)
+        data.results.map((item) => {
+            return arr.push({
+                id: item.id,
+                course: item.course,
+                org_slug: item.org_slug,
+                active: item.active,
+                course_id: item.course_id
             })
         })
         return arr
@@ -151,6 +184,7 @@ class OpeneduService{
                 id: item.id,
                 name: item.name,
                 short_name: item.short_name,
+                slug_program: item.slug,
                 description: item.description,
                 logo: item.logo,
                 active: item.active

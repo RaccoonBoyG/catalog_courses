@@ -1,0 +1,117 @@
+@import './scss/utils/vars.scss';
+@import './scss/modules/bootstrapTheme';
+
+@import './scss/utils/_libs.scss';
+@import './scss/utils/_fonts.scss';
+@import './scss/utils/_mixins.scss';
+
+@import './scss/modules/header';
+@import './scss/modules/headerTitle';
+
+@import './scss/modules/footer';
+
+@import './scss/modules/cardItem';
+
+@import './scss/modules/aboutUsPage';
+
+@import './scss/modules/cardItemOrg';
+html {
+  line-height: $mainLineHeight;
+	font-size: $mainFontSize;
+	color: $mainFontColor;
+  height: 100%;
+  @media screen and (max-width: $desktopWidth) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: $tableWidth) {
+		font-size: 15px;
+  }
+  @media screen and (max-width: $phoneWidth) {
+		font-size: 14px;
+  }
+  
+  @media only screen and (min-width: $desktopWidth) and (max-width: $lgDesktopWidth) {
+    .bg_img{
+      height: rem(750);
+    }
+    .top-txt-container{
+      min-height: rem(700);
+    }
+    .top-txt-container-sub{
+      min-height: rem(250);
+    }
+    .button-custom-mobile{
+      display: none !important;
+    }
+  }
+  @media only screen and (min-width: $tableWidth) and (max-width: $desktopWidth) {
+    .bg_img{
+      height: rem(550);
+    }
+    .top-txt-container{
+      min-height: rem(500);
+    }
+    .top-txt-container-sub{
+      min-height: rem(240);
+    }
+    .button-custom-mobile{
+      display: none !important;
+    }
+  }
+  @media only screen and (min-width: $phoneWidth) and (max-width: $tableWidth) {
+    .bg_img{
+      height: rem(400);
+    }
+    .top-txt-container{
+      min-height: rem(350);
+    }
+    .top-txt-container-sub{
+      min-height: rem(270);
+    }
+    .button-custom-mobile{
+      display: flex;
+    }
+    .button-custom{
+      display: none !important;
+    }
+    .card-text-mobile{
+      display: none !important;
+    }
+  }
+  @media only screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
+    .bg_img{
+      height: rem(350);
+    }
+    .top-txt-container{
+      min-height: rem(300);
+    }
+    .top-txt-container-sub{
+      min-height: rem(100);
+    }
+    .button-custom-mobile{
+      display: flex;
+    }
+    .button-custom{
+      display: none !important;
+    }
+    .card-text-mobile{
+      display: none !important;
+    }
+  }
+}
+
+body {
+  font-family: $mainFont;
+	font-family: $mainFontSize;
+  font-weight: $mainFontWeight;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  color: $default-color;
+}
+
+.text-muted{
+  font-family: $font-name-urfu;
+}
+

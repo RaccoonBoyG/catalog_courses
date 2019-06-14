@@ -1,0 +1,89 @@
+.card-catalog {
+	border-radius: 0px;
+	border: none;
+	margin-bottom: 50px;
+	cursor: pointer;
+	float: left;
+	overflow: hidden;
+	position: relative;
+	z-index: 2;
+	&:hover {
+		transition: all 0.1s ease-out 0.1s;
+		box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.5);
+		.card-catalog-img {
+			-webkit-transform: scale(1.1);
+			-ms-transform: scale(1.1);
+			transform: scale(1.1);
+		}
+		a.info {
+			opacity: 1;
+			filter: alpha(opacity=100);
+			-webkit-transform: scale(1);
+			-ms-transform: scale(1);
+			transform: scale(1);
+		}
+	}
+	.card-catalog-img {
+		display: block;
+		position: relative;
+		-webkit-transition: all 0.4s ease-in;
+		transition: all 0.4s ease-in;
+	}
+	.overlay {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		overflow: hidden;
+		top: 0;
+		left: 0;
+	}
+	a.info {
+		text-transform: uppercase;
+		text-align: center;
+		position: relative;
+		font-size: $mainFontSize;
+		background: rgba(0, 0, 0, 0.6);
+		text-decoration: none;
+		color: $color_2;
+		display: inline-block;
+		padding: 10px 30px;
+		margin: 100px 0 0 0;
+		background-color: $background_color_2;
+		width: 100%;
+		opacity: 0;
+		filter: alpha(opacity=0);
+		-webkit-transition: all 0.4s ease-in;
+		transition: all 0.4s ease-in;
+	}
+}
+.card-catalog-img {
+	border: none;
+	border-radius: 0px;
+	height: 250px;
+}
+.card-catalog-body {
+	color: $color_1;
+	font-weight: 300;
+	height: 175px;
+	border: none;
+    background-color: $background_color_1;
+}
+.card-catalog-title {
+	font-size: $mainFontSize;
+}
+.card-text{
+    font-size: $smallFontSize;
+}
+.card-catalog-text {
+	margin-top: 18px;
+}
+.hovereffect {
+	width: 100%;
+	height: 100%;
+	float: left;
+	overflow: hidden;
+	position: relative;
+}
+.back {
+	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)),url('https://static.tildacdn.com/tild6432-6361-4433-a233-366431333938/top622259.jpg');
+}
