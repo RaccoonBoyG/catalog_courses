@@ -87,3 +87,26 @@
 .back {
 	background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)),url('https://static.tildacdn.com/tild6432-6361-4433-a233-366431333938/top622259.jpg');
 }
+
+.card-height{
+	max-height: rem(550);
+}
+.shadow-effect{
+	-ms-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	-webkit-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+.card-height:hover{
+	.shadow-effect{
+		background-color: $navbar-color;
+		box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.5);
+		-ms-transition: all .3s ease-in-out;
+		-moz-transition: all .3s ease-in-out;
+		-o-transition: all .3s ease-in-out;
+		-webkit-transition: all .3s ease-in-out;
+		transition: all .3s ease-in-out;
+	}
+}

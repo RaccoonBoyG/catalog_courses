@@ -51,10 +51,6 @@ class Header extends Component {
                 открытого образования
             </p>
         </NavLink>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-        </button>
 
         <div className="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
             <ul className="navbar-nav">
@@ -86,6 +82,10 @@ class Header extends Component {
                 <button className="btn btn-outline-primary my-2 my-sm-0">Личный кабинет</button>
             </a> */}
             { isAuth ? <RenderProfileYes /> : <RenderProfileNo /> }
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+        </button>
     </nav>
     </React.Fragment>        
         // <div className="navbar-container">

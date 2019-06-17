@@ -40,9 +40,6 @@ html {
     .top-txt-container-sub{
       min-height: rem(250);
     }
-    .button-custom-mobile{
-      display: none !important;
-    }
   }
   @media only screen and (min-width: $tableWidth) and (max-width: $desktopWidth) {
     .bg_img{
@@ -53,9 +50,6 @@ html {
     }
     .top-txt-container-sub{
       min-height: rem(240);
-    }
-    .button-custom-mobile{
-      display: none !important;
     }
   }
   @media only screen and (min-width: $phoneWidth) and (max-width: $tableWidth) {
@@ -68,15 +62,6 @@ html {
     .top-txt-container-sub{
       min-height: rem(270);
     }
-    .button-custom-mobile{
-      display: flex;
-    }
-    .button-custom{
-      display: none !important;
-    }
-    .card-text-mobile{
-      display: none !important;
-    }
   }
   @media only screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
     .bg_img{
@@ -87,15 +72,6 @@ html {
     }
     .top-txt-container-sub{
       min-height: rem(100);
-    }
-    .button-custom-mobile{
-      display: flex;
-    }
-    .button-custom{
-      display: none !important;
-    }
-    .card-text-mobile{
-      display: none !important;
     }
   }
 }

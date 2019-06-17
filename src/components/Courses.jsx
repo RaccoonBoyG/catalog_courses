@@ -25,10 +25,10 @@ class Courses extends Component {
 	render(){
 	  return (
       <React.Fragment>
-        <div className='flex-row d-inline-flex'>
+        {/* <div className='flex-row d-inline-flex'>
           <div className='col-2 filter-sticky d-inline-flex'>
             <div className='flex-wrap d-inline-flex'>
-              {/* <div className="filter">
+              <div className="filter">
               <div className="card">
                 <article className="card-group-item">
                   <header className="card-header">
@@ -95,18 +95,21 @@ class Courses extends Component {
                   </div>
                 </article>
               </div>
-              </div> */}
+              </div>
             </div>
-          </div>
+          </div> */}
+          <div className='container'>
 
-          <div className='col-8 d-inline-flex'>
+          
+          <div className='col d-inline-flex'>
             <div className="flex-wrap d-inline-flex">
               {this._renderItemsCard()}
               {this.props.buttonState ? <ButtonLoadMore /> : null}
             </div>
           </div>
+          </div>
 
-        </div>
+        {/* </div> */}
       </React.Fragment>
     )
   }

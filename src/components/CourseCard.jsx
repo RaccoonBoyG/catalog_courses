@@ -20,7 +20,7 @@ class CourseCard extends Component{
     }
 
     postIdAPI(){
-        this.props.dispatch(fetchAbout(this.props.value.id))
+        this.props.dispatch(fetchAbout(this.state.id))
     }
     
     truncate(str,len){

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchAboutProgram, fetchAboutProgramList } from '../store/programs/action';
 import 'animate.css/animate.min.css';
 import CourseCard from'./CourseCard';
-import Header from './Header';
+import AboutRender from '../containers/AboutRender';
 
 class ProgramAbout extends Component {
 
@@ -14,27 +14,21 @@ class ProgramAbout extends Component {
 
     render(){
         const { data,course_data,match } = this.props
-        // console.log(data_card.map(item=>item.program===match.params.program));
-        // console.log(program_data);
         
-        const ProgramAboutRender = (
-              <div className="animated fadeIn" key={data.short_name}>
-              <div className="container">
-                <h1>{data.name}</h1>
-                <h2>{data.description}</h2>
-              </div>
-            </div>
-            )
-
         let ProgramAboutCourseListRender = course_data.map(element =>
             element.program_slug===match.params.program ? <CourseCard item={element.course} key={element.course.course_image_url} /> : null
           )
 
       return (
       <React.Fragment>
-        <Header />
-        {ProgramAboutRender}
+        <AboutRender 
+          name={data.name}
+          image_background={data.image_background}
+          description={data.description}
+          //button enroll program coming soon :)
+        />
         <div className='container'>
+        <h3 className='text-custom-dark mb-5'>Курсы</h3>
           <div className="row d-flex">
             {ProgramAboutCourseListRender}
           </div>

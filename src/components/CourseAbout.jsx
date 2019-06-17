@@ -6,6 +6,7 @@ import 'animate.css/animate.min.css';
 import ButtonEnroll from '../containers/ButtonEnroll';
 import ButtonReadMore from '../containers/ButtonReadMore';
 import dompurify from 'dompurify';
+import AboutRender from '../containers/AboutRender';
 
 class CourseAbout extends Component {
 // _renderItems(element) {
@@ -24,8 +25,13 @@ class CourseAbout extends Component {
       const { isAuth, data, course_enroll_user } = this.props
       return (
       <React.Fragment>
-        <div className="jumbotron animated fadeIn">
-          { isAuth&&course_enroll_user ? <ButtonReadMore value={this.props.match.params.id}/> : <ButtonEnroll value={this.props.match.params.id}/> }
+        <AboutRender 
+          name={data.name}
+          class={'top-txt-container-sub'}
+          height={300}
+        />
+        <div className="jumbotron animated fadeIn bg-dark">
+        { isAuth&&course_enroll_user ? <ButtonReadMore value={this.props.match.params.id}/> : <ButtonEnroll value={this.props.match.params.id}/> }
           <div className="container">
             <h1>{data.name}</h1>
             <div className="question-text" dangerouslySetInnerHTML={{__html: sanitizer(data.overview)}}/>

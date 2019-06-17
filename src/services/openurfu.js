@@ -103,6 +103,7 @@ class OpeneduService{
             short_name: data.short_name,
             slug: data.slug,
             description: data.description,
+            image_background: data.image_background,
             logo: data.logo,
             active: data.active
         }
@@ -119,6 +120,7 @@ class OpeneduService{
             slug: data.slug,
             description: data.description,
             logo: data.logo,
+            image_background: data.image_background,
             active: data.active
         }
     }
@@ -151,6 +153,7 @@ class OpeneduService{
                 short_name: item.short_name,
                 slug: item.slug,
                 description: item.description,
+                image_background: item.image_background,
                 logo: item.logo,
                 active: item.active
             })
@@ -186,6 +189,7 @@ class OpeneduService{
                 short_name: item.short_name,
                 slug_program: item.slug,
                 description: item.description,
+                image_background: item.image_background,
                 logo: item.logo,
                 active: item.active
             })
