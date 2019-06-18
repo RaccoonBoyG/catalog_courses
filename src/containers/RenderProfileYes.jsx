@@ -9,15 +9,15 @@ class RenderProfileYes extends Component {
         const { data } = this.props
     return data.map((item)=>{
         return (
-            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                <a href={`${MEDIA_LS_URL}/u/${item.username}`} >
+            <React.Fragment>
+                <a href={`${MEDIA_LS_URL}/u/${item.username}`} style={{listStyle:'none'}} className="custom-profile-img" >
                     <li className="nav-item">
-                        <img className="rounded custom-profile-img" src={item.profile_image} alt={item.username} />
+                        <img className="rounded" src={item.profile_image} alt={item.username} style={{maxWidth: '40px', maxHeight:'40px'}} />
                     </li>
                 </a>
                 <li class="nav-item dropdown">
                         <a 
-                            className="nav-link dropdown-toggle" 
+                            className="nav-link dropdown-toggle text-white" 
                             href={`${MEDIA_LS_URL}/dashboard`}
                             id="navbarDropdown" 
                             role="button" 
@@ -32,8 +32,8 @@ class RenderProfileYes extends Component {
                         <a className="dropdown-item" href={`${MEDIA_LS_URL}/account/settings`}>Настройки</a>
                         <a className="dropdown-item" href={`${MEDIA_LS_URL}/logout`}>Выйти</a>
                     </div>
-                    </li>
-            </ul>
+                </li>
+            </React.Fragment>
         )
     })
   }

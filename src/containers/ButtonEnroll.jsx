@@ -41,7 +41,9 @@ class ButtonEnroll extends Component {
        },
       method: 'post',
       credentials: "same-origin",
-      body: `course_id=${this.state.value}&enrollment_action=enroll`
+      body: JSON.stringify({course_details: {course_id: this.state.value} })
+      // body: `'course_details': {'course_id' : '${this.state.value}'},`
+      // body: `course_id=${this.state.value}&enrollment_action=enroll`
     })
     console.log(await postEnroll);
     

@@ -62,6 +62,9 @@ html {
     .top-txt-container-sub{
       min-height: rem(270);
     }
+    .custom-profile-img{
+      display: none;
+    }
   }
   @media only screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
     .bg_img{
@@ -72,6 +75,9 @@ html {
     }
     .top-txt-container-sub{
       min-height: rem(100);
+    }
+    .custom-profile-img{
+      display: none;
     }
   }
 }
