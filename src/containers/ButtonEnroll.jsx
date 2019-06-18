@@ -32,7 +32,7 @@ class ButtonEnroll extends Component {
 
   async changeEnroll(){
     let token = this.getCookie('csrftoken');
-    let postEnroll = await fetch(`${MEDIA_LS_URL}/change_enrollment`, {
+    let postEnroll = await fetch(`${MEDIA_LS_URL}/api/enrollment/v1/enrollment`, {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         "Accept": "text-plain, */*",
