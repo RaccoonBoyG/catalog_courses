@@ -34,7 +34,8 @@ class ButtonEnroll extends Component {
     let token = this.getCookie('csrftoken');
     let postEnroll = await fetch(`${MEDIA_LS_URL}/api/enrollment/v1/enrollment`, {
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        // "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+        "Content-Type": "application/json",
         "Accept": "text-plain, */*",
         "X-Requested-With": "XMLHttpRequest",
         "X-CSRFToken": token
