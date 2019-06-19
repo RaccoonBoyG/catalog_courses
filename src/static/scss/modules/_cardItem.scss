@@ -91,6 +91,16 @@
 .card-height{
 	max-height: rem(550);
 }
+
+.line {
+	position: absolute; 
+	bottom: -19px;
+	border: 0;
+	height: 5px;
+	width: 0%;
+	left:50%;
+	background-color: $primary-color; 
+}
 .shadow-effect{
 	-ms-transition: all .3s ease-in-out;
 	-moz-transition: all .3s ease-in-out;
@@ -108,5 +118,16 @@
 		-o-transition: all .3s ease-in-out;
 		-webkit-transition: all .3s ease-in-out;
 		transition: all .3s ease-in-out;
+	}
+
+	.line{
+		width: 70%;
+		display: inline-block;
+		-webkit-transition: width .3s ease-in-out;
+		-moz--transition: width .3s ease-in-out;
+		transition: width .3s ease-in-out;
+		-webkit-transform:translateX(-50%);
+		-moz-transform:translateX(-50%);
+		transform:translateX(-50%);
 	}
 }

@@ -21,10 +21,10 @@ export function fetchAboutOrg(organizations) {
 }
 
 
-export function fetchAboutOrgList() {
+export function fetchAboutOrgList(organizations) {
   return async (dispatch,getState) => {
     try{
-      let getAboutProgramList = await openeduService.getAboutOrgList()
+      let getAboutProgramList = await openeduService.getAboutOrgList(organizations)
       dispatch(fetchSelectors.fetchOrganizationAboutList(getAboutProgramList))
     } catch(error){
       console.log(error)

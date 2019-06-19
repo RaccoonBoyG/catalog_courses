@@ -13,15 +13,27 @@ class OrganizationAbout extends Component {
   componentDidMount() {
     window.scrollTo(0, 0)
     this.props.fetchAboutOrg(this.props.match.params.org)
-    this.props.fetchAboutOrgList()
+    this.props.fetchAboutOrgList(this.props.match.params.org)
   }
 
     render(){
-      let { data, match, course_data } = this.props
+      let { data, data_card, match, course_data } = this.props
 
-      let OrganizationAboutCourseListRender = course_data.map(element =>
-          element.org_slug===match.params.org ? <CourseCard item={element.course} key={element.course.course_image_url} /> : null
-        )
+      let test = data_card.courses
+      // TODO : return data from api 
+      // let test = data_card.course.map(function(element){
+      //   // console.log(element)
+      //   return element
+      // })
+      console.log(test);
+      
+      test.forEach((e,k)=>{console.log(e) })
+      
+      console.log(typeof(data_card))
+      
+
+      // let OrganizationAboutCourseListRender = data_card.map(element =><CourseCard item={element.course.map(e=> e)} key={element.course.course_image_url} />)
+      // let OrganizationAboutCourseListRender = data_card.course.map(element => <CourseCard item={element} key={element.course_image_url} /> )
 
       return (
       <React.Fragment>
@@ -33,7 +45,7 @@ class OrganizationAbout extends Component {
         <div className='container'>
         <h3 className='text-custom-dark mb-5'>Курсы</h3>
           <div className="row d-flex">
-            {OrganizationAboutCourseListRender}
+            {/* {OrganizationAboutCourseListRender} */}
           </div>
         </div>
       </React.Fragment>
@@ -45,7 +57,6 @@ class OrganizationAbout extends Component {
 const mapStateToProps = state => ({
   data: state.organizations.items_about,
   data_card: state.organizations.items_card_about,
-  course_data: state.organizations.items_card_about.map(item => item)
 })
 
 const mapDispatchToProps = {

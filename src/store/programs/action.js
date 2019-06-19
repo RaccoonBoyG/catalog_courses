@@ -21,10 +21,10 @@ export function fetchAboutProgram(program) {
 }
 
 
-export function fetchAboutProgramList() {
+export function fetchAboutProgramList(program) {
   return async (dispatch,getState) => {
     try{
-      let getAboutProgramList = await openeduService.getAboutProgramList()
+      let getAboutProgramList = await openeduService.getAboutProgramList(program)
       dispatch(fetchSelectors.fetchProgramAboutListSuccess(getAboutProgramList))
     } catch(error){
       console.log(error)

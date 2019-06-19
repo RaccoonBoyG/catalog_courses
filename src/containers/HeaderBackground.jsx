@@ -15,7 +15,7 @@ const HeaderBackground = (props) => (
     style={{ 
       ...backgroundImg, 
       backgroundImage: props.url_image === undefined ? `${backgroundUrl}` : `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${props.url_image})`, 
-      "height": props.height === undefined ? `700px` : `${props.height}px` 
+      "height": props.height === undefined ? `none` : `${props.height}px` 
       }} ></div>
   </Fragment>
 );

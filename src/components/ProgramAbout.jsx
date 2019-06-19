@@ -9,7 +9,7 @@ class ProgramAbout extends Component {
 
   componentDidMount() {
     this.props.fetchAboutProgram(this.props.match.params.program)
-    this.props.fetchAboutProgramList()
+    this.props.fetchAboutProgramList(this.props.match.params.program)
   }
 
     render(){

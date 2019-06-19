@@ -41,7 +41,7 @@ class Footer extends Component {
                   +7 (343) 375-95-28</p>
               </div>
             </div>
-            <hr/>
+            <hr className='hr-footer'/>
             <div className="d-flex align-items-center">
               <div className="col-md-7 col-lg-8">
                 <p className="text-center text-md-left text-custom-dark">© 2019 Copyright:

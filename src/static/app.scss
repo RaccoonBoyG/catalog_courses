@@ -49,7 +49,7 @@ html {
       min-height: rem(500);
     }
     .top-txt-container-sub{
-      min-height: rem(240);
+      min-height: rem(270);
     }
   }
   @media only screen and (min-width: $phoneWidth) and (max-width: $tableWidth) {
@@ -68,13 +68,28 @@ html {
   }
   @media only screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
     .bg_img{
-      height: rem(350);
+      height: rem(400);
     }
     .top-txt-container{
       min-height: rem(300);
     }
     .top-txt-container-sub{
-      min-height: rem(100);
+      min-height: rem(200);
+    }
+    .custom-profile-img{
+      display: none;
+    }
+  }
+
+  @media only screen and (min-width: 0) and (max-width: $smPhoneWidth) {
+    .bg_img{
+      height: rem(400);
+    }
+    .top-txt-container{
+      min-height: rem(300);
+    }
+    .top-txt-container-sub{
+      min-height: rem(200);
     }
     .custom-profile-img{
       display: none;

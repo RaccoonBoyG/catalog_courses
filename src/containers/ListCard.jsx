@@ -13,9 +13,9 @@ const ListCard = (props) => {
         <React.Fragment>
         <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3 card-height mb-3 mt-3" key={props.name+props.slug} style={{minHeight: '250px'}}>
         <Link to={{pathname: `${props.url}/${props.slug}`}} onClick={props.handleClick(props.slug)} className='text-white' style={{textDecoration: 'none'}} >
-            <div className="d-flex flex-row animated fadeIn faster bg-dark-texts" style={{minHeight: '250px', borderBottom: '1px solid #000',...backgroundImg, backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${props.image_background})` }}>
+            <div className="d-flex flex-row animated fadeIn faster bg-dark-texts" style={{minHeight: '250px', ...backgroundImg, backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.95) 100% ), url(${props.image_background})` }}>
               <div className="d-flex-row container-fluid p-0 shadow-effect">
-                <div className="flex-row d-flex p-3 bg-dark">
+                <div className="flex-row d-flex p-3">
                   <img className="img-fluid" src={props.logo} alt={props.logo} style={{ maxHeight: '150px', maxWidth: '150px' }} />
                 </div>
                 <div className="flex-row d-flex p-3" style={{ minHeight: '50px' }}>
