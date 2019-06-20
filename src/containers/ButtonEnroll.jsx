@@ -43,8 +43,11 @@ class ButtonEnroll extends Component {
       credentials: "same-origin",
       body: JSON.stringify({course_details: {course_id: this.state.value} })
     })
-    console.log(await postEnroll)
-    
+    const response = await postEnroll.text()
+    if(postEnroll.status === 200 )
+      window.location.reload()
+    else 
+      throw Error(response.message)
   }
 
     render(){
