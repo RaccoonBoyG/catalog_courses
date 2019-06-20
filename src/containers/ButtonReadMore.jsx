@@ -15,7 +15,7 @@ class ButtonReadMore extends Component {
       let url = `${MEDIA_LS_URL}/courses/${this.state.value}/info`
       return (
         <a href={url}>
-          <button className="btn btn-primary btn-lg">Перейти к курсу</button>
+          <button className="btn btn-primary btn-lg m-3">Перейти к курсу</button>
         </a>
         
     )

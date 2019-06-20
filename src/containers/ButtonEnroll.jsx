@@ -52,9 +52,9 @@ class ButtonEnroll extends Component {
 
     render(){
       const { isAuth } = this.props
-      let button_enroll = <button className="btn btn-primary btn-lg" onClick={this.changeEnroll.bind(this)}>Записаться на курс</button>
+      let button_enroll = <button className="btn btn-primary btn-lg m-3" onClick={this.changeEnroll.bind(this)}>Записаться на курс</button>
       let button_auth = <a href={`${MEDIA_LS_URL}/login`} id="href">
-          <button className="btn btn-primary btn-lg">Записаться на курс</button>
+          <button className="btn btn-primary btn-lg m-3">Записаться на курс</button>
         </a>;
       return (
         isAuth ? button_enroll : button_auth

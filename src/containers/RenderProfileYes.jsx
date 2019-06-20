@@ -27,7 +27,7 @@ class RenderProfileYes extends Component {
                         >
                         {item.username}
                         </a>
-                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{minWidth: '5rem'}}>
                         <a className="dropdown-item" href={`${MEDIA_LS_URL}/u/${item.username}`}>Профиль</a>
                         <a className="dropdown-item" href={`${MEDIA_LS_URL}/account/settings`}>Настройки</a>
                         <a className="dropdown-item" href={`${MEDIA_LS_URL}/logout`}>Выйти</a>

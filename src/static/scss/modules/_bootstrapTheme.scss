@@ -2,8 +2,10 @@ $theme-colors:(
   "primary": $primary-color,
   "dark": $navbar-color,
   "custom-dark": $dark-color,
+  "custom-dark2": $dark-color2,
   "neutral-regular": $neutral-regular,
-  "dark-texts" : $dark-color-text
+  "dark-texts" : $dark-color-text,
+  "neutral-placeholder" : $neutral-placeholder
 );
 
 $border-radius: 0;
