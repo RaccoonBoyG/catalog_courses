@@ -7,16 +7,16 @@ import ButtonEnroll from '../containers/ButtonEnroll';
 import ButtonReadMore from '../containers/ButtonReadMore';
 import dompurify from 'dompurify';
 import AboutRender from '../containers/AboutRender';
+import scroll from './scroll'
+import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 
 class CourseAbout extends Component {
-// _renderItems(element) {
-//    this.props.data.name
-//   }
 
   componentDidMount() {
     this.props.fetchAbout(this.props.match.params.id)
     this.props.fetchEnrollState(this.props.match.params.id)
     window.scrollTo(0, 0)
+    scroll()
   }
 
     render(){
@@ -31,12 +31,13 @@ class CourseAbout extends Component {
           height={300}
         />
         <div className="jumbotron animated fadeIn bg-dark">
-        { isAuth&&course_enroll_user ? <ButtonReadMore value={this.props.match.params.id}/> : <ButtonEnroll value={this.props.match.params.id}/> }
+        { isAuth && course_enroll_user ? <ButtonReadMore value={this.props.match.params.id}/> : <ButtonEnroll value={this.props.match.params.id}/> }
           <div className="container">
             <h1>{data.name}</h1>
             <div className="question-text" dangerouslySetInnerHTML={{__html: sanitizer(data.overview)}}/>
           </div>
         </div>
+        <ButtonScrollToTop />
       </React.Fragment>
       
     )

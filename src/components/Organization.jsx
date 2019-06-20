@@ -8,15 +8,15 @@ import Header from './Header';
 import HeaderBackground from '../containers/HeaderBackground';
 import HeaderTitle from '../containers/HeaderTitle';
 import ListCard from '../containers/ListCard';
+import scroll from './scroll'
+import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 
 
 class Organizations extends Component {
-  // _renderItems(element) {
-  //    this.props.data.name
-  //   }
 
   componentDidMount() {
     this.props.fetchOrg()
+    scroll()
   }
 
   postIdAPI(id) {
@@ -52,6 +52,7 @@ class Organizations extends Component {
             {OrgList}
           </div>
         </div>
+        <ButtonScrollToTop />
       </React.Fragment>
     )
   }

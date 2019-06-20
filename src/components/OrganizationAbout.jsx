@@ -4,7 +4,8 @@ import { fetchAboutOrg, fetchAboutOrgList } from '../store/organizations/action'
 import 'animate.css/animate.min.css';
 import AboutRender from '../containers/AboutRender';
 import CourseListRender from '../containers/CourseListRender';
-
+import scroll from './scroll'
+import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 
 class OrganizationAbout extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class OrganizationAbout extends Component {
     await this.props.fetchAboutOrg(this.props.match.params.org)
     await this.props.fetchAboutOrgList(this.props.match.params.org)
     this.setState(prevState=>({ ...prevState,data_local: this.props.data_card.courses}) )
+    scroll()
   }
 
     render(){
@@ -36,6 +38,7 @@ class OrganizationAbout extends Component {
             <CourseListRender item={this.state.data_local} />
           </div>
         </div>
+        <ButtonScrollToTop />
       </React.Fragment>
       
     )

@@ -7,6 +7,8 @@ import Header from './Header';
 import HeaderBackground from '../containers/HeaderBackground';
 import HeaderTitle from '../containers/HeaderTitle';
 import ListCard from '../containers/ListCard';
+import scroll from './scroll'
+import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 
 class Programs extends Component {
   constructor(props) {
@@ -18,6 +20,7 @@ class Programs extends Component {
 
   componentDidMount() {
     this.props.fetchPrograms()
+    scroll()
   }
 
   postIdAPI(id){
@@ -38,22 +41,6 @@ class Programs extends Component {
             url={this.props.match.url}
             handleClick={this.postIdAPI}
           />
-            // <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4" key={item.id}>
-            // <Link to={{pathname: `${this.props.match.url}/${item.slug_program}`}} onClick={this.postIdAPI.bind(this,item.slug_program)}>
-            //   <div className="card card-org">
-            //     <div className="hovereffect">
-            //         <img className="card-img card-org-img" src={item.logo} alt={item.name}/>
-            //         <div className="overlay">
-            //         </div>
-            //       <div className="card-body card-org-body" data-toggle="tooltip" data-placement="left" title={item.name} >
-            //       <p className="d-inline-block">
-            //         <FontAwesomeIcon icon={faGraduationCap} size="1x"/> {item.name}
-            //       </p>
-            //       </div>
-            //     </div>
-            //   </div>
-            // </Link>
-            // </div>
           )
         })
       )
@@ -67,6 +54,7 @@ class Programs extends Component {
               {ProgramsList}
             </div>
           </div>
+          <ButtonScrollToTop />
         </React.Fragment>
     )
   }

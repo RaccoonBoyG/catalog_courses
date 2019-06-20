@@ -105,7 +105,7 @@ class Courses extends Component {
                 {this._renderItemsCard()}
               </div>
             </div>
-            {this.props.buttonState ? <ButtonLoadMore /> : null}
+            {this.props.buttonState ? <ButtonLoadMore  /> : null}
           </div>
       </React.Fragment>
     )

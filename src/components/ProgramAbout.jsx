@@ -4,6 +4,8 @@ import { fetchAboutProgram, fetchAboutProgramList } from '../store/programs/acti
 import 'animate.css/animate.min.css';
 import AboutRender from '../containers/AboutRender';
 import CourseListRender from '../containers/CourseListRender';
+import scroll from './scroll'
+import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 
 class ProgramAbout extends Component {
   constructor(props) {
@@ -18,6 +20,7 @@ class ProgramAbout extends Component {
     await this.props.fetchAboutProgram(this.props.match.params.program)
     await this.props.fetchAboutProgramList(this.props.match.params.program)
     this.setState(prevState=>({ ...prevState,data_local: this.props.data_card.courses}) )
+    scroll()
   }
 
     render(){
@@ -36,6 +39,7 @@ class ProgramAbout extends Component {
             <CourseListRender  item={this.state.data_local} />
           </div>
         </div>
+        <ButtonScrollToTop />
       </React.Fragment>
       
     )

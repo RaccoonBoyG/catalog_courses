@@ -34,7 +34,6 @@ class ButtonEnroll extends Component {
     let token = this.getCookie('csrftoken');
     let postEnroll = await fetch(`${MEDIA_LS_URL}/api/enrollment/v1/enrollment`, {
       headers: {
-        // "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
         "Content-Type": "application/json",
         "Accept": "text-plain, */*",
         "X-Requested-With": "XMLHttpRequest",
@@ -43,19 +42,19 @@ class ButtonEnroll extends Component {
       method: 'post',
       credentials: "same-origin",
       body: JSON.stringify({course_details: {course_id: this.state.value} })
-      // body: `'course_details': {'course_id' : '${this.state.value}'},`
-      // body: `course_id=${this.state.value}&enrollment_action=enroll`
     })
-    console.log(await postEnroll);
+    console.log(await postEnroll)
     
   }
 
     render(){
+      const { isAuth } = this.props
+      let button_enroll = <button className="btn btn-primary btn-lg" onClick={this.changeEnroll.bind(this)}>Записаться на курс</button>
+      let button_auth = <a href={`${MEDIA_LS_URL}/login`} id="href">
+          <button className="btn btn-primary btn-lg">Записаться на курс</button>
+        </a>;
       return (
-        // <form id='form'>
-          <button className="btn btn-primary btn-lg" onClick={this.changeEnroll.bind(this)}>Записаться на курс</button>
-        // </form>
-        
+        isAuth ? button_enroll : button_auth
     )
   }
 }
