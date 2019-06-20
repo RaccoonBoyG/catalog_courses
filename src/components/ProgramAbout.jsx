@@ -30,7 +30,7 @@ class ProgramAbout extends Component {
           description={data.description}
           //button enroll program coming soon :)
         />
-        <div className='container'>
+        <div className='container pb-3 mb-3'>
         <h3 className='text-custom-dark mb-5'>Курсы</h3>
           <div className="row d-flex">
             <CourseListRender  item={this.state.data_local} />

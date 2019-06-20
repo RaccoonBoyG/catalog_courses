@@ -98,11 +98,8 @@ class Courses extends Component {
               </div>
             </div>
           </div> */}
-          <div className='container'>
+          <div className='container pb-3 mb-3'>
             <h3 className='text-custom-dark pl-3 mb-3'>Курсы</h3>
-          
-          {/* <div className='col d-inline-flex'>
-            <div className="flex-wrap d-inline-flex"> */}
             <div className='flex-row'>
               <div className='d-flex flex-wrap flex-row'>
                 {this._renderItemsCard()}
@@ -110,8 +107,6 @@ class Courses extends Component {
             </div>
             {this.props.buttonState ? <ButtonLoadMore /> : null}
           </div>
-
-        {/* </div> */}
       </React.Fragment>
     )
   }
