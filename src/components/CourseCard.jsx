@@ -62,11 +62,11 @@ class CourseCard extends Component{
     render(){
         // fetch(`${this.state.image}`)
         //     .then(res => res.ok===true ? this.setState(prevState => ({...prevState, ...this.state.image}) ) : this.setState(prevState => ({...prevState, image: url_image}) ))
-        console.log(this.props.item, this.props.value);
+        // console.log(this.props.item, this.props.value);
         
         return ( 
         <div className="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-3 card-height mb-3 mt-3 animated pulse faster" key={this.state.name} style={{minHeight: '500px', borderRadius: '10px'}}>
-            <Link to={{pathname: `${this.state.id}`}} onClick={this.postIdAPI.bind(this)} className='text-white' style={{textDecoration: 'none'}} >
+            <Link to={{pathname: `/${this.state.id}`}} onClick={this.postIdAPI.bind(this)} className='text-white' style={{textDecoration: 'none'}} >
                 <div className="d-flex flex-row animated fadeIn faster" style={{minHeight: '500px', ...backgroundImg, backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0) 100% ), url(${this.state.image})` }}>
                     <div className="d-flex-row container-fluid p-0 shadow-effect" style={{borderRadius: '10px'}}>
                     {/* <div className="flex-row d-flex p-3">

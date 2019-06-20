@@ -3,7 +3,7 @@ import * as types from './actionTypes';
 const initialState = {
   items: [],
   items_about: {},
-  items_card_about: [],
+  items_card_about: {},
   loading: false,
   error: null
 };

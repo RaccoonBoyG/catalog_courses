@@ -15,7 +15,7 @@ class RenderProfileYes extends Component {
                         <img className="rounded" src={item.profile_image} alt={item.username} style={{maxWidth: '40px', maxHeight:'40px'}} />
                     </li>
                 </a>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" style={{listStyle:'none'}}>
                         <a 
                             className="nav-link dropdown-toggle text-white" 
                             href={`${MEDIA_LS_URL}/dashboard`}

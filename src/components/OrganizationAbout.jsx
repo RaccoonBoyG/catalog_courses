@@ -2,39 +2,27 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAboutOrg, fetchAboutOrgList } from '../store/organizations/action';
 import 'animate.css/animate.min.css';
-import CourseCard from'./CourseCard';
-// import HeaderBackgroundLek from '../containers/HeaderBackgroundLek';
 import AboutRender from '../containers/AboutRender';
-
+import CourseListRender from '../containers/CourseListRender';
 
 
 class OrganizationAbout extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data_local: []
+    };
+}
 
-  componentDidMount() {
+  async componentDidMount() {
     window.scrollTo(0, 0)
-    this.props.fetchAboutOrg(this.props.match.params.org)
-    this.props.fetchAboutOrgList(this.props.match.params.org)
+    await this.props.fetchAboutOrg(this.props.match.params.org)
+    await this.props.fetchAboutOrgList(this.props.match.params.org)
+    this.setState(prevState=>({ ...prevState,data_local: this.props.data_card.courses}) )
   }
 
     render(){
-      let { data, data_card, match, course_data } = this.props
-
-      let test = data_card.courses
-      // TODO : return data from api 
-      // let test = data_card.course.map(function(element){
-      //   // console.log(element)
-      //   return element
-      // })
-      console.log(test);
-      
-      test.forEach((e,k)=>{console.log(e) })
-      
-      console.log(typeof(data_card))
-      
-
-      // let OrganizationAboutCourseListRender = data_card.map(element =><CourseCard item={element.course.map(e=> e)} key={element.course.course_image_url} />)
-      // let OrganizationAboutCourseListRender = data_card.course.map(element => <CourseCard item={element} key={element.course_image_url} /> )
-
+      let { data } = this.props
       return (
       <React.Fragment>
         <AboutRender 
@@ -45,7 +33,7 @@ class OrganizationAbout extends Component {
         <div className='container'>
         <h3 className='text-custom-dark mb-5'>Курсы</h3>
           <div className="row d-flex">
-            {/* {OrganizationAboutCourseListRender} */}
+            <CourseListRender item={this.state.data_local} />
           </div>
         </div>
       </React.Fragment>

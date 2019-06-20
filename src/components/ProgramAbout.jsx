@@ -2,23 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAboutProgram, fetchAboutProgramList } from '../store/programs/action';
 import 'animate.css/animate.min.css';
-import CourseCard from'./CourseCard';
 import AboutRender from '../containers/AboutRender';
+import CourseListRender from '../containers/CourseListRender';
 
 class ProgramAbout extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data_local: []
+    };
+}
 
-  componentDidMount() {
-    this.props.fetchAboutProgram(this.props.match.params.program)
-    this.props.fetchAboutProgramList(this.props.match.params.program)
+  async componentDidMount() {
+    window.scrollTo(0, 0)
+    await this.props.fetchAboutProgram(this.props.match.params.program)
+    await this.props.fetchAboutProgramList(this.props.match.params.program)
+    this.setState(prevState=>({ ...prevState,data_local: this.props.data_card.courses}) )
   }
 
     render(){
-        const { data,course_data,match } = this.props
-        
-        let ProgramAboutCourseListRender = course_data.map(element =>
-            element.program_slug===match.params.program ? <CourseCard item={element.course} key={element.course.course_image_url} /> : null
-          )
-
+      const { data } = this.props
       return (
       <React.Fragment>
         <AboutRender 
@@ -30,7 +33,7 @@ class ProgramAbout extends Component {
         <div className='container'>
         <h3 className='text-custom-dark mb-5'>Курсы</h3>
           <div className="row d-flex">
-            {ProgramAboutCourseListRender}
+            <CourseListRender  item={this.state.data_local} />
           </div>
         </div>
       </React.Fragment>
@@ -41,8 +44,7 @@ class ProgramAbout extends Component {
 
 const mapStateToProps = state => ({
   data: state.programs.items_about,
-  data_card: state.programs.items_card_about,
-  course_data: state.programs.items_card_about.map(item => item)
+  data_card: state.programs.items_card_about
 })
 
 const mapDispatchToProps = {

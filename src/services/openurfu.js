@@ -128,18 +128,12 @@ class OpeneduService{
     async getAboutProgramList(program){
         // let response_about = await this.getAboutCourseAPI()
         let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/link_courses_program/${program}`;
-        let arr = []
         let data = await this.getDataAPI(url)
-        data.results.map((item) => {
-            return arr.push({
-                id: item.id,
-                course: item.course,
-                program_slug: item.program_slug,
-                active: item.active,
-                course_id: item.course_id
-            })
-        })
-        return arr
+        return {
+            courses: data.courses,
+            org_slug: data.slug,
+            active: data.active,
+        }
     }
 
     async getOrgAPI(){
@@ -161,10 +155,9 @@ class OpeneduService{
         return arr
     }
 
-    async getAboutOrgList(organizations){
+    async getAboutOrgList(slug){
         // let response_about = await this.getAboutCourseAPI()
-        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/link_courses_org/${organizations}`;
-        let arr = []
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/link_courses_org/${slug}/`;
         let data = await this.getDataAPI(url)
         return {
             courses: data.courses,

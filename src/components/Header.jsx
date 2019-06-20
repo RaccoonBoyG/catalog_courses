@@ -60,7 +60,7 @@ class Header extends Component {
                 </li>
                 <li className="nav-item">
                     {/* <a className="nav-link" href="#">Организации</a> */}
-                    <NavLink to='/org' className="nav-link">Организации</NavLink>
+                    <NavLink to='/orgs' className="nav-link">Организации</NavLink>
                 </li>
                 <li className="nav-item">
                     {/* <a className="nav-link" href="#">Программы</a> */}

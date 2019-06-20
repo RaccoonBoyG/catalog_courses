@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchOrg, fetchAboutOrg } from '../store/organizations/action';
+import { fetchOrg, fetchAboutOrg, fetchAboutOrgList } from '../store/organizations/action';
 import 'animate.css/animate.min.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
@@ -21,6 +21,7 @@ class Organizations extends Component {
 
   postIdAPI(id) {
     this.props.fetchAboutOrg(id)
+    this.props.fetchAboutOrgList(id)
   }
 
   render() {
@@ -62,7 +63,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   fetchOrg,
-  fetchAboutOrg
+  fetchAboutOrg,
+  fetchAboutOrgList
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Organizations);

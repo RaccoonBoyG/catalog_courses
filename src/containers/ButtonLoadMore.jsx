@@ -7,8 +7,8 @@ class ButtonLoadMore extends Component {
 	render(){
     const {LoadMoreTest} = this.props
 	  return (
-      <div className="load-container mp-auto">
-      <button className="btn btn-dark loadmore" id='loadmore-btn' onClick={LoadMoreTest}>Показать ещё</button>
+      <div className="d-flex flex-row justify-content-center p-3 m-3 load-container ">
+      <button className="btn btn-custom-dark loadmore" id='loadmore-btn' onClick={LoadMoreTest}>Показать ещё</button>
     </div>
     )
   }

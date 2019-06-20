@@ -30,8 +30,8 @@ class App extends Component {
               <Route path="/about" component={AboutUs} />
               <Route path="/privacy" component={Privacy} />
               <Route path="/tech" component={Tech} />
-              <Route path="/org/:org" component={OrganizationAbout} />
-              <Route path="/org" component={Organization} />
+              <Route path="/orgs/:org" component={OrganizationAbout} />
+              <Route path="/orgs" component={Organization} />
               <Route path="/programs/:program" component={ProgramAbout} />
               <Route path="/programs" component={Programs} />
               <Route path="/:id" component={CourseAbout} />
