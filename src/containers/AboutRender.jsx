@@ -8,8 +8,8 @@ import HeaderTitle from '../containers/HeaderTitle';
 const AboutRender = (props) => {
     return (
         <React.Fragment>
-            <HeaderBackground url_image={props.image_background} height={props.height}/>
             <Header />
+            <HeaderBackground url_image={props.image_background} height={props.height}/>
             <HeaderTitle title={props.name} class={props.class} description={props.description} />
         </React.Fragment>
     )

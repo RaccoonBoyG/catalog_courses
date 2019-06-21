@@ -76,6 +76,10 @@ class CourseCard extends Component{
                         <p className="card-catalog-text m-0 p-1"><small><FontAwesomeIcon icon={faGraduationCap} size="1x"/> Ural Fediral University</small></p>
                         <p className="card-catalog-title p-1 mb-0 card-title"><strong style={{overflow: 'hidden', textOverflow: 'ellipsis'}}>{this.truncate(this.state.name,6)}</strong></p>
                         <p className="card-catalog-text p-1 m-0 card-text"><FontAwesomeIcon icon={faClock} size="1x"/> Начало: {this.state.start_display}</p>
+                        
+                    </div>
+                    <div className="flex-row d-flex flex-column pl-3 " style={{position: 'absolute', bottom: '0px'}}>
+                        <p className='nav-link text-primary p-1 show-about'>Подробнее</p>
                     </div>
                     {/* <div className="flex-row d-flex justify-content-center button-custom pt-3 pb-3">
                         <Link to={{pathname: `${props.url}/${props.slug}`}} onClick={props.handleClick(props.slug)}>

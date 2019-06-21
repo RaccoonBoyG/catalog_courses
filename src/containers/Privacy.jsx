@@ -4,13 +4,15 @@ import HeaderBackground from './HeaderBackground';
 
 
 class Privacy extends Component {
-
+    componentDidMount() {
+        window.scrollTo(0, 0)
+    }
 
 	render(){
 	  return (
         <React.Fragment>
-        <HeaderBackground />
         <Header />
+        <HeaderBackground />
     <div className="container jumbotron text-custom-dark p-5 mt-3">
         <h1>
             Политика конфиденциальности

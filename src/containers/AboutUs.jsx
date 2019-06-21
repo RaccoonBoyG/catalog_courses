@@ -9,8 +9,8 @@ class AboutUs extends Component {
 	render(){
 	  return (
           <React.Fragment>
-              <HeaderBackground />
-              <Header />
+            <Header />  
+            <HeaderBackground />
             <div className="container jumbotron aboutUs text-custom-dark p-5 mt-3">
                 <div className="about-back"></div>
 

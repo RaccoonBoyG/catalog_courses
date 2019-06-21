@@ -37,10 +37,14 @@ html {
       height: rem(750);
     }
     .top-txt-container{
-      min-height: rem(700);
+      min-height: rem(800);
     }
     .top-txt-container-sub{
-      min-height: rem(250);
+      min-height: rem(300);
+    }
+    .p-custom {
+      padding-left: 3rem !important;
+      padding-right: 3rem !important;
     }
   }
   @media only screen and (min-width: $tableWidth) and (max-width: $desktopWidth) {
@@ -48,10 +52,14 @@ html {
       height: rem(550);
     }
     .top-txt-container{
-      min-height: rem(500);
+      min-height: rem(600);
     }
     .top-txt-container-sub{
-      min-height: rem(270);
+      min-height: rem(310);
+    }
+    .p-custom {
+      padding-left: 3rem !important;
+      padding-right: 3rem !important;
     }
   }
   @media only screen and (min-width: $phoneWidth) and (max-width: $tableWidth) {
@@ -59,13 +67,17 @@ html {
       height: rem(400);
     }
     .top-txt-container{
-      min-height: rem(350);
+      min-height: rem(420);
     }
     .top-txt-container-sub{
-      min-height: rem(270);
+      min-height: rem(330);
     }
     .custom-profile-img{
       display: none;
+    }
+    .p-custom {
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
     }
   }
   @media only screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
@@ -73,13 +85,17 @@ html {
       height: rem(400);
     }
     .top-txt-container{
-      min-height: rem(300);
+      min-height: rem(420);
     }
     .top-txt-container-sub{
-      min-height: rem(200);
+      min-height: rem(360);
     }
     .custom-profile-img{
       display: none;
+    }
+    .p-custom {
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem  !important;
     }
   }
 
@@ -88,13 +104,17 @@ html {
       height: rem(400);
     }
     .top-txt-container{
-      min-height: rem(300);
+      min-height: rem(430);
     }
     .top-txt-container-sub{
-      min-height: rem(200);
+      min-height: rem(350);
     }
     .custom-profile-img{
       display: none;
+    }
+    .p-custom {
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem  !important;
     }
   }
 }

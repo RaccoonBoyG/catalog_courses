@@ -17,7 +17,7 @@ let backImg ={
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     width: '100%',
-    height: '1000px',
+    height: '100%',
     position:'absolute',
     zIndex: '-99999',
     backgroundPositionY: 'top',

@@ -8,6 +8,7 @@ import { fetchUserState } from '../store/user/action';
 import RenderProfileYes from '../containers/RenderProfileYes';
 import RenderProfileNo from '../containers/RenderProfileNo';
 import MyCourses from '../containers/MyCourses';
+import {MEDIA_LS_URL} from '../services/openurfu';
 
 class Header extends Component {
 
@@ -22,7 +23,7 @@ class Header extends Component {
         <React.Fragment>
         {/* <div className="bg_img" style={backgroundImg}></div> */}
         {/* <img className="bg_img" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt=""/> */}
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar p-custom navbar-expand-lg navbar-dark bg-custom-dark2">
         <NavLink className="navbar-brand" exact to="/">
             {/* <img src="https://static.tildacdn.com/tild3666-6334-4532-b962-623565613665/_intro_110px.png"  width="110" img-field="img" alt=""/> */}
             <svg version="1.0" className="brand_img" xmlns="http://www.w3.org/2000/svg"
@@ -71,6 +72,14 @@ class Header extends Component {
                     <NavLink to='/about' className="nav-link">О нас</NavLink>
                 </li>
                 { isAuth ? <MyCourses /> : null }
+
+                { isAuth ? null : 
+                <li className="nav-item">
+                    <a href={`${MEDIA_LS_URL}/register`} className="nav-link" id="href">
+                        Регистрация
+                    </a>
+                </li>
+                }
             </ul>
             {/* <form className="form-inline my-2 my-lg-0">
                 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -84,8 +93,8 @@ class Header extends Component {
             { isAuth ? <RenderProfileYes /> : <RenderProfileNo /> }
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-        </button>
+                <span className="navbar-toggler-icon"></span>
+            </button>
     </nav>
     </React.Fragment>        
         // <div className="navbar-container">

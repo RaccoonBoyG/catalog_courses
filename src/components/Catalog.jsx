@@ -15,8 +15,8 @@ class Catalog extends Component {
   render() {
     return (
       <React.Fragment>
-        <HeaderBackground />
         <Header />
+        <HeaderBackground />
         <HeaderTitle title={'Региональный центр компетенций'} class={'top-txt-container'} />
         <Courses />
         <ButtonScrollToTop />

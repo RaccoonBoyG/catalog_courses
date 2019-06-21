@@ -44,8 +44,8 @@ class Organizations extends Component {
 
     return (
       <React.Fragment>
-        <HeaderBackground height={350} />
         <Header />
+        <HeaderBackground height={350} />
         <HeaderTitle title={'Организации'} class={'top-txt-container-sub'} />
         <div className='flex-row p-5 '>
           <div className='d-flex flex-wrap flex-row'>

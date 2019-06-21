@@ -109,6 +109,10 @@
 	transition: all .3s ease-in-out;
 }
 
+.show-about{
+	display: none;
+}
+
 .card-height:hover{
 	.shadow-effect{
 		background-color: $navbar-color;
@@ -129,5 +133,14 @@
 		-webkit-transform:translateX(-50%);
 		-moz-transform:translateX(-50%);
 		transform:translateX(-50%);
+		box-shadow: 0px 0px 8px 2px #000000;
+	}
+
+	.show-about{
+		display:block;
+		-webkit-animation: fadeInUp .3s;
+		animation: fadeInUp .3s;
 	}
 }
+
+
