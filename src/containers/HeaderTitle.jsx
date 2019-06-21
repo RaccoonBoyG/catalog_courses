@@ -17,7 +17,7 @@ const HeaderTitle = (props) => (
 
 const HeaderDescription = (props) => (
      <React.Fragment>
-         <div className="d-flex">
+         <div className="d-flex mobile-action">
             <div className="container mt-5">
                 <p>{props.desc}</p>
             </div>

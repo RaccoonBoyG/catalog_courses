@@ -79,6 +79,9 @@ html {
       padding-left: 1.5rem !important;
       padding-right: 1.5rem !important;
     }
+    .mobile-action{
+      display: none !important;
+    }
   }
   @media only screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
     .bg_img{
@@ -96,6 +99,9 @@ html {
     .p-custom {
       padding-left: 1.5rem !important;
       padding-right: 1.5rem  !important;
+    }
+    .mobile-action{
+      display: none !important;
     }
   }
 
@@ -115,6 +121,9 @@ html {
     .p-custom {
       padding-left: 1.5rem !important;
       padding-right: 1.5rem  !important;
+    }
+    .mobile-action{
+      display: none !important;
     }
   }
 }
