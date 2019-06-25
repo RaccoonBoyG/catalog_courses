@@ -17,7 +17,7 @@ class Catalog extends Component {
       <React.Fragment>
         <Header />
         <HeaderBackground />
-        <HeaderTitle title={'Региональный центр компетенций'} class={'top-txt-container'} />
+        <HeaderTitle title={'Онлайн-курсы УрФУ'} class={'top-txt-container'} />
         <Courses />
         <ButtonScrollToTop />
       </React.Fragment>

@@ -1,9 +1,9 @@
 
-const OPENEDU_ENDPOINT = `http://media.ls.urfu.ru:8080/api`;
+const OPENEDU_ENDPOINT = `//courses.openedu.urfu.ru/api`;
 const COURSES_ENDPOINT = `/courses/v1/courses/`;
 const DEFAULT_QUERY = 1;
 const PAGE_PARAM = `?page=`;
-export const MEDIA_LS_URL = `http://media.ls.urfu.ru:8080`;
+export const MEDIA_LS_URL = `//courses.openedu.urfu.ru`;
 
 class OpeneduService{
 
@@ -81,7 +81,7 @@ class OpeneduService{
 
     async getAboutItem(id){
         // let response_about = await this.getAboutCourseAPI()
-        let url = `${OPENEDU_ENDPOINT}/courses/v1/courses/${id}`;
+        let url = `${OPENEDU_ENDPOINT}/courses/v1/courses/${id}/`;
         let data = await this.getDataAPI(url)
         return ({
                 name: data.name,
@@ -95,7 +95,7 @@ class OpeneduService{
 
     async getAboutProgramItem(program){
         // let response_about = await this.getAboutCourseAPI()
-        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/programs/${program}`;
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/programs/${program}/`;
         let data = await this.getDataAPI(url)
         return {
             id: data.id,
@@ -111,7 +111,7 @@ class OpeneduService{
 
     async getAboutOrgItem(organizations){
         // let response_about = await this.getAboutCourseAPI()
-        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/organizations/${organizations}`;
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/organizations/${organizations}/`;
         let data = await this.getDataAPI(url)
         return {
             id: data.id,
@@ -127,7 +127,7 @@ class OpeneduService{
 
     async getAboutProgramList(program){
         // let response_about = await this.getAboutCourseAPI()
-        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/link_courses_program/${program}`;
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/link_courses_program/${program}/`;
         let data = await this.getDataAPI(url)
         return {
             courses: data.courses,
@@ -186,7 +186,7 @@ class OpeneduService{
     }
 
     async CheckAuthAPI() {
-        let url = `${OPENEDU_ENDPOINT}/user/v1/accounts`
+        let url = `${OPENEDU_ENDPOINT}/user/v1/accounts/`
         let arr = []
         let data = await this.getDataAPI(url)
         data.map((item) => {
@@ -206,7 +206,7 @@ class OpeneduService{
     }
 
     async CheckEnrollCourseItooAPI(id) {
-        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/enrollment/${id}`
+        let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/enrollment/${id}/`
         let data = await this.getDataAPI(url)
         return data.map((item) => item.course_details.course_id===id ? true : false)
     }
