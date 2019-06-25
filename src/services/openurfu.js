@@ -1,5 +1,6 @@
 
 const OPENEDU_ENDPOINT = `//courses.openedu.urfu.ru/api`;
+const OPENEDU_ENDPOINT2 = `https://courses.openedu.urfu.ru/api`
 const COURSES_ENDPOINT = `/courses/v1/courses/`;
 const DEFAULT_QUERY = 1;
 const PAGE_PARAM = `?page=`;
@@ -186,7 +187,7 @@ class OpeneduService{
     }
 
     async CheckAuthAPI() {
-        let url = `${OPENEDU_ENDPOINT}/user/v1/accounts/`
+        let url = `${OPENEDU_ENDPOINT2}/user/v1/accounts`
         let arr = []
         let data = await this.getDataAPI(url)
         data.map((item) => {
