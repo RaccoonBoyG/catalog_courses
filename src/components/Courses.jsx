@@ -17,8 +17,6 @@ class Courses extends Component {
   // slice(0,size).map ...
 
   _renderItemsCard() {
-    console.log(this.props.data);
-
     return this.props.data.map((item, key) => {
       return <CourseCard value={item} key={key} />;
     });
@@ -33,7 +31,6 @@ class Courses extends Component {
     const input_test = e.target.value;
     this.props.searchInput(input_test);
 
-    console.log(input_test.length);
     if (input_test.length > 0) {
       $('.t-site-search-close').addClass('show_close');
     } else $('.t-site-search-close').removeClass('show_close');
