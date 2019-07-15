@@ -17,130 +17,196 @@
 @import './scss/modules/cardItemOrg';
 
 @import './scss/modules/buttonUp';
+
+@import './scss/modules/mobileFilter';
+@import './scss/modules/mobileMenu';
+
+@import './scss/modules/searchInput';
+
 html {
   line-height: $mainLineHeight;
-	font-size: $mainFontSize;
-	color: $mainFontColor;
+  font-size: $mainFontSize;
+  color: $mainFontColor;
   height: 100%;
   @media screen and (max-width: $desktopWidth) {
     font-size: 16px;
   }
   @media screen and (max-width: $tableWidth) {
-		font-size: 15px;
+    font-size: 15px;
   }
   @media screen and (max-width: $phoneWidth) {
-		font-size: 14px;
+    font-size: 14px;
   }
-  
+
   @media only screen and (min-width: $desktopWidth) and (max-width: $lgDesktopWidth) {
-    .bg_img{
+    .bg_img {
       height: rem(750);
     }
-    .top-txt-container{
+    .top-txt-container {
       min-height: rem(800);
     }
-    .top-txt-container-sub{
-      min-height: rem(300);
+    .top-txt-container-sub {
+      min-height: rem(200);
     }
     .p-custom {
       padding-left: 3rem !important;
       padding-right: 3rem !important;
     }
+    .p-custom-2 {
+      padding: 3rem;
+    }
+    .header {
+      display: none;
+    }
   }
   @media only screen and (min-width: $tableWidth) and (max-width: $desktopWidth) {
-    .bg_img{
+    .bg_img {
       height: rem(550);
     }
-    .top-txt-container{
+    .top-txt-container {
       min-height: rem(600);
     }
-    .top-txt-container-sub{
+    .top-txt-container-sub {
       min-height: rem(310);
     }
     .p-custom {
       padding-left: 3rem !important;
       padding-right: 3rem !important;
     }
+    .p-custom-2 {
+      padding: 3rem;
+    }
+    .header {
+      display: none;
+    }
   }
   @media only screen and (min-width: $phoneWidth) and (max-width: $tableWidth) {
-    .bg_img{
+    .bg_img {
       height: rem(400);
     }
-    .top-txt-container{
+    .top-txt-container {
       min-height: rem(420);
     }
-    .top-txt-container-sub{
+    .top-txt-container-sub {
       min-height: rem(330);
     }
-    .custom-profile-img{
+    .custom-profile-img {
       display: none;
     }
     .p-custom {
       padding-left: 1.5rem !important;
       padding-right: 1.5rem !important;
     }
-    .mobile-action{
+    .p-custom-2 {
+      padding: 1rem;
+    }
+    .mobile-action {
       display: none !important;
+    }
+    .navbar {
+      display: none;
+    }
+    .filter_pc {
+      display: none;
+    }
+    .search_pc {
+      display: none;
+    }
+    .header {
+      display: block;
+    }
+    .container-course_about {
+      margin-top: 4rem !important;
     }
   }
   @media only screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
-    .bg_img{
+    .bg_img {
       height: rem(400);
     }
-    .top-txt-container{
+    .top-txt-container {
       min-height: rem(420);
     }
-    .top-txt-container-sub{
+    .top-txt-container-sub {
       min-height: rem(360);
     }
-    .custom-profile-img{
+    .custom-profile-img {
       display: none;
     }
     .p-custom {
       padding-left: 1.5rem !important;
-      padding-right: 1.5rem  !important;
+      padding-right: 1.5rem !important;
     }
-    .mobile-action{
+    .p-custom-2 {
+      padding: 1rem;
+    }
+    .mobile-action {
       display: none !important;
+    }
+    .navbar {
+      display: none;
+    }
+    .filter_pc {
+      display: none;
+    }
+    .search_pc {
+      display: none;
+    }
+    .container-course_about {
+      margin-top: 4rem !important;
     }
   }
 
   @media only screen and (min-width: 0) and (max-width: $smPhoneWidth) {
-    .bg_img{
+    .bg_img {
       height: rem(400);
     }
-    .top-txt-container{
+    .top-txt-container {
       min-height: rem(430);
     }
-    .top-txt-container-sub{
+    .top-txt-container-sub {
       min-height: rem(350);
     }
-    .custom-profile-img{
+    .custom-profile-img {
       display: none;
     }
     .p-custom {
       padding-left: 1.5rem !important;
-      padding-right: 1.5rem  !important;
+      padding-right: 1.5rem !important;
     }
-    .mobile-action{
+    .p-custom-2 {
+      padding: 1rem;
+    }
+    .mobile-action {
       display: none !important;
+    }
+    .navbar {
+      display: none;
+    }
+    .filter_pc {
+      display: none;
+    }
+    .search_pc {
+      display: none;
+    }
+    .container-course_about {
+      margin-top: 4rem !important;
     }
   }
 }
 
 body {
   font-family: $mainFont;
-	font-family: $mainFontSize;
+  font-family: $mainFontSize;
   font-weight: $mainFontWeight;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
   color: $default-color;
+  font-size: 16px;
+  background: url('http://itoo.urfu.ru/Content/images/bg.jpg') repeat center 0;
 }
 
-.text-muted{
+.text-muted {
   font-family: $font-name-urfu;
 }
-
-

@@ -1,32 +1,104 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NavLink, withRouter } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom';
 
 // import logo from '../static/img/logo_full.png'
 // import Search from './Search';
 import { fetchUserState } from '../store/user/action';
+import { searchInput, resetSearch } from '../store/cards/action';
 import RenderProfileYes from '../containers/RenderProfileYes';
 import RenderProfileNo from '../containers/RenderProfileNo';
 import MyCourses from '../containers/MyCourses';
-import {MEDIA_LS_URL} from '../services/openurfu';
+import { MEDIA_LS_URL } from '../services/openurfu';
+import { IoIosSearch } from 'react-icons/io';
+import { IconContext } from 'react-icons';
+import $ from 'jquery';
+import MobileFilter from '../containers/MobileFilter';
+import MobileMenu from '../containers/MobileMenu';
+
+// import { faSearch } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showComponentMenu: false,
+      showComponentFilter: false,
+      term: ''
+    };
+    this._onButtonClickMenu = this._onButtonClickMenu.bind(this);
+    this._onButtonClickFilter = this._onButtonClickFilter.bind(this);
+    this._handleTextChange = this._handleTextChange.bind(this);
+    this.submitSearch = this.submitSearch.bind(this);
+    this.resetInput = this.resetInput.bind(this);
+  }
 
-    componentDidMount() {
-        this.props.fetchUserState()
-    }
+  componentDidMount() {
+    this.props.fetchUserState();
+    var header = document.querySelector('.header');
+    var icon = document.querySelector('.icon-container');
+    var icon_search = document.querySelector('.icon-container-search');
+    if (this.props.history.location.pathname === '/')
+      icon_search.onclick = function() {
+        header.classList.toggle('menu-open');
+      };
+    icon.onclick = function() {
+      header.classList.toggle('menu-open');
+    };
+  }
+  updateData(config) {
+    this.setState(config);
+  }
 
-	render(){
-    const { isAuth } = this.props
-    
-	  return (
-        <React.Fragment>
+  _onButtonClickMenu() {
+    this.updateData({ showComponentMenu: true, showComponentFilter: false });
+  }
+
+  _onButtonClickFilter() {
+    this.updateData({ showComponentFilter: true, showComponentMenu: false });
+  }
+
+  _handleTextChange(e) {
+    this.updateData({
+      ...this.state,
+      term: e.target.value
+    });
+  }
+
+  submitSearch() {
+    this.props.searchInput(this.state.term);
+    var header = document.querySelector('.header');
+    header.classList.toggle('menu-open');
+    this.updateData({ showComponentFilter: false, showComponentMenu: false });
+    this.props.history.push('/');
+  }
+
+  resetInput() {
+    this.props.resetSearch();
+    $('.search-slt').val('');
+    this.updateData({
+      ...this.state,
+      term: ''
+    });
+  }
+
+  render() {
+    const { isAuth } = this.props;
+
+    return (
+      <React.Fragment>
         {/* <div className="bg_img" style={backgroundImg}></div> */}
         {/* <img className="bg_img" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt=""/> */}
-        <nav className="navbar p-custom navbar-expand-lg navbar-dark bg-custom-dark2">
-        <NavLink className="navbar-brand" exact to="/">
-            {/* <img src="https://static.tildacdn.com/tild3666-6334-4532-b962-623565613665/_intro_110px.png"  width="110" img-field="img" alt=""/> */}
-            <svg version="1.0" className="brand_img" xmlns="http://www.w3.org/2000/svg"
+        <nav className="navbar navbar-expand-lg navbar-light container pl-0 pr-0">
+          <NavLink className="navbar-brand" exact to="/">
+            <img
+              src="http://itoo.urfu.ru/uploadfiles/setting/63b0690c4a2440b68312d324f4658526.png?crop=89,94,907,571&width=160&mode=crop&anchor=center"
+              width="110"
+              img-field="img"
+              alt=""
+            />
+            {/* <svg version="1.0" className="brand_img" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 490.000000 466.000000" preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(0.000000,466.000000) scale(0.100000,-0.100000)">
                     <path d="M406 4228 c-3 -7 -11 -35 -20 -62 -25 -77 -22 -86 22 -86 52 0 142
@@ -46,101 +118,170 @@ class Header extends Component {
                             179 163 57 26 149 51 192 51 31 0 33 3 48 54 9 30 16 66 16 80 l0 26 -630 0
                             -629 0 -10 -37z" />
                 </g>
-            </svg>
-            <p className="navbar_text_small mt-2">
+            </svg> */}
+            {/* <p className="navbar_text_small mt-2">
                 Институт технологий <br />
                 открытого образования
-            </p>
-        </NavLink>
+            </p> */}
+          </NavLink>
 
-        <div className="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
+          <div
+            className="collapse navbar-collapse justify-content-md-center"
+            id="navbarSupportedContent"
+          >
             <ul className="navbar-nav">
-                <li className="nav-item">
-                    {/* <a className="nav-link" href="#">Каталог<span className="sr-only"></span></a> */}
-                    <NavLink exact to='/' className="nav-link">Каталог</NavLink>
-                </li>
-                <li className="nav-item">
-                    {/* <a className="nav-link" href="#">Организации</a> */}
-                    <NavLink to='/orgs' className="nav-link">Организации</NavLink>
-                </li>
-                {/* <li className="nav-item">
+              <li className="nav-item">
+                {/* <a className="nav-link" href="#">Каталог<span className="sr-only"></span></a> */}
+                <NavLink exact to="/" className="nav-link">
+                  Каталог
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                {/* <a className="nav-link" href="#">Организации</a> */}
+                <NavLink to="/orgs" className="nav-link">
+                  Организации
+                </NavLink>
+              </li>
+              {/* <li className="nav-item">
                     <a className="nav-link" href="#">Программы</a>
                     <NavLink to='/programs' className="nav-link">Программы</NavLink>
                 </li> */}
-                <li className="nav-item">
-                    {/* <a className="nav-link" href="#">О нас</a> */}
-                    <NavLink to='/about' className="nav-link">О нас</NavLink>
-                </li>
-                { isAuth ? <MyCourses /> : null }
+              <li className="nav-item">
+                {/* <a className="nav-link" href="#">О нас</a> */}
+                <NavLink to="/about" className="nav-link">
+                  О нас
+                </NavLink>
+              </li>
+              {isAuth ? <MyCourses /> : null}
 
-                { isAuth ? null : 
+              {isAuth ? null : (
                 <li className="nav-item">
-                    <a href={`${MEDIA_LS_URL}/register`} className="nav-link" id="href">
-                        Регистрация
-                    </a>
+                  <a
+                    href={`${MEDIA_LS_URL}/register`}
+                    className="nav-link"
+                    id="href"
+                  >
+                    Регистрация
+                  </a>
                 </li>
-                }
+              )}
             </ul>
             {/* <form className="form-inline my-2 my-lg-0">
                 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form> */}
-        </div>
-        
-            {/* <a href="" id="href">
+          </div>
+
+          {/* <a href="" id="href">
                 <button className="btn btn-outline-primary my-2 my-sm-0">Личный кабинет</button>
             </a> */}
-            { isAuth ? <RenderProfileYes /> : <RenderProfileNo /> }
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          {isAuth ? <RenderProfileYes /> : <RenderProfileNo />}
+          {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
-            </button>
-    </nav>
-    </React.Fragment>        
-        // <div className="navbar-container">
-        // <div className="filter-back"></div>
-        //     <nav className="navbar navbar-expand-lg navbar-light ">
+            </button> */}
+        </nav>
+        <div className="header">
+          {this.props.history.location.pathname === '/' ? (
+            <div
+              style={{ float: 'left' }}
+              className="icon-container-search"
+              onClick={this._onButtonClickFilter}
+            >
+              {/* <div className="p-2"><FontAwesomeIcon icon={faSearch} size="2x" /></div> */}
+              <div className="p-2 m-1" id="menuicon-search">
+                <IconContext.Provider value={{ size: '2em' }}>
+                  <IoIosSearch />
+                </IconContext.Provider>
+              </div>
+            </div>
+          ) : null}
+          <div
+            className="icon-container d-flex p-2 m-1"
+            onClick={this._onButtonClickMenu}
+          >
+            <div id="menuicon" className="d-flex flex-column">
+              <div className="bar bar1"></div>
+              <div className="bar bar2"></div>
+              <div className="bar bar3"></div>
+            </div>
+          </div>
+          {this.state.showComponentMenu ? <MobileMenu isAuth={isAuth} /> : null}
+          {this.state.showComponentFilter &&
+          this.props.history.location.pathname === '/' ? (
+            <MobileFilter
+              _handleTextChange={this._handleTextChange}
+              submitSearch={this.submitSearch}
+              resetInput={this.resetInput}
+              term={this.state.term}
+            />
+          ) : null}
+          {/* <div className="mobile-menu-filter">
+                    <ul className='menu-filter'>
+                    <li className="menu-item-filter">
+                        <NavLink exact to='/' className="nav-link">Каталог</NavLink>
+                    </li>
+                    <li className="menu-item-filter">
+                        <NavLink to='/orgs' className="nav-link">Организации</NavLink>
+                    </li>
+                    <li className="menu-item-filter">
+                        <NavLink to='/about' className="nav-link">О нас</NavLink>
+                    </li>
+                    </ul>
+                </div> */}
+        </div>
+      </React.Fragment>
+      // <div className="navbar-container">
+      // <div className="filter-back"></div>
+      //     <nav className="navbar navbar-expand-lg navbar-light ">
 
-        //     <NavLink className="navbar-brand" exact to="/">
-        //         <img className="logo" src={logo} alt="Открытые образовательные программы"/>
-        //     </NavLink>
-        //     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-        //         <span className="navbar-toggler-icon"></span>
-        //     </button>
-        //     <div className="collapse navbar-collapse justify-content-md-center" id="navbarTogglerDemo01">
-        //         {/* <ul className="navbar-nav mr-auto">
-        //             <Search />
-        //         </ul> */}
-        //         <ul className="navbar-nav">
-        //             <li className="nav-item">
-        //                 <NavLink exact to='/' className="nav-link">Каталог</NavLink>
-        //             </li>
-        //             <li className="nav-item">
-        //                 <NavLink to='/org' className="nav-link">Организации</NavLink>
-        //             </li>
-        //             <li className="nav-item">
-        //                 <NavLink to='/programs' className="nav-link">Программы</NavLink>
-        //             </li>
-        //             <li className="nav-item">
-        //                 <NavLink to='/about' className="nav-link">О нас</NavLink>
-        //             </li>
-        //             { isAuth ? <MyCourses /> : null }
-        //         </ul>
-        //     </div>
-        //         { isAuth ? <RenderProfileYes /> : <RenderProfileNo /> }
-        //     </nav>
-        // </div>
-    )
+      //     <NavLink className="navbar-brand" exact to="/">
+      //         <img className="logo" src={logo} alt="Открытые образовательные программы"/>
+      //     </NavLink>
+      //     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      //         <span className="navbar-toggler-icon"></span>
+      //     </button>
+      //     <div className="collapse navbar-collapse justify-content-md-center" id="navbarTogglerDemo01">
+      //         {/* <ul className="navbar-nav mr-auto">
+      //             <Search />
+      //         </ul> */}
+      //         <ul className="navbar-nav">
+      //             <li className="nav-item">
+      //                 <NavLink exact to='/' className="nav-link">Каталог</NavLink>
+      //             </li>
+      //             <li className="nav-item">
+      //                 <NavLink to='/org' className="nav-link">Организации</NavLink>
+      //             </li>
+      //             <li className="nav-item">
+      //                 <NavLink to='/programs' className="nav-link">Программы</NavLink>
+      //             </li>
+      //             <li className="nav-item">
+      //                 <NavLink to='/about' className="nav-link">О нас</NavLink>
+      //             </li>
+      //             { isAuth ? <MyCourses /> : null }
+      //         </ul>
+      //     </div>
+      //         { isAuth ? <RenderProfileYes /> : <RenderProfileNo /> }
+      //     </nav>
+      // </div>
+    );
   }
 }
 
-const mapStateToProps = (state) =>({
-    data: state.user.items_user,
-    isAuth: state.user.isAuth
-  })
+const mapStateToProps = state => ({
+  data: state.user.items_user,
+  isAuth: state.user.isAuth
+});
 
 const mapDispatchToProps = {
-    fetchUserState
-  }
-  
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+  fetchUserState,
+  searchInput,
+  resetSearch
+};
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Header)
+);

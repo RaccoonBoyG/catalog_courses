@@ -9,25 +9,36 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "animate.css": "^3.7.2",
     "bootstrap": "^4.3.1",
-    "dompurify": "^1.0.10",
+    "dompurify": "^1.0.11",
     "font-awesome": "^4.7.0",
+    "husky": "^3.0.0",
     "i": "^0.3.6",
     "jquery": "^3.4.1",
+    "lint-staged": "^9.2.0",
     "node-sass": "^4.12.0",
     "normalize.css": "^8.0.1",
-    "npm": "^6.9.0",
+    "npm": "^6.10.0",
+    "npm-check-updates": "^3.1.17",
     "popper.js": "^1.15.0",
+    "prettier": "^1.18.2",
     "ramda": "^0.26.1",
     "react": "^16.8.6",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.8.6",
+    "react-icons": "^3.7.0",
     "react-redux": "7.1.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-router-redux": "^4.0.8",
     "react-scripts": "^3.0.1",
-    "redux": "4.0.1",
+    "redux": "4.0.2",
     "redux-thunk": "2.3.0"
+  },
+  "lint-staged": {
+      "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+        "prettier --single-quote --write",
+        "git add"
+    ]
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,14 +49,18 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+   "husky": {
+        "hooks": {
+        "pre-commit": "lint-staged"
+    }
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
-    "not ie <= 11",
-    "not op_mini all"
+    "not ie <= 11"
   ],
   "devDependencies": {
     "redux-devtools-extension": "^2.13.8",
-    "ws": "7.0.0"
+    "ws": "7.1.0"
   }
 }

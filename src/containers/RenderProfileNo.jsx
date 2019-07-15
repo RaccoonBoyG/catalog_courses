@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 
-import {MEDIA_LS_URL} from '../services/openurfu';
+import { MEDIA_LS_URL } from '../services/openurfu';
 
 class RenderProfileNo extends Component {
-
-	render(){
-
+  render() {
     return (
-    <React.Fragment>
+      <React.Fragment>
         {/* <div className="form-inline my-2 my-lg-0 mr-2">
             <a href={`${MEDIA_LS_URL}/register`} id="href">
             <button className="btn btn-outline-primary my-2 my-sm-0">Регистрация</button>  
@@ -15,13 +13,15 @@ class RenderProfileNo extends Component {
         </div> */}
 
         <div className="form-inline my-2 my-lg-0">
-            <a href={`${MEDIA_LS_URL}/login`} id="href">
-            <button className="btn btn-outline-primary my-2 my-sm-0">Вход</button>  
-            </a>
+          <a href={`${MEDIA_LS_URL}/login`} id="href">
+            <button className="btn btn-outline-primary my-2 my-sm-0">
+              Вход
+            </button>
+          </a>
         </div>
-    </React.Fragment>
-    )
+      </React.Fragment>
+    );
   }
 }
-  
+
 export default RenderProfileNo;
