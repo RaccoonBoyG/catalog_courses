@@ -1,10 +1,10 @@
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
 
 const initialState = {
   items: [],
   item_all: [],
   num_obj: 10,
-  input: '',
+  input: "",
   err: null,
   page: 2,
   isHideButton: true,

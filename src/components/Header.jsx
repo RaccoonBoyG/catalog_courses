@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { NavLink, withRouter } from 'react-router-dom';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { NavLink, withRouter } from "react-router-dom";
 
 // import logo from '../static/img/logo_full.png'
 // import Search from './Search';
-import { fetchUserState } from '../store/user/action';
-import { searchInput, resetSearch } from '../store/cards/action';
-import RenderProfileYes from '../containers/RenderProfileYes';
-import RenderProfileNo from '../containers/RenderProfileNo';
-import MyCourses from '../containers/MyCourses';
-import { MEDIA_LS_URL } from '../services/openurfu';
-import { IoIosSearch } from 'react-icons/io';
-import { IconContext } from 'react-icons';
-import $ from 'jquery';
-import MobileFilter from '../containers/MobileFilter';
-import MobileMenu from '../containers/MobileMenu';
+import { fetchUserState } from "../store/user/action";
+import { searchInput, resetSearch } from "../store/cards/action";
+import RenderProfileYes from "../containers/RenderProfileYes";
+import RenderProfileNo from "../containers/RenderProfileNo";
+import MyCourses from "../containers/MyCourses";
+import { MEDIA_LS_URL } from "../services/openurfu";
+import { IoIosSearch } from "react-icons/io";
+import { IconContext } from "react-icons";
+import $ from "jquery";
+import MobileFilter from "../containers/MobileFilter";
+import MobileMenu from "../containers/MobileMenu";
 
 // import { faSearch } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -25,7 +25,7 @@ class Header extends Component {
     this.state = {
       showComponentMenu: false,
       showComponentFilter: false,
-      term: ''
+      term: ""
     };
     this._onButtonClickMenu = this._onButtonClickMenu.bind(this);
     this._onButtonClickFilter = this._onButtonClickFilter.bind(this);
@@ -36,15 +36,15 @@ class Header extends Component {
 
   componentDidMount() {
     this.props.fetchUserState();
-    var header = document.querySelector('.header');
-    var icon = document.querySelector('.icon-container');
-    var icon_search = document.querySelector('.icon-container-search');
-    if (this.props.history.location.pathname === '/')
+    var header = document.querySelector(".header");
+    var icon = document.querySelector(".icon-container");
+    var icon_search = document.querySelector(".icon-container-search");
+    if (this.props.history.location.pathname === "/")
       icon_search.onclick = function() {
-        header.classList.toggle('menu-open');
+        header.classList.toggle("menu-open");
       };
     icon.onclick = function() {
-      header.classList.toggle('menu-open');
+      header.classList.toggle("menu-open");
     };
   }
   updateData(config) {
@@ -68,18 +68,18 @@ class Header extends Component {
 
   submitSearch() {
     this.props.searchInput(this.state.term);
-    var header = document.querySelector('.header');
-    header.classList.toggle('menu-open');
+    var header = document.querySelector(".header");
+    header.classList.toggle("menu-open");
     this.updateData({ showComponentFilter: false, showComponentMenu: false });
-    this.props.history.push('/');
+    this.props.history.push("/");
   }
 
   resetInput() {
     this.props.resetSearch();
-    $('.search-slt').val('');
+    $(".search-slt").val("");
     this.updateData({
       ...this.state,
-      term: ''
+      term: ""
     });
   }
 
@@ -182,15 +182,15 @@ class Header extends Component {
             </button> */}
         </nav>
         <div className="header">
-          {this.props.history.location.pathname === '/' ? (
+          {this.props.history.location.pathname === "/" ? (
             <div
-              style={{ float: 'left' }}
+              style={{ float: "left" }}
               className="icon-container-search"
               onClick={this._onButtonClickFilter}
             >
               {/* <div className="p-2"><FontAwesomeIcon icon={faSearch} size="2x" /></div> */}
               <div className="p-2 m-1" id="menuicon-search">
-                <IconContext.Provider value={{ size: '2em' }}>
+                <IconContext.Provider value={{ size: "2em" }}>
                   <IoIosSearch />
                 </IconContext.Provider>
               </div>
@@ -208,7 +208,7 @@ class Header extends Component {
           </div>
           {this.state.showComponentMenu ? <MobileMenu isAuth={isAuth} /> : null}
           {this.state.showComponentFilter &&
-          this.props.history.location.pathname === '/' ? (
+          this.props.history.location.pathname === "/" ? (
             <MobileFilter
               _handleTextChange={this._handleTextChange}
               submitSearch={this.submitSearch}

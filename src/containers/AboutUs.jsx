@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import Header from '../components/Header';
-import HeaderBackground from './HeaderBackground';
-import scroll from '../components/scroll';
-import ButtonScrollToTop from './ButtonScrollToTop';
+import React, { Component } from "react";
+import Header from "../components/Header";
+import HeaderBackground from "./HeaderBackground";
+import scroll from "../components/scroll";
+import ButtonScrollToTop from "./ButtonScrollToTop";
 
 class AboutUs extends Component {
   componentDidMount() {

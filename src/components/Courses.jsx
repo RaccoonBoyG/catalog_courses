@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
   fetchCards,
   LoadMoreTest,
   searchInput,
   resetSearch,
   fetchCardsAll
-} from '../store/cards/action';
-import CourseCard from './CourseCard';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ButtonLoadMore from '../containers/ButtonLoadMore';
-import $ from 'jquery';
+} from "../store/cards/action";
+import CourseCard from "./CourseCard";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ButtonLoadMore from "../containers/ButtonLoadMore";
+import $ from "jquery";
 
 class Courses extends Component {
   // slice(0,size).map ...
@@ -32,13 +32,13 @@ class Courses extends Component {
     this.props.searchInput(input_test);
 
     if (input_test.length > 0) {
-      $('.t-site-search-close').addClass('show_close');
-    } else $('.t-site-search-close').removeClass('show_close');
+      $(".t-site-search-close").addClass("show_close");
+    } else $(".t-site-search-close").removeClass("show_close");
   }
   _resetSearchResult() {
     this.props.resetSearch();
-    $('.t-input').val(null);
-    $('.t-site-search-close').removeClass('show_close');
+    $(".t-input").val(null);
+    $(".t-site-search-close").removeClass("show_close");
   }
 
   render() {
@@ -56,7 +56,7 @@ class Courses extends Component {
               <h3 className="text-custom-dark">Поиск</h3>
             </div>
             <div className="d-flex flex-row">
-              <div className="flex-column p-0" style={{ width: '100%' }}>
+              <div className="flex-column p-0" style={{ width: "100%" }}>
                 <div className="t-site-search-input">
                   <div className="t838__blockinput">
                     <input
@@ -93,28 +93,28 @@ class Courses extends Component {
             </div>
           </div>
         </div>
-        <div className="container pb-3 mb-3 p-0" style={{ marginTop: '5rem' }}>
+        <div className="container pb-3 mb-3 p-0" style={{ marginTop: "5rem" }}>
           <h3 className="text-custom-dark mb-3 pl-3">Курсы</h3>
           <div className="flex-row">
             <div className="d-flex flex-wrap flex-row">
               {this.props.loading && this.props.data.length === 0 ? (
                 <div
                   className="d-flex flex-row justify-content-center align-items-center"
-                  style={{ width: '100%', height: '350px' }}
+                  style={{ width: "100%", height: "350px" }}
                 >
                   <FontAwesomeIcon
                     icon={faSpinner}
                     size="3x"
                     spin
                     color="#000"
-                    style={{ width: '100%' }}
+                    style={{ width: "100%" }}
                   />
                 </div>
               ) : null}
               {!this.props.loading && this.props.data.length === 0 ? (
                 <h3
                   className="text-custom-dark d-flex flex-row justify-content-center align-items-center"
-                  style={{ width: '100%', height: '350px' }}
+                  style={{ width: "100%", height: "350px" }}
                 >
                   Ничего не найдено :(
                 </h3>

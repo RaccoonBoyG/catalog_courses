@@ -1,10 +1,10 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-import { MEDIA_LS_URL } from '../services/openurfu';
+import { MEDIA_LS_URL } from "../services/openurfu";
 
-import MyCoursesMobile from './MyCoursesMobile';
-import RenderProfileYes from '../containers/RenderProfileYes';
+import MyCoursesMobile from "./MyCoursesMobile";
+import RenderProfileYes from "../containers/RenderProfileYes";
 
 const MobileMenu = props => {
   return (

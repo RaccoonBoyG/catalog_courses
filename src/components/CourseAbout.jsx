@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchAbout } from '../store/course_about/action';
-import { fetchEnrollState } from '../store/user/action';
-import 'animate.css/animate.min.css';
-import ButtonEnroll from '../containers/ButtonEnroll';
-import ButtonReadMore from '../containers/ButtonReadMore';
-import dompurify from 'dompurify';
-import AboutRender from '../containers/AboutRender';
-import scroll from './scroll';
-import ButtonScrollToTop from '../containers/ButtonScrollToTop';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchAbout } from "../store/course_about/action";
+import { fetchEnrollState } from "../store/user/action";
+import "animate.css/animate.min.css";
+import ButtonEnroll from "../containers/ButtonEnroll";
+import ButtonReadMore from "../containers/ButtonReadMore";
+import dompurify from "dompurify";
+import AboutRender from "../containers/AboutRender";
+import scroll from "./scroll";
+import ButtonScrollToTop from "../containers/ButtonScrollToTop";
 //background-image: url('//openedu.urfu.ru/files/courses_catalog/bg-nav.jpeg');
-import { IoMdArrowBack } from 'react-icons/io';
-import { IconContext } from 'react-icons';
+import { IoMdArrowBack } from "react-icons/io";
+import { IconContext } from "react-icons";
 
 let backImg = {
   backgroundImage: "url('//openedu.urfu.ru/files/courses_catalog/bg-nav.jpeg')",
-  backgroundPosition: 'center',
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  width: '100%',
-  height: '100%',
-  position: 'absolute',
-  zIndex: '-99999',
-  backgroundPositionY: 'top'
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  width: "100%",
+  height: "100%",
+  position: "absolute",
+  zIndex: "-99999",
+  backgroundPositionY: "top"
 };
 
 class CourseAbout extends Component {
@@ -40,7 +40,7 @@ class CourseAbout extends Component {
       <React.Fragment>
         <AboutRender
           name={data.name}
-          class={'top-txt-container-sub'}
+          class={"top-txt-container-sub"}
           height={321}
         />
         <div style={{ ...backImg }}></div>
@@ -50,7 +50,7 @@ class CourseAbout extends Component {
               className="btn btn-primary m-3"
               onClick={this.props.history.goBack}
             >
-              <IconContext.Provider value={{ size: '2em' }}>
+              <IconContext.Provider value={{ size: "2em" }}>
                 <IoMdArrowBack />
               </IconContext.Provider>
             </button>
