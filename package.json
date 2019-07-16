@@ -46,11 +46,6 @@
       "plugin:prettier/recommended"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
