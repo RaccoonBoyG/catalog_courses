@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { MEDIA_LS_URL } from '../services/openurfu';
+import { MEDIA_LS_URL } from "../services/openurfu";
 
 class RenderProfileNo extends Component {
   render() {

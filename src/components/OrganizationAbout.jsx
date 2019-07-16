@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
   fetchAboutOrg,
   fetchAboutOrgList
-} from '../store/organizations/action';
-import 'animate.css/animate.min.css';
-import AboutRender from '../containers/AboutRender';
-import CourseListRender from '../containers/CourseListRender';
-import scroll from './scroll';
-import ButtonScrollToTop from '../containers/ButtonScrollToTop';
+} from "../store/organizations/action";
+import "animate.css/animate.min.css";
+import AboutRender from "../containers/AboutRender";
+import CourseListRender from "../containers/CourseListRender";
+import scroll from "./scroll";
+import ButtonScrollToTop from "../containers/ButtonScrollToTop";
 
 class OrganizationAbout extends Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class OrganizationAbout extends Component {
           name={data.name}
           image_background={data.image_background}
           height={200}
-          class={'top-txt-container-sub'}
+          class={"top-txt-container-sub"}
         />
         <div className="container pb-3 mb-3">
           <h3 className="text-custom-dark mb-5">Курсы</h3>

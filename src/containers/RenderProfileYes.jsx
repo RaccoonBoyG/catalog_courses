@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { MEDIA_LS_URL } from '../services/openurfu';
+import { MEDIA_LS_URL } from "../services/openurfu";
 
 class RenderProfileYes extends Component {
   render() {
@@ -11,7 +11,7 @@ class RenderProfileYes extends Component {
         <React.Fragment>
           <a
             href={`${MEDIA_LS_URL}/u/${item.username}`}
-            style={{ listStyle: 'none' }}
+            style={{ listStyle: "none" }}
             className="custom-profile-img"
           >
             <li className="nav-item">
@@ -19,11 +19,11 @@ class RenderProfileYes extends Component {
                 className="rounded"
                 src={item.profile_image}
                 alt={item.username}
-                style={{ maxWidth: '40px', maxHeight: '40px' }}
+                style={{ maxWidth: "40px", maxHeight: "40px" }}
               />
             </li>
           </a>
-          <li class="nav-item dropdown" style={{ listStyle: 'none' }}>
+          <li class="nav-item dropdown" style={{ listStyle: "none" }}>
             <a
               className="nav-link dropdown-toggle text-white"
               href={`${MEDIA_LS_URL}/dashboard`}
@@ -38,7 +38,7 @@ class RenderProfileYes extends Component {
             <div
               className="dropdown-menu"
               aria-labelledby="navbarDropdown"
-              style={{ minWidth: '5rem' }}
+              style={{ minWidth: "5rem" }}
             >
               <a
                 className="dropdown-item"

@@ -1,4 +1,4 @@
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
 
 const initialState = {
   items_user: [],
@@ -8,14 +8,13 @@ const initialState = {
   course_enroll_user: false
 };
 
-export default function usersReducer(state = initialState, {type, payload}) {
-  switch(type) {
-
+export default function usersReducer(state = initialState, { type, payload }) {
+  switch (type) {
     case types.FETCH_USER_STATE_SUCCESS:
       return {
         ...state,
         items_user: payload.data
-      }
+      };
 
     case types.FETCH_USER_STATE_START:
       return {
@@ -28,7 +27,7 @@ export default function usersReducer(state = initialState, {type, payload}) {
         payload: payload.err,
         error: true
       };
-    
+
     case types.FETCH_USER_STATE_AUTH:
       return {
         ...state,
@@ -39,7 +38,7 @@ export default function usersReducer(state = initialState, {type, payload}) {
       return {
         ...state,
         course_enroll_user: payload.course
-      }
+      };
 
     default:
       return state;
@@ -49,12 +48,12 @@ export default function usersReducer(state = initialState, {type, payload}) {
 //selectors
 
 export const fetchUserSuccess = data => ({
-    type: types.FETCH_USER_STATE_SUCCESS,
-    payload: {
-      data
-    }
-  });
-  
+  type: types.FETCH_USER_STATE_SUCCESS,
+  payload: {
+    data
+  }
+});
+
 export const fetchUserFailure = err => ({
   type: types.FETCH_USER_STATE_FAILURE,
   payload: {
@@ -71,7 +70,7 @@ export const UserUnAuth = isAuth => ({
   payload: {
     isAuth
   }
-})
+});
 
 export const fetchCourseEnroll = course => ({
   type: types.FETCH_USER_COURSE_ENROLL,

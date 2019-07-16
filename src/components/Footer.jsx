@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from "react-router-dom";
 
 class Footer extends Component {
   render() {

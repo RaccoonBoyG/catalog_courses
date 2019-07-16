@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { LoadMoreTest } from '../store/cards/action';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { LoadMoreTest } from "../store/cards/action";
 
 class ButtonLoadMore extends Component {
   render() {

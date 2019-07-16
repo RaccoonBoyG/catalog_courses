@@ -1,5 +1,5 @@
-import openeduService from '../../services/openurfu';
-import * as fetchSelectors from '../cards/reducer';
+import openeduService from "../../services/openurfu";
+import * as fetchSelectors from "../cards/reducer";
 
 export function fetchCards() {
   return async dispatch => {

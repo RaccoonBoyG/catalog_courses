@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Header from '../components/Header';
-import HeaderBackground from './HeaderBackground';
+import React, { Component } from "react";
+import Header from "../components/Header";
+import HeaderBackground from "./HeaderBackground";
 
 class Privacy extends Component {
   componentDidMount() {

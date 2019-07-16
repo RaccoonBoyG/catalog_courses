@@ -1,4 +1,4 @@
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
 
 const initialState = {
   items: [],
@@ -8,9 +8,11 @@ const initialState = {
   error: null
 };
 
-export default function organizationsReducer(state = initialState, {type, payload}) {
-  switch(type) {
-
+export default function organizationsReducer(
+  state = initialState,
+  { type, payload }
+) {
+  switch (type) {
     case types.FETCH_ORG_SUCCESS:
       return {
         ...state,
@@ -48,5 +50,5 @@ export const fetchOrganizationAboutSuccess = data_about => ({
 
 export const fetchOrganizationAboutList = data_list => ({
   type: types.FETCH_ORG_ABOUT_LIST_SUCCESS,
-  payload:  { data_list } 
+  payload: { data_list }
 });

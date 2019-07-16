@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchPrograms, fetchAboutProgram } from '../store/programs/action';
-import 'animate.css/animate.min.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchPrograms, fetchAboutProgram } from "../store/programs/action";
+import "animate.css/animate.min.css";
 
-import Header from './Header';
-import HeaderBackground from '../containers/HeaderBackground';
-import HeaderTitle from '../containers/HeaderTitle';
-import ListCard from '../containers/ListCard';
-import scroll from './scroll';
-import ButtonScrollToTop from '../containers/ButtonScrollToTop';
+import Header from "./Header";
+import HeaderBackground from "../containers/HeaderBackground";
+import HeaderTitle from "../containers/HeaderTitle";
+import ListCard from "../containers/ListCard";
+import scroll from "./scroll";
+import ButtonScrollToTop from "../containers/ButtonScrollToTop";
 
 class Programs extends Component {
   constructor(props) {
@@ -45,7 +45,7 @@ class Programs extends Component {
       <React.Fragment>
         <Header />
         <HeaderBackground height={350} />
-        <HeaderTitle title={'Программы'} class={'top-txt-container-sub'} />
+        <HeaderTitle title={"Программы"} class={"top-txt-container-sub"} />
         <div className="flex-row p-5 ">
           <div className="d-flex flex-wrap flex-row">{ProgramsList}</div>
         </div>

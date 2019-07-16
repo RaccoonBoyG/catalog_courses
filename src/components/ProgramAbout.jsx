@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
   fetchAboutProgram,
   fetchAboutProgramList
-} from '../store/programs/action';
-import 'animate.css/animate.min.css';
-import AboutRender from '../containers/AboutRender';
-import CourseListRender from '../containers/CourseListRender';
-import scroll from './scroll';
-import ButtonScrollToTop from '../containers/ButtonScrollToTop';
+} from "../store/programs/action";
+import "animate.css/animate.min.css";
+import AboutRender from "../containers/AboutRender";
+import CourseListRender from "../containers/CourseListRender";
+import scroll from "./scroll";
+import ButtonScrollToTop from "../containers/ButtonScrollToTop";
 
 class ProgramAbout extends Component {
   constructor(props) {

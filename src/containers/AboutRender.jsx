@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import Header from '../components/Header';
-import HeaderBackground from '../containers/HeaderBackground';
-import HeaderTitle from '../containers/HeaderTitle';
+import Header from "../components/Header";
+import HeaderBackground from "../containers/HeaderBackground";
+import HeaderTitle from "../containers/HeaderTitle";
 
 // 'top-txt-container'
 const AboutRender = props => {

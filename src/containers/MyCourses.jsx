@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import { MEDIA_LS_URL } from '../services/openurfu';
+import { MEDIA_LS_URL } from "../services/openurfu";
 
 // class MyCourses extends Component {
 

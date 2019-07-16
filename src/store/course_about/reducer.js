@@ -1,4 +1,4 @@
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
 
 const initialState = {
   items: [],
@@ -7,8 +7,7 @@ const initialState = {
 };
 
 export default function aboutsReducer(state = initialState, action) {
-  switch(action.type) {
-
+  switch (action.type) {
     case types.FETCH_ABOUT_SUCCESS:
       return {
         ...state,

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Header from '../components/Header';
-import HeaderBackground from './HeaderBackground';
+import React, { Component } from "react";
+import Header from "../components/Header";
+import HeaderBackground from "./HeaderBackground";
 
 class Tech extends Component {
   componentDidMount() {
@@ -16,7 +16,7 @@ class Tech extends Component {
           <h1>Технические требования</h1>
           <div
             className="d-flex flex-column "
-            style={{ wordWrap: 'break-word' }}
+            style={{ wordWrap: "break-word" }}
           >
             <h2>Общие</h2>
             <p>
@@ -55,15 +55,15 @@ class Tech extends Component {
                 <b>&nbsp;настольный компьютер, ноутбук или нетбук</b>;
               </li>
               <li>
-                компьютер должен быть оборудован{' '}
+                компьютер должен быть оборудован{" "}
                 <nobr>
                   <b>веб-камерой</b>
                 </nobr>
                 ;
               </li>
               <li>
-                интернет-обозреватель: последняя стабильная версия браузера{' '}
-                <b>Google Chrome</b>;{' '}
+                интернет-обозреватель: последняя стабильная версия браузера{" "}
+                <b>Google Chrome</b>;{" "}
               </li>
               <li>
                 рекомендуемая скорость <nobr>Интернет-соединения</nobr> для
@@ -71,7 +71,7 @@ class Tech extends Component {
                 <nobr>веб-камеры</nobr> <b>от&nbsp;3&nbsp;Мб/сек</b>;
               </li>
               <li>
-                рекомендуемый размер дисплея:{' '}
+                рекомендуемый размер дисплея:{" "}
                 <b>диагональ экрана от&nbsp;13''</b>.
               </li>
               <li>

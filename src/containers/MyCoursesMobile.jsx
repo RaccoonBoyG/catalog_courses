@@ -1,5 +1,5 @@
-import React from 'react';
-import { MEDIA_LS_URL } from '../services/openurfu';
+import React from "react";
+import { MEDIA_LS_URL } from "../services/openurfu";
 
 const MyCoursesMobile = () => {
   return (

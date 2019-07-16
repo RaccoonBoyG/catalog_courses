@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import 'animate.css/animate.min.css';
-import { MEDIA_LS_URL } from '../services/openurfu';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "animate.css/animate.min.css";
+import { MEDIA_LS_URL } from "../services/openurfu";
 
 class ButtonReadMore extends Component {
   constructor(props) {

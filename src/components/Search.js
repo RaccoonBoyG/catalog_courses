@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import '../static/css/Header.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { searchInput } from '../store/cards/action';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import "../static/css/Header.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { searchInput } from "../store/cards/action";
+import { connect } from "react-redux";
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: ""
     };
   }
 

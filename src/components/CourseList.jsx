@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock } from '@fortawesome/free-regular-svg-icons';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
-import 'animate.css/animate.min.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-regular-svg-icons";
+import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
+import "animate.css/animate.min.css";
 
 class CourseList extends Component {
   constructor(props) {
@@ -11,29 +11,29 @@ class CourseList extends Component {
     this.state = {
       name: this.props.value.name,
       link:
-        '//openedu.urfu.ru/files/courses_catalog/' +
+        "//openedu.urfu.ru/files/courses_catalog/" +
         this.props.value.number +
-        '.jpg',
+        ".jpg",
       start_display: this.props.value.start_display,
       short_description: this.props.value.short_description
     };
   }
 
   truncate(str, len) {
-    var dots = '...';
-    var object = str.split(' ');
-    var str_truncate = '';
+    var dots = "...";
+    var object = str.split(" ");
+    var str_truncate = "";
     if (object.length > len) {
-      str_truncate = object.splice(0, len).join(' ') + dots;
+      str_truncate = object.splice(0, len).join(" ") + dots;
     } else {
-      str_truncate = object.splice(0, len).join(' ');
+      str_truncate = object.splice(0, len).join(" ");
     }
     return str_truncate;
   }
 
   description(str) {
-    if (str === '') {
-      str = 'Ленивый преподаватель';
+    if (str === "") {
+      str = "Ленивый преподаватель";
     }
     return str;
   }
@@ -64,7 +64,7 @@ class CourseList extends Component {
                 </p>
                 <p className="card-title">
                   <strong
-                    style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
+                    style={{ overflow: "hidden", textOverflow: "ellipsis" }}
                   >
                     {this.state.name}
                   </strong>
@@ -75,7 +75,7 @@ class CourseList extends Component {
                   </small>
                 </p>
                 <p className="card-text">
-                  <FontAwesomeIcon icon={faClock} size="1x" /> Начало:{' '}
+                  <FontAwesomeIcon icon={faClock} size="1x" /> Начало:{" "}
                   {this.state.start_display}
                 </p>
               </div>

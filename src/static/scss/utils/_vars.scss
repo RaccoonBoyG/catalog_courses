@@ -1,48 +1,47 @@
-$mainFont                : 'Roboto',Arial,sans-serif;
+$mainFont: "Roboto", Arial, sans-serif;
 
 // Size
-$mainFontColor           : #101010;
-$mainFontSize            : 16px;
-$smallFontSize           : 14px;
-$mainFontWeight          : 400;
-$mainLineHeight          : 1.4;
+$mainFontColor: #101010;
+$mainFontSize: 16px;
+$smallFontSize: 14px;
+$mainFontWeight: 400;
+$mainLineHeight: 1.4;
 
-$lgDesktopWidth          : 2560px;
-$desktopWidth            : 1280px;
-$smDesktopWidth          : 980px;
-$tableWidth              : 768px;
-$phoneWidth              : 480px;
-$smPhoneWidth            : 320px;
+$lgDesktopWidth: 2560px;
+$desktopWidth: 1280px;
+$smDesktopWidth: 980px;
+$tableWidth: 768px;
+$phoneWidth: 480px;
+$smPhoneWidth: 320px;
 
 // Main color
-$default-color           : #ffffff;
-$primary-color           : #44bce0;
-$success-color           : #26de81;
-$danger-color            : #fc5c65;
-$warning-color           : #fed330;
-$light-color             : #999999;
-$purple-color            : #8854d0;
-$dark-color              : #000;
-$navbar-color            : rgba(0, 0, 0, 0.5);
-$dark-color-text         : rgba(0, 0, 0, 0.8);
-$dark-color2             : #272424;
+$default-color: #ffffff;
+$primary-color: #44bce0;
+$success-color: #26de81;
+$danger-color: #fc5c65;
+$warning-color: #fed330;
+$light-color: #999999;
+$purple-color: #8854d0;
+$dark-color: rgb(29, 29, 29);
+$navbar-color: rgba(0, 0, 0, 0.5);
+$dark-color-text: rgba(0, 0, 0, 0.8);
+$dark-color2: #272424;
 
 // Neutral Color
-$neutral-primary         : #303133;
-$neutral-regular         : #606266;
-$neutral-secondary       : #909399;
-$neutral-placeholder     : #C0C4CC;
+$neutral-primary: #303133;
+$neutral-regular: #606266;
+$neutral-secondary: #909399;
+$neutral-placeholder: #c0c4cc;
 
 // Border Color
-$border-base             : #DCDFE6;
-$border-light            : #E4E7ED;
-$border-lighter          : #EBEEF5;
-$border-lightex          : #F2F6FC;
+$border-base: #dcdfe6;
+$border-light: #e4e7ed;
+$border-lighter: #ebeef5;
+$border-lightex: #f2f6fc;
 
+//Card Item Color
 
-//Card Item Color 
-
-$color_1                 : black;
-$color_2                 : #fff;
-$background_color_1      : #ededed99;
-$background_color_2      : transparent;
+$color_1: black;
+$color_2: #fff;
+$background_color_1: #ededed99;
+$background_color_2: transparent;

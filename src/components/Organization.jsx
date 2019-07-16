@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import {
   fetchOrg,
   fetchAboutOrg,
   fetchAboutOrgList
-} from '../store/organizations/action';
-import 'animate.css/animate.min.css';
+} from "../store/organizations/action";
+import "animate.css/animate.min.css";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
-import Header from './Header';
+import Header from "./Header";
 // import HeaderBackground from '../containers/HeaderBackground';
 // import HeaderTitle from '../containers/HeaderTitle';
-import ListCard from '../containers/ListCard';
-import scroll from './scroll';
-import ButtonScrollToTop from '../containers/ButtonScrollToTop';
+import ListCard from "../containers/ListCard";
+import scroll from "./scroll";
+import ButtonScrollToTop from "../containers/ButtonScrollToTop";
 
 class Organizations extends Component {
   componentDidMount() {

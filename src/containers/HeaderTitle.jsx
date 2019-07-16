@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const HeaderTitle = props => (
   <React.Fragment>
     <div
       className={`container-course_about container animated fadeIn ${
-        props.class === undefined ? 'top-txt-container' : props.class
+        props.class === undefined ? "top-txt-container" : props.class
       }`}
     >
       <div className={`d-flex flex-column bg-dark p-custom-2`}>
