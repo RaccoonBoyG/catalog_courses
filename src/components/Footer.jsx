@@ -10,19 +10,17 @@ class Footer extends Component {
         <div className="container text-center text-md-left">
           <div className="row text-center text-md-left mt-1 mb-5">
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-2">
-              <h6 className="text-uppercase mb-4 font-weight-bold text-custom-dark">
+              {/* <h6 className="text-uppercase mb-4 font-weight-bold text-custom-dark">
                 <img
                   src="//openedu.urfu.ru/files/courses_catalog/UrFULogo1.svg"
                   alt="..."
                   className="footer-icon"
                 />
                 Ural Federal University
-              </h6>
-              <p>
-                <small className="text-neutral-regular">
-                  ФГАОУ ВО «УрФУ имени первого Президента России Б.Н.Ельцина»
-                  Институт технологий открытого образования
-                </small>
+              </h6> */}
+              <p className="text-custom-dark ">
+                ФГАОУ ВО «УрФУ имени первого Президента России Б.Н.Ельцина»
+                Институт технологий открытого образования
               </p>
             </div>
             <hr className="w-200 clearfix d-md-none" />
@@ -65,7 +63,7 @@ class Footer extends Component {
             </div>
           </div>
           <hr className="hr-footer" />
-          <div className="d-flex align-items-center">
+          {/* <div className="d-flex align-items-center">
             <div className="col-md-7 col-lg-8">
               <p className="text-center text-md-left text-custom-dark">
                 © 2019 Copyright:
@@ -112,7 +110,7 @@ class Footer extends Component {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </footer>
     );

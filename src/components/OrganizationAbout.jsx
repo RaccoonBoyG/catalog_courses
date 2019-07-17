@@ -10,6 +10,10 @@ import CourseListRender from "../containers/CourseListRender";
 import scroll from "./scroll";
 import ButtonScrollToTop from "../containers/ButtonScrollToTop";
 
+let backImg = {
+  background: "url('http://itoo.urfu.ru/Content/images/bg.jpg') repeat center 0"
+};
+
 class OrganizationAbout extends Component {
   constructor(props) {
     super(props);
@@ -31,19 +35,29 @@ class OrganizationAbout extends Component {
 
   render() {
     let { data } = this.props;
+
     return (
       <React.Fragment>
         <AboutRender
           name={data.name}
           image_background={data.image_background}
-          height={200}
+          height={100}
           class={"top-txt-container-sub"}
         />
-        <div className="container pb-3 mb-3">
-          <h3 className="text-custom-dark mb-5">Курсы</h3>
-          <div className="row d-flex">
-            <CourseListRender item={this.state.data_local} />
-          </div>
+        <div
+          className="container text-custom-dark p-3 mb-3"
+          style={{ ...backImg }}
+        >
+          <h3 className="mb-5">Курсы</h3>
+          {this.state.data_local.length <= 0 ? (
+            <div style={{ height: "500px" }}>
+              <h2>У данной организации пока нет курсов</h2>
+            </div>
+          ) : (
+            <div className="row d-flex">
+              <CourseListRender item={this.state.data_local} />
+            </div>
+          )}
         </div>
         <ButtonScrollToTop />
       </React.Fragment>

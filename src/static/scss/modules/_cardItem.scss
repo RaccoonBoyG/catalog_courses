@@ -108,7 +108,6 @@
   height: 5px;
   width: 0%;
   left: 50%;
-  background-color: $primary-color;
 }
 .shadow-effect {
   -ms-transition: all 0.3s ease-in-out;
@@ -125,8 +124,7 @@
 .card-height:hover,
 .card-height-list:hover {
   .shadow-effect {
-    background-color: $navbar-color;
-    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 20px -10px rgba(95, 160, 168, 0.3);
     -ms-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -143,7 +141,7 @@
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     transform: translateX(-50%);
-    box-shadow: 0px 0px 8px 2px #000000;
+    box-shadow: 0px 0px 20px 1px rgba(95, 160, 168, 0.5);
   }
 
   .show-about {

@@ -57,15 +57,23 @@ class ButtonEnroll extends Component {
     const { isAuth } = this.props;
     let button_enroll = (
       <button
-        className="btn btn-primary btn-lg m-3"
+        className="btn btn-primary btn-lg m-3 d-flex"
         onClick={this.changeEnroll.bind(this)}
+        style={{ borderRadius: 0 }}
       >
         Записаться на курс
       </button>
     );
     let button_auth = (
-      <a href={`${MEDIA_LS_URL}/login`} id="href">
-        <button className="btn btn-primary btn-lg m-3">
+      <a
+        href={`${MEDIA_LS_URL}/login`}
+        id="href"
+        style={{ borderRadius: 0, textDecoration: "none" }}
+      >
+        <button
+          className="btn btn-primary btn-lg m-3 d-flex"
+          style={{ borderRadius: 0 }}
+        >
           Записаться на курс
         </button>
       </a>

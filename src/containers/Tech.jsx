@@ -12,7 +12,10 @@ class Tech extends Component {
       <React.Fragment>
         <Header />
         <HeaderBackground />
-        <div className="container-course_about  container jumbotron text-custom-dark p-5 mt-3">
+        <div
+          className="container-course_about  container jumbotron text-custom-dark p-5 mt-3"
+          style={{ borderRadius: 0 }}
+        >
           <h1>Технические требования</h1>
           <div
             className="d-flex flex-column "

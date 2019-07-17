@@ -20,7 +20,7 @@ const ListCard = props => {
         <Link
           to={{ pathname: `${props.url}/${props.slug}` }}
           onClick={props.handleClick(props.slug)}
-          className="text-white"
+          className="text-custom-dark"
           style={{ textDecoration: "none" }}
         >
           <div
@@ -29,7 +29,7 @@ const ListCard = props => {
               minHeight: "250px",
               maxHeight: "250px",
               ...backgroundImg,
-              backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.95) 100% ), url(${
+              backgroundImage: `linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 20%, rgba(247,247,247,0) 60%), url(${
                 props.image_background === undefined
                   ? backgroundUrl
                   : props.image_background
@@ -60,7 +60,7 @@ const ListCard = props => {
                 }}
               >
                 <h4
-                  className="card-title"
+                  className="card-title-org"
                   style={{ margin: "auto", whiteSpace: "pre-wrap" }}
                 >
                   {props.name}

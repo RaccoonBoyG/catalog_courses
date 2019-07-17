@@ -118,6 +118,9 @@ html {
     .container-course_about {
       margin-top: 4rem !important;
     }
+    .buttonBackPC {
+      display: none;
+    }
   }
   @media only screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
     .bg_img {
@@ -153,6 +156,9 @@ html {
     }
     .container-course_about {
       margin-top: 4rem !important;
+    }
+    .buttonBackPC {
+      display: none;
     }
   }
 
@@ -190,6 +196,12 @@ html {
     }
     .container-course_about {
       margin-top: 4rem !important;
+    }
+    .buttonBackPC {
+      display: none;
+    }
+    .card-title-org {
+      font-size: 1.2rem;
     }
   }
 }

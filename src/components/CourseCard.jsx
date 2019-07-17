@@ -9,22 +9,33 @@ import { fetchAbout } from "../store/course_about/action";
 
 let backgroundImg = {
   backgroundPosition: "top",
-  backgroundSize: "cover",
+  backgroundSize: "contain",
   backgroundRepeat: "no-repeat",
   backgroundPositionY: "top"
 };
 
 class CourseCard extends Component {
-  // constructor(props){
-  //     super(props);
-  //     this.state = {
-  //         name: this.props.value===undefined ? this.props.item.display_name : this.props.value.name,
-  //         start_display: this.props.value===undefined ? this.props.item.start_display : this.props.value.start_display,
-  //         id: this.props.value===undefined ? this.props.item.id : this.props.value.id,
-  //         image: this.props.value===undefined ? `https://courses.openedu.urfu.ru/${this.props.item.course_image_url}` : this.props.value.image,
-  //     }
-  //     console.log(this.props)
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      name:
+        this.props.value === undefined
+          ? this.props.item.display_name
+          : this.props.value.name,
+      start_display:
+        this.props.value === undefined
+          ? this.props.item.start_display
+          : this.props.value.start_display,
+      id:
+        this.props.value === undefined
+          ? this.props.item.id
+          : this.props.value.id,
+      image:
+        this.props.value === undefined
+          ? `https://courses.openedu.urfu.ru/${this.props.item.course_image_url}`
+          : this.props.value.image
+    };
+  }
 
   postIdAPI() {
     this.props.fetchAbout(this.props.value.id);
@@ -42,49 +53,48 @@ class CourseCard extends Component {
     return str_truncate;
   }
 
-  async imageOnError(url) {
-    let url_image = `https://images.unsplash.com/photo-1532003885409-ed84d334f6cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`;
-    let test = await fetch(url);
-    if (test.ok) {
-      return await url;
-    } else {
-      return await url_image;
-    }
-  }
+  // async imageOnError(url) {
+  //   let url_image = `https://images.unsplash.com/photo-1532003885409-ed84d334f6cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`;
+  //   let test = await fetch(url);
+  //   if (test.ok) {
+  //     return await url;
+  //   } else {
+  //     return await url_image;
+  //   }
+  // }
 
-  async componentDidMount() {
-    let img = await this.imageOnError(this.props.value.image);
-    this.setState(prevState => ({ ...prevState, image: img }));
-  }
+  // async componentDidMount() {
+  //   let img = await this.imageOnError(this.props.value.image);
+  //   this.setState(prevState => ({ ...prevState, image: img }));
+  // }
 
   // fadeInUp
   render() {
-    let { name, start_display, id, image } = this.props.value;
     // fetch(`${this.state.image}`)
     //     .then(res => res.ok===true ? this.setState(prevState => ({...prevState, ...this.state.image}) ) : this.setState(prevState => ({...prevState, image: url_image}) ))
-    // console.log(this.props.item, this.props.value); style={{borderRadius: '10px'}}
+    // console.log(this.props.item, this.props.value); style={{borderRadius: '10px'}} linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, rgb(247, 247, 247) 85%),
 
     return (
       <div
         className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 card-height mb-3 mt-3 animated pulse faster"
-        key={name}
+        key={this.state.name}
         style={{ minHeight: "450px", borderRadius: "10px" }}
         data-toggle="tooltip"
         data-placement="left"
-        title={name}
+        title={this.state.name}
       >
         <Link
-          to={{ pathname: `/${id}` }}
+          to={{ pathname: `/${this.state.id}` }}
           onClick={this.postIdAPI.bind(this)}
           className="text-white"
           style={{ textDecoration: "none" }}
         >
           <div
-            className="d-flex flex-row animated fadeIn faster"
+            className="d-flex flex-row animated fadeIn faster bg-light"
             style={{
               minHeight: "450px",
               ...backgroundImg,
-              backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0) 100% ), url(${image})`
+              backgroundImage: `linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 30%, rgba(247,247,247,0) 50%), url(${this.state.image})`
             }}
           >
             <div className="d-flex-row container-fluid p-0 shadow-effect">
@@ -92,7 +102,7 @@ class CourseCard extends Component {
                         <img className="img-fluid" src={props.logo} alt={props.logo} style={{ maxHeight: '150px', maxWidth: '150px' }} />
                     </div> */}
               <div
-                className="flex-row d-flex flex-column p-3"
+                className="flex-row d-flex flex-column pb-0 pt-0 pl-3 pr-3 text-custom-dark"
                 style={{ position: "absolute", bottom: "50px" }}
               >
                 <p className="card-catalog-text m-0 p-1">
@@ -105,19 +115,19 @@ class CourseCard extends Component {
                   <strong
                     style={{ overflow: "hidden", textOverflow: "ellipsis" }}
                   >
-                    {this.truncate(name, 6)}
+                    {this.truncate(this.state.name, 6)}
                   </strong>
                 </p>
                 <p className="card-catalog-text p-1 m-0 card-text">
                   <FontAwesomeIcon icon={faClock} size="1x" /> Начало:{" "}
-                  {start_display}
+                  {this.state.start_display}
                 </p>
               </div>
               <div
                 className="flex-row d-flex flex-column pl-3 "
                 style={{ position: "absolute", bottom: "0px" }}
               >
-                <p className="nav-link text-primary p-1 show-about">
+                <p className="nav-link text-primary-dark p-1 show-about">
                   Подробнее
                 </p>
               </div>
@@ -126,7 +136,7 @@ class CourseCard extends Component {
                         <button className='btn btn-primary'>Подробнее</button>
                         </Link>
                     </div> */}
-              <hr className="line" />
+              <hr className="line bg-primary-dark" />
             </div>
           </div>
         </Link>

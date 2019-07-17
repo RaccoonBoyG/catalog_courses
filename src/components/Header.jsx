@@ -15,6 +15,7 @@ import { IconContext } from "react-icons";
 import $ from "jquery";
 import MobileFilter from "../containers/MobileFilter";
 import MobileMenu from "../containers/MobileMenu";
+import MobileButtonBack from "../containers/MobileButtonBack";
 
 // import { faSearch } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -85,7 +86,8 @@ class Header extends Component {
 
   render() {
     const { isAuth } = this.props;
-
+    console.log(this.props.history.location.pathname);
+    console.log(this.props.match.params);
     return (
       <React.Fragment>
         {/* <div className="bg_img" style={backgroundImg}></div> */}
@@ -215,6 +217,12 @@ class Header extends Component {
               resetInput={this.resetInput}
               term={this.state.term}
             />
+          ) : null}
+          {this.props.history.location.pathname ===
+            `/orgs/${this.props.match.params.org}` ||
+          this.props.history.location.pathname ===
+            `/${this.props.match.params.id}` ? (
+            <MobileButtonBack history={this.props.history} />
           ) : null}
           {/* <div className="mobile-menu-filter">
                     <ul className='menu-filter'>

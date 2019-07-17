@@ -21,11 +21,13 @@
 .loadmore {
   -webkit-transition: all 0.3s ease-in-out;
   -moz--transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .loadmore:hover {
   -webkit-transition: all 0.3s ease-in-out;
   -moz--transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0px 0px 8px 2px #000000;
+  transition: all 0.2s ease-in-out;
+  background-color: $shades-hight-dark;
+  border-color: $shades-hight-dark;
+  // box-shadow: 0px 0px 8px 2px $dark-color;
 }

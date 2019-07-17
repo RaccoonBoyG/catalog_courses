@@ -16,13 +16,14 @@ $smPhoneWidth: 320px;
 
 // Main color
 $default-color: #ffffff;
-$primary-color: #44bce0;
+$primary-color: #7fd5e0;
+$primary-color-dark: #406b70;
 $success-color: #26de81;
 $danger-color: #fc5c65;
 $warning-color: #fed330;
 $light-color: #999999;
 $purple-color: #8854d0;
-$dark-color: rgb(29, 29, 29);
+$dark-color: #101b1c;
 $navbar-color: rgba(0, 0, 0, 0.5);
 $dark-color-text: rgba(0, 0, 0, 0.8);
 $dark-color2: #272424;
@@ -32,6 +33,16 @@ $neutral-primary: #303133;
 $neutral-regular: #606266;
 $neutral-secondary: #909399;
 $neutral-placeholder: #c0c4cc;
+
+//Theme color
+$shades-primary: #7fd5e0;
+$shades-regular: #6fbac4;
+$shades-secondary: #5fa0a8;
+$shades-placeholder: #4f858c;
+$shades-low-dark: #406b70;
+$shades-mid-dark: #305054;
+$shades-hight-dark: #203538;
+$shades-over-dark: #101b1c;
 
 // Border Color
 $border-base: #dcdfe6;

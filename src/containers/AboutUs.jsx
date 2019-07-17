@@ -15,7 +15,10 @@ class AboutUs extends Component {
       <React.Fragment>
         <Header />
         <HeaderBackground />
-        <div className="container-course_about container jumbotron aboutUs text-custom-dark p-5 mt-3">
+        <div
+          className="container-course_about container jumbotron aboutUs text-custom-dark p-5 mt-3"
+          style={{ borderRadius: 0 }}
+        >
           <div className="about-back"></div>
 
           <h1>О нас</h1>
