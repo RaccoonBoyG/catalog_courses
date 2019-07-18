@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "../components/Header";
-import HeaderBackground from "./HeaderBackground";
+// import HeaderBackground from "./HeaderBackground";
 import scroll from "../components/scroll";
 import ButtonScrollToTop from "./ButtonScrollToTop";
 
@@ -14,9 +14,9 @@ class AboutUs extends Component {
     return (
       <React.Fragment>
         <Header />
-        <HeaderBackground />
+        {/* <HeaderBackground /> */}
         <div
-          className="container-course_about container jumbotron aboutUs text-custom-dark p-5 mt-3"
+          className="container-course_about container aboutUs text-custom-dark p-5 mt-3"
           style={{ borderRadius: 0 }}
         >
           <div className="about-back"></div>
@@ -31,7 +31,7 @@ class AboutUs extends Component {
               среди вузов России, осуществляющих обучение по инженерным
               направлениям подготовки.
             </p>
-            <p>
+            {/* <p>
               В университете более 10 лет осуществляется подготовка кадров
               высшей квалификации с применением дистанционных образовательных
               технологий. В основу такой подготовки заложен большой опыт
@@ -47,7 +47,7 @@ class AboutUs extends Component {
               Наша задача - показать, что даже в традиционно сложных для
               дистанционного обучения технических дисциплинах применение онлайн
               курсов с современными технологиями будет высокоэффективным.
-            </p>
+            </p> */}
           </div>
           <div className="card">
             <div className="card-img"></div>

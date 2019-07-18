@@ -8,7 +8,7 @@ class ButtonLoadMore extends Component {
     return (
       <div className="d-flex flex-row justify-content-center p-3 m-3 load-container ">
         <button
-          className="btn btn-custom-dark loadmore"
+          className="btn btn-primary loadmore"
           id="loadmore-btn"
           onClick={LoadMoreTest}
         >

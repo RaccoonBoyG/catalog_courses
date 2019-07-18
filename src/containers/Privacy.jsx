@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Header from "../components/Header";
-import HeaderBackground from "./HeaderBackground";
+// import HeaderBackground from "./HeaderBackground";
 
 class Privacy extends Component {
   componentDidMount() {
@@ -11,9 +11,9 @@ class Privacy extends Component {
     return (
       <React.Fragment>
         <Header />
-        <HeaderBackground />
+        {/* <HeaderBackground /> */}
         <div
-          className="container-course_about  container jumbotron text-custom-dark p-5 mt-3"
+          className="container-course_about  container text-custom-dark p-5 mt-3"
           style={{ borderRadius: 0 }}
         >
           <h1>Политика конфиденциальности</h1>

@@ -14,6 +14,8 @@ import Header from "./Header";
 import ListCard from "../containers/ListCard";
 import scroll from "./scroll";
 import ButtonScrollToTop from "../containers/ButtonScrollToTop";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Organizations extends Component {
   componentDidMount() {
@@ -27,7 +29,7 @@ class Organizations extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, loading } = this.props;
     const OrgList = data.map(item => {
       return (
         <ListCard
@@ -46,6 +48,20 @@ class Organizations extends Component {
       <React.Fragment>
         <Header />
         <div className="flex-row p-5 ">
+          {loading && data.length === 0 ? (
+            <div
+              className="d-flex flex-row justify-content-center align-items-center"
+              style={{ width: "100%", height: "350px" }}
+            >
+              <FontAwesomeIcon
+                icon={faSpinner}
+                size="3x"
+                spin
+                color="#000"
+                style={{ width: "100%" }}
+              />
+            </div>
+          ) : null}
           <div className="d-flex flex-wrap flex-row">{OrgList}</div>
         </div>
         <ButtonScrollToTop />
@@ -55,7 +71,8 @@ class Organizations extends Component {
 }
 
 const mapStateToProps = state => ({
-  data: state.organizations.items
+  data: state.organizations.items,
+  loading: state.organizations.loading
 });
 
 const mapDispatchToProps = {

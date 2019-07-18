@@ -3,30 +3,30 @@ import { connect } from "react-redux";
 import { fetchAbout } from "../store/course_about/action";
 import { fetchEnrollState } from "../store/user/action";
 import "animate.css/animate.min.css";
-import ButtonEnroll from "../containers/ButtonEnroll";
-import ButtonReadMore from "../containers/ButtonReadMore";
+// import ButtonEnroll from "../containers/ButtonEnroll";
+// import ButtonReadMore from "../containers/ButtonReadMore";
 import dompurify from "dompurify";
 import AboutRender from "../containers/AboutRender";
 import scroll from "./scroll";
 import ButtonScrollToTop from "../containers/ButtonScrollToTop";
 //background-image: url('//openedu.urfu.ru/files/courses_catalog/bg-nav.jpeg');
-import { IoMdArrowBack } from "react-icons/io";
-import { IconContext } from "react-icons";
+// import { IoMdArrowBack } from "react-icons/io";
+// import { IconContext } from "react-icons";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-let backImg = {
-  // backgroundImage: "url('//openedu.urfu.ru/files/courses_catalog/bg-nav.jpeg')",
-  background: "url('http://itoo.urfu.ru/Content/images/bg.jpg') repeat center 0"
-  // backgroundPosition: "center",
-  // backgroundSize: "cover",
-  // backgroundRepeat: "no-repeat",
-  // width: "100%",
-  // height: "100%",
-  // position: "absolute",
-  // zIndex: "-99999",
-  // backgroundPositionY: "top"
-};
+// let backImg = {
+// backgroundImage: "url('//openedu.urfu.ru/files/courses_catalog/bg-nav.jpeg')",
+// background: "url('http://itoo.urfu.ru/Content/images/bg.jpg') repeat center 0"
+// backgroundPosition: "center",
+// backgroundSize: "cover",
+// backgroundRepeat: "no-repeat",
+// width: "100%",
+// height: "100%",
+// position: "absolute",
+// zIndex: "-99999",
+// backgroundPositionY: "top"
+// };
 
 class CourseAbout extends Component {
   componentDidMount() {
@@ -45,15 +45,15 @@ class CourseAbout extends Component {
           name={data.name}
           class={"top-txt-container-sub"}
           height={100}
+          isAuth={isAuth}
+          course_enroll_user={course_enroll_user}
+          params={this.props.match.params}
         />
         {/* <div style={{ ...backImg }}></div> */}
-        <div
-          className="container pb-5 pt-3 mb-5 p-custom-2"
-          style={{ ...backImg }}
-        >
+        <div className="container pb-5 pt-3 mb-5 p-custom-2">
           <div
-            className="jumbotron animated fadeIn text-custom-dark mb-3 p-0"
-            style={{ borderRadius: "0", ...backImg }}
+            className=" animated fadeIn text-custom-dark mb-3 p-0"
+            style={{ borderRadius: "0" }}
           >
             {this.props.loading && this.props.data.length === 0 ? (
               <div
@@ -70,7 +70,7 @@ class CourseAbout extends Component {
               </div>
             ) : null}
             <div className="d-flex flex-row justify-content-between">
-              <div className="d-flex flex-row">
+              {/* <div className="d-flex flex-row">
                 <button
                   className="btn btn-primary m-3 buttonBackPC d-flex"
                   onClick={this.props.history.goBack}
@@ -79,14 +79,7 @@ class CourseAbout extends Component {
                     <IoMdArrowBack />
                   </IconContext.Provider>
                 </button>
-              </div>
-              <div className="d-flex flex-row">
-                {isAuth && course_enroll_user ? (
-                  <ButtonReadMore value={this.props.match.params.id} />
-                ) : (
-                  <ButtonEnroll value={this.props.match.params.id} />
-                )}
-              </div>
+              </div> */}
             </div>
             <div className="container">
               <div

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { backgroundUrl } from "./HeaderBackground";
-
+// linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(250, 250, 250) 30%, rgba(247, 247, 247, 0) 0%)
 let backgroundImg = {
   backgroundPosition: "center",
   backgroundSize: "cover",
@@ -29,7 +29,7 @@ const ListCard = props => {
               minHeight: "250px",
               maxHeight: "250px",
               ...backgroundImg,
-              backgroundImage: `linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 20%, rgba(247,247,247,0) 60%), url(${
+              backgroundImage: `url(${
                 props.image_background === undefined
                   ? backgroundUrl
                   : props.image_background
@@ -51,20 +51,20 @@ const ListCard = props => {
                 />
               </div>
               <div
-                className="flex-row d-flex flex-wrap p-3"
+                className="flex-row d-flex flex-wrap p-3 bg-light"
                 style={{
-                  minHeight: "50px",
                   bottom: "0",
+                  whiteSpace: "pre-wrap",
                   position: "absolute",
-                  whiteSpace: "pre-wrap"
+                  width: "100%"
                 }}
               >
-                <h4
+                <h5
                   className="card-title-org"
-                  style={{ margin: "auto", whiteSpace: "pre-wrap" }}
+                  style={{ whiteSpace: "pre-wrap" }}
                 >
                   {props.name}
-                </h4>
+                </h5>
               </div>
               {/* <div className="flex-row d-flex justify-content-center button-custom pt-3 pb-3">
                   <Link to={{pathname: `${props.url}/${props.slug}`}} onClick={props.handleClick(props.slug)}>

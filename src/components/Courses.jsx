@@ -52,9 +52,6 @@ class Courses extends Component {
         </div> */}
         <div className="container pt-3 pb-3 mb-3 mt-3 p-0 search_pc">
           <div className="flex-row">
-            <div className="d-flex flex-wrap flex-row">
-              <h3 className="text-custom-dark">Поиск</h3>
-            </div>
             <div className="d-flex flex-row">
               <div className="flex-column p-0" style={{ width: "100%" }}>
                 <div className="t-site-search-input">
@@ -93,7 +90,7 @@ class Courses extends Component {
             </div>
           </div>
         </div>
-        <div className="container pb-3 mb-3 p-0" style={{ marginTop: "5rem" }}>
+        <div className="container pb-3 mb-3 p-0 margin-custom-catalog">
           <h3 className="text-custom-dark mb-3 pl-3">Курсы</h3>
           <div className="flex-row">
             <div className="d-flex flex-wrap flex-row">

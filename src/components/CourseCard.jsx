@@ -38,7 +38,7 @@ class CourseCard extends Component {
   }
 
   postIdAPI() {
-    this.props.fetchAbout(this.props.value.id);
+    this.props.fetchAbout(this.state.id);
   }
 
   truncate(str, len) {
@@ -107,8 +107,7 @@ class CourseCard extends Component {
               >
                 <p className="card-catalog-text m-0 p-1">
                   <small>
-                    <FontAwesomeIcon icon={faGraduationCap} size="1x" /> Ural
-                    Fediral University
+                    <FontAwesomeIcon icon={faGraduationCap} size="1x" /> УрФУ
                   </small>
                 </p>
                 <p className="card-catalog-title p-1 mb-0 card-title">
@@ -127,7 +126,7 @@ class CourseCard extends Component {
                 className="flex-row d-flex flex-column pl-3 "
                 style={{ position: "absolute", bottom: "0px" }}
               >
-                <p className="nav-link text-primary-dark p-1 show-about">
+                <p className="nav-link text-primary p-1 show-about">
                   Подробнее
                 </p>
               </div>
@@ -136,7 +135,7 @@ class CourseCard extends Component {
                         <button className='btn btn-primary'>Подробнее</button>
                         </Link>
                     </div> */}
-              <hr className="line bg-primary-dark" />
+              <hr className="line bg-primary" />
             </div>
           </div>
         </Link>

@@ -1,12 +1,14 @@
 import React from "react";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { MdArrowUpward } from "react-icons/md";
+import { IconContext } from "react-icons";
+// MdArrowUpward
 const ButtonScrollToTop = () => {
   return (
     <React.Fragment>
       <button type="button" className="back_to_top btn btn-primary btn-circle">
-        <FontAwesomeIcon icon={faArrowUp} size="2x" />
+        <IconContext.Provider value={{ size: "1.5em" }}>
+          <MdArrowUpward />
+        </IconContext.Provider>
       </button>
     </React.Fragment>
   );

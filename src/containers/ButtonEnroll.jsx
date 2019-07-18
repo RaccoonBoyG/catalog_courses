@@ -57,7 +57,7 @@ class ButtonEnroll extends Component {
     const { isAuth } = this.props;
     let button_enroll = (
       <button
-        className="btn btn-primary btn-lg m-3 d-flex"
+        className="btn btn-light btn-lg mt-2 d-flex"
         onClick={this.changeEnroll.bind(this)}
         style={{ borderRadius: 0 }}
       >
@@ -71,7 +71,7 @@ class ButtonEnroll extends Component {
         style={{ borderRadius: 0, textDecoration: "none" }}
       >
         <button
-          className="btn btn-primary btn-lg m-3 d-flex"
+          className="btn btn-light btn-lg mt-2 d-flex"
           style={{ borderRadius: 0 }}
         >
           Записаться на курс

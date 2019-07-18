@@ -86,8 +86,7 @@ class Header extends Component {
 
   render() {
     const { isAuth } = this.props;
-    console.log(this.props.history.location.pathname);
-    console.log(this.props.match.params);
+
     return (
       <React.Fragment>
         {/* <div className="bg_img" style={backgroundImg}></div> */}
@@ -208,6 +207,12 @@ class Header extends Component {
               <div className="bar bar3"></div>
             </div>
           </div>
+          {this.props.history.location.pathname ===
+            `/orgs/${this.props.match.params.org}` ||
+          this.props.history.location.pathname ===
+            `/${this.props.match.params.id}` ? (
+            <MobileButtonBack history={this.props.history} />
+          ) : null}
           {this.state.showComponentMenu ? <MobileMenu isAuth={isAuth} /> : null}
           {this.state.showComponentFilter &&
           this.props.history.location.pathname === "/" ? (
@@ -217,12 +222,6 @@ class Header extends Component {
               resetInput={this.resetInput}
               term={this.state.term}
             />
-          ) : null}
-          {this.props.history.location.pathname ===
-            `/orgs/${this.props.match.params.org}` ||
-          this.props.history.location.pathname ===
-            `/${this.props.match.params.id}` ? (
-            <MobileButtonBack history={this.props.history} />
           ) : null}
           {/* <div className="mobile-menu-filter">
                     <ul className='menu-filter'>

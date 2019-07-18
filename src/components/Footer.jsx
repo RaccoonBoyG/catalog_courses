@@ -62,7 +62,7 @@ class Footer extends Component {
               </p>
             </div>
           </div>
-          <hr className="hr-footer" />
+          {/* <hr className="hr-footer" /> */}
           {/* <div className="d-flex align-items-center">
             <div className="col-md-7 col-lg-8">
               <p className="text-center text-md-left text-custom-dark">

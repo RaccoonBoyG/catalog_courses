@@ -20,15 +20,21 @@ const MobileFilter = ({
             />
           </p>
         </li>
-        <li className="button-filter_li menu-item d-flex flex-column">
-          <button className="button-filter btn btn-danger" onClick={resetInput}>
-            Сбросить
-          </button>
+        <li
+          className="menu-item d-flex flex-column"
+          style={{ width: "100% !important" }}
+        >
           <button
             className="button-filter btn btn-primary"
             onClick={submitSearch}
           >
             Показать
+          </button>
+          <button
+            className="button-filter btn btn-primary-dark"
+            onClick={resetInput}
+          >
+            Сбросить
           </button>
         </li>
       </ul>
