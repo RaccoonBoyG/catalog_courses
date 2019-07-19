@@ -91,7 +91,7 @@ class Header extends Component {
       <React.Fragment>
         {/* <div className="bg_img" style={backgroundImg}></div> */}
         {/* <img className="bg_img" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt=""/> */}
-        <nav className="navbar navbar-expand-lg navbar-light container pl-0 pr-0">
+        <nav className="navbar navbar-expand-lg navbar-light container pl-0 pr-0 pb-3">
           <NavLink className="navbar-brand" exact to="/">
             <img
               src="http://itoo.urfu.ru/uploadfiles/setting/63b0690c4a2440b68312d324f4658526.png?crop=89,94,907,571&width=160&mode=crop&anchor=center"

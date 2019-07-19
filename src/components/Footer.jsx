@@ -8,7 +8,8 @@ class Footer extends Component {
     return (
       <footer className="page-footer font-small mdb-color pt-1">
         <div className="container text-center text-md-left">
-          <div className="row text-center text-md-left mt-1 mb-5">
+          <hr className="hr-footer " />
+          <div className="row text-center text-md-left mt-5 mb-5">
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-2">
               {/* <h6 className="text-uppercase mb-4 font-weight-bold text-custom-dark">
                 <img

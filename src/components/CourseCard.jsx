@@ -38,7 +38,7 @@ class CourseCard extends Component {
   // }
 
   postIdAPI() {
-    this.props.fetchAbout(this.state.id);
+    this.props.fetchAbout(this.props.value.id);
   }
 
   truncate(str, len) {
@@ -94,7 +94,7 @@ class CourseCard extends Component {
             style={{
               minHeight: "450px",
               ...backgroundImg,
-              backgroundImage: `linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 30%, rgba(247,247,247,0) 50%), url(${image})`
+              backgroundImage: `linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 42%, rgba(247,247,247,0) 0%), url(${image})`
             }}
           >
             <div className="d-flex-row container-fluid p-0 shadow-effect">

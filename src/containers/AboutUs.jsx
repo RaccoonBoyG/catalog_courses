@@ -15,10 +15,10 @@ class AboutUs extends Component {
       <React.Fragment>
         <Header />
         {/* <HeaderBackground /> */}
-        <div className="d-flex flex-row container-fluid backImg">
-          <h2 className="d-flex justify-content-center p-5 text-light">
-            Уральский федеральный Университет
-          </h2>
+        <div className="d-flex flex-row container-fluid backImgCourse">
+          <h1 className="d-flex align-items-center justify-content-center p-5 text-light container">
+            О нас
+          </h1>
         </div>
         <div
           className="d-flex-row container-course_about container aboutUs text-custom-dark p-5 mt-3"
@@ -26,15 +26,15 @@ class AboutUs extends Component {
         >
           <div className="about-back"></div>
 
-          <h1 className="d-flex align-items-center justify-content-center">
+          {/* <h1 className="d-flex align-items-center justify-content-center">
             О нас
-          </h1>
+          </h1> */}
           <div className="text-left">
             <ul className="list-unstyled">
               <li className="media pt-4 pb-4">
                 <div className="rounded-circle img-about-size mr-3">
                   <img
-                    src="https://pbs.twimg.com/profile_images/1054227351737917440/ag6c9XW6_400x400.jpg"
+                    src="https://images.unsplash.com/photo-1495995424756-6a5a3f9e7543?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=95&q=80&h=95"
                     className="img-fluid rounded-circle mr-3 img-about-size"
                     alt="..."
                   />

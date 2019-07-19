@@ -15,10 +15,15 @@ const HeaderTitle = props => (
     > */}
     <div className="d-flex flex-row backImgCourse">
       <div
-        className={`container container-course_about p-custom-2 d-flex flex-column text-light animated fadeIn faster mt-3 mb-3`}
+        className={`container container-course_about p-custom-2 pb-4 pl-2 d-flex flex-column text-light animated fadeIn faster mt-3 mb-3`}
       >
-        <div className=" d-flex title_catalog" style={{ textAlign: "left" }}>
-          <h2>{props.title}</h2>
+        <div
+          className=" d-flex title_catalog align-items-start justify-content-start "
+          style={{ textAlign: "left" }}
+        >
+          <h2 className="d-flex align-items-start justify-content-start">
+            {props.title}
+          </h2>
         </div>
         {props.isAuth === undefined ? null : (
           <ButtonEnrollRead
@@ -46,7 +51,7 @@ const HeaderDescription = props => (
 );
 
 const ButtonEnrollRead = props => (
-  <div className="d-flex flex-row">
+  <div className="d-flex flex-row mt-5">
     {props.isAuth && props.course_enroll_user ? (
       <ButtonReadMore value={props.params.id} />
     ) : (
