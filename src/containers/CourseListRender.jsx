@@ -1,8 +1,8 @@
 import React from "react";
-import CourseCard from "../components/CourseCard";
+import CourseCardOrg from "../components/CourseCardOrg";
 
 const CourseListRender = props => {
-  return props.item.map((e, key) => <CourseCard item={e} key={key} />);
+  return props.item.map((e, key) => <CourseCardOrg item={e} key={key} />);
 };
 
 export default CourseListRender;

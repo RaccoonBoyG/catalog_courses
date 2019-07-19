@@ -14,7 +14,7 @@ let backgroundImg = {
   backgroundPositionY: "top"
 };
 
-class CourseCard extends Component {
+class CourseCardOrg extends Component {
   // constructor(props) {
   //   super(props);
   //   this.state = {
@@ -38,7 +38,7 @@ class CourseCard extends Component {
   // }
 
   postIdAPI() {
-    this.props.fetchAbout(this.state.id);
+    this.props.fetchAbout(this.props.item.id);
   }
 
   truncate(str, len) {
@@ -73,15 +73,15 @@ class CourseCard extends Component {
     // fetch(`${this.state.image}`)
     //     .then(res => res.ok===true ? this.setState(prevState => ({...prevState, ...this.state.image}) ) : this.setState(prevState => ({...prevState, image: url_image}) ))
     // console.log(this.props.item, this.props.value); style={{borderRadius: '10px'}} linear-gradient(to bottom, rgba(255, 255, 255, 0) 30%, rgb(247, 247, 247) 85%),
-    let { name, id, start_display, image } = this.props.value;
+    let { display_name, id, start_display, course_image_url } = this.props.item;
     return (
       <div
         className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 card-height mb-3 mt-3 animated pulse faster"
-        key={name}
+        key={display_name}
         style={{ minHeight: "450px", borderRadius: "10px" }}
         data-toggle="tooltip"
         data-placement="left"
-        title={name}
+        title={display_name}
       >
         <Link
           to={{ pathname: `/${id}` }}
@@ -94,7 +94,7 @@ class CourseCard extends Component {
             style={{
               minHeight: "450px",
               ...backgroundImg,
-              backgroundImage: `linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 30%, rgba(247,247,247,0) 50%), url(${image})`
+              backgroundImage: `linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(250,250,250,1) 30%, rgba(247,247,247,0) 50%), url(https://courses.openedu.urfu.ru/${course_image_url})`
             }}
           >
             <div className="d-flex-row container-fluid p-0 shadow-effect">
@@ -114,7 +114,7 @@ class CourseCard extends Component {
                   <strong
                     style={{ overflow: "hidden", textOverflow: "ellipsis" }}
                   >
-                    {this.truncate(name, 6)}
+                    {this.truncate(display_name, 6)}
                   </strong>
                 </p>
                 <p className="card-catalog-text p-1 m-0 card-text">
@@ -175,4 +175,4 @@ const mapDispatchToProps = {
 export default connect(
   null,
   mapDispatchToProps
-)(CourseCard);
+)(CourseCardOrg);

@@ -95,6 +95,25 @@ html {
     .p-custom-2 {
       padding: 3rem;
     }
+    .navbar {
+      display: flex !important;
+    }
+    .filter_pc {
+      display: none;
+    }
+    .search_pc {
+      display: block;
+    }
+    .navbar-expand-lg .navbar-collapse {
+      display: flex !important;
+      flex-basis: auto;
+    }
+    .navbar-nav {
+      flex-direction: row;
+      .nav-item {
+        padding: 0.5rem;
+      }
+    }
     .header {
       display: none;
     }
@@ -182,6 +201,11 @@ html {
       max-width: 95px;
       max-height: 95px;
     }
+    .title_catalog {
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
   }
   @media only screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
     .bg_img {
@@ -246,6 +270,11 @@ html {
       max-width: 50px;
       max-height: 50px;
     }
+    .title_catalog {
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
   }
 
   @media only screen and (min-width: 0) and (max-width: $smPhoneWidth) {
@@ -308,6 +337,11 @@ html {
       h2 {
         font-size: 1.5rem;
         padding-left: 0rem !important;
+      }
+    }
+    .title_catalog {
+      h2 {
+        font-size: 1.8rem;
       }
     }
   }
