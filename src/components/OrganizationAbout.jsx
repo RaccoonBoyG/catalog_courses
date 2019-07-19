@@ -10,9 +10,9 @@ import CourseListRender from "../containers/CourseListRender";
 import scroll from "./scroll";
 import ButtonScrollToTop from "../containers/ButtonScrollToTop";
 
-let backImg = {
-  background: "url('http://itoo.urfu.ru/Content/images/bg.jpg') repeat center 0"
-};
+// let backImg = {
+//   background: "url('http://itoo.urfu.ru/Content/images/bg.jpg') repeat center 0"
+// };
 
 class OrganizationAbout extends Component {
   constructor(props) {
@@ -44,13 +44,10 @@ class OrganizationAbout extends Component {
           height={100}
           class={"top-txt-container-sub"}
         />
-        <div
-          className="container text-custom-dark p-3 mb-3"
-          style={{ ...backImg }}
-        >
+        <div className="container text-custom-dark p-3 mb-3">
           <h3 className="mb-5">Курсы</h3>
           {this.state.data_local.length <= 0 ? (
-            <div style={{ height: "500px" }}>
+            <div style={{ height: "300px" }}>
               <h2>У данной организации пока нет курсов</h2>
             </div>
           ) : (

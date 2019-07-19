@@ -7,8 +7,15 @@
   left: 0;
 }
 
+@mixin background-opacity($color, $opacity: 0.3) {
+  background: $color; /* The Fallback */
+  background: rgba($color, $opacity);
+}
+
 .header {
-  background: rgba(0, 0, 0, 0.8);
+  background: $shades-over-dark;
+  @include background-opacity($shades-over-dark, 0.8);
+  // background: $shades-over-dark;
   overflow: hidden;
   overflow-x: hidden;
   height: 55px;
@@ -22,7 +29,7 @@
   overflow-y: scroll;
   padding-right: 15px;
   height: 100%;
-  background: #111;
+  background: $shades-over-dark;
   transition: all 0.45s ease-out, background 0.8s ease-out;
   .back_to_top {
     display: none;

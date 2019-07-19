@@ -23,6 +23,8 @@
 
 @import "./scss/modules/searchInput";
 
+@import "./scss/modules/courseAbout";
+
 html {
   line-height: $mainLineHeight;
   font-size: $mainFontSize;
@@ -58,6 +60,23 @@ html {
     .header {
       display: none;
     }
+    .backImg {
+      height: 200px;
+      background-position: 100% 40%;
+      background-size: auto 200%;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(
+          141deg,
+          $shades-gradient_1 0%,
+          $shades-gradient_2 25%,
+          rgba(247, 247, 247, 0) 65%
+        ),
+        url("https://edcrunch.urfu.ru/assets/images/banner/1-02_2019.png");
+    }
+    .img-about-size {
+      max-width: 95px;
+      max-height: 95px;
+    }
   }
   @media only screen and (min-width: $tableWidth) and (max-width: $desktopWidth) {
     .bg_img {
@@ -78,6 +97,23 @@ html {
     }
     .header {
       display: none;
+    }
+    .backImg {
+      height: 200px;
+      background-position: auto 50%;
+      background-size: auto 200%;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(
+          141deg,
+          $shades-gradient_1 0%,
+          $shades-gradient_2 40%,
+          rgba(247, 247, 247, 0) 60%
+        ),
+        url("https://edcrunch.urfu.ru/assets/images/banner/1-02_2019.png");
+    }
+    .img-about-size {
+      max-width: 95px;
+      max-height: 95px;
     }
   }
   @media only screen and (min-width: $phoneWidth) and (max-width: $tableWidth) {
@@ -124,6 +160,28 @@ html {
     .margin-custom-catalog {
       margin-top: rem(70);
     }
+    .backImg {
+      margin-top: rem(59);
+      height: 150px;
+      background-position: auto 100%;
+      background-size: auto 195%;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(
+          141deg,
+          $shades-gradient_1 0%,
+          $shades-gradient_2 40%,
+          rgba(247, 247, 247, 0) 60%
+        ),
+        url("https://edcrunch.urfu.ru/assets/images/banner/1-02_2019.png");
+      h2 {
+        font-size: 1.8rem;
+        padding-left: 0rem !important;
+      }
+    }
+    .img-about-size {
+      max-width: 95px;
+      max-height: 95px;
+    }
   }
   @media only screen and (min-width: $smPhoneWidth) and (max-width: $phoneWidth) {
     .bg_img {
@@ -165,6 +223,28 @@ html {
     }
     .margin-custom-catalog {
       margin-top: rem(70);
+    }
+    .backImg {
+      margin-top: rem(49);
+      height: 150px;
+      background-position: -40% -40%;
+      background-size: auto 120%;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(
+          141deg,
+          $shades-gradient_1 0%,
+          $shades-gradient_2 40%,
+          rgba(247, 247, 247, 0) 60%
+        ),
+        url("https://edcrunch.urfu.ru/assets/images/banner/1-02_2019.png");
+      h2 {
+        font-size: 1.5rem;
+        padding-left: 0rem !important;
+      }
+    }
+    .img-about-size {
+      max-width: 50px;
+      max-height: 50px;
     }
   }
 
@@ -211,6 +291,24 @@ html {
     }
     .margin-custom-catalog {
       margin-top: rem(70);
+    }
+    .backImg {
+      margin-top: rem(45);
+      height: 150px;
+      background-position: -5% -50%;
+      background-size: auto 120%;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(
+          141deg,
+          $shades-gradient_1 0%,
+          $shades-gradient_2 45%,
+          rgba(247, 247, 247, 0) 65%
+        ),
+        url("https://edcrunch.urfu.ru/assets/images/banner/1-02_2019.png");
+      h2 {
+        font-size: 1.5rem;
+        padding-left: 0rem !important;
+      }
     }
   }
 }

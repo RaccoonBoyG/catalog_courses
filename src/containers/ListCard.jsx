@@ -6,7 +6,8 @@ let backgroundImg = {
   backgroundPosition: "center",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
-  backgroundPositionY: "top"
+  backgroundPositionY: "top",
+  boxShadow: "0px 0px 20px -8px rgba(169, 169, 169, 0.4)"
 };
 
 const ListCard = props => {
@@ -36,7 +37,7 @@ const ListCard = props => {
               })`
             }}
           >
-            <div className="d-flex-row container-fluid p-0 shadow-effect">
+            <div className="d-flex container-fluid p-0 justify-content-between flex-column shadow-effect">
               <div className="flex-row d-flex p-3">
                 <img
                   className="img-fluid img_org_logo"
@@ -50,28 +51,15 @@ const ListCard = props => {
                   }}
                 />
               </div>
-              <div
-                className="flex-row d-flex flex-wrap p-3 bg-light"
-                style={{
-                  bottom: "0",
-                  whiteSpace: "pre-wrap",
-                  position: "absolute",
-                  width: "100%"
-                }}
-              >
-                <h5
-                  className="card-title-org"
-                  style={{ whiteSpace: "pre-wrap" }}
-                >
-                  {props.name}
-                </h5>
+              <div className="flex-row d-flex flex-column p-3 text-custom-dark bg-light">
+                <h5 className=" p-1 card-title">{props.name}</h5>
               </div>
-              {/* <div className="flex-row d-flex justify-content-center button-custom pt-3 pb-3">
+            </div>
+            {/* <div className="flex-row d-flex justify-content-center button-custom pt-3 pb-3">
                   <Link to={{pathname: `${props.url}/${props.slug}`}} onClick={props.handleClick(props.slug)}>
                     <button className='btn btn-primary'>Подробнее</button>
                   </Link>
                 </div> */}
-            </div>
           </div>
         </Link>
       </div>

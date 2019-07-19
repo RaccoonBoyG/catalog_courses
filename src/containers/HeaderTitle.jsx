@@ -13,10 +13,7 @@ const HeaderTitle = props => (
         props.class === undefined ? "top-txt-container" : props.class
       }`}
     > */}
-    <div
-      className="d-flex flex-row"
-      style={{ backgroundImage: "linear-gradient(90deg, #00A9C4, #39B1C5)" }}
-    >
+    <div className="d-flex flex-row backImgCourse">
       <div
         className={`container container-course_about p-custom-2 d-flex flex-column text-light animated fadeIn faster mt-3 mb-3`}
       >
