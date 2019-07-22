@@ -75,8 +75,8 @@ const ListCard = props => {
                   Подробнее
                 </p>
               </div>
+              <hr className="line bg-primary" />
             </div>
-            <hr className="line bg-primary" />
           </div>
         </Link>
       </div>
