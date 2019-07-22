@@ -47,10 +47,10 @@ class Organizations extends Component {
     return (
       <React.Fragment>
         <Header />
-        <div className="flex-row p-5 ">
+        <div className="d-flex flex-column margin-custom-catalog">
           {loading && data.length === 0 ? (
             <div
-              className="d-flex flex-row justify-content-center align-items-center"
+              className="d-flex flex-row justify-content-center align-items-center "
               style={{ width: "100%", height: "350px" }}
             >
               <FontAwesomeIcon
@@ -62,7 +62,7 @@ class Organizations extends Component {
               />
             </div>
           ) : null}
-          <div className="d-flex flex-wrap flex-row">{OrgList}</div>
+          <div className="container d-flex flex-wrap flex-row">{OrgList}</div>
         </div>
         <ButtonScrollToTop />
       </React.Fragment>
