@@ -110,26 +110,28 @@ class Courses extends Component {
           </div>
         </div>
         <div className="container pb-3 mb-3 p-0 margin-custom-catalog_1">
-          <div className="d-flex flex-row justify-content-between ">
-            <h3 className="text-custom-dark mb-3 pl-3">
-              {num2str(this.props.filter_data.length, [
-                "Найден ",
-                "Найдено ",
-                "Найдено "
-              ])}
-              {this.props.filter_data.length}
-              {num2str(this.props.filter_data.length, [
-                " курс ",
-                " курса ",
-                " курсов "
-              ])}
-            </h3>
-          </div>
+          {!this.props.loading && this.props.filter_data.length !== 0 ? (
+            <div className="d-flex flex-row justify-content-between ">
+              <h3 className="text-custom-dark mb-3 pl-3">
+                {num2str(this.props.filter_data.length, [
+                  "Найден ",
+                  "Найдено ",
+                  "Найдено "
+                ])}
+                {this.props.filter_data.length}
+                {num2str(this.props.filter_data.length, [
+                  " курс ",
+                  " курса ",
+                  " курсов "
+                ])}
+              </h3>
+            </div>
+          ) : null}
           <div className="flex-row">
             <div className="d-flex flex-wrap flex-row">
               {this.props.loading && this.props.filter_data.length === 0 ? (
                 <div
-                  className="d-flex flex-row justify-content-center align-items-center"
+                  className="d-flex flex-column justify-content-center align-items-center"
                   style={{ width: "100%", height: "350px" }}
                 >
                   <FontAwesomeIcon
@@ -139,6 +141,9 @@ class Courses extends Component {
                     color="#000"
                     style={{ width: "100%" }}
                   />
+                  {/* <h3 className="text-neutral-regular d-flex m-3">
+                    Загрузка...
+                  </h3> */}
                 </div>
               ) : null}
               {!this.props.loading && this.props.data.length === 0 ? (
