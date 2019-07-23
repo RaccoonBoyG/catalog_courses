@@ -13,9 +13,9 @@ const HeaderTitle = props => (
         props.class === undefined ? "top-txt-container" : props.class
       }`}
     > */}
-    <div className="d-flex flex-row backImgCourse">
+    <div className="d-flex flex-row backImgCourse margin-custom-catalog">
       <div
-        className={`container container-course_about p-custom-2 pb-4 pl-2 d-flex flex-column text-light animated fadeIn faster mt-3 mb-3`}
+        className={`container container-course_about p-custom-2 pb-4 pl-2 d-flex flex-column text-light animated fadeIn faster mb-3`}
       >
         <div
           className=" d-flex title_catalog align-items-start justify-content-start "

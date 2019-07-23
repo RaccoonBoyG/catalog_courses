@@ -109,8 +109,8 @@ class Courses extends Component {
             </div>
           </div>
         </div>
-        <div className="container pb-3 mb-3 p-0 margin-custom-catalog">
-          <div className="d-flex flex-row justify-content-between">
+        <div className="container pb-3 mb-3 p-0 margin-custom-catalog_1">
+          <div className="d-flex flex-row justify-content-between ">
             <h3 className="text-custom-dark mb-3 pl-3">
               {num2str(this.props.filter_data.length, [
                 "Найден ",

@@ -15,13 +15,13 @@ class AboutUs extends Component {
       <React.Fragment>
         <Header />
         {/* <HeaderBackground /> */}
-        <div className="d-flex flex-row container-fluid backImgCourse">
+        <div className="d-flex flex-row container-fluid backImgCourse margin-custom-catalog">
           <h1 className="d-flex align-items-center justify-content-center p-5 text-light container">
             О нас
           </h1>
         </div>
         <div
-          className="d-flex-row container-course_about container aboutUs text-custom-dark p-5 mt-3"
+          className="d-flex-row container aboutUs text-custom-dark p-5"
           style={{ borderRadius: 0 }}
         >
           <div className="about-back"></div>
