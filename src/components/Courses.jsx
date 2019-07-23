@@ -13,6 +13,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ButtonLoadMore from "../containers/ButtonLoadMore";
 import $ from "jquery";
 
+const num2str = (n, text_forms) => {
+  n = Math.abs(n) % 100;
+  var n1 = n % 10;
+
+  if (n > 10 && n < 20) {
+    return text_forms[2];
+  }
+
+  if (n1 > 1 && n1 < 5) {
+    return text_forms[1];
+  }
+
+  if (n1 === 1) {
+    return text_forms[0];
+  }
+
+  return text_forms[2];
+};
+
 class Courses extends Component {
   // slice(0,size).map ...
 
@@ -91,10 +110,24 @@ class Courses extends Component {
           </div>
         </div>
         <div className="container pb-3 mb-3 p-0 margin-custom-catalog">
-          <h3 className="text-custom-dark mb-3 pl-3">Курсы</h3>
+          <div className="d-flex flex-row justify-content-between">
+            <h3 className="text-custom-dark mb-3 pl-3">
+              {num2str(this.props.filter_data.length, [
+                "Найден ",
+                "Найдено ",
+                "Найдено "
+              ])}
+              {this.props.filter_data.length}
+              {num2str(this.props.filter_data.length, [
+                " курс ",
+                " курса ",
+                " курсов "
+              ])}
+            </h3>
+          </div>
           <div className="flex-row">
             <div className="d-flex flex-wrap flex-row">
-              {this.props.loading && this.props.data.length === 0 ? (
+              {this.props.loading && this.props.filter_data.length === 0 ? (
                 <div
                   className="d-flex flex-row justify-content-center align-items-center"
                   style={{ width: "100%", height: "350px" }}
@@ -135,6 +168,7 @@ class Courses extends Component {
 
 const mapStateToProps = state => ({
   data: state.cards.items,
+  filter_data: state.cards.filter_data,
   buttonState: state.cards.isHideButton,
   test: state.cards.input,
   loading: state.cards.loading

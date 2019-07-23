@@ -8,7 +8,8 @@ const initialState = {
   err: null,
   page: 2,
   isHideButton: true,
-  loading: true
+  loading: true,
+  filter_data: []
 };
 
 export default function cardsReducer(state = initialState, { type, payload }) {
@@ -26,24 +27,27 @@ export default function cardsReducer(state = initialState, { type, payload }) {
       };
 
     case types.SEARCH_INPUT:
-      const filter_data = state.item_all.filter(val =>
+      const filter = state.item_all.filter(val =>
         payload.input.length === 0
           ? true
           : val.name.toLowerCase().includes(payload.input.toLowerCase())
       );
+
       // console.log(state.item_all.filter(val=>val.name)) state.input.length === 0 ? true :
 
       return {
         ...state,
         input: payload.input,
-        items: filter_data
+        items: filter,
+        filter_data: filter
       };
 
     case types.FETCH_CARDS_SUCCESS_ALL:
       return {
         ...state,
         item_all: payload.dataAll,
-        loading: false
+        loading: false,
+        filter_data: payload.dataAll
       };
 
     case types.FETCH_CARDS_START:
@@ -88,7 +92,8 @@ export default function cardsReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         items: state.item_all,
-        input: state.input
+        input: state.input,
+        filter_data: state.item_all
       };
 
     default:
