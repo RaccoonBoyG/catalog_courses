@@ -7,7 +7,7 @@ const initialState = {
   input: "",
   err: null,
   page: 2,
-  isHideButton: true,
+  // isHideButton: true,
   loading: true,
   filter_data: []
 };
@@ -75,11 +75,11 @@ export default function cardsReducer(state = initialState, { type, payload }) {
         ...state
       };
 
-    case types.LOAD_MORE_HIDE_BUTTON:
-      return {
-        ...state,
-        isHideButton: false
-      };
+    // case types.LOAD_MORE_HIDE_BUTTON:
+    //   return {
+    //     ...state,
+    //     isHideButton: false
+    //   };
 
     case types.LOAD_MORE_FAILURE:
       return {
@@ -110,12 +110,12 @@ export const LoadMoreDataLength = state => state.cards.items.length;
 
 // export const searchInputDataFilter = (state,value) => state.cards.items.filter(card => card.name.includes(value));
 
-export const LoadMoreDataHideButton = buttonState => ({
-  type: types.LOAD_MORE_HIDE_BUTTON,
-  payload: {
-    buttonState
-  }
-});
+// export const LoadMoreDataHideButton = buttonState => ({
+//   type: types.LOAD_MORE_HIDE_BUTTON,
+//   payload: {
+//     buttonState
+//   }
+// });
 
 export const LoadMoreDataSuccess = data => ({
   type: types.LOAD_MORE_SUCCESS,

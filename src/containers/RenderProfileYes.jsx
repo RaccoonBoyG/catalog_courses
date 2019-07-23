@@ -25,7 +25,7 @@ class RenderProfileYes extends Component {
           </a>
           <li class="nav-item dropdown" style={{ listStyle: "none" }}>
             <a
-              className="nav-link dropdown-toggle text-white"
+              className="nav-link dropdown-toggle text-neutral-regular"
               href={`${MEDIA_LS_URL}/dashboard`}
               id="navbarDropdown"
               role="button"
@@ -41,18 +41,21 @@ class RenderProfileYes extends Component {
               style={{ minWidth: "5rem" }}
             >
               <a
-                className="dropdown-item"
+                className="dropdown-item text-custom-dark"
                 href={`${MEDIA_LS_URL}/u/${item.username}`}
               >
                 Профиль
               </a>
               <a
-                className="dropdown-item"
+                className="dropdown-item text-custom-dark"
                 href={`${MEDIA_LS_URL}/account/settings`}
               >
                 Настройки
               </a>
-              <a className="dropdown-item" href={`${MEDIA_LS_URL}/logout`}>
+              <a
+                className="dropdown-item text-custom-dark"
+                href={`${MEDIA_LS_URL}/logout`}
+              >
                 Выйти
               </a>
             </div>

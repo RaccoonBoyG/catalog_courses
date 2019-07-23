@@ -9,7 +9,7 @@ export function fetchCards() {
       let getNextPage = await openeduService.getNextPageAPI();
       dispatch(fetchSelectors.fetchCardsSuccess(getCard));
       if (getNextPage === null) {
-        dispatch(fetchSelectors.LoadMoreDataHideButton());
+        // dispatch(fetchSelectors.LoadMoreDataHideButton());
       }
     } catch (error) {
       dispatch(fetchSelectors.fetchCardsFailure(error));
@@ -42,7 +42,7 @@ export function LoadMoreTest() {
       }
     } else {
       dispatch(fetchSelectors.LoadMoreDataSuccess(getCard));
-      dispatch(fetchSelectors.LoadMoreDataHideButton());
+      // dispatch(fetchSelectors.LoadMoreDataHideButton());
     }
   };
 }
@@ -56,7 +56,7 @@ export function LoadMoreTest() {
 export function searchInput(value) {
   return dispatch => {
     dispatch(fetchSelectors.searchInputData(value));
-    dispatch(fetchSelectors.LoadMoreDataHideButton());
+    // dispatch(fetchSelectors.LoadMoreDataHideButton());
     // fetchSelectors.searchInputDataFilter(getState(),value)
   };
 }

@@ -156,8 +156,8 @@ class Courses extends Component {
             </div>
           </div>
           {!this.props.loading &&
-          this.props.buttonState &&
-          this.props.data.length !== 0 ? (
+          this.props.data.length !== 0 &&
+          this.props.filter_data.length > this.props.data.length ? (
             <ButtonLoadMore />
           ) : null}
         </div>
@@ -169,7 +169,6 @@ class Courses extends Component {
 const mapStateToProps = state => ({
   data: state.cards.items,
   filter_data: state.cards.filter_data,
-  buttonState: state.cards.isHideButton,
   test: state.cards.input,
   loading: state.cards.loading
 });
