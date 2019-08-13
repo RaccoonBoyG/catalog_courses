@@ -7,7 +7,7 @@ import Catalog from "./Catalog";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import CourseAbout from "./CourseAbout";
 import Organization from "./Organization";
-import { composeWithDevTools } from "redux-devtools-extension";
+// import { composeWithDevTools } from "redux-devtools-extension";
 // import Programs from './Programs';
 // import ProgramAbout from './ProgramAbout';
 import Footer from "./Footer";
@@ -17,7 +17,7 @@ import Privacy from "../containers/Privacy";
 import OrganizationAbout from "./OrganizationAbout";
 import NotFound from "../containers/NotFound";
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 class App extends Component {
   render() {

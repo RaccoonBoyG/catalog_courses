@@ -129,7 +129,7 @@ class Courses extends Component {
           ) : null}
           <div className="flex-row">
             <div className="d-flex flex-wrap flex-row">
-              {this.props.loading && this.props.filter_data.length === 0 ? (
+              {this.props.loading && this.props.data.length === 0 ? (
                 <div
                   className="d-flex flex-column justify-content-center align-items-center"
                   style={{ width: "100%", height: "350px" }}
