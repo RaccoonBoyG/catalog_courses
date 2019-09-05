@@ -23,23 +23,21 @@ export function fetchUserState() {
   };
 }
 
-export function fetchEnrollState(id, username) {
+export function fetchEnrollState(username, id) {
   return async dispatch => {
     let responseStatus = await openeduService.ResponseStatusAPI();
     if (responseStatus === 200) {
       try {
         let getCourseEnroll = await openeduService.CheckEnrollCourseAPI(
-          id,
-          username
+          username,
+          id
         );
+        
         let filterCourseEnroll = getCourseEnroll.some(item => {
-          return item.course_id === id;
+          return item.is_active;
         });
-        // let filterCourseEnroll = getCourseEnroll.some(item => {
-        //   return item === true;
-        // });
 
-        dispatch(fetchSelectors.fetchCourseEnroll(filterCourseEnroll));
+        dispatch(fetchSelectors.fetchCourseEnroll(filterCourseEnroll, getCourseEnroll));
       } catch (error) {
         console.log(error);
       }
@@ -47,4 +45,11 @@ export function fetchEnrollState(id, username) {
       dispatch(fetchSelectors.UserUnAuth());
     }
   };
+}
+
+
+export function clearLoadingUser(){
+  return async dispatch => {
+    dispatch(fetchSelectors.clearLoadingUserSelector())
+  }
 }

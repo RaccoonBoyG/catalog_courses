@@ -1,11 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import Header from "../components/Header";
+import Header from '../components/Header';
 // import HeaderBackground from "../containers/HeaderBackground";
-import HeaderTitle from "../containers/HeaderTitle";
+import HeaderTitle from '../containers/HeaderTitle';
 
 // 'top-txt-container'
 const AboutRender = props => {
+  console.log(props.search);
+
   return (
     <React.Fragment>
       <Header />
@@ -20,6 +22,8 @@ const AboutRender = props => {
         isAuth={props.isAuth}
         course_enroll_user={props.course_enroll_user}
         params={props.params}
+        modes_data={props.modes_data}
+        search={props.search}
       />
     </React.Fragment>
   );

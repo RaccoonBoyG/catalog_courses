@@ -1,6 +1,7 @@
-import React from "react";
-import ButtonEnroll from "../containers/ButtonEnroll";
-import ButtonReadMore from "../containers/ButtonReadMore";
+import React from 'react';
+import ButtonEnroll from '../containers/ButtonEnroll';
+import ButtonReadMore from '../containers/ButtonReadMore';
+import ButtonPay from '../containers/ButtonPay';
 
 // let backImg = {
 //   background: "url('http://itoo.urfu.ru/Content/images/bg.jpg') repeat center 0"
@@ -14,27 +15,20 @@ const HeaderTitle = props => (
       }`}
     > */}
     <div className="d-flex flex-row backImgCourse margin-custom-catalog">
-      <div
-        className={`container container-course_about p-custom-2 pb-4 pl-2 d-flex flex-column text-light animated fadeIn faster mb-3`}
-      >
-        <div
-          className=" d-flex title_catalog align-items-start justify-content-start "
-          style={{ textAlign: "left" }}
-        >
-          <h2 className="d-flex align-items-start justify-content-start">
-            {props.title}
-          </h2>
+      <div className={`container container-course_about p-custom-2 pb-4 pl-2 d-flex flex-column text-light animated fadeIn faster mb-3`}>
+        <div className=" d-flex title_catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
+          <h2 className="d-flex align-items-start justify-content-start">{props.title}</h2>
         </div>
         {props.isAuth === undefined ? null : (
           <ButtonEnrollRead
             isAuth={props.isAuth}
             course_enroll_user={props.course_enroll_user}
             params={props.params}
+            modes_data={props.modes_data}
+            search={props.search}
           />
         )}
-        {props.description === undefined ? null : (
-          <HeaderDescription desc={props.description} />
-        )}
+        {props.description === undefined ? null : <HeaderDescription desc={props.description} />}
       </div>
     </div>
   </React.Fragment>
@@ -51,11 +45,10 @@ const HeaderDescription = props => (
 );
 
 const ButtonEnrollRead = props => (
-  <div className="d-flex flex-row mt-5">
-    {props.isAuth && props.course_enroll_user ? (
-      <ButtonReadMore value={props.params.id} />
-    ) : (
-      <ButtonEnroll value={props.params.id} />
+  <div className="d-flex flex-row mt-5 justify-content-between">
+    {props.isAuth && props.course_enroll_user ? <ButtonReadMore value={props.params.id} /> : <ButtonEnroll value={props.params.id} />}
+    {props.isAuth && props.course_enroll_user && props.search !== '?test=1' ? null : (
+      <ButtonPay isAuth={props.isAuth} course_enroll_user={props.course_enroll_user} params={props.params} modes_data={props.modes_data} />
     )}
   </div>
 );

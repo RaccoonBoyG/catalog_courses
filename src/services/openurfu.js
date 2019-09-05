@@ -233,23 +233,40 @@ class OpeneduService {
     return arr;
   }
 
-  async CheckEnrollCourseAPI(id, username) {
+  async CheckEnrollCourseAPI(username, id) {
     let url = `${OPENEDU_ENDPOINT}/enrollment/v1/enrollment/${username},${id}`;
     let arr = [];
     let data = await this.getDataAPI(url);
-    return data.course_details.map(item => {
-      return arr.push({
-        username: data.user,
-        user_mode: data.mode,
-        is_subscribe: data.is_active,
-        course_id: item.course_id,
-        course_modes_slug: item.find(i => i.slug).slug,
-        course_modes_currency: item.find(i => i.currency).currency,
-        course_modes_min_price: item.find(i => i.min_price).min_price,
-        course_modes_suggested_prices: item.find(i => i.suggested_prices)
-          .suggested_prices
-      });
+    // console.log(data.course_details.course_modes.forEach((item, i) => item));
+    
+    arr.push({
+      username: data.user,
+      user_mode: data.mode,
+      is_active: data.is_active,
+      course_id: data.course_details.course_id,
+      course_modes_slug: data.course_details.course_modes.find(i => i.slug).slug,
+      course_modes_currency: data.course_details.course_modes.find(i => i.currency).currency
+      // course_modes_min_price: data.course_details.course_modes.find(i => i.min_price).min_price
+      // course_modes_suggested_prices: data.course_details.course_modes.find(i => i.suggested_prices)
+      //   .suggested_prices
     });
+    return arr
+
+    
+    
+    // return data.course_details.map(item => {
+    //   return arr.push({
+    //     username: data.user,
+    //     user_mode: data.mode,
+    //     is_subscribe: data.is_active,
+    //     course_id: item.course_id,
+    //     course_modes_slug: item.find(i => i.slug).slug,
+    //     course_modes_currency: item.find(i => i.currency).currency,
+    //     course_modes_min_price: item.find(i => i.min_price).min_price,
+    //     course_modes_suggested_prices: item.find(i => i.suggested_prices)
+    //       .suggested_prices
+    //   });
+    // });
 
     // return data.map(item =>
     //   item.course_details.course_id === id ? true : false
