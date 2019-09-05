@@ -23,15 +23,21 @@ export function fetchUserState() {
   };
 }
 
-export function fetchEnrollState(id) {
+export function fetchEnrollState(id, username) {
   return async dispatch => {
     let responseStatus = await openeduService.ResponseStatusAPI();
     if (responseStatus === 200) {
       try {
-        let getCourseEnroll = await openeduService.CheckEnrollCourseAPI(id);
+        let getCourseEnroll = await openeduService.CheckEnrollCourseAPI(
+          id,
+          username
+        );
         let filterCourseEnroll = getCourseEnroll.some(item => {
-          return item === true;
+          return item.course_id === id;
         });
+        // let filterCourseEnroll = getCourseEnroll.some(item => {
+        //   return item === true;
+        // });
 
         dispatch(fetchSelectors.fetchCourseEnroll(filterCourseEnroll));
       } catch (error) {

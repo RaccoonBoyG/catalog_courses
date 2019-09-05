@@ -2,7 +2,7 @@
 @import "./scss/modules/bootstrapTheme";
 
 @import "./scss/utils/_libs.scss";
-@import "./scss/utils/_fonts.scss";
+// @import "./scss/utils/_fonts.scss";
 @import "./scss/utils/_mixins.scss";
 
 @import "./scss/modules/header";
@@ -372,5 +372,5 @@ body {
 }
 
 .text-muted {
-  font-family: $font-name-urfu;
+  // font-family: $font-name-urfu;
 }

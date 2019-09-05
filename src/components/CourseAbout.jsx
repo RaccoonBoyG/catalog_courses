@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchAbout } from "../store/course_about/action";
-import { fetchEnrollState } from "../store/user/action";
+import { fetchEnrollState, fetchUserState } from "../store/user/action";
 import "animate.css/animate.min.css";
 // import ButtonEnroll from "../containers/ButtonEnroll";
 // import ButtonReadMore from "../containers/ButtonReadMore";
@@ -30,15 +30,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class CourseAbout extends Component {
   componentDidMount() {
+    this.props.fetchUserState();
     this.props.fetchAbout(this.props.match.params.id);
-    this.props.fetchEnrollState(this.props.match.params.id);
+    this.props.fetchEnrollState(
+      this.props.match.params.id,
+      this.props.data_user.find(i => i.username).username
+    );
     window.scrollTo(0, 0);
     scroll();
   }
 
   render() {
     const sanitizer = dompurify.sanitize;
-    const { isAuth, data, course_enroll_user } = this.props;
+    const { isAuth, data, course_enroll_user, data_user } = this.props;
+    console.log(data_user);
     return (
       <React.Fragment>
         <AboutRender
@@ -99,10 +104,12 @@ const mapStateToProps = state => ({
   data: state.course_about.items,
   isAuth: state.user.isAuth,
   course_enroll_user: state.user.course_enroll_user,
-  loading: state.course_about.loading
+  loading: state.course_about.loading,
+  data_user: state.user.items_user
 });
 
 const mapDispatchToProps = {
+  fetchUserState,
   fetchAbout,
   fetchEnrollState
 };

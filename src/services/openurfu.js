@@ -1,10 +1,18 @@
-const OPENEDU_ENDPOINT = `//courses.openedu.urfu.ru/api`;
-const OPENEDU_ENDPOINT2 = `https://courses.openedu.urfu.ru/api`;
+// const OPENEDU_ENDPOINT = `//courses.openedu.urfu.ru/api`;
+// const OPENEDU_ENDPOINT2 = `https://courses.openedu.urfu.ru/api`;
+// const COURSES_ENDPOINT = `/courses/v1/courses/`;
+// const DEFAULT_QUERY = 1;
+// const PAGE_PARAM = `?page=`;
+// const PAGE_SIZE = `?page_size=100`;
+// export const MEDIA_LS_URL = `//courses.openedu.urfu.ru`;
+
+const OPENEDU_ENDPOINT = `http://10.16.208.164/api`;
+const OPENEDU_ENDPOINT2 = `http://10.16.208.164/api`;
 const COURSES_ENDPOINT = `/courses/v1/courses/`;
 const DEFAULT_QUERY = 1;
 const PAGE_PARAM = `?page=`;
 const PAGE_SIZE = `?page_size=100`;
-export const MEDIA_LS_URL = `//courses.openedu.urfu.ru`;
+export const MEDIA_LS_URL = `http://10.16.208.164`;
 
 class OpeneduService {
   async getDataAPI(url) {
@@ -225,12 +233,27 @@ class OpeneduService {
     return arr;
   }
 
-  async CheckEnrollCourseAPI(id) {
-    let url = `${OPENEDU_ENDPOINT}/enrollment/v1/enrollment`;
+  async CheckEnrollCourseAPI(id, username) {
+    let url = `${OPENEDU_ENDPOINT}/enrollment/v1/enrollment/${username},${id}`;
+    let arr = [];
     let data = await this.getDataAPI(url);
-    return data.map(item =>
-      item.course_details.course_id === id ? true : false
-    );
+    return data.course_details.map(item => {
+      return arr.push({
+        username: data.user,
+        user_mode: data.mode,
+        is_subscribe: data.is_active,
+        course_id: item.course_id,
+        course_modes_slug: item.find(i => i.slug).slug,
+        course_modes_currency: item.find(i => i.currency).currency,
+        course_modes_min_price: item.find(i => i.min_price).min_price,
+        course_modes_suggested_prices: item.find(i => i.suggested_prices)
+          .suggested_prices
+      });
+    });
+
+    // return data.map(item =>
+    //   item.course_details.course_id === id ? true : false
+    // );
   }
 
   async CheckEnrollCourseItooAPI(id) {
