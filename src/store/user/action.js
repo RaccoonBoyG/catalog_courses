@@ -28,12 +28,18 @@ export function fetchEnrollState(id) {
     let responseStatus = await openeduService.ResponseStatusAPI();
     if (responseStatus === 200) {
       try {
-        let getCourseEnroll = await openeduService.CheckEnrollCourseAPI(id);
+        let getUser = await openeduService.CheckAuthAPI();
+        let username = getUser.find(i => i.username).username
+        let getCourseEnroll = await openeduService.CheckEnrollCourseAPI(
+          username,
+          id
+        );
+        
         let filterCourseEnroll = getCourseEnroll.some(item => {
-          return item === true;
+          return item.is_active;
         });
 
-        dispatch(fetchSelectors.fetchCourseEnroll(filterCourseEnroll));
+        dispatch(fetchSelectors.fetchCourseEnroll(filterCourseEnroll, getCourseEnroll));
       } catch (error) {
         console.log(error);
       }
@@ -41,4 +47,11 @@ export function fetchEnrollState(id) {
       dispatch(fetchSelectors.UserUnAuth());
     }
   };
+}
+
+
+export function clearLoadingUser(){
+  return async dispatch => {
+    dispatch(fetchSelectors.clearLoadingUserSelector())
+  }
 }

@@ -1,14 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import {
-  fetchAboutProgram,
-  fetchAboutProgramList
-} from "../store/programs/action";
-import "animate.css/animate.min.css";
-import AboutRender from "../containers/AboutRender";
-import CourseListRender from "../containers/CourseListRender";
-import scroll from "./scroll";
-import ButtonScrollToTop from "../containers/ButtonScrollToTop";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchAboutProgram, fetchAboutProgramList } from '../store/programs/action';
+import 'animate.css/animate.min.css';
+import AboutRender from '../containers/AboutRender';
+import CourseListRender from '../containers/CourseListRender';
+import scroll from './scroll';
+import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 
 class ProgramAbout extends Component {
   constructor(props) {
@@ -33,17 +30,18 @@ class ProgramAbout extends Component {
     const { data } = this.props;
     return (
       <React.Fragment>
-        <AboutRender
-          name={data.name}
-          image_background={data.image_background}
-          description={data.description}
-          //button enroll program coming soon :)
-        />
-        <div className="container pb-3 mb-3">
-          <h3 className="text-custom-dark mb-5">Курсы</h3>
-          <div className="row d-flex">
-            <CourseListRender item={this.state.data_local} />
-          </div>
+        <AboutRender name={data.name} image_background={data.image_background} height={100} class={'top-txt-container-sub'} />
+        <div className="container text-custom-dark p-3 mb-3">
+          <h3 className="mb-5">Курсы</h3>
+          {this.state.data_local.length <= 0 ? (
+            <div style={{ height: '300px' }}>
+              <h2>У данной организации пока нет курсов</h2>
+            </div>
+          ) : (
+            <div className="row d-flex">
+              <CourseListRender item={this.state.data_local} />
+            </div>
+          )}
         </div>
         <ButtonScrollToTop />
       </React.Fragment>

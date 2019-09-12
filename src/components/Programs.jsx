@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchPrograms, fetchAboutProgram } from "../store/programs/action";
-import "animate.css/animate.min.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchPrograms, fetchAboutProgram } from '../store/programs/action';
+import 'animate.css/animate.min.css';
 
-import Header from "./Header";
-import HeaderBackground from "../containers/HeaderBackground";
-import HeaderTitle from "../containers/HeaderTitle";
-import ListCard from "../containers/ListCard";
-import scroll from "./scroll";
-import ButtonScrollToTop from "../containers/ButtonScrollToTop";
+import Header from './Header';
+import ListCard from '../containers/ListCard';
+import scroll from './scroll';
+import ButtonScrollToTop from '../containers/ButtonScrollToTop';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Programs extends Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class Programs extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { loading, data } = this.props;
     const ProgramsList = data.map(item => {
       return (
         <ListCard
@@ -44,10 +44,13 @@ class Programs extends Component {
     return (
       <React.Fragment>
         <Header />
-        <HeaderBackground height={350} />
-        <HeaderTitle title={"Программы"} class={"top-txt-container-sub"} />
-        <div className="flex-row p-5 ">
-          <div className="d-flex flex-wrap flex-row">{ProgramsList}</div>
+        <div className="d-flex flex-column margin-custom-catalog">
+          {loading && data.length === 0 ? (
+            <div className="d-flex flex-row justify-content-center align-items-center " style={{ width: '100%', height: '350px' }}>
+              <FontAwesomeIcon icon={faSpinner} size="3x" spin color="#000" style={{ width: '100%' }} />
+            </div>
+          ) : null}
+          <div className="container d-flex flex-wrap flex-row">{ProgramsList}</div>
         </div>
         <ButtonScrollToTop />
       </React.Fragment>
@@ -56,7 +59,8 @@ class Programs extends Component {
 }
 
 const mapStateToProps = state => ({
-  data: state.programs.items
+  data: state.programs.items,
+  loading: state.programs.loading
 });
 
 const mapDispatchToProps = {
