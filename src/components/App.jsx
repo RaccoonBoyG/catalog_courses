@@ -1,23 +1,24 @@
-import React, { Component } from 'react';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import reducer from '../store/reducers';
-import thunk from 'redux-thunk';
-import Catalog from './Catalog';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
-import CourseAbout from './CourseAbout';
-import Organization from './Organization';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import Programs from './Programs';
-import ProgramAbout from './ProgramAbout';
-import Footer from './Footer';
-import AboutUs from '../containers/AboutUs';
-import Tech from '../containers/Tech';
-import Privacy from '../containers/Privacy';
-import OrganizationAbout from './OrganizationAbout';
-import NotFound from '../containers/NotFound';
+import React, { Component } from "react";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import reducer from "../store/reducers";
+import thunk from "redux-thunk";
+import Catalog from "./Catalog";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
+import CourseAbout from "./CourseAbout";
+import Organization from "./Organization";
+// import { composeWithDevTools } from 'redux-devtools-extension';
+import Programs from "./Programs";
+import ProgramAbout from "./ProgramAbout";
+import Footer from "./Footer";
+import AboutUs from "../containers/AboutUs";
+import Tech from "../containers/Tech";
+import Privacy from "../containers/Privacy";
+import OrganizationAbout from "./OrganizationAbout";
+import NotFound from "../containers/NotFound";
 
-const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+// const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 class App extends Component {
   render() {
