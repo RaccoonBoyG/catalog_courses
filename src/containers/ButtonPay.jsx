@@ -33,7 +33,7 @@ class ButtonPay extends Component {
   async RedirectPay() {
     let token = this.getCookie('csrftoken');
     // let postEnroll = await fetch(`${MEDIA_LS_URL}/api/enrollment/v1/enrollment`, {
-    let postEnroll = await fetch(`http://10.16.208.164/api/itoo_api/acquiring/pay_urfu/`, {
+    let postEnroll = await fetch(`${MEDIA_LS_URL}/api/itoo_api/acquiring/pay_urfu/`, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'text-plain, */*',
