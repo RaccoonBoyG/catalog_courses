@@ -6,8 +6,6 @@ import HeaderTitle from '../containers/HeaderTitle';
 
 // 'top-txt-container'
 const AboutRender = props => {
-  console.log(props.search);
-
   return (
     <React.Fragment>
       <Header />

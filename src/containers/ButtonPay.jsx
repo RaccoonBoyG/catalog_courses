@@ -8,7 +8,7 @@ class ButtonPay extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.value
+      modes_data: this.props.modes_data
     };
   }
 
@@ -32,7 +32,8 @@ class ButtonPay extends Component {
 
   async RedirectPay() {
     let token = this.getCookie('csrftoken');
-    let postEnroll = await fetch(`${MEDIA_LS_URL}/api/enrollment/v1/enrollment`, {
+    // let postEnroll = await fetch(`${MEDIA_LS_URL}/api/enrollment/v1/enrollment`, {
+    let postEnroll = await fetch(`http://10.16.208.164/api/itoo_api/acquiring/pay_urfu/`, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'text-plain, */*',
@@ -42,7 +43,7 @@ class ButtonPay extends Component {
       method: 'post',
       credentials: 'same-origin',
       body: JSON.stringify({
-        course_details: { course_id: this.state.value }
+        course_modes: this.state.modes_data
       })
     });
     const response = await postEnroll.text();

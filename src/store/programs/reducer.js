@@ -4,7 +4,7 @@ const initialState = {
   items: [],
   items_about: {},
   items_card_about: {},
-  loading: false,
+  loading: true,
   error: null
 };
 
@@ -16,7 +16,8 @@ export default function programsReducer(
     case types.FETCH_PROGRAMS_SUCCESS:
       return {
         ...state,
-        items: payload.data
+        items: payload.data,
+        loading: false
       };
 
     case types.FETCH_PROGRAM_ABOUT_SUCCESS:

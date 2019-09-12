@@ -31,23 +31,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class CourseAbout extends Component {
   componentWillMount() {
     this.props.clearLoadingUser();
+    this.props.fetchUserState();
   }
   componentDidMount() {
     this.props.fetchUserState();
     this.props.fetchAbout(this.props.match.params.id);
     window.scrollTo(0, 0);
     scroll();
-    console.log(this.props.loading_user);
-
-    if (this.props.loading_user) {
-      this.props.fetchEnrollState(this.props.data_user.find(i => i.username).username, this.props.match.params.id);
-    }
-    console.log(this.props.history.location.search);
   }
 
   render() {
     const sanitizer = dompurify.sanitize;
-    const { isAuth, data, course_enroll_user, data_user, match, loading_user, loading, modes_data, history } = this.props;
+    const { isAuth, data, course_enroll_user, match, loading_user, loading, modes_data, history } = this.props;
+    if (!loading_user) {
+      this.props.fetchEnrollState(this.props.match.params.id);
+    }
+
     return (
       <React.Fragment>
         <AboutRender

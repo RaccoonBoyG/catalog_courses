@@ -21,6 +21,11 @@ const MobileMenu = props => {
           </NavLink>
         </li>
         <li className="menu-item">
+          <NavLink to="/programs" className="nav-link">
+            Программы
+          </NavLink>
+        </li>
+        <li className="menu-item">
           <NavLink to="/about" className="nav-link">
             О нас
           </NavLink>

@@ -23,11 +23,13 @@ export function fetchUserState() {
   };
 }
 
-export function fetchEnrollState(username, id) {
+export function fetchEnrollState(id) {
   return async dispatch => {
     let responseStatus = await openeduService.ResponseStatusAPI();
     if (responseStatus === 200) {
       try {
+        let getUser = await openeduService.CheckAuthAPI();
+        let username = getUser.find(i => i.username).username
         let getCourseEnroll = await openeduService.CheckEnrollCourseAPI(
           username,
           id
