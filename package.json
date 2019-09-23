@@ -2,7 +2,6 @@
   "name": "courses_catalog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/react-dev",
   "dependencies": {
     "@babel/core": "7.4.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.19",
