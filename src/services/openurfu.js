@@ -236,23 +236,41 @@ class OpeneduService {
   async CheckEnrollCourseAPI(username, id) {
     let url = `${OPENEDU_ENDPOINT}/enrollment/v1/enrollment/${username},${id}`;
     let arr = [];
-    let data = await this.getDataAPI(url);
-    // console.log(data.course_details.course_modes.forEach((item, i) => item));
-    
-    arr.push({
-      username: data.user,
-      user_mode: data.mode,
-      is_active: data.is_active,
-      course_id: data.course_details.course_id,
-      course_modes_slug: data.course_details.course_modes.find(i => i.slug).slug,
-      course_modes_currency: data.course_details.course_modes.find(i => i.currency).currency,
-      course_modes_min_price: data.course_details.course_modes[0].min_price,
-      course_modes_suggested_prices: data.course_details.course_modes[0].suggested_prices
-    });
-    return arr
+    let response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(
+        `OpeneduService getDataAPI failed, HTTP status ${response.status}`
+      );
+    }
+    let data = null;
+    try {
+      data = await response.json();
+    } catch {
+      // console.log(data.course_details.course_modes.forEach((item, i) => item));
+      data = {};
+    }
+    if (Object.keys(data).length === 0) {
+      arr.push({
+        is_active: false
+      });
+    } else if (Object.keys(data).length > 0) {
+      arr.push({
+        username: data.user,
+        user_mode: data.mode,
+        is_active: data.is_active,
+        course_id: data.course_details.course_id,
+        course_modes_slug: data.course_details.course_modes.find(i => i.slug)
+          .slug,
+        course_modes_currency: data.course_details.course_modes.find(
+          i => i.currency
+        ).currency,
+        course_modes_min_price: data.course_details.course_modes[0].min_price,
+        course_modes_suggested_prices:
+          data.course_details.course_modes[0].suggested_prices
+      });
+    }
+    return arr;
 
-    
-    
     // return data.course_details.map(item => {
     //   return arr.push({
     //     username: data.user,

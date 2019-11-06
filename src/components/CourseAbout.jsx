@@ -9,7 +9,6 @@ import {
 import "animate.css/animate.min.css";
 // import ButtonEnroll from "../containers/ButtonEnroll";
 // import ButtonReadMore from "../containers/ButtonReadMore";
-import dompurify from "dompurify";
 import AboutRender from "../containers/AboutRender";
 import scroll from "./scroll";
 import ButtonScrollToTop from "../containers/ButtonScrollToTop";
@@ -45,7 +44,7 @@ class CourseAbout extends Component {
   }
 
   render() {
-    const sanitizer = dompurify.sanitize;
+    // const sanitizer = dompurify.sanitize;
     const {
       isAuth,
       data,
@@ -59,7 +58,7 @@ class CourseAbout extends Component {
     if (!loading_user) {
       this.props.fetchEnrollState(this.props.match.params.id);
     }
-    var config = { ALLOWED_TAGS: ["iframe"] };
+    // var config = { ALLOWED_TAGS: ['iframe', 'p', 'div', 'br', 'b', 'section', 'h1', 'h2', 'h3', 'h4', 'h5', 'img', 'strong'] };
 
     return (
       <React.Fragment>
@@ -109,7 +108,7 @@ class CourseAbout extends Component {
               <div
                 className="question-text"
                 dangerouslySetInnerHTML={{
-                  __html: sanitizer(data.overview, config)
+                  __html: data.overview
                 }}
               />
             </div>
