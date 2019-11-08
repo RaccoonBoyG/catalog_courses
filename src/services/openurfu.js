@@ -127,29 +127,13 @@ class OpeneduService {
     };
   }
 
-  async getAboutProgramItem(program) {
-    // let response_about = await this.getAboutCourseAPI()
-    let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/programs/${program}/`;
-    let data = await this.getDataAPI(url);
-    return {
-      id: data.id,
-      name: data.name,
-      short_name: data.short_name,
-      slug: data.slug,
-      description: data.description,
-      image_background: data.image_background,
-      logo: data.logo,
-      active: data.active
-    };
-  }
-
   async getAboutOrgItem(organizations) {
     // let response_about = await this.getAboutCourseAPI()
     let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/organizations/${organizations}/`;
     let data = await this.getDataAPI(url);
     return {
       id: data.id,
-      name: data.name,
+      name: data.title,
       short_name: data.short_name,
       slug: data.slug,
       description: data.description,
@@ -177,7 +161,7 @@ class OpeneduService {
     data.results.map(item => {
       return arr.push({
         id: item.id,
-        name: item.name,
+        name: item.title,
         short_name: item.short_name,
         slug: item.slug,
         description: item.description,
@@ -200,6 +184,22 @@ class OpeneduService {
     };
   }
 
+  async getAboutProgramItem(program) {
+    // let response_about = await this.getAboutCourseAPI()
+    let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/programs/${program}/`;
+    let data = await this.getDataAPI(url);
+    return {
+      id: data.id,
+      name: data.title,
+      short_name: data.short_name,
+      slug: data.slug,
+      description: data.description,
+      image_background: data.image_background,
+      logo: data.logo,
+      active: data.active
+    };
+  }
+
   async getProgramsAPI() {
     let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/programs/`;
     let arr = [];
@@ -207,13 +207,33 @@ class OpeneduService {
     data.results.map(item => {
       return arr.push({
         id: item.id,
-        name: item.name,
+        name: item.title,
         short_name: item.short_name,
         slug_program: item.slug,
         description: item.description,
         image_background: item.image_background,
         logo: item.logo,
         active: item.active
+      });
+    });
+    return arr;
+  }
+
+  async getProjectsAPI() {
+    let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/projects/`;
+    let arr = [];
+    let data = await this.getDataAPI(url);
+    data.results.map(item => {
+      return arr.push({
+        id: item.id,
+        name: item.title,
+        short_name: item.short_name,
+        slug_project: item.slug,
+        description: item.description,
+        image_background: item.image_background,
+        logo: item.logo,
+        active: item.active,
+        content: item.content
       });
     });
     return arr;

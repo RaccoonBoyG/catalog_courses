@@ -8,8 +8,9 @@ import { Route, BrowserRouter, Switch } from "react-router-dom";
 import CourseAbout from "./CourseAbout";
 import Organization from "./Organization";
 // import { composeWithDevTools } from 'redux-devtools-extension';
+import ProjectsAbout from "./ProjectsAbout";
 // import Programs from "./Programs";
-// import ProgramAbout from "./ProgramAbout";
+import ProgramAbout from "./ProgramAbout";
 import Footer from "./Footer";
 import AboutUs from "../containers/AboutUs";
 import Tech from "../containers/Tech";
@@ -36,6 +37,8 @@ class App extends Component {
               <Route path="/orgs" component={Organization} />
               {/* <Route path="/programs/:program" component={ProgramAbout} />
               <Route path="/programs" component={Programs} /> */}
+              <Route path="/npr/:program" component={ProgramAbout} />
+              <Route path="/npr" component={ProjectsAbout} />
               <Route path="/:id" component={CourseAbout} />
             </Switch>
             <Footer />
