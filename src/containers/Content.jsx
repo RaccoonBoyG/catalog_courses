@@ -14,7 +14,7 @@ export const ObjectContent = props => {
 
 export const ArrayContent = props => {
   return props.data_content.map(item => {
-    return item.content.map((i, key) => {
+    item.content.map((i, key) => {
       return (
         <div
           className="text-custom-dark2 m-3 p-5 shadow-sm bg-white"
