@@ -15,8 +15,7 @@ import ButtonScrollToTop from "../containers/ButtonScrollToTop";
 //background-image: url('//openedu.urfu.ru/files/courses_catalog/bg-nav.jpeg');
 // import { IoMdArrowBack } from "react-icons/io";
 // import { IconContext } from "react-icons";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Spinner from "../containers/Spinner";
 
 // let backImg = {
 // backgroundImage: "url('//openedu.urfu.ru/files/courses_catalog/bg-nav.jpeg')",
@@ -59,7 +58,9 @@ class CourseAbout extends Component {
       this.props.fetchEnrollState(this.props.match.params.id);
     }
     // var config = { ALLOWED_TAGS: ['iframe', 'p', 'div', 'br', 'b', 'section', 'h1', 'h2', 'h3', 'h4', 'h5', 'img', 'strong'] };
-
+    if (loading && data.length === 0) {
+      return <Spinner />;
+    }
     return (
       <React.Fragment>
         <AboutRender
@@ -78,20 +79,6 @@ class CourseAbout extends Component {
             className=" animated fadeIn text-custom-dark mb-3 p-0"
             style={{ borderRadius: "0" }}
           >
-            {loading && data.length === 0 ? (
-              <div
-                className="d-flex flex-row justify-content-center align-items-center"
-                style={{ width: "100%", height: "350px" }}
-              >
-                <FontAwesomeIcon
-                  icon={faSpinner}
-                  size="3x"
-                  spin
-                  color="#000"
-                  style={{ width: "100%" }}
-                />
-              </div>
-            ) : null}
             <div className="d-flex flex-row justify-content-between">
               {/* <div className="d-flex flex-row">
                 <button

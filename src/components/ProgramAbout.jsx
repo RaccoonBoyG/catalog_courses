@@ -1,11 +1,16 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { fetchAboutProgram, fetchAboutProgramList } from '../store/programs/action';
-import 'animate.css/animate.min.css';
-import AboutRender from '../containers/AboutRender';
-import CourseListRender from '../containers/CourseListRender';
-import scroll from './scroll';
-import ButtonScrollToTop from '../containers/ButtonScrollToTop';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import {
+  fetchAboutProgram,
+  fetchAboutProgramList
+} from "../store/programs/action";
+import "animate.css/animate.min.css";
+import AboutRender from "../containers/AboutRender";
+import CourseListRender from "../containers/CourseListRender";
+import scroll from "./scroll";
+import ButtonScrollToTop from "../containers/ButtonScrollToTop";
+import { ObjectContent } from "../containers/Content";
+import Spinner from "../containers/Spinner";
 
 class ProgramAbout extends Component {
   constructor(props) {
@@ -27,14 +32,23 @@ class ProgramAbout extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, loading } = this.props;
+    if (loading) {
+      return <Spinner />;
+    }
     return (
       <React.Fragment>
-        <AboutRender name={data.name} image_background={data.image_background} height={100} class={'top-txt-container-sub'} />
+        <AboutRender
+          name={data.name}
+          image_background={data.image_background}
+          height={100}
+          class={"top-txt-container-sub"}
+        />
         <div className="container text-custom-dark p-3 mb-3">
+          <ObjectContent data_content={data.content} />
           <h3 className="mb-5">Курсы</h3>
           {this.state.data_local.length <= 0 ? (
-            <div style={{ height: '300px' }}>
+            <div style={{ height: "300px" }}>
               <h2>У данной организации пока нет курсов</h2>
             </div>
           ) : (
@@ -51,7 +65,8 @@ class ProgramAbout extends Component {
 
 const mapStateToProps = state => ({
   data: state.programs.items_about,
-  data_card: state.programs.items_card_about
+  data_card: state.programs.items_card_about,
+  loading: state.programs.loading
 });
 
 const mapDispatchToProps = {

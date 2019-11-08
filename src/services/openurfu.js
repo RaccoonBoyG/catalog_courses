@@ -196,7 +196,8 @@ class OpeneduService {
       description: data.description,
       image_background: data.image_background,
       logo: data.logo,
-      active: data.active
+      active: data.active,
+      content: data.content
     };
   }
 
@@ -208,6 +209,8 @@ class OpeneduService {
       return arr.push({
         id: item.id,
         name: item.title,
+        project_slug: item.project_slug,
+        owner_slug: item.owner_slug,
         short_name: item.short_name,
         slug_program: item.slug,
         description: item.description,

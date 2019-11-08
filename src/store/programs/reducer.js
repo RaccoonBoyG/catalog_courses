@@ -23,7 +23,8 @@ export default function programsReducer(
     case types.FETCH_PROGRAM_ABOUT_SUCCESS:
       return {
         ...state,
-        items_about: payload.data
+        items_about: payload.data,
+        loading: false
       };
 
     case types.FETCH_PROGRAM_ABOUT_LIST_SUCCESS:
