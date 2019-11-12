@@ -274,7 +274,8 @@ class OpeneduService {
     }
     if (Object.keys(data).length === 0) {
       arr.push({
-        is_active: false
+        is_active: false,
+        user_mode: "audit"
       });
     } else if (Object.keys(data).length > 0) {
       arr.push({

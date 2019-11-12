@@ -61,6 +61,17 @@ const ButtonEnrollRead = props => {
       .course_modes_slug;
     user_mode = props.modes_data.find(i => i.user_mode).user_mode;
   }
+  console.log(
+    user_mode,
+    " ",
+    course_modes_slug,
+    " ",
+    props.course_enroll_user,
+    " ",
+    props.isAuth,
+    " ",
+    props.search
+  );
   return (
     <div className="d-flex flex-row mt-5 justify-content-between">
       {props.isAuth && props.course_enroll_user ? (
