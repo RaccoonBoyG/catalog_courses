@@ -4,11 +4,11 @@ import 'animate.css/animate.min.css';
 import { MEDIA_LS_URL } from '../services/openurfu';
 import $ from 'jquery';
 
-class ButtonPay extends Component {
+class ButtonEnrollProgram extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modes_data: this.props.modes_data
+      //   modes_data: this.props.modes_data
     };
   }
 
@@ -27,45 +27,22 @@ class ButtonPay extends Component {
     }
     return cookieValue;
   }
-  // course_id:	`${this.state.value}`,
-  // enrollment_action:	`enroll`,
-
-  async RedirectPay() {
-    let token = this.getCookie('csrftoken');
-    // let postEnroll = await fetch(`${MEDIA_LS_URL}/api/enrollment/v1/enrollment`, {
-    let postEnroll = await fetch(`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'text-plain, */*',
-        'X-Requested-With': 'XMLHttpRequest',
-        'X-CSRFToken': token
-      },
-      method: 'get',
-      credentials: 'same-origin',
-      body: JSON.stringify({
-        course_modes: this.state.modes_data
-      })
-    });
-    const response = await postEnroll.text();
-    if (postEnroll.status === 200) window.location.reload();
-    else throw Error(response.message);
-  }
 
   render() {
-    const { isAuth } = this.props;
-    let button_pay = (
-      <a className="btn btn-light btn-lg mt-2 d-flex" href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/`} style={{ borderRadius: 0 }}>
-        Оплатить курс
+    const { isAuth, program_slug } = this.props;
+    let button_enroll_program = (
+      <a className="btn btn-light btn-lg mt-2 d-flex" href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/${program_slug}`} style={{ borderRadius: 0 }}>
+        Записаться на программу
       </a>
     );
     let button_auth = (
       <a href={`${MEDIA_LS_URL}/login`} id="href" style={{ borderRadius: 0, textDecoration: 'none' }}>
         <button className="btn btn-light btn-lg mt-2 d-flex" style={{ borderRadius: 0 }}>
-          Оплатить курс
+          Записаться на программу
         </button>
       </a>
     );
-    return isAuth ? button_pay : button_auth;
+    return isAuth ? button_enroll_program : button_auth;
   }
 }
 
@@ -78,4 +55,4 @@ const mapDispatchToProps = {};
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ButtonPay);
+)(ButtonEnrollProgram);

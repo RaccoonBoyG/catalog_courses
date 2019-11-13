@@ -1,21 +1,17 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchAbout } from "../store/course_about/action";
-import {
-  fetchEnrollState,
-  fetchUserState,
-  clearLoadingUser
-} from "../store/user/action";
-import "animate.css/animate.min.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchAbout } from '../store/course_about/action';
+import { fetchEnrollState, fetchUserState, clearLoadingUser } from '../store/user/action';
+import 'animate.css/animate.min.css';
 // import ButtonEnroll from "../containers/ButtonEnroll";
 // import ButtonReadMore from "../containers/ButtonReadMore";
-import AboutRender from "../containers/AboutRender";
-import scroll from "./scroll";
-import ButtonScrollToTop from "../containers/ButtonScrollToTop";
+import AboutRender from '../containers/AboutRender';
+import scroll from './scroll';
+import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 //background-image: url('//openedu.urfu.ru/files/courses_catalog/bg-nav.jpeg');
 // import { IoMdArrowBack } from "react-icons/io";
 // import { IconContext } from "react-icons";
-import Spinner from "../containers/Spinner";
+import Spinner from '../containers/Spinner';
 
 // let backImg = {
 // backgroundImage: "url('//openedu.urfu.ru/files/courses_catalog/bg-nav.jpeg')",
@@ -44,28 +40,19 @@ class CourseAbout extends Component {
 
   render() {
     // const sanitizer = dompurify.sanitize;
-    const {
-      isAuth,
-      data,
-      course_enroll_user,
-      match,
-      loading_user,
-      loading,
-      modes_data,
-      history
-    } = this.props;
+    const { isAuth, data, course_enroll_user, match, loading_user, loading, modes_data, history } = this.props;
     if (!loading_user) {
       this.props.fetchEnrollState(this.props.match.params.id);
     }
     // var config = { ALLOWED_TAGS: ['iframe', 'p', 'div', 'br', 'b', 'section', 'h1', 'h2', 'h3', 'h4', 'h5', 'img', 'strong'] };
-    if (loading && data.length === 0) {
+    if (loading && loading_user && data.length === 0) {
       return <Spinner />;
     }
     return (
       <React.Fragment>
         <AboutRender
           name={data.name}
-          class={"top-txt-container-sub"}
+          class={'top-txt-container-sub'}
           height={100}
           isAuth={isAuth}
           course_enroll_user={course_enroll_user}
@@ -75,10 +62,7 @@ class CourseAbout extends Component {
         />
         {/* <div style={{ ...backImg }}></div> */}
         <div className="container pb-5 pt-3 mb-5 p-custom-2">
-          <div
-            className=" animated fadeIn text-custom-dark mb-3 p-0"
-            style={{ borderRadius: "0" }}
-          >
+          <div className=" animated fadeIn text-custom-dark mb-3 p-0" style={{ borderRadius: '0' }}>
             <div className="d-flex flex-row justify-content-between">
               {/* <div className="d-flex flex-row">
                 <button

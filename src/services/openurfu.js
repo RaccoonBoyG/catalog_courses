@@ -25,9 +25,7 @@ class OpeneduService {
     }
 
     if (!response.ok) {
-      throw new Error(
-        `OpeneduService getDataAPI failed, HTTP status ${response.status}`
-      );
+      throw new Error(`OpeneduService getDataAPI failed, HTTP status ${response.status}`);
     }
     let data = await response.json();
     return data;
@@ -52,9 +50,7 @@ class OpeneduService {
     let data = await this.getDataAPI();
     let pagination = data.pagination;
     if (!pagination) {
-      throw new Error(
-        `OpeneduService getCardAPI failed, pagination not returned`
-      );
+      throw new Error(`OpeneduService getCardAPI failed, pagination not returned`);
     }
     return pagination.next;
   }
@@ -62,9 +58,7 @@ class OpeneduService {
     let data = await this.getDataAPI();
     let pagination = data.pagination;
     if (!pagination) {
-      throw new Error(
-        `OpeneduService getCardAPI failed, pagination not returned`
-      );
+      throw new Error(`OpeneduService getCardAPI failed, pagination not returned`);
     }
     return pagination.count;
   }
@@ -74,9 +68,7 @@ class OpeneduService {
     let data = await this.getDataAPI(url);
     let pagination = data.pagination;
     if (!pagination) {
-      throw new Error(
-        `OpeneduService getCardAPI failed, pagination not returned`
-      );
+      throw new Error(`OpeneduService getCardAPI failed, pagination not returned`);
     }
     let arr = [];
 
@@ -259,11 +251,10 @@ class OpeneduService {
   async CheckEnrollCourseAPI(username, id) {
     let url = `${OPENEDU_ENDPOINT}/enrollment/v1/enrollment/${username},${id}`;
     let arr = [];
+    let slug = null;
     let response = await fetch(url);
     if (!response.ok) {
-      throw new Error(
-        `OpeneduService getDataAPI failed, HTTP status ${response.status}`
-      );
+      throw new Error(`OpeneduService getDataAPI failed, HTTP status ${response.status}`);
     }
     let data = null;
     try {
@@ -274,23 +265,19 @@ class OpeneduService {
     }
     if (Object.keys(data).length === 0) {
       arr.push({
-        is_active: false,
-        user_mode: "audit"
+        is_active: false
       });
     } else if (Object.keys(data).length > 0) {
+      slug = data.course_details.course_modes.filter(i => i.slug === 'verified').length > 0 ? 'verified' : data.course_details.course_modes[0].slug;
       arr.push({
         username: data.user,
         user_mode: data.mode,
         is_active: data.is_active,
         course_id: data.course_details.course_id,
-        course_modes_slug: data.course_details.course_modes.find(i => i.slug)
-          .slug,
-        course_modes_currency: data.course_details.course_modes.find(
-          i => i.currency
-        ).currency,
+        course_modes_slug: slug,
+        course_modes_currency: data.course_details.course_modes.find(i => i.currency).currency,
         course_modes_min_price: data.course_details.course_modes[0].min_price,
-        course_modes_suggested_prices:
-          data.course_details.course_modes[0].suggested_prices
+        course_modes_suggested_prices: data.course_details.course_modes[0].suggested_prices
       });
     }
     return arr;
@@ -317,9 +304,7 @@ class OpeneduService {
   async CheckEnrollCourseItooAPI(id) {
     let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/enrollment/${id}/`;
     let data = await this.getDataAPI(url);
-    return data.map(item =>
-      item.course_details.course_id === id ? true : false
-    );
+    return data.map(item => (item.course_details.course_id === id ? true : false));
   }
 
   async ResponseStatusAPI() {

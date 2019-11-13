@@ -1,16 +1,13 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import {
-  fetchAboutProgram,
-  fetchAboutProgramList
-} from "../store/programs/action";
-import "animate.css/animate.min.css";
-import AboutRender from "../containers/AboutRender";
-import CourseListRender from "../containers/CourseListRender";
-import scroll from "./scroll";
-import ButtonScrollToTop from "../containers/ButtonScrollToTop";
-import { ObjectContent } from "../containers/Content";
-import Spinner from "../containers/Spinner";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchAboutProgram, fetchAboutProgramList } from '../store/programs/action';
+import 'animate.css/animate.min.css';
+import AboutRender from '../containers/AboutRender';
+import CourseListRender from '../containers/CourseListRender';
+import scroll from './scroll';
+import ButtonScrollToTop from '../containers/ButtonScrollToTop';
+import { ObjectContent } from '../containers/Content';
+import Spinner from '../containers/Spinner';
 
 class ProgramAbout extends Component {
   constructor(props) {
@@ -38,17 +35,12 @@ class ProgramAbout extends Component {
     }
     return (
       <React.Fragment>
-        <AboutRender
-          name={data.name}
-          image_background={data.image_background}
-          height={100}
-          class={"top-txt-container-sub"}
-        />
+        <AboutRender name={data.name} image_background={data.image_background} height={100} class={'top-txt-container-sub'} program_slug={this.props.match.params.program} />
         <div className="container text-custom-dark p-3 mb-3">
           <ObjectContent data_content={data.content} />
           <h3 className="mb-5">Курсы</h3>
           {this.state.data_local.length <= 0 ? (
-            <div style={{ height: "300px" }}>
+            <div style={{ height: '300px' }}>
               <h2>У данной организации пока нет курсов</h2>
             </div>
           ) : (

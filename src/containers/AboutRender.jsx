@@ -22,6 +22,7 @@ const AboutRender = props => {
         params={props.params}
         modes_data={props.modes_data}
         search={props.search}
+        program_slug={props.program_slug}
       />
     </React.Fragment>
   );

@@ -159,5 +159,11 @@
     "presets": [
       "react-app"
     ]
+  },
+  "prettier": {
+    "printWidth": 200,
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true
   }
 }
