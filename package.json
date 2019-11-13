@@ -161,7 +161,7 @@
     ]
   },
   "prettier": {
-    "printWidth": 200,
+    "printWidth": 150,
     "tabWidth": 2,
     "semi": true,
     "singleQuote": true

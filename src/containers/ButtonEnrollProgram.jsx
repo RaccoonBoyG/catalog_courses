@@ -31,7 +31,11 @@ class ButtonEnrollProgram extends Component {
   render() {
     const { isAuth, program_slug } = this.props;
     let button_enroll_program = (
-      <a className="btn btn-light btn-lg mt-2 d-flex" href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/${program_slug}`} style={{ borderRadius: 0 }}>
+      <a
+        className="btn btn-light btn-lg mt-2 d-flex"
+        href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/?program_slug=${program_slug}`}
+        style={{ borderRadius: 0 }}
+      >
         Записаться на программу
       </a>
     );

@@ -29,13 +29,21 @@ class ProgramAbout extends Component {
   }
 
   render() {
-    const { data, loading } = this.props;
+    const { data, loading, isAuth, history } = this.props;
     if (loading) {
       return <Spinner />;
     }
     return (
       <React.Fragment>
-        <AboutRender name={data.name} image_background={data.image_background} height={100} class={'top-txt-container-sub'} program_slug={this.props.match.params.program} />
+        <AboutRender
+          name={data.name}
+          image_background={data.image_background}
+          height={100}
+          class={'top-txt-container-sub'}
+          program_slug={this.props.match.params.program}
+          search={history.location.search}
+          isAuth={isAuth}
+        />
         <div className="container text-custom-dark p-3 mb-3">
           <ObjectContent data_content={data.content} />
           <h3 className="mb-5">Курсы</h3>
@@ -58,7 +66,8 @@ class ProgramAbout extends Component {
 const mapStateToProps = state => ({
   data: state.programs.items_about,
   data_card: state.programs.items_card_about,
-  loading: state.programs.loading
+  loading: state.programs.loading,
+  isAuth: state.user.isAuth
 });
 
 const mapDispatchToProps = {
