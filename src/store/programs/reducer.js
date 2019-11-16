@@ -1,17 +1,15 @@
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 const initialState = {
   items: [],
   items_about: {},
   items_card_about: {},
   loading: true,
-  error: null
+  error: null,
+  items_enroll: {}
 };
 
-export default function programsReducer(
-  state = initialState,
-  { type, payload }
-) {
+export default function programsReducer(state = initialState, { type, payload }) {
   switch (type) {
     case types.FETCH_PROGRAMS_SUCCESS:
       return {
@@ -31,6 +29,11 @@ export default function programsReducer(
       return {
         ...state,
         items_card_about: payload.data_list
+      };
+    case types.FETCH_ENROLL_PROGRAMS_SUCCESS:
+      return {
+        ...state,
+        items_enroll: payload.data_enroll
       };
 
     default:
@@ -53,4 +56,9 @@ export const fetchProgramAboutSuccess = data => ({
 export const fetchProgramAboutListSuccess = data_list => ({
   type: types.FETCH_PROGRAM_ABOUT_LIST_SUCCESS,
   payload: { data_list }
+});
+
+export const fetchEnrollProgramSuccess = data_enroll => ({
+  type: types.FETCH_ENROLL_PROGRAMS_SUCCESS,
+  payload: { data_enroll }
 });

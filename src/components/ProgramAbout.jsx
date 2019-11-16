@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchAboutProgram, fetchAboutProgramList } from '../store/programs/action';
+import { fetchAboutProgram, fetchAboutProgramList, fetchEnrollProgram } from '../store/programs/action';
 import 'animate.css/animate.min.css';
 import AboutRender from '../containers/AboutRender';
 import CourseListRender from '../containers/CourseListRender';
@@ -20,6 +20,7 @@ class ProgramAbout extends Component {
   async componentDidMount() {
     window.scrollTo(0, 0);
     await this.props.fetchAboutProgram(this.props.match.params.program);
+    await this.props.fetchEnrollProgram(this.props.match.params.program);
     await this.props.fetchAboutProgramList(this.props.match.params.program);
     this.setState(prevState => ({
       ...prevState,
@@ -29,7 +30,7 @@ class ProgramAbout extends Component {
   }
 
   render() {
-    const { data, loading, isAuth, history } = this.props;
+    const { data, loading, isAuth, history, data_enroll } = this.props;
     if (loading) {
       return <Spinner />;
     }
@@ -43,6 +44,7 @@ class ProgramAbout extends Component {
           program_slug={this.props.match.params.program}
           search={history.location.search}
           isAuth={isAuth}
+          data_enroll={data_enroll}
         />
         <div className="container text-custom-dark p-3 mb-3">
           <ObjectContent data_content={data.content} />
@@ -67,12 +69,14 @@ const mapStateToProps = state => ({
   data: state.programs.items_about,
   data_card: state.programs.items_card_about,
   loading: state.programs.loading,
-  isAuth: state.user.isAuth
+  isAuth: state.user.isAuth,
+  data_enroll: state.programs.items_enroll
 });
 
 const mapDispatchToProps = {
   fetchAboutProgram,
-  fetchAboutProgramList
+  fetchAboutProgramList,
+  fetchEnrollProgram
 };
 
 export default connect(

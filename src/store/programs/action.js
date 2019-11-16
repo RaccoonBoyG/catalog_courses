@@ -1,5 +1,5 @@
-import openeduService from "../../services/openurfu";
-import * as fetchSelectors from "./reducer";
+import openeduService from '../../services/openurfu';
+import * as fetchSelectors from './reducer';
 
 export function fetchPrograms() {
   return async dispatch => {
@@ -19,15 +19,22 @@ export function fetchAboutProgram(program) {
   };
 }
 
+export function fetchEnrollProgram(program) {
+  return async dispatch => {
+    try {
+      let getEnrollProgram = await openeduService.CheckEnrollProgramAPI(program);
+      dispatch(fetchSelectors.fetchEnrollProgramSuccess(getEnrollProgram));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
 export function fetchAboutProgramList(program) {
   return async dispatch => {
     try {
-      let getAboutProgramList = await openeduService.getAboutProgramList(
-        program
-      );
-      dispatch(
-        fetchSelectors.fetchProgramAboutListSuccess(getAboutProgramList)
-      );
+      let getAboutProgramList = await openeduService.getAboutProgramList(program);
+      dispatch(fetchSelectors.fetchProgramAboutListSuccess(getAboutProgramList));
     } catch (error) {
       console.log(error);
     }

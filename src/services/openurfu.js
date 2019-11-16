@@ -248,6 +248,34 @@ class OpeneduService {
     return arr;
   }
 
+  async CheckEnrollProgramAPI(slug) {
+    let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/enroll_program/${slug}`;
+    let arr = {};
+    let response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`OpeneduService getDataAPI failed, HTTP status ${response.status}`);
+    }
+    let data = null;
+    try {
+      data = await response.json();
+    } catch {
+      // console.log(data.course_details.course_modes.forEach((item, i) => item));
+      data = {};
+    }
+    if (data.detail === 'failed') {
+      arr = {
+        is_active: false
+      };
+    } else {
+      arr = {
+        is_active: true,
+        username: data.username,
+        program_slug: data.program_slug
+      };
+    }
+    return arr;
+  }
+
   async CheckEnrollCourseAPI(username, id) {
     let url = `${OPENEDU_ENDPOINT}/enrollment/v1/enrollment/${username},${id}`;
     let arr = [];

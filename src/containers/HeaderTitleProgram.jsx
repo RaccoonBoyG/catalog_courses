@@ -20,7 +20,9 @@ const HeaderTitleProgram = props => (
         <div className=" d-flex title_catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
           <h2 className="d-flex align-items-start justify-content-start">{props.title}</h2>
         </div>
-        {props.isAuth === undefined ? null : <ButtonProgram isAuth={props.isAuth} search={props.search} program_slug={props.program_slug} />}
+        {props.isAuth === undefined ? null : (
+          <ButtonProgram isAuth={props.isAuth} search={props.search} program_slug={props.program_slug} data_enroll={props.data_enroll} />
+        )}
         {props.description === undefined ? null : <HeaderDescription desc={props.description} />}
       </div>
     </div>
@@ -37,10 +39,22 @@ const HeaderDescription = props => (
   </React.Fragment>
 );
 
+const ButtonEnrollProgramFalse = () => (
+  <React.Fragment>
+    <button type="button" className="btn btn-secondary btn-lg mt-2 d-flex disabled" style={{ borderRadius: 0 }} disabled>
+      Вы уже записаны на программу
+    </button>
+  </React.Fragment>
+);
+
 const ButtonProgram = props => {
   return (
     <div className="d-flex flex-row mt-5 justify-content-end">
-      {props.isAuth && props.search === '?test=2' ? <ButtonEnrollProgram isAuth={props.isAuth} program_slug={props.program_slug} /> : null}
+      {props.isAuth && !props.data_enroll.is_active ? (
+        <ButtonEnrollProgram isAuth={props.isAuth} program_slug={props.program_slug} />
+      ) : (
+        <ButtonEnrollProgramFalse />
+      )}
     </div>
   );
 };

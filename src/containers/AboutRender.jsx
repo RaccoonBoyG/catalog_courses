@@ -34,6 +34,7 @@ const AboutRender = props => {
           isAuth={props.isAuth}
           search={props.search}
           program_slug={props.program_slug}
+          data_enroll={props.data_enroll}
         />
       )}
     </React.Fragment>
