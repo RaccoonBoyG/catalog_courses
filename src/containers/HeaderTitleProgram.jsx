@@ -50,11 +50,7 @@ const ButtonEnrollProgramFalse = () => (
 const ButtonProgram = props => {
   return (
     <div className="d-flex flex-row mt-5 justify-content-end">
-      {props.isAuth && !props.data_enroll.is_active ? (
-        <ButtonEnrollProgram isAuth={props.isAuth} program_slug={props.program_slug} />
-      ) : (
-        <ButtonEnrollProgramFalse />
-      )}
+      {!props.data_enroll.is_active ? <ButtonEnrollProgram isAuth={props.isAuth} program_slug={props.program_slug} /> : <ButtonEnrollProgramFalse />}
     </div>
   );
 };
