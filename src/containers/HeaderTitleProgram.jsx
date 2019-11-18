@@ -15,8 +15,8 @@ const HeaderTitleProgram = props => (
         props.class === undefined ? "top-txt-container" : props.class
       }`}
     > */}
-    <div className="d-flex flex-row backImgCourse margin-custom-catalog">
-      <div className={`container container-course_about p-custom-2 pb-4 pl-2 d-flex flex-column text-light animated fadeIn faster mb-3`}>
+    <div className="d-flex flex-row backImgCourse margin-custom-catalog p-5">
+      <div className={`container container-course_about d-flex flex-column text-light animated fadeIn faster`}>
         <div className=" d-flex title_catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
           <h2 className="d-flex align-items-start justify-content-start">{props.title}</h2>
         </div>
@@ -41,7 +41,7 @@ const HeaderDescription = props => (
 
 const ButtonEnrollProgramFalse = () => (
   <React.Fragment>
-    <button type="button" className="btn btn-secondary btn-lg mt-2 d-flex disabled" style={{ borderRadius: 0 }} disabled>
+    <button type="button" className="btn btn-secondary btn-lg mt-2 d-flex disabled shadow" style={{ borderRadius: 0 }} disabled>
       Вы уже записаны на программу
     </button>
   </React.Fragment>

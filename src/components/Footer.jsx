@@ -45,8 +45,12 @@ class Footer extends Component {
                 Екатеринбург, ул. Мира д.19, каб. И-200
               </p>
               <p className="text-neutral-regular">
-                {/* <i className="fas fa-envelope mr-3"></i> */}
+                {/* <i className="fas fa-envelope mr-3"></i> +7 (992) 024-26-58 */}
                 openedu@urfu.ru
+              </p>
+              <p className="text-neutral-regular">
+                {/* <i className="fas fa-envelope mr-3"></i> +7 (992) 024-26-58 */}
+                +7 (992) 024-26-58
               </p>
             </div>
           </div>

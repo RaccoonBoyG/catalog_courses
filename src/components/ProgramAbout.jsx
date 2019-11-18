@@ -48,16 +48,18 @@ class ProgramAbout extends Component {
         />
         <div className="container text-custom-dark p-3 mb-3">
           <ObjectContent data_content={data.content} />
-          <h3 className="mb-5">Курсы</h3>
-          {this.state.data_local.length <= 0 ? (
-            <div style={{ height: '300px' }}>
-              <h2>У данной организации пока нет курсов</h2>
-            </div>
-          ) : (
-            <div className="row d-flex">
-              <CourseListRender item={this.state.data_local} />
-            </div>
-          )}
+          <div className="text-custom-dark2 mt-3 p-5 shadow-sm bg-white">
+            <h3>Онлайн-модуль</h3>
+            {this.state.data_local.length <= 0 ? (
+              <div style={{ height: '300px' }}>
+                <h2>У данной программы пока нет курсов</h2>
+              </div>
+            ) : (
+              <div className="row d-flex">
+                <CourseListRender item={this.state.data_local} />
+              </div>
+            )}
+          </div>
         </div>
         <ButtonScrollToTop />
       </React.Fragment>
