@@ -8,6 +8,7 @@ import scroll from './scroll';
 import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 import { ObjectContent } from '../containers/Content';
 import Spinner from '../containers/Spinner';
+import { Modal } from '../containers/modal';
 
 class ProgramAbout extends Component {
   constructor(props) {
@@ -15,6 +16,28 @@ class ProgramAbout extends Component {
     this.state = {
       data_local: []
     };
+  }
+  videoHandler() {
+    setInterval(() => {
+      var v_course = document.querySelector('video#course_instruction_data');
+      var v_webinar = document.querySelector('video#webinar_instruction_data');
+      if (document.querySelector('#webinar_instruction').getAttribute('aria-hidden') === 'true') {
+        v_webinar.pause();
+      }
+      if (document.querySelector('#course_instruction').getAttribute('aria-hidden') === 'true') {
+        v_course.pause();
+      }
+    }, 500);
+  }
+
+  StopVideoWebinar() {
+    var v_webinar = document.querySelector('video#webinar_instruction_data');
+    v_webinar.pause();
+  }
+
+  StopVideoCourse() {
+    var v_course = document.querySelector('video#course_instruction_data');
+    v_course.pause();
   }
 
   async componentDidMount() {
@@ -27,6 +50,7 @@ class ProgramAbout extends Component {
       data_local: this.props.data_card.courses
     }));
     scroll();
+    this.videoHandler();
   }
 
   render() {
@@ -62,6 +86,7 @@ class ProgramAbout extends Component {
           </div>
         </div>
         <ButtonScrollToTop />
+        <Modal program_slug={this.props.match.params.program} StopVideoWebinar={this.StopVideoWebinar} StopVideoCourse={this.StopVideoCourse} />
       </React.Fragment>
     );
   }
@@ -81,7 +106,4 @@ const mapDispatchToProps = {
   fetchEnrollProgram
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProgramAbout);
+export default connect(mapStateToProps, mapDispatchToProps)(ProgramAbout);

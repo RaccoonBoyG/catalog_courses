@@ -1,3 +1,6 @@
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 const OPENEDU_ENDPOINT = `//courses.openedu.urfu.ru/api`;
 const OPENEDU_ENDPOINT2 = `https://courses.openedu.urfu.ru/api`;
 const COURSES_ENDPOINT = `/courses/v1/courses/`;

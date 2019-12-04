@@ -50,7 +50,7 @@ class Footer extends Component {
               </p>
               <p className="text-neutral-regular">
                 {/* <i className="fas fa-envelope mr-3"></i> +7 (992) 024-26-58 */}
-                +7 (992) 024-26-58
+                +7 (919) 367-79-72
               </p>
             </div>
           </div>
