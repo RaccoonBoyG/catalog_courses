@@ -31,4 +31,13 @@
 
 .t-input {
   padding-right: rem(54);
+  border-radius: 35px;
+}
+
+.is-show {
+  display: flex;
+}
+
+.is-hidden {
+  display: none;
 }

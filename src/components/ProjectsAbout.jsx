@@ -36,37 +36,48 @@ class ProjectsAbout extends Component {
     if (loading && loading_programs) {
       return <Spinner />;
     }
-    const ProjectAbout = data.map(item => {
-      return <AboutRender key={item.name + item.slug} name={item.name} image_background={item.image_background} height={100} class={'top-txt-container-sub'} data_programs={data_programs} />;
-    });
-    const ProjectContent = data.map(item => {
-      return item.content.map((i, key) => {
-        return <div className="text-custom-dark2 m-3 p-5 shadow-sm bg-white" key={key} dangerouslySetInnerHTML={{ __html: i.content }}></div>;
-      });
-    });
-    const ProjectAboutList = data_programs.map(item => {
-      return item.project_slug === this.props.match.path.replace('/', '') ? (
-        <ListCard
-          key={item.name + item.slug}
-          name={item.name}
-          slug={item.slug_program}
-          logo={item.logo}
-          image_background={item.image_background}
-          url={this.props.match.url}
-          handleClick={this.postIdAPI}
-        />
-      ) : null;
-    });
     return (
-      <React.Fragment>
-        {ProjectAbout}
-        <div className="d-flex flex-column margin-custom-catalog container">
-          {ProjectContent}
-          <ArrayContent data_content={data} />
-          <div className="m-3 d-flex flex-wrap flex-row">{ProjectAboutList}</div>
-        </div>
+      <>
+        {data.map(item => {
+          if (item.slug_project === this.props.match.path.replace('/', '')) {
+            return (
+              <React.Fragment key={item.name + item.slug_project}>
+                <AboutRender
+                  name={item.name}
+                  image_background={item.image_background}
+                  height={100}
+                  class={'top-txt-container-sub'}
+                  data_programs={data_programs}
+                />
+                <div className="d-flex flex-column margin-custom-catalog container">
+                  {item.content.map((i, key) => {
+                    return (
+                      <div className="text-custom-dark2 m-3 p-5 shadow-sm bg-white" key={key} dangerouslySetInnerHTML={{ __html: i.content }}></div>
+                    );
+                  })}
+                  <ArrayContent data_content={data} />
+                  <div className="m-3 d-flex flex-wrap flex-row">
+                    {data_programs.map(item => {
+                      return item.project_slug === this.props.match.path.replace('/', '') ? (
+                        <ListCard
+                          key={item.name + item.slug}
+                          name={item.name}
+                          slug={item.slug_program}
+                          logo={item.logo}
+                          image_background={item.image_background}
+                          url={this.props.match.url}
+                          handleClick={this.postIdAPI}
+                        />
+                      ) : null;
+                    })}
+                  </div>
+                </div>
+              </React.Fragment>
+            );
+          } else return null;
+        })}
         <ButtonScrollToTop />
-      </React.Fragment>
+      </>
     );
   }
 }

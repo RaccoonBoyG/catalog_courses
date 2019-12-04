@@ -7,7 +7,7 @@ import Catalog from "./Catalog";
 import { Route, BrowserRouter, Switch } from "react-router-dom";
 import CourseAbout from "./CourseAbout";
 import Organization from "./Organization";
-// import { composeWithDevTools } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import ProjectsAbout from "./ProjectsAbout";
 // import Programs from "./Programs";
 import ProgramAbout from "./ProgramAbout";
@@ -18,8 +18,8 @@ import Privacy from "../containers/Privacy";
 import OrganizationAbout from "./OrganizationAbout";
 import NotFound from "../containers/NotFound";
 
-// const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
+// const store = createStore(reducer, applyMiddleware(thunk));
 
 class App extends Component {
   render() {
@@ -39,6 +39,8 @@ class App extends Component {
               <Route path="/programs" component={Programs} /> */}
               <Route path="/npr/:program" component={ProgramAbout} />
               <Route path="/npr" component={ProjectsAbout} />
+              <Route path="/grant_test/:program" component={ProgramAbout} />
+              <Route path="/grant_test" component={ProjectsAbout} />
               <Route path="/:id" component={CourseAbout} />
             </Switch>
             <Footer />

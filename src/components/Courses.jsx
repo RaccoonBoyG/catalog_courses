@@ -11,7 +11,6 @@ import CourseCard from "./CourseCard";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ButtonLoadMore from "../containers/ButtonLoadMore";
-import $ from "jquery";
 
 const num2str = (n, text_forms) => {
   n = Math.abs(n) % 100;
@@ -46,20 +45,6 @@ class Courses extends Component {
     await this.props.fetchCardsAll();
   }
 
-  _handleTextChange(e) {
-    const input_test = e.target.value;
-    this.props.searchInput(input_test);
-
-    if (input_test.length > 0) {
-      $(".t-site-search-close").addClass("show_close");
-    } else $(".t-site-search-close").removeClass("show_close");
-  }
-  _resetSearchResult() {
-    this.props.resetSearch();
-    $(".t-input").val(null);
-    $(".t-site-search-close").removeClass("show_close");
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -73,7 +58,7 @@ class Courses extends Component {
           <div className="flex-row">
             <div className="d-flex flex-row">
               <div className="flex-column p-0" style={{ width: "100%" }}>
-                <div className="t-site-search-input">
+                {/* <div className="t-site-search-input">
                   <div className="t838__blockinput">
                     <input
                       type="text"
@@ -90,7 +75,7 @@ class Courses extends Component {
                       <path d="M99.6 97.4L52.1 49.9 99.3 2.6c0.6-0.6 0.6-1.5 0-2.1 -0.6-0.6-1.5-0.6-2.1 0L50 47.8 2.7 0.5c-0.6-0.6-1.5-0.6-2.1 0 -0.6 0.6-0.6 1.5 0 2.1l47.3 47.3L0.4 97.4c-0.6 0.6-0.6 1.5 0 2.1 0.3 0.3 0.7 0.4 1 0.4s0.7-0.1 1-0.4l47.5-47.5 47.5 47.5c0.3 0.3 0.7 0.4 1 0.4s0.7-0.1 1-0.4C100.1 98.9 100.1 98 99.6 97.4z" />
                     </svg>
                   </div>
-                </div>
+                </div> */}
               </div>
               {/* <div class="flex-column p-0">
                           <select class="form-control search-slt" id="exampleFormControlSelect1">

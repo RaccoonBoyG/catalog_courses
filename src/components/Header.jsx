@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { NavLink, withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { NavLink, withRouter } from 'react-router-dom';
 
 // import logo from '../static/img/logo_full.png'
 // import Search from './Search';
-import { fetchUserState } from "../store/user/action";
-import { searchInput, resetSearch } from "../store/cards/action";
-import RenderProfileYes from "../containers/RenderProfileYes";
-import RenderProfileNo from "../containers/RenderProfileNo";
-import MyCourses from "../containers/MyCourses";
-import { MEDIA_LS_URL } from "../services/openurfu";
-import { IoIosSearch } from "react-icons/io";
-import { IconContext } from "react-icons";
-import $ from "jquery";
-import MobileFilter from "../containers/MobileFilter";
-import MobileMenu from "../containers/MobileMenu";
-import MobileButtonBack from "../containers/MobileButtonBack";
+import { fetchUserState } from '../store/user/action';
+import { searchInput, resetSearch } from '../store/cards/action';
+import RenderProfileYes from '../containers/RenderProfileYes';
+import RenderProfileNo from '../containers/RenderProfileNo';
+import MyCourses from '../containers/MyCourses';
+import { MEDIA_LS_URL } from '../services/openurfu';
+import { IoIosSearch } from 'react-icons/io';
+import { IconContext } from 'react-icons';
+import $ from 'jquery';
+import MobileFilter from '../containers/MobileFilter';
+import MobileMenu from '../containers/MobileMenu';
+import MobileButtonBack from '../containers/MobileButtonBack';
 
 // import { faSearch } from '@fortawesome/free-solid-svg-icons';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,7 +26,7 @@ class Header extends Component {
     this.state = {
       showComponentMenu: false,
       showComponentFilter: false,
-      term: ""
+      term: ''
     };
     this._onButtonClickMenu = this._onButtonClickMenu.bind(this);
     this._onButtonClickFilter = this._onButtonClickFilter.bind(this);
@@ -37,15 +37,15 @@ class Header extends Component {
 
   componentDidMount() {
     this.props.fetchUserState();
-    var header = document.querySelector(".header");
-    var icon = document.querySelector(".icon-container");
-    var icon_search = document.querySelector(".icon-container-search");
-    if (this.props.history.location.pathname === "/")
+    var header = document.querySelector('.header');
+    var icon = document.querySelector('.icon-container');
+    var icon_search = document.querySelector('.icon-container-search');
+    if (this.props.history.location.pathname === '/')
       icon_search.onclick = function() {
-        header.classList.toggle("menu-open");
+        header.classList.toggle('menu-open');
       };
     icon.onclick = function() {
-      header.classList.toggle("menu-open");
+      header.classList.toggle('menu-open');
     };
   }
   updateData(config) {
@@ -69,19 +69,33 @@ class Header extends Component {
 
   submitSearch() {
     this.props.searchInput(this.state.term);
-    var header = document.querySelector(".header");
-    header.classList.toggle("menu-open");
+    var header = document.querySelector('.header');
+    header.classList.toggle('menu-open');
     this.updateData({ showComponentFilter: false, showComponentMenu: false });
-    this.props.history.push("/");
+    this.props.history.push('/');
   }
 
   resetInput() {
     this.props.resetSearch();
-    $(".search-slt").val("");
+    $('.search-slt').val('');
     this.updateData({
       ...this.state,
-      term: ""
+      term: ''
     });
+  }
+
+  _handleTextChangeBIG(e) {
+    const input_test = e.target.value;
+    this.props.searchInput(input_test);
+
+    if (input_test.length > 0) {
+      $('.t-site-search-close').addClass('show_close');
+    } else $('.t-site-search-close').removeClass('show_close');
+  }
+  _resetSearchResult() {
+    this.props.resetSearch();
+    $('.t-input').val(null);
+    $('.t-site-search-close').removeClass('show_close');
   }
 
   render() {
@@ -126,11 +140,8 @@ class Header extends Component {
             </p> */}
           </NavLink>
 
-          <div
-            className="collapse navbar-collapse justify-content-md-center"
-            id="navbarSupportedContent"
-          >
-            <ul className="navbar-nav">
+          <div className="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
+            <ul className="navbar-nav navigate is-show">
               <li className="nav-item">
                 {/* <a className="nav-link" href="#">Каталог<span className="sr-only"></span></a> */}
                 <NavLink exact to="/" className="nav-link">
@@ -151,6 +162,11 @@ class Header extends Component {
                   Обучение НПР
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="/grant_test" className="nav-link">
+                  Grant Test
+                </NavLink>
+              </li>
               <li className="nav-item">
                 {/* <a className="nav-link" href="#">О нас</a> */}
                 <NavLink to="/about" className="nav-link">
@@ -161,15 +177,40 @@ class Header extends Component {
 
               {isAuth ? null : (
                 <li className="nav-item">
-                  <a
-                    href={`${MEDIA_LS_URL}/register`}
-                    className="nav-link"
-                    id="href"
-                  >
+                  <a href={`${MEDIA_LS_URL}/register`} className="nav-link" id="href">
                     Регистрация
                   </a>
                 </li>
               )}
+              <li className="nav-item navigate-search">
+                <button type="button" className="btn btn-primary btn-circle-search shadow-sm">
+                  <IconContext.Provider value={{ size: '2rem', className: 'btn-circle-search-svg shadow-sm' }}>
+                    <IoIosSearch />
+                  </IconContext.Provider>
+                </button>
+              </li>
+            </ul>
+            <ul className="navbar-nav navigate is-hidden">
+              <li className="nav-item">
+                <div className="t-site-search-input">
+                  <div className="t838__blockinput">
+                    <input
+                      type="text"
+                      className="form-control search-slt t-input"
+                      placeholder="Введите название курса"
+                      onChange={e => this._handleTextChangeBIG(e)}
+                    />
+                    <svg
+                      className="t-site-search-close"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 100.4 100.4"
+                      onClick={this._resetSearchResult.bind(this)}
+                    >
+                      <path d="M99.6 97.4L52.1 49.9 99.3 2.6c0.6-0.6 0.6-1.5 0-2.1 -0.6-0.6-1.5-0.6-2.1 0L50 47.8 2.7 0.5c-0.6-0.6-1.5-0.6-2.1 0 -0.6 0.6-0.6 1.5 0 2.1l47.3 47.3L0.4 97.4c-0.6 0.6-0.6 1.5 0 2.1 0.3 0.3 0.7 0.4 1 0.4s0.7-0.1 1-0.4l47.5-47.5 47.5 47.5c0.3 0.3 0.7 0.4 1 0.4s0.7-0.1 1-0.4C100.1 98.9 100.1 98 99.6 97.4z" />
+                    </svg>
+                  </div>
+                </div>
+              </li>
             </ul>
             {/* <form className="form-inline my-2 my-lg-0">
                 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -187,39 +228,29 @@ class Header extends Component {
             </button> */}
         </nav>
         <div className="header">
-          {this.props.history.location.pathname === "/" ? (
-            <div
-              style={{ float: "left" }}
-              className="icon-container-search"
-              onClick={this._onButtonClickFilter}
-            >
+          {this.props.history.location.pathname === '/' ? (
+            <div style={{ float: 'left' }} className="icon-container-search" onClick={this._onButtonClickFilter}>
               {/* <div className="p-2"><FontAwesomeIcon icon={faSearch} size="2x" /></div> */}
               <div className="p-2 m-1" id="menuicon-search">
-                <IconContext.Provider value={{ size: "2em" }}>
+                <IconContext.Provider value={{ size: '2em' }}>
                   <IoIosSearch />
                 </IconContext.Provider>
               </div>
             </div>
           ) : null}
-          <div
-            className="icon-container d-flex p-2 m-1"
-            onClick={this._onButtonClickMenu}
-          >
+          <div className="icon-container d-flex p-2 m-1" onClick={this._onButtonClickMenu}>
             <div id="menuicon" className="d-flex flex-column">
               <div className="bar bar1"></div>
               <div className="bar bar2"></div>
               <div className="bar bar3"></div>
             </div>
           </div>
-          {this.props.history.location.pathname ===
-            `/orgs/${this.props.match.params.org}` ||
-          this.props.history.location.pathname ===
-            `/${this.props.match.params.id}` ? (
+          {this.props.history.location.pathname === `/orgs/${this.props.match.params.org}` ||
+          this.props.history.location.pathname === `/${this.props.match.params.id}` ? (
             <MobileButtonBack history={this.props.history} />
           ) : null}
           {this.state.showComponentMenu ? <MobileMenu isAuth={isAuth} /> : null}
-          {this.state.showComponentFilter &&
-          this.props.history.location.pathname === "/" ? (
+          {this.state.showComponentFilter && this.props.history.location.pathname === '/' ? (
             <MobileFilter
               _handleTextChange={this._handleTextChange}
               submitSearch={this.submitSearch}

@@ -77,7 +77,7 @@ class CourseCard extends Component {
     let { name, id, start_display, image } = this.props.value;
     return (
       <div
-        className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 card-height mb-3 mt-3 animated fadeIn faster "
+        className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 card-height mb-3 mt-3 animated fadeIn faster"
         key={name}
         style={{ minHeight: "400px", borderRadius: "0" }}
         data-toggle="tooltip"
@@ -85,7 +85,7 @@ class CourseCard extends Component {
         title={name}
       >
         <div
-          className="bg-light p-3 shadow-effect animated fadeIn faster"
+          className="bg-white p-3 shadow-effect animated fadeIn faster shadow"
           style={{ minHeight: "400px", borderRadius: "0" }}
         >
           <Link
