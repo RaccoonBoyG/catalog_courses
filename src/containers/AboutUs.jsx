@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../components/Header";
 // import HeaderBackground from "./HeaderBackground";
 import scroll from "../components/scroll";
 import ButtonScrollToTop from "./ButtonScrollToTop";
@@ -13,7 +12,6 @@ class AboutUs extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header />
         {/* <HeaderBackground /> */}
         <div className="d-flex flex-row container-fluid backImgCourse margin-custom-catalog">
           <h1 className="d-flex align-items-center justify-content-center p-5 text-light container">

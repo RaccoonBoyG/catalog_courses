@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../components/Header";
 // import HeaderBackground from "./HeaderBackground";
 
 class Tech extends Component {
@@ -10,7 +9,6 @@ class Tech extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header />
         {/* <HeaderBackground /> */}
         <div
           className="container-course_about  container text-custom-dark p-5 mt-3"

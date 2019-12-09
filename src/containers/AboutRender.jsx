@@ -1,44 +1,48 @@
 import React from 'react';
 
-import Header from '../components/Header';
 // import HeaderBackground from "../containers/HeaderBackground";
 import HeaderTitle from '../containers/HeaderTitle';
 import HeaderTitleProgram from '../containers/HeaderTitleProgram';
 
 // 'top-txt-container'
-const AboutRender = props => {
-  return (
-    <React.Fragment>
-      <Header />
-      {/* <HeaderBackground
-        url_image={props.image_background}
-        height={props.height}
-      /> */}
-      {props.modes_data !== undefined ? (
-        <HeaderTitle
-          title={props.name}
-          class={props.class}
-          description={props.description}
-          isAuth={props.isAuth}
-          course_enroll_user={props.course_enroll_user}
-          params={props.params}
-          modes_data={props.modes_data}
-          search={props.search}
-          program_slug={props.program_slug}
-        />
-      ) : (
-        <HeaderTitleProgram
-          title={props.name}
-          class={props.class}
-          description={props.description}
-          isAuth={props.isAuth}
-          search={props.search}
-          program_slug={props.program_slug}
-          data_enroll={props.data_enroll}
-        />
-      )}
-    </React.Fragment>
-  );
-};
+
+const withEither = (conditionalRenderingFn, EitherComponent) => Component => props =>
+  {
+    
+   return conditionalRenderingFn(props) ? (
+    <>
+      {/* <Header /> */}
+      <EitherComponent
+        title={props.name}
+        class={props.class}
+        description={props.description}
+        isAuth={props.isAuth}
+        search={props.search}
+        program_slug={props.program_slug}
+        data_enroll={props.data_enroll}
+      />
+    </>
+  ) : (
+    <>
+      {/* <Header /> */}
+      <Component
+        title={props.name}
+        class={props.class}
+        description={props.description}
+        isAuth={props.isAuth}
+        course_enroll_user={props.course_enroll_user}
+        params={props.params}
+        modes_data={props.modes_data}
+        search={props.search}
+        program_slug={props.program_slug}
+        changeEnroll={props.changeEnroll}
+      />
+    </>
+  )};
+
+const isViewConditionFn = props => props.modes_data === undefined;
+
+const withEditContionalRendering = withEither(isViewConditionFn, HeaderTitleProgram);
+const AboutRender = withEditContionalRendering(HeaderTitle);
 
 export default AboutRender;

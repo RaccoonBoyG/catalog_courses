@@ -1,10 +1,12 @@
+import Cookies from 'js-cookie';
 const OPENEDU_ENDPOINT = `//10.16.208.162/api`;
 const OPENEDU_ENDPOINT2 = `http://10.16.208.162/api`;
 const COURSES_ENDPOINT = `/courses/v1/courses/`;
 const DEFAULT_QUERY = 1;
 const PAGE_PARAM = `?page=`;
 const PAGE_SIZE = `?page_size=100`;
-export const MEDIA_LS_URL = `//10.16.208.162/`;
+export const MEDIA_LS_URL = `//10.16.208.162`;
+
 
 // const OPENEDU_ENDPOINT = `http://10.16.208.164/api`;
 // const OPENEDU_ENDPOINT2 = `http://10.16.208.164/api`;
@@ -232,6 +234,22 @@ class OpeneduService {
       });
     });
     return arr;
+  }
+
+  async checkSession() {
+    let token = Cookies.get('csrftoken');
+    let postEnroll = await fetch(`${OPENEDU_ENDPOINT2}/itoo_api/acquiring/check_session/`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'text-plain, */*',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRFToken': token
+      },
+      method: 'post',
+      credentials: 'same-origin',
+    });
+    const response = await postEnroll.json();
+    return response.detail
   }
 
   async CheckAuthAPI() {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Courses from "./Courses";
-import Header from "./Header";
 // import HeaderBackground from '../containers/HeaderBackground';
 // import HeaderTitle from '../containers/HeaderTitle';
 import scroll from "./scroll";
@@ -15,7 +14,6 @@ class Catalog extends Component {
   render() {
     return (
       <React.Fragment>
-        <Header />
         {/* <HeaderBackground /> */}
         {/* <HeaderTitle title={'Онлайн-курсы УрФУ'} class={'top-txt-container-sub'} /> */}
         <Courses />

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchAbout } from "../store/course_about/action";
 
+
 let backgroundImg = {
   backgroundPosition: "top",
   backgroundSize: "contain",
@@ -40,6 +41,7 @@ class CourseCard extends Component {
 
   postIdAPI() {
     this.props.fetchAbout(this.props.value.id);
+    // this.props.fetchEnrollState();
   }
 
   truncate(str, len) {

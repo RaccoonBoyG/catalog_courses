@@ -3,10 +3,9 @@ import * as fetchSelectors from "../user/reducer";
 
 export function fetchUserState() {
   return async dispatch => {
-    let responseStatus = await openeduService.ResponseStatusAPI();
-
+    let checkSessionID = await openeduService.checkSession();
     dispatch(fetchSelectors.fetchUserStart());
-    if (responseStatus === 200) {
+    if (checkSessionID) {
       try {
         let getUser = await openeduService.CheckAuthAPI();
         // let getCourseEnroll = await openeduService.CheckEnrollCourseAPI()
@@ -17,24 +16,24 @@ export function fetchUserState() {
         dispatch(fetchSelectors.fetchUserFailure(error));
         console.log(error);
       }
-    } else if (responseStatus === 401) {
+    } else {
       dispatch(fetchSelectors.UserUnAuth());
     }
   };
 }
 
-export function fetchEnrollState(id) {
-  return async dispatch => {
-    let responseStatus = await openeduService.ResponseStatusAPI();
-    if (responseStatus === 200) {
+export function fetchEnrollState() {
+  return async (dispatch, getState) => {
+    getState()
+    // let responseStatus = await openeduSerice.ResponseStatusAPI();
+    let checkSessionID = await openeduService.checkSession();
+    if (checkSessionID) {
       try {
-        let getUser = await openeduService.CheckAuthAPI();
-        let username = getUser.find(i => i.username).username
+        // let getUser = await openeduService.CheckAuthAPI();
         let getCourseEnroll = await openeduService.CheckEnrollCourseAPI(
-          username,
-          id
+          getState().user.items_user[0].username,
+          getState().course_about.items.id
         );
-        
         let filterCourseEnroll = getCourseEnroll.some(item => {
           return item.is_active;
         });
@@ -43,7 +42,7 @@ export function fetchEnrollState(id) {
       } catch (error) {
         console.log(error);
       }
-    } else if (responseStatus === 401) {
+    } else {
       dispatch(fetchSelectors.UserUnAuth());
     }
   };

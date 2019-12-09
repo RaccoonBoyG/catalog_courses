@@ -5,6 +5,7 @@ const initialState = {
   items_about: {},
   items_card_about: {},
   loading: true,
+  loading_card_about: true, 
   error: null,
   items_enroll: {}
 };
@@ -28,7 +29,8 @@ export default function programsReducer(state = initialState, { type, payload })
     case types.FETCH_PROGRAM_ABOUT_LIST_SUCCESS:
       return {
         ...state,
-        items_card_about: payload.data_list
+        items_card_about: payload.data_list,
+        loading_card_about: false
       };
     case types.FETCH_ENROLL_PROGRAMS_SUCCESS:
       return {

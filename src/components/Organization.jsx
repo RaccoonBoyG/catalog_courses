@@ -1,20 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import {
-  fetchOrg,
-  fetchAboutOrg,
-  fetchAboutOrgList
-} from "../store/organizations/action";
-import "animate.css/animate.min.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchOrg, fetchAboutOrg, fetchAboutOrgList } from '../store/organizations/action';
+import 'animate.css/animate.min.css';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
-import Header from "./Header";
 // import HeaderBackground from '../containers/HeaderBackground';
 // import HeaderTitle from '../containers/HeaderTitle';
-import ListCard from "../containers/ListCard";
-import scroll from "./scroll";
-import ButtonScrollToTop from "../containers/ButtonScrollToTop";
-import Spinner from "../containers/Spinner";
+import ListCard from '../containers/ListCard';
+import scroll from './scroll';
+import ButtonScrollToTop from '../containers/ButtonScrollToTop';
+import Spinner from '../containers/Spinner';
 
 class Organizations extends Component {
   componentDidMount() {
@@ -49,7 +44,6 @@ class Organizations extends Component {
 
     return (
       <React.Fragment>
-        <Header />
         <div className="d-flex flex-column margin-custom-catalog">
           <div className="container d-flex flex-wrap flex-row">{OrgList}</div>
         </div>

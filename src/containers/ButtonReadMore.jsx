@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "animate.css/animate.min.css";
-import { MEDIA_LS_URL } from "../services/openurfu";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import 'animate.css/animate.min.css';
+import { MEDIA_LS_URL } from '../services/openurfu';
 
 class ButtonReadMore extends Component {
   constructor(props) {
@@ -14,8 +14,8 @@ class ButtonReadMore extends Component {
   render() {
     let url = `${MEDIA_LS_URL}/courses/${this.state.value}/info`;
     return (
-      <a href={url}>
-        <button className="btn btn-light btn-lg mt-2">Перейти к курсу</button>
+      <a href={url} style={{ borderRadius: 0, textDecoration: 'none' }}  id="href">
+        <button style={{ borderRadius: 0 }} className="btn btn-light btn-lg mt-2 d-flex shadow">Перейти к курсу</button>
       </a>
     );
   }

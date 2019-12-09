@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchAbout } from '../store/course_about/action';
-import { fetchEnrollState, fetchUserState, clearLoadingUser } from '../store/user/action';
+import { fetchEnrollState, clearLoadingUser, fetchUserState } from '../store/user/action';
 import 'animate.css/animate.min.css';
 // import ButtonEnroll from "../containers/ButtonEnroll";
 // import ButtonReadMore from "../containers/ButtonReadMore";
@@ -12,6 +12,8 @@ import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 // import { IoMdArrowBack } from "react-icons/io";
 // import { IconContext } from "react-icons";
 import Spinner from '../containers/Spinner';
+import { MEDIA_LS_URL } from '../services/openurfu';
+import Cookies from 'js-cookie';
 
 // let backImg = {
 // backgroundImage: "url('//openedu.urfu.ru/files/courses_catalog/bg-nav.jpeg')",
@@ -27,23 +29,44 @@ import Spinner from '../containers/Spinner';
 // };
 
 class CourseAbout extends Component {
-  componentWillMount() {
-    this.props.clearLoadingUser();
-    this.props.fetchUserState();
+  constructor(props){
+    super(props)
+    this.changeEnroll = this.changeEnroll.bind(this)
   }
-  componentDidMount() {
-    this.props.fetchUserState();
-    this.props.fetchAbout(this.props.match.params.id);
+
+  async componentDidMount() {
+    await this.props.fetchAbout(this.props.match.params.id);
     window.scrollTo(0, 0);
     scroll();
+    await this.props.fetchEnrollState();
+  }
+
+  async changeEnroll() {
+    let token = Cookies.get('csrftoken');
+    let postEnroll = await fetch(`${MEDIA_LS_URL}/api/enrollment/v1/enrollment`, {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'text-plain, */*',
+        'X-Requested-With': 'XMLHttpRequest',
+        'X-CSRFToken': token
+      },
+      method: 'post',
+      credentials: 'same-origin',
+      body: JSON.stringify({
+        course_details: { course_id: this.props.match.params.id }
+      })
+    });
+    const response = await postEnroll.text();
+    if (postEnroll.status === 200) window.location.reload();
+    else throw Error(response.message);
   }
 
   render() {
     // const sanitizer = dompurify.sanitize;
     const { isAuth, data, course_enroll_user, match, loading_user, loading, modes_data, history } = this.props;
-    if (!loading_user) {
-      this.props.fetchEnrollState(this.props.match.params.id);
-    }
+    // if (!loading_user) {
+    //   this.props.fetchEnrollState(this.props.match.params.id);
+    // }
     // var config = { ALLOWED_TAGS: ['iframe', 'p', 'div', 'br', 'b', 'section', 'h1', 'h2', 'h3', 'h4', 'h5', 'img', 'strong'] };
     if (loading && loading_user && data.length === 0) {
       return <Spinner />;
@@ -59,6 +82,7 @@ class CourseAbout extends Component {
           params={match.params}
           modes_data={modes_data}
           search={history.location.search}
+          changeEnroll={this.changeEnroll}
         />
         {/* <div style={{ ...backImg }}></div> */}
         <div className="container pb-5 pt-3 mb-5 p-custom-2">
@@ -102,9 +126,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  fetchUserState,
   fetchAbout,
   fetchEnrollState,
+  fetchUserState,
   clearLoadingUser
 };
 

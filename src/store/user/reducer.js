@@ -4,7 +4,7 @@ const initialState = {
   items_user: [],
   loading: false,
   error: null,
-  isAuth: true,
+  isAuth: false,
   course_enroll_user: false,
   course_user_modes: []
 };
@@ -15,7 +15,8 @@ export default function usersReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         items_user: payload.data,
-        loading: true
+        loading: true,
+        isAuth: true
       };
 
     case types.FETCH_USER_STATE_START:
@@ -38,14 +39,16 @@ export default function usersReducer(state = initialState, { type, payload }) {
     case types.FETCH_USER_STATE_AUTH:
       return {
         ...state,
-        isAuth: false
+        isAuth: false 
       };
 
     case types.FETCH_USER_COURSE_ENROLL:
       return {
         ...state,
+        course_enroll_user: payload.course,
         course_user_modes: payload.modes,
-        course_enroll_user: payload.course
+        loading: true,
+        isAuth: true
       };
 
     default:

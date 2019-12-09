@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 // import { fetchPrograms, fetchAboutProgram } from '../store/programs/action';
 import { fetchProjects } from '../store/projects/action';
 import { fetchPrograms, fetchAboutProgram } from '../store/programs/action';
-import AboutRender from '../containers/AboutRender';
 import 'animate.css/animate.min.css';
 
 // import Header from './Header';
@@ -21,9 +20,9 @@ class ProjectsAbout extends Component {
     this.postIdAPI = this.postIdAPI.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchPrograms();
-    this.props.fetchProjects();
+  async componentDidMount() {
+    await this.props.fetchPrograms();
+    await this.props.fetchProjects();
     scroll();
   }
 
@@ -42,13 +41,13 @@ class ProjectsAbout extends Component {
           if (item.slug_project === this.props.match.path.replace('/', '')) {
             return (
               <React.Fragment key={item.name + item.slug_project}>
-                <AboutRender
-                  name={item.name}
-                  image_background={item.image_background}
-                  height={100}
-                  class={'top-txt-container-sub'}
-                  data_programs={data_programs}
-                />
+                <div className="d-flex flex-row backImgCourse margin-custom-catalog">
+                  <div className={`container container-course_about p-custom-2 pb-4 pl-2 d-flex flex-column text-light animated fadeIn faster mb-3`}>
+                    <div className=" d-flex title_catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
+                      <h2 className="d-flex align-items-start justify-content-start">{item.name}</h2>
+                    </div>
+                  </div>
+                </div>
                 <div className="d-flex flex-column margin-custom-catalog container">
                   {item.content.map((i, key) => {
                     return (
