@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import * as Sentry from '@sentry/browser';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+// import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './static/app.scss';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';

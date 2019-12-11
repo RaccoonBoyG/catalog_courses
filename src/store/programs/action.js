@@ -21,14 +21,11 @@ export function fetchAboutProgram(program) {
 
 export function fetchEnrollProgram(program) {
   return async (dispatch, getState) => {
-    let isAuth = getState().user.isAuth
-    if(isAuth) {
-      try {
-        let getEnrollProgram = await openeduService.CheckEnrollProgramAPI(program);
-        dispatch(fetchSelectors.fetchEnrollProgramSuccess(getEnrollProgram));
-      } catch (error) {
-        console.log(error);
-      }
+    getState();
+    let checkSessionID = await openeduService.checkSession();
+    if (checkSessionID) {
+      let getEnrollProgram = await openeduService.CheckEnrollProgramAPI(program);
+      dispatch(fetchSelectors.fetchEnrollProgramSuccess(getEnrollProgram));
     }
   };
 }
