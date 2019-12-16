@@ -15,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Profile from './Profile';
 import { useDispatch } from 'react-redux';
 import { fetchUserState } from '../store/user/action.js';
+import SiginIn from './SiginIn';
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -32,15 +33,23 @@ HideOnScroll.propTypes = {
   window: PropTypes.func
 };
 
+const drawerWidth = 340;
+
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: drawerWidth,
   },
   menuButton: {
     marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    padding: theme.spacing(4)
+  },
+  img: {
+    width: '120px',
   },
   appbarBackground: {
     background: theme.palette.background.default,
@@ -60,22 +69,15 @@ const Header = () => {
 
   return (
     <div className={classes.root}>
-      <HideOnScroll>
-        <AppBar position="static" className={classes.appbarBackground}>
+      {/* <HideOnScroll> */}
+        {/* <AppBar className={classes.appbarBackground}> */}
           <Toolbar>
-            <Typography variant="h6" noWrap className={classes.title}>
-              <img src="/edx/app/edxapp/catalog/catalog_courses/src/static/img/logo_urfu.svg" alt="logo" />
-            </Typography>
-            {/* <div>
-            <div>
-              <SearchIcon />
-            </div>
-            <InputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
-          </div> */}
+            <p className={classes.title}></p>
+            <SiginIn />
             <Profile />
           </Toolbar>
-        </AppBar>
-      </HideOnScroll>
+        {/* </AppBar> */}
+      {/* </HideOnScroll> */}
     </div>
   );
 };

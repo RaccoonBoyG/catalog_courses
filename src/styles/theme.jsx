@@ -7,8 +7,9 @@ export const CustomTheme = createMuiTheme({
     background: { paper: 'rgba(255, 255, 255, 1)', default: 'rgba(255, 255, 255, 1)' },
     primary: {
       light: 'rgba(173, 235, 255, 1)',
-      main: 'rgba(72, 167, 234, 1)',
-      dark: 'rgba(82, 178, 255, 1)',
+      main2: 'rgba(72, 167, 234, 1)',
+      main: '#da2b87',
+      dark: '#cb1d6e',
       contrastText: 'rgba(255, 255, 255, 1)'
     },
     secondary: {

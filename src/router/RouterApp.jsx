@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import HomePage from '../layout/HomePage';
 import Header from '../components/Header';
+import MenuDesktop from '../components/HomePage/MenuDesktop';
 
 const RouterApp = () => {
   return (
@@ -9,7 +10,7 @@ const RouterApp = () => {
       <main className="App" id="app">
         <Header />
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" component={MenuDesktop} />
           {/* <Route path="/about" component={AboutUs} />
             <Route path="/privacy" component={Privacy} />
             <Route path="/tech" component={Tech} />
