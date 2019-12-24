@@ -18,31 +18,32 @@ import { connect } from 'react-redux';
 import { fetchUserState, fetchEnrollState } from '../store/user/action';
 
 class RouterApp extends Component {
-  componentDidMount(){
-    this.props.fetchUserState()
-    // this.props.fetchEnrollState() 
+  componentDidMount() {
+    this.props.fetchUserState();
+    // this.props.fetchEnrollState()
   }
   render() {
     return (
       <main className="App" id="app">
         <BrowserRouter>
           <Header />
-          <Switch>
-            <Route exact path="/" component={Catalog} />
-            <Route path="/about" component={AboutUs} />
-            <Route path="/privacy" component={Privacy} />
-            <Route path="/tech" component={Tech} />
-            <Route path="/404" component={NotFound} />
-            <Route path="/orgs/:org" component={OrganizationAbout} />
-            <Route path="/orgs" component={Organization} />
-            {/* <Route path="/programs/:program" component={ProgramAbout} />
+          <div style={{ background: '#f5f5f5' }}>
+            <Switch>
+              <Route exact path="/" component={Catalog} />
+              <Route path="/about" component={AboutUs} />
+              <Route path="/privacy" component={Privacy} />
+              <Route path="/tech" component={Tech} />
+              <Route path="/404" component={NotFound} />
+              <Route path="/orgs/:org" component={OrganizationAbout} />
+              <Route path="/orgs" component={Organization} />
+              {/* <Route path="/programs/:program" component={ProgramAbout} />
                 <Route path="/programs" component={Programs} /> */}
-            <Route path="/npr/:program" component={ProgramAbout} />
-            <Route path="/npr" component={ProjectsAbout} />
-            <Route path="/grant_test/:program" component={ProgramAbout} />
-            <Route path="/grant_test" component={ProjectsAbout} />
-            <Route path="/:id" component={CourseAbout} />
-          </Switch>
+              <Route path="/npr/:program" component={ProgramAbout} />
+              <Route path="/npr" component={ProjectsAbout} />
+              <Route path="/:program" component={ProgramAbout} />
+              <Route path="/:id" component={CourseAbout} />
+            </Switch>
+          </div>
           <Footer />
         </BrowserRouter>
       </main>
@@ -55,8 +56,7 @@ const mapDispatchToProps = {
   fetchEnrollState
 };
 
-export default 
-  connect(
-    null,
-    mapDispatchToProps
-  )(RouterApp)
+export default connect(
+  null,
+  mapDispatchToProps
+)(RouterApp);

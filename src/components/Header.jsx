@@ -40,7 +40,7 @@ class Header extends Component {
     // if(!this.props.loading_user && this.props.match.params.id !== undefined) {
     //   this.props.fetchEnrollState(this.props.match.params.id);
     //   console.log(this.props.match.params.id);
-      
+
     // }
     var header = document.querySelector('.header');
     var icon = document.querySelector('.icon-container');
@@ -89,35 +89,22 @@ class Header extends Component {
     });
   }
 
-  _handleTextChangeBIG(e) {
-    const input_test = e.target.value;
-    this.props.searchInput(input_test);
-
-    if (input_test.length > 0) {
-      $('.t-site-search-close').addClass('show_close');
-    } else $('.t-site-search-close').removeClass('show_close');
-  }
-  _resetSearchResult() {
-    this.props.resetSearch();
-    $('.t-input').val(null);
-    $('.t-site-search-close').removeClass('show_close');
-  }
-
   render() {
     const { isAuth } = this.props;
     return (
       <React.Fragment>
         {/* <div className="bg_img" style={backgroundImg}></div> */}
         {/* <img className="bg_img" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt=""/> */}
-        <nav className="navbar navbar-expand-lg navbar-light container-fluid pb-3">
-          <NavLink className="navbar-brand" exact to="/">
-            <img
-              src="http://itoo.urfu.ru/uploadfiles/setting/63b0690c4a2440b68312d324f4658526.png?crop=89,94,907,571&width=160&mode=crop&anchor=center"
-              width="110"
-              img-field="img"
-              alt=""
-            />
-            {/* <svg version="1.0" className="brand_img" xmlns="http://www.w3.org/2000/svg"
+        <div className="container-fluid shadow-sm">
+          <nav className="navbar navbar-expand-lg navbar-light container pb-3 pl-0 pr-0">
+            <NavLink className="navbar-brand" exact to="/">
+              <img
+                src="http://itoo.urfu.ru/uploadfiles/setting/63b0690c4a2440b68312d324f4658526.png?crop=89,94,907,571&width=160&mode=crop&anchor=center"
+                width="110"
+                img-field="img"
+                alt=""
+              />
+              {/* <svg version="1.0" className="brand_img" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 490.000000 466.000000" preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(0.000000,466.000000) scale(0.100000,-0.100000)">
                     <path d="M406 4228 c-3 -7 -11 -35 -20 -62 -25 -77 -22 -86 22 -86 52 0 142
@@ -138,63 +125,63 @@ class Header extends Component {
                             -629 0 -10 -37z" />
                 </g>
             </svg> */}
-            {/* <p className="navbar_text_small mt-2">
+              {/* <p className="navbar_text_small mt-2">
                 Институт технологий <br />
                 открытого образования
             </p> */}
-          </NavLink>
+            </NavLink>
 
-          <div className="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
-            <ul className="navbar-nav navigate is-show">
-              <li className="nav-item">
-                {/* <a className="nav-link" href="#">Каталог<span className="sr-only"></span></a> */}
-                <NavLink exact to="/" className="nav-link">
-                  Каталог
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                {/* <a className="nav-link" href="#">Организации</a> */}
-                <NavLink to="/orgs" className="nav-link">
-                  Организации
-                </NavLink>
-              </li>
-              {/* <li className="nav-item">
+            <div className="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
+              <ul className="navbar-nav navigate is-show">
+                <li className="nav-item">
+                  {/* <a className="nav-link" href="#">Каталог<span className="sr-only"></span></a> */}
+                  <NavLink exact to="/" className="nav-link">
+                    Каталог
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  {/* <a className="nav-link" href="#">Организации</a> */}
+                  <NavLink to="/orgs" className="nav-link">
+                    Организации
+                  </NavLink>
+                </li>
+                {/* <li className="nav-item">
                     <NavLink to='/programs' className="nav-link">Программы</NavLink>
                 </li> */}
-              <li className="nav-item">
-                <NavLink to="/npr" className="nav-link">
-                  Обучение НПР
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/grant_test" className="nav-link">
-                  Grant Test
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                {/* <a className="nav-link" href="#">О нас</a> */}
-                <NavLink to="/about" className="nav-link">
-                  О нас
-                </NavLink>
-              </li>
-              {isAuth ? <MyCourses /> : null}
-
-              {isAuth ? null : (
                 <li className="nav-item">
-                  <a href={`${MEDIA_LS_URL}/register`} className="nav-link" id="href">
-                    Регистрация
-                  </a>
+                  <NavLink to="/npr" className="nav-link">
+                    Обучение НПР
+                  </NavLink>
                 </li>
-              )}
-              <li className="nav-item navigate-search">
+                <li>
+                  <NavLink to="/IPMG" className="nav-link">
+                    УИС
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  {/* <a className="nav-link" href="#">О нас</a> */}
+                  <NavLink to="/about" className="nav-link">
+                    О нас
+                  </NavLink>
+                </li>
+                {isAuth ? <MyCourses /> : null}
+
+                {isAuth ? null : (
+                  <li className="nav-item">
+                    <a href={`${MEDIA_LS_URL}/register`} className="nav-link" id="href">
+                      Регистрация
+                    </a>
+                  </li>
+                )}
+                {/* <li className="nav-item navigate-search">
                 <button type="button" className="btn btn-primary btn-circle-search shadow-sm">
                   <IconContext.Provider value={{ size: '2rem', className: 'btn-circle-search-svg shadow-sm' }}>
                     <IoIosSearch />
                   </IconContext.Provider>
                 </button>
-              </li>
-            </ul>
-            <ul className="navbar-nav navigate is-hidden">
+              </li> */}
+              </ul>
+              {/* <ul className="navbar-nav navigate is-hidden">
               <li className="nav-item">
                 <div className="t-site-search-input">
                   <div className="t838__blockinput">
@@ -215,54 +202,54 @@ class Header extends Component {
                   </div>
                 </div>
               </li>
-            </ul>
-            {/* <form className="form-inline my-2 my-lg-0">
+            </ul> */}
+              {/* <form className="form-inline my-2 my-lg-0">
                 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form> */}
-          </div>
+            </div>
 
-          {/* <a href="" id="href">
+            {/* <a href="" id="href">
                 <button className="btn btn-outline-primary my-2 my-sm-0">Личный кабинет</button>
             </a> */}
-          {isAuth ? <RenderProfileYes /> : <RenderProfileNo />}
-          {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            {isAuth ? <RenderProfileYes /> : <RenderProfileNo />}
+            {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button> */}
-        </nav>
-        <div className="header">
-          {this.props.history.location.pathname === '/' ? (
-            <div style={{ float: 'left' }} className="icon-container-search" onClick={this._onButtonClickFilter}>
-              {/* <div className="p-2"><FontAwesomeIcon icon={faSearch} size="2x" /></div> */}
-              <div className="p-2 m-1" id="menuicon-search">
-                <IconContext.Provider value={{ size: '2em' }}>
-                  <IoIosSearch />
-                </IconContext.Provider>
+          </nav>
+          <div className="header">
+            {this.props.history.location.pathname === '/' ? (
+              <div style={{ float: 'left' }} className="icon-container-search" onClick={this._onButtonClickFilter}>
+                {/* <div className="p-2"><FontAwesomeIcon icon={faSearch} size="2x" /></div> */}
+                <div className="p-2 m-1" id="menuicon-search">
+                  <IconContext.Provider value={{ size: '2em' }}>
+                    <IoIosSearch />
+                  </IconContext.Provider>
+                </div>
+              </div>
+            ) : null}
+            <div className="icon-container d-flex p-2 m-1" onClick={this._onButtonClickMenu}>
+              <div id="menuicon" className="d-flex flex-column">
+                <div className="bar bar1"></div>
+                <div className="bar bar2"></div>
+                <div className="bar bar3"></div>
               </div>
             </div>
-          ) : null}
-          <div className="icon-container d-flex p-2 m-1" onClick={this._onButtonClickMenu}>
-            <div id="menuicon" className="d-flex flex-column">
-              <div className="bar bar1"></div>
-              <div className="bar bar2"></div>
-              <div className="bar bar3"></div>
-            </div>
-          </div>
-          {this.props.history.location.pathname === `/orgs/${this.props.match.params.org}` ||
-          this.props.history.location.pathname === `/${this.props.match.params.id}` ? (
-            <MobileButtonBack history={this.props.history} />
-          ) : null}
-          {this.state.showComponentMenu ? <MobileMenu isAuth={isAuth} /> : null}
-          {this.state.showComponentFilter && this.props.history.location.pathname === '/' ? (
-            <MobileFilter
-              _handleTextChange={this._handleTextChange}
-              submitSearch={this.submitSearch}
-              resetInput={this.resetInput}
-              term={this.state.term}
-            />
-          ) : null}
-          {/* <div className="mobile-menu-filter">
+            {this.props.history.location.pathname === `/orgs/${this.props.match.params.org}` ||
+            this.props.history.location.pathname === `/${this.props.match.params.id}` ? (
+              <MobileButtonBack history={this.props.history} />
+            ) : null}
+            {this.state.showComponentMenu ? <MobileMenu isAuth={isAuth} /> : null}
+            {this.state.showComponentFilter && this.props.history.location.pathname === '/' ? (
+              <MobileFilter
+                _handleTextChange={this._handleTextChange}
+                submitSearch={this.submitSearch}
+                resetInput={this.resetInput}
+                term={this.state.term}
+              />
+            ) : null}
+            {/* <div className="mobile-menu-filter">
                     <ul className='menu-filter'>
                     <li className="menu-item-filter">
                         <NavLink exact to='/' className="nav-link">Каталог</NavLink>
@@ -275,6 +262,7 @@ class Header extends Component {
                     </li>
                     </ul>
                 </div> */}
+          </div>
         </div>
       </React.Fragment>
       // <div className="navbar-container">
@@ -317,7 +305,7 @@ class Header extends Component {
 const mapStateToProps = state => ({
   data: state.user.items_user,
   isAuth: state.user.isAuth,
-  loading_user: state.user.loading,
+  loading_user: state.user.loading
 });
 
 const mapDispatchToProps = {

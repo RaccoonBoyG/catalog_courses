@@ -1,12 +1,11 @@
 import Cookies from 'js-cookie';
-const OPENEDU_ENDPOINT = `//10.16.208.162/api`;
-const OPENEDU_ENDPOINT2 = `http://10.16.208.162/api`;
+const OPENEDU_ENDPOINT = `//courses.openedu.urfu.ru/api`;
+const OPENEDU_ENDPOINT2 = `https://courses.openedu.urfu.ru/api`;
 const COURSES_ENDPOINT = `/courses/v1/courses/`;
 const DEFAULT_QUERY = 1;
 const PAGE_PARAM = `?page=`;
 const PAGE_SIZE = `?page_size=100`;
-export const MEDIA_LS_URL = `//10.16.208.162`;
-
+export const MEDIA_LS_URL = `//courses.openedu.urfu.ru`;
 
 // const OPENEDU_ENDPOINT = `http://10.16.208.164/api`;
 // const OPENEDU_ENDPOINT2 = `http://10.16.208.164/api`;
@@ -246,10 +245,10 @@ class OpeneduService {
         'X-CSRFToken': token
       },
       method: 'post',
-      credentials: 'same-origin',
+      credentials: 'same-origin'
     });
     const response = await postEnroll.json();
-    return response.detail
+    return response.detail;
   }
 
   async CheckAuthAPI() {

@@ -27,7 +27,11 @@ class ButtonEnrollProgram extends Component {
     );
     let button_auth = (
       <div className="d-flex flex-row mt-5 justify-content-end">
-        <a href={`${MEDIA_LS_URL}/login`} id="href" style={{ borderRadius: 0, textDecoration: 'none' }}>
+        <a
+          href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/?program_slug=${program_slug}`}
+          id="href"
+          style={{ borderRadius: 0, textDecoration: 'none' }}
+        >
           <button className="btn btn-light btn-lg mt-2 d-flex shadow" style={{ borderRadius: 0 }}>
             Записаться на программу
           </button>

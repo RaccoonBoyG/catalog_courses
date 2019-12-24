@@ -1,19 +1,18 @@
-import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-regular-svg-icons";
-import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
-import "animate.css/animate.min.css";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { fetchAbout } from "../store/course_about/action";
-
+import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock } from '@fortawesome/free-regular-svg-icons';
+import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import 'animate.css/animate.min.css';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchAbout } from '../store/course_about/action';
 
 let backgroundImg = {
-  backgroundPosition: "top",
-  backgroundSize: "contain",
-  backgroundRepeat: "no-repeat",
-  backgroundPositionY: "top",
-  minHeight: "200px"
+  backgroundPosition: 'top',
+  backgroundSize: 'contain',
+  backgroundRepeat: 'no-repeat',
+  backgroundPositionY: 'top',
+  minHeight: '200px'
 };
 
 class CourseCard extends Component {
@@ -45,13 +44,13 @@ class CourseCard extends Component {
   }
 
   truncate(str, len) {
-    var dots = "...";
-    var object = str.split(" ");
-    var str_truncate = "";
+    var dots = '...';
+    var object = str.split(' ');
+    var str_truncate = '';
     if (object.length > len) {
-      str_truncate = object.splice(0, len).join(" ") + dots;
+      str_truncate = object.splice(0, len).join(' ') + dots;
     } else {
-      str_truncate = object.splice(0, len).join(" ");
+      str_truncate = object.splice(0, len).join(' ');
     }
     return str_truncate;
   }
@@ -81,21 +80,13 @@ class CourseCard extends Component {
       <div
         className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 card-height mb-3 mt-3 animated fadeIn faster"
         key={name}
-        style={{ minHeight: "400px", borderRadius: "0" }}
+        style={{ minHeight: '400px', borderRadius: '0' }}
         data-toggle="tooltip"
         data-placement="left"
         title={name}
       >
-        <div
-          className="bg-white p-3 shadow-effect animated fadeIn faster shadow"
-          style={{ minHeight: "400px", borderRadius: "0" }}
-        >
-          <Link
-            to={{ pathname: `/${id}` }}
-            onClick={this.postIdAPI.bind(this)}
-            className="text-white"
-            style={{ textDecoration: "none" }}
-          >
+        <div className="bg-white p-3 shadow-effect animated fadeIn faster shadow-sm" style={{ minHeight: '400px', borderRadius: '0' }}>
+          <Link to={{ pathname: `/${id}` }} onClick={this.postIdAPI.bind(this)} className="text-white" style={{ textDecoration: 'none' }}>
             <div
               className="d-flex flex-row"
               style={{
@@ -110,21 +101,13 @@ class CourseCard extends Component {
                     <FontAwesomeIcon icon={faGraduationCap} size="1x" /> УрФУ
                   </small>
                 </p>
-                <p className="card-catalog-title p-1 mb-0 card-title">
-                  {this.truncate(name, 6)}
-                </p>
+                <p className="card-catalog-title p-1 mb-0 card-title">{this.truncate(name, 6)}</p>
                 <p className="card-catalog-text p-1 m-0 card-text">
-                  <FontAwesomeIcon icon={faClock} size="1x" /> Начало:{" "}
-                  {start_display}
+                  <FontAwesomeIcon icon={faClock} size="1x" /> Начало: {start_display}
                 </p>
               </div>
-              <div
-                className="flex-row d-flex flex-column pl-3 "
-                style={{ position: "absolute", bottom: "0px" }}
-              >
-                <p className="nav-link text-primary p-1 show-about">
-                  Подробнее
-                </p>
+              <div className="flex-row d-flex flex-column pl-3 " style={{ position: 'absolute', bottom: '0px' }}>
+                <p className="nav-link text-primary p-1 show-about">Подробнее</p>
               </div>
             </div>
           </Link>
