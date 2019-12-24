@@ -24,11 +24,12 @@ export function fetchUserState() {
 
 export function fetchEnrollState() {
   return async (dispatch, getState) => {
+    fetchUserState()
     getState()
     // let responseStatus = await openeduSerice.ResponseStatusAPI();
     let checkSessionID = await openeduService.checkSession();
     if (checkSessionID) {
-      try {
+        
         // let getUser = await openeduService.CheckAuthAPI();
         let getCourseEnroll = await openeduService.CheckEnrollCourseAPI(
           getState().user.items_user[0].username,
@@ -39,9 +40,6 @@ export function fetchEnrollState() {
         });
 
         dispatch(fetchSelectors.fetchCourseEnroll(filterCourseEnroll, getCourseEnroll));
-      } catch (error) {
-        console.log(error);
-      }
     } else {
       dispatch(fetchSelectors.UserUnAuth());
     }

@@ -20,7 +20,7 @@ const HeaderTitleProgram = props => {
       <div className="d-flex flex-row backImgCourse margin-custom-catalog p-5">
         <div className={`container container-course_about d-flex flex-column text-light animated fadeIn faster`}>
           <div className=" d-flex title_catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
-            <h2 className="d-flex align-items-start justify-content-start">{props.title}</h2>
+            <h1 className="d-flex align-items-start justify-content-start">{props.title}</h1>
           </div>
           {<ButtonsProgramsEnroll isAuth={props.isAuth} search={props.search} program_slug={props.program_slug} data_enroll={props.data_enroll} />}
           {props.description === undefined ? null : <HeaderDescription desc={props.description} />}
@@ -42,10 +42,10 @@ const HeaderDescription = props => (
 
 const ButtonEnrollProgramFalse = props => (
   <>
-    <div className="d-flex flex-row mt-5 justify-content-between">
+    <div className="d-flex flex-row mt-5 justify-content-end">
       <div className="d-flex flex-row ">
         <a
-          href={`${MEDIA_LS_URL}api/itoo_api/verified_profile/profile/edit_exist/?program_slug=${props.program_slug}`}
+          href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/edit_exist/?program_slug=${props.program_slug}`}
           id="href"
           style={{ borderRadius: 0, textDecoration: 'none' }}
           target="blank"
@@ -56,35 +56,35 @@ const ButtonEnrollProgramFalse = props => (
         </a>
       </div>
       <div className="d-flex flex-row ">
-        <button type="button" className="btn btn-secondary btn-lg mt-2 d-flex disabled shadow" style={{ borderRadius: 0 }} disabled>
+        <p className="d-flex disabled shadow" style={{ borderRadius: 0 }} disabled>
           Вы уже записаны на программу
-        </button>
+        </p>
       </div>
     </div>
   </>
 );
 
 const ButtonProgram = props => {
-  return <ButtonsCoursesEnroll program_slug={props.program_slug} />
+  return <ButtonsCoursesEnroll program_slug={props.program_slug} isAuth={props.isAuth} />
 };
 
 const button_enroll_program = props => (
-  <div className="d-flex flex-row mt-5 justify-content-end">
+  <div className="d-flex flex-row justify-content-end">
     <a
       className="btn btn-light btn-lg mt-2 d-flex shadow"
       href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/?program_slug=${props.program_slug}`}
       style={{ borderRadius: 0 }}
     >
-      Записаться на программу
+      Записаться на<br /> программу
     </a>
   </div>
 );
 
-const button_auth = () => (
-  <div className="d-flex flex-row mt-5 justify-content-end">
-    <a href={`${MEDIA_LS_URL}/login`} id="href" style={{ borderRadius: 0, textDecoration: 'none' }}>
-      <button className="btn btn-light btn-lg mt-2 d-flex shadow" style={{ borderRadius: 0 }}>
-        Записаться на программу
+const button_auth = props => (
+  <div className="d-flex flex-row justify-content-end">
+    <a href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/?program_slug=${props.program_slug}`} id="href" style={{ borderRadius: 0, textDecoration: 'none' }}>
+      <button className="pr-4 pl-4 btn btn-light btn-lg mt-2 d-flex shadow" style={{ borderRadius: 0 }}>
+        Записаться на<br /> программу
       </button>
     </a>
   </div>

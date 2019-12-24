@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink, withRouter, Link } from 'react-router-dom';
 
 // import logo from '../static/img/logo_full.png'
 // import Search from './Search';
-import { fetchUserState } from '../store/user/action';
+import { fetchUserState, fetchEnrollState } from '../store/user/action';
 import { searchInput, resetSearch } from '../store/cards/action';
 import RenderProfileYes from '../containers/RenderProfileYes';
 import RenderProfileNo from '../containers/RenderProfileNo';
@@ -36,7 +36,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.match, this.props.loading_user);
+    this.props.fetchEnrollState();
     // if(!this.props.loading_user && this.props.match.params.id !== undefined) {
     //   this.props.fetchEnrollState(this.props.match.params.id);
     //   console.log(this.props.match.params.id);
@@ -154,9 +154,9 @@ class Header extends Component {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/IPMG" className="nav-link">
+                  <Link to="/npr/IPMG" className="nav-link">
                     УИС
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   {/* <a className="nav-link" href="#">О нас</a> */}
@@ -311,7 +311,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   fetchUserState,
   searchInput,
-  resetSearch
+  resetSearch,
+  fetchEnrollState
 };
 
 export default withRouter(

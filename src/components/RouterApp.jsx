@@ -20,7 +20,7 @@ import { fetchUserState, fetchEnrollState } from '../store/user/action';
 class RouterApp extends Component {
   componentDidMount() {
     this.props.fetchUserState();
-    // this.props.fetchEnrollState()
+    this.props.fetchEnrollState();
   }
   render() {
     return (
@@ -38,9 +38,8 @@ class RouterApp extends Component {
               <Route path="/orgs" component={Organization} />
               {/* <Route path="/programs/:program" component={ProgramAbout} />
                 <Route path="/programs" component={Programs} /> */}
+              <Route exact path="/npr" component={ProjectsAbout} />
               <Route path="/npr/:program" component={ProgramAbout} />
-              <Route path="/npr" component={ProjectsAbout} />
-              <Route path="/:program" component={ProgramAbout} />
               <Route path="/:id" component={CourseAbout} />
             </Switch>
           </div>

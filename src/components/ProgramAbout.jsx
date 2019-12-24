@@ -8,6 +8,8 @@ import scroll from './scroll';
 import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 import { ObjectContent } from '../containers/Content';
 import Spinner from '../containers/Spinner';
+import { withRouter } from 'react-router-dom';
+import { fetchEnrollState, fetchUserState } from '../store/user/action';
 
 class ProgramAbout extends Component {
   // constructor(props) {
@@ -19,6 +21,7 @@ class ProgramAbout extends Component {
 
   async componentDidMount() {
     window.scrollTo(0, 0);
+    await this.props.fetchUserState();
     await this.props.fetchAboutProgram(this.props.match.params.program);
     await this.props.fetchEnrollProgram(this.props.match.params.program);
     await this.props.fetchAboutProgramList(this.props.match.params.program);
@@ -72,13 +75,14 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   fetchAboutProgram,
   fetchAboutProgramList,
-  fetchEnrollProgram
+  fetchEnrollProgram,
+  fetchUserState
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProgramAbout);
+)(ProgramAbout));
 
 const NoneCourseProgram = () => (
   <div style={{ height: '300px' }}>

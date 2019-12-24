@@ -38,6 +38,7 @@ class CourseAbout extends Component {
     await this.props.fetchAbout(this.props.match.params.id);
     window.scrollTo(0, 0);
     scroll();
+    await this.props.fetchUserState();
     await this.props.fetchEnrollState();
   }
 
@@ -99,7 +100,7 @@ class CourseAbout extends Component {
                 </button>
               </div> */}
             </div>
-            <div className="container">
+            <div className="container p-5 bg-white shadow-sm">
               <div
                 className="question-text"
                 dangerouslySetInnerHTML={{

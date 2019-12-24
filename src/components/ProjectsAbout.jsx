@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchProjects } from '../store/projects/action';
 import { fetchPrograms, fetchAboutProgram } from '../store/programs/action';
 import 'animate.css/animate.min.css';
+import { withRouter } from 'react-router-dom';
 
 // import Header from './Header';
 // import ListCard from '../containers/ListCard';
@@ -94,7 +95,7 @@ const mapDispatchToProps = {
   fetchAboutProgram
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProjectsAbout);
+)(ProjectsAbout));
