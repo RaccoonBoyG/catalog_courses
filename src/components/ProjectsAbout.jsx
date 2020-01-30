@@ -21,9 +21,9 @@ class ProjectsAbout extends Component {
     this.postIdAPI = this.postIdAPI.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchPrograms();
-    this.props.fetchProjects();
+  async componentDidMount() {
+    await this.props.fetchPrograms();
+    await this.props.fetchProjects();
     scroll();
   }
 

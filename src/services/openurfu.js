@@ -1,13 +1,13 @@
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
-const OPENEDU_ENDPOINT = `//courses.openedu.urfu.ru/api`;
-const OPENEDU_ENDPOINT2 = `https://courses.openedu.urfu.ru/api`;
+const OPENEDU_ENDPOINT = `//courses.edubricks.ru/api`;
+const OPENEDU_ENDPOINT2 = `https://courses.edubricks.ru/api`;
 const COURSES_ENDPOINT = `/courses/v1/courses/`;
 const DEFAULT_QUERY = 1;
 const PAGE_PARAM = `?page=`;
 const PAGE_SIZE = `?page_size=100`;
-export const MEDIA_LS_URL = `//courses.openedu.urfu.ru`;
+export const MEDIA_LS_URL = `//courses.edubricks.ru`;
 
 // const OPENEDU_ENDPOINT = `http://10.16.208.164/api`;
 // const OPENEDU_ENDPOINT2 = `http://10.16.208.164/api`;

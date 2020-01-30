@@ -3,6 +3,7 @@ import React from 'react';
 // import ButtonReadMore from '../containers/ButtonReadMore';
 // import ButtonPay from '../containers/ButtonPay';
 import ButtonEnrollProgram from './ButtonEnrollProgram';
+import { MEDIA_LS_URL } from '../services/openurfu';
 
 // let backImg = {
 //   background: "url('http://itoo.urfu.ru/Content/images/bg.jpg') repeat center 0"
@@ -39,19 +40,38 @@ const HeaderDescription = props => (
   </React.Fragment>
 );
 
-const ButtonEnrollProgramFalse = () => (
+const ButtonEnrollProgramFalse = props => (
   <React.Fragment>
-    <button type="button" className="btn btn-secondary btn-lg mt-2 d-flex disabled shadow" style={{ borderRadius: 0 }} disabled>
-      Вы уже записаны на программу
-    </button>
+    <div className="d-flex flex-row mt-5 justify-content-between">
+      <div className="d-flex flex-row ">
+        <a
+          href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/edit_exist/?program_slug=${props.program_slug}`}
+          id="href"
+          style={{ borderRadius: 0, textDecoration: 'none' }}
+        >
+          <button className="btn btn-light btn-lg mt-2 d-flex shadow" style={{ borderRadius: 0 }}>
+            Редактировать анкету
+          </button>
+        </a>
+      </div>
+      <div className="d-flex flex-row ">
+        <button type="button" className="btn btn-secondary btn-lg mt-2 d-flex disabled shadow" style={{ borderRadius: 0 }} disabled>
+          Вы уже записаны на программу
+        </button>
+      </div>
+    </div>
   </React.Fragment>
 );
 
 const ButtonProgram = props => {
   return (
-    <div className="d-flex flex-row mt-5 justify-content-end">
-      {!props.data_enroll.is_active ? <ButtonEnrollProgram isAuth={props.isAuth} program_slug={props.program_slug} /> : <ButtonEnrollProgramFalse />}
-    </div>
+    <>
+      {!props.data_enroll.is_active ? (
+        <ButtonEnrollProgram isAuth={props.isAuth} program_slug={props.program_slug} />
+      ) : (
+        <ButtonEnrollProgramFalse program_slug={props.program_slug} />
+      )}
+    </>
   );
 };
 export default HeaderTitleProgram;
