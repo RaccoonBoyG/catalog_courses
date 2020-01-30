@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '100%'
   },
   papper: {
-    // padding: theme.spacing(4),
+    padding: theme.spacing(4),
     outline: 'none'
   },
   bigAvatar: {
@@ -79,7 +79,7 @@ const Profile = () => {
         <Grid container direction="column" className={classes.papper} justify="center" alignItems="center">
           {/* <List component="nav" className={classes.papper}  aria-label="mailbox folders"> */}
           <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" className={classes.bigAvatar} />
-          <div style={{marginBottom: '2rem'}}>
+          <div style={{ marginBottom: '2rem' }}>
             <Typography variant="subtitle1" align="center">
               Remy Sharp
             </Typography>
