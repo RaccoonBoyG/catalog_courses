@@ -5,9 +5,11 @@ const initialState = {
   items_about: {},
   items_card_about: {},
   loading: true,
-  loading_card_about: true, 
+  loading_card_about: true,
   error: null,
-  items_enroll: {}
+  items_enroll: {},
+  items_offer_data: {},
+  loading_offer: true
 };
 
 export default function programsReducer(state = initialState, { type, payload }) {
@@ -18,14 +20,12 @@ export default function programsReducer(state = initialState, { type, payload })
         items: payload.data,
         loading: false
       };
-
     case types.FETCH_PROGRAM_ABOUT_SUCCESS:
       return {
         ...state,
         items_about: payload.data,
         loading: false
       };
-
     case types.FETCH_PROGRAM_ABOUT_LIST_SUCCESS:
       return {
         ...state,
@@ -37,7 +37,12 @@ export default function programsReducer(state = initialState, { type, payload })
         ...state,
         items_enroll: payload.data_enroll
       };
-
+    case types.FETCH_OFFER_SUCCESS:
+      return {
+        ...state,
+        items_offer_data: payload.data_offer,
+        loading_offer: false
+      };
     default:
       return state;
   }
@@ -63,4 +68,9 @@ export const fetchProgramAboutListSuccess = data_list => ({
 export const fetchEnrollProgramSuccess = data_enroll => ({
   type: types.FETCH_ENROLL_PROGRAMS_SUCCESS,
   payload: { data_enroll }
+});
+
+export const fetchOfferDataSuccess = data_offer => ({
+  type: types.FETCH_OFFER_SUCCESS,
+  payload: { data_offer }
 });

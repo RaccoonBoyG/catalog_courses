@@ -21,8 +21,8 @@ export function fetchAboutProgram(program) {
 
 export function fetchEnrollProgram(program) {
   return async (dispatch, getState) => {
-    let isAuth = getState().user.isAuth
-    if(isAuth) {
+    let isAuth = getState().user.isAuth;
+    if (isAuth) {
       try {
         let getEnrollProgram = await openeduService.CheckEnrollProgramAPI(program);
         dispatch(fetchSelectors.fetchEnrollProgramSuccess(getEnrollProgram));
@@ -38,6 +38,17 @@ export function fetchAboutProgramList(program) {
     try {
       let getAboutProgramList = await openeduService.getAboutProgramList(program);
       dispatch(fetchSelectors.fetchProgramAboutListSuccess(getAboutProgramList));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
+export function fetchOfferData(program) {
+  return async dispatch => {
+    try {
+      let getOffer = await openeduService.getOffer(program);
+      dispatch(fetchSelectors.fetchOfferDataSuccess(getOffer));
     } catch (error) {
       console.log(error);
     }

@@ -1,19 +1,19 @@
 import Cookies from 'js-cookie';
-const OPENEDU_ENDPOINT = `//courses.openedu.urfu.ru/api`;
-const OPENEDU_ENDPOINT2 = `https://courses.openedu.urfu.ru/api`;
-const COURSES_ENDPOINT = `/courses/v1/courses/`;
-const DEFAULT_QUERY = 1;
-const PAGE_PARAM = `?page=`;
-const PAGE_SIZE = `?page_size=100`;
-export const MEDIA_LS_URL = `//courses.openedu.urfu.ru`;
-
-// const OPENEDU_ENDPOINT = `http://10.16.208.164/api`;
-// const OPENEDU_ENDPOINT2 = `http://10.16.208.164/api`;
+// const OPENEDU_ENDPOINT = `//courses.edubricks.ru/api`;
+// const OPENEDU_ENDPOINT2 = `https://courses.edubricks.ru/api`;
 // const COURSES_ENDPOINT = `/courses/v1/courses/`;
 // const DEFAULT_QUERY = 1;
 // const PAGE_PARAM = `?page=`;
 // const PAGE_SIZE = `?page_size=100`;
-// export const MEDIA_LS_URL = `http://10.16.208.164`;
+// export const MEDIA_LS_URL = `//courses.edubricks.ru`;
+
+const OPENEDU_ENDPOINT = `http://10.16.208.162/api`;
+const OPENEDU_ENDPOINT2 = `http://10.16.208.162/api`;
+const COURSES_ENDPOINT = `/courses/v1/courses/`;
+const DEFAULT_QUERY = 1;
+const PAGE_PARAM = `?page=`;
+const PAGE_SIZE = `?page_size=100`;
+export const MEDIA_LS_URL = `http://10.16.208.162`;
 
 class OpeneduService {
   async getDataAPI(url) {
@@ -259,7 +259,8 @@ class OpeneduService {
       return arr.push({
         username: item.username,
         is_active: item.is_active,
-        profile_image: item.profile_image.image_url_full
+        profile_image: item.profile_image.image_url_full,
+        email: item.email
       });
     });
     return arr;
@@ -355,6 +356,22 @@ class OpeneduService {
   async ResponseStatusAPI() {
     let response = await fetch(`${OPENEDU_ENDPOINT}/user/v1/accounts`);
     return response.status;
+  }
+
+  async getOffer(program) {
+    let url = `${OPENEDU_ENDPOINT}/itoo_api/acquiring/offer/${program}`;
+    let data = await this.getDataAPI(url);
+    return {
+      offer_id: data.offer_id,
+      offer_text: data.offer_text,
+      unit: data.unit,
+      edu_start_date: data.edu_start_date,
+      edu_end_date: data.edu_end_date,
+      edu_service_type: data.edu_service_type,
+      program_title: data.program_title,
+      program_slug: data.program_slug,
+      status: data.status
+    };
   }
 }
 

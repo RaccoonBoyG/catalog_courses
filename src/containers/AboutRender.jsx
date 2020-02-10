@@ -6,12 +6,10 @@ import HeaderTitleProgram from '../containers/HeaderTitleProgram';
 
 // 'top-txt-container'
 
-const withEither = (conditionalRenderingFn, EitherComponent) => Component => props =>
-  {
-    
-   return conditionalRenderingFn(props) ? (
+const withEither = (conditionalRenderingFn, EitherComponent) => Component => props => {
+  return conditionalRenderingFn(props) ? (
     <>
-      {/* <Header /> */}
+      {/* HeaderTitleProgram  */}
       <EitherComponent
         title={props.name}
         class={props.class}
@@ -24,7 +22,7 @@ const withEither = (conditionalRenderingFn, EitherComponent) => Component => pro
     </>
   ) : (
     <>
-      {/* <Header /> */}
+      {/* HeaderTitle */}
       <Component
         title={props.name}
         class={props.class}
@@ -38,7 +36,8 @@ const withEither = (conditionalRenderingFn, EitherComponent) => Component => pro
         changeEnroll={props.changeEnroll}
       />
     </>
-  )};
+  );
+};
 
 const isViewConditionFn = props => props.modes_data === undefined;
 
