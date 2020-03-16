@@ -18,6 +18,7 @@ const withEither = (conditionalRenderingFn, EitherComponent) => Component => pro
         search={props.search}
         program_slug={props.program_slug}
         data_enroll={props.data_enroll}
+        enrollment_allowed={props.enrollment_allowed}
       />
     </>
   ) : (

@@ -9,7 +9,7 @@ import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 import { ObjectContent } from '../containers/Content';
 import Spinner from '../containers/Spinner';
 import { withRouter } from 'react-router-dom';
-import { fetchEnrollState, fetchUserState } from '../store/user/action';
+import { fetchUserState } from '../store/user/action';
 
 class ProgramAbout extends Component {
   // constructor(props) {
@@ -42,6 +42,7 @@ class ProgramAbout extends Component {
       <React.Fragment>
         <AboutRender
           name={data.name}
+          enrollment_allowed={data.enrollment_allowed}
           image_background={data.image_background}
           height={100}
           class={'top-txt-container-sub'}
@@ -54,7 +55,7 @@ class ProgramAbout extends Component {
           <ObjectContent data_content={data.content} />
           <div className="text-custom-dark2 mt-3 p-5 shadow-sm bg-white">
             <h3>Онлайн-модуль</h3>
-            <RenderCourseListProgram data_card={data_card} loading_card_about={loading_card_about}/>
+            <RenderCourseListProgram data_card={data_card} loading_card_about={loading_card_about} />
           </div>
         </div>
         <ButtonScrollToTop />
@@ -79,10 +80,12 @@ const mapDispatchToProps = {
   fetchUserState
 };
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProgramAbout));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(ProgramAbout)
+);
 
 const NoneCourseProgram = () => (
   <div style={{ height: '300px' }}>
@@ -101,7 +104,7 @@ const withEither = (conditionalRenderingFn, EitherComponent) => Component => pro
     </>
   );
 
-const isViewConditionFn = props => Object.keys(props.data_card).length === 0
+const isViewConditionFn = props => Object.keys(props.data_card).length === 0;
 
 const withEditContionalRendering = withEither(isViewConditionFn, NoneCourseProgram);
 const RenderCourseListProgram = withEditContionalRendering(CourseListRender);

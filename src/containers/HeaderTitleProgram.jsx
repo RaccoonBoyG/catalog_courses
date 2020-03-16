@@ -24,7 +24,7 @@ const HeaderTitleProgram = props => {
     > */}
       <div className="d-flex flex-row backImgCourse margin-custom-catalog p-5">
         <div className={`container container-course_about d-flex flex-column text-light animated fadeIn faster`}>
-          <div className=" d-flex title_catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
+          <div className=" d-flex title_catalog align-items-start justify-content-start mb-4" style={{ textAlign: 'left' }}>
             <h1 className="d-flex align-items-start justify-content-start">{props.title}</h1>
           </div>
           {
@@ -34,6 +34,7 @@ const HeaderTitleProgram = props => {
               program_slug={props.program_slug}
               data_enroll={props.data_enroll}
               user_data={props.user_data}
+              enrollment_allowed={props.enrollment_allowed}
             />
           }
           {props.description === undefined ? null : <HeaderDescription desc={props.description} />}
@@ -56,6 +57,7 @@ const HeaderDescription = props => (
 // enrollment_action:	`enroll`,
 
 let Modal = props => {
+  // const [buttonText, setButtonText] = React.useState('Согласен')
   return (
     <div className="modal fade show" id="ModalPayment" tabindex="-1" role="dialog" aria-labelledby="ModalPaymentlLabel" aria-hidden="true">
       <div className="modal-dialog modal-lg" role="document">
@@ -98,9 +100,14 @@ let Modal = props => {
                     offer_id: props.offer_data.offer_id
                   })
                 });
-                const response = await postEnroll.text();
-                if (postEnroll.status === 200) console.log(postEnroll);
-                else throw Error(response.message);
+                // const response_text = await postEnroll.text()
+                const response_json = await postEnroll.json();
+                console.log(response_json);
+                if (response_json) {
+                  let data = response_json;
+                  console.log(data);
+                  window.location.href = `${data.payment_url}`;
+                } else throw Error(response_json);
               }}
             >
               Согласен
@@ -159,7 +166,7 @@ const ButtonEnrollProgramFalse = props => {
         </div>
         <div className="d-flex flex-column ">
           <a
-            href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/edit_exist/?program_slug=${props.program_slug}`}
+            href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/edit_exist/${props.program_slug}/`}
             id="href"
             style={{ borderRadius: 0, textDecoration: 'none' }}
             target="blank"
@@ -179,14 +186,14 @@ const ButtonEnrollProgramFalse = props => {
 };
 
 const ButtonProgram = props => {
-  return <ButtonsCoursesEnroll program_slug={props.program_slug} isAuth={props.isAuth} />;
+  return <ButtonsCoursesEnroll program_slug={props.program_slug} isAuth={props.isAuth} enrollment_allowed={props.enrollment_allowed} />;
 };
 
 const button_enroll_program = props => (
   <div className="d-flex flex-row justify-content-end">
     <a
       className="btn btn-light btn-lg mt-2 d-flex shadow"
-      href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/?program_slug=${props.program_slug}`}
+      href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/${props.program_slug}/`}
       style={{ borderRadius: 0 }}
     >
       Записаться на
@@ -196,34 +203,47 @@ const button_enroll_program = props => (
 );
 
 const button_auth = props => (
-  <div className="d-flex flex-row justify-content-end">
-    <a
-      href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/?program_slug=${props.program_slug}`}
-      id="href"
-      style={{ borderRadius: 0, textDecoration: 'none' }}
-    >
-      <button className="pr-4 pl-4 btn btn-light btn-lg mt-2 d-flex shadow" style={{ borderRadius: 0 }}>
+  <div className="d-flex flex-column">
+    <div className="d-flex flex-row justify-content-end">
+      <button className="pr-5 pl-5 btn btn-light btn-lg mt-2 d-flex shadow disabled" disabled style={{ borderRadius: 0 }}>
         Записаться на
         <br /> программу
       </button>
-    </a>
+    </div>
+    <div className="d-flex flex-row justify-content-end">
+      <p className="d-flex disabled" style={{ borderRadius: 0 }} disabled>
+        Запись на программу закрыта
+      </p>
+    </div>
   </div>
 );
 
 const withEither = (conditionalRenderingFn, EitherComponent) => Component => props => {
   return conditionalRenderingFn(props) ? (
     <>
-      <EitherComponent isAuth={props.isAuth} search={props.search} program_slug={props.program_slug} data_enroll={props.data_enroll} />
+      <EitherComponent
+        isAuth={props.isAuth}
+        search={props.search}
+        program_slug={props.program_slug}
+        data_enroll={props.data_enroll}
+        enrollment_allowed={props.enrollment_allowed}
+      />
     </>
   ) : (
     <>
-      <Component isAuth={props.isAuth} search={props.search} program_slug={props.program_slug} data_enroll={props.data_enroll} />
+      <Component
+        isAuth={props.isAuth}
+        search={props.search}
+        program_slug={props.program_slug}
+        data_enroll={props.data_enroll}
+        enrollment_allowed={props.enrollment_allowed}
+      />
     </>
   );
 };
 
 const isViewConditionFn = props => !props.data_enroll.is_active;
-const isViewAuthConditionFn = props => props.isAuth;
+const isViewAuthConditionFn = props => (props.enrollment_allowed === '0' ? false : true);
 
 const withEditContionalRendering = withEither(isViewConditionFn, ButtonProgram);
 const ButtonsProgramsEnroll = withEditContionalRendering(ButtonEnrollProgramFalse);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Projects from './Projects';
 import ProjectsAbout from './ProjectsAbout';
 // import Programs from "./Programs";
 import ProgramAbout from './ProgramAbout';
@@ -38,8 +39,9 @@ class RouterApp extends Component {
               <Route path="/orgs" component={Organization} />
               {/* <Route path="/programs/:program" component={ProgramAbout} />
                 <Route path="/programs" component={Programs} /> */}
-              <Route exact path="/npr" component={ProjectsAbout} />
-              <Route path="/npr/:program" component={ProgramAbout} />
+              <Route path="/projects/:project/:program" component={ProgramAbout} />
+              <Route path="/projects/:project" component={ProjectsAbout} />
+              <Route exact path="/projects" component={Projects} />
               <Route path="/:id" component={CourseAbout} />
             </Switch>
           </div>

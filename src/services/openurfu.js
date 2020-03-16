@@ -1,19 +1,21 @@
 import Cookies from 'js-cookie';
-// const OPENEDU_ENDPOINT = `//courses.edubricks.ru/api`;
-// const OPENEDU_ENDPOINT2 = `https://courses.edubricks.ru/api`;
-// const COURSES_ENDPOINT = `/courses/v1/courses/`;
-// const DEFAULT_QUERY = 1;
-// const PAGE_PARAM = `?page=`;
-// const PAGE_SIZE = `?page_size=100`;
-// export const MEDIA_LS_URL = `//courses.edubricks.ru`;
-
-const OPENEDU_ENDPOINT = `http://10.16.208.162/api`;
-const OPENEDU_ENDPOINT2 = `http://10.16.208.162/api`;
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+const OPENEDU_ENDPOINT = `//courses.openedu.urfu.ru/api`;
+const OPENEDU_ENDPOINT2 = `https://courses.openedu.urfu.ru/api`;
 const COURSES_ENDPOINT = `/courses/v1/courses/`;
 const DEFAULT_QUERY = 1;
 const PAGE_PARAM = `?page=`;
 const PAGE_SIZE = `?page_size=100`;
-export const MEDIA_LS_URL = `http://10.16.208.162`;
+export const MEDIA_LS_URL = `//courses.openedu.urfu.ru`;
+
+// const OPENEDU_ENDPOINT = `http://10.16.208.166/api`;
+// const OPENEDU_ENDPOINT2 = `http://10.16.208.166/api`;
+// const COURSES_ENDPOINT = `/courses/v1/courses/`;
+// const DEFAULT_QUERY = 1;
+// const PAGE_PARAM = `?page=`;
+// const PAGE_SIZE = `?page_size=100`;
+// export const MEDIA_LS_URL = `http://10.16.208.166`;
 
 class OpeneduService {
   async getDataAPI(url) {
@@ -190,7 +192,28 @@ class OpeneduService {
       image_background: data.image_background,
       logo: data.logo,
       active: data.active,
-      content: data.content
+      content: data.content,
+      edu_start_date: data.edu_start_date,
+      edu_end_date: data.edu_end_date,
+      enrollment_allowed: data.enrollment_allowed
+    };
+  }
+
+  async getAboutProjectsItem(project) {
+    // let response_about = await this.getAboutCourseAPI()
+    let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/projects/${project}/`;
+    let data = await this.getDataAPI(url);
+    return {
+      id: data.id,
+      name: data.title,
+      short_name: data.short_name,
+      slug: data.slug,
+      description: data.description,
+      image_background: data.image_background,
+      logo: data.logo,
+      active: data.active,
+      content: data.content,
+      program: data.program
     };
   }
 
@@ -209,7 +232,9 @@ class OpeneduService {
         description: item.description,
         image_background: item.image_background,
         logo: item.logo,
-        active: item.active
+        active: item.active,
+        edu_start_date: item.edu_start_date,
+        edu_end_date: item.edu_end_date
       });
     });
     return arr;

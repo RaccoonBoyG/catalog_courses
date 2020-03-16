@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock } from '@fortawesome/free-regular-svg-icons';
 import { backgroundUrl } from './HeaderBackground';
 // linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(250, 250, 250) 30%, rgba(247, 247, 247, 0) 0%)
 let backgroundImg = {
@@ -9,13 +11,13 @@ let backgroundImg = {
   backgroundPositionY: 'top'
 };
 
-const ListCard = props => {
+const ListCard = ({ name, slug, image_background, logo, url, handleClick, edu_start_date, edu_end_date }) => {
   return (
     <React.Fragment>
-      <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 card-height-list mb-3 mt-3" key={props.name + props.slug}>
+      <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 card-height-list mb-3 mt-3" key={name + slug}>
         <Link
-          to={{ pathname: `${props.url}/${props.slug}` }}
-          onClick={props.handleClick(props.slug)}
+          to={{ pathname: `${url}/${slug}` }}
+          onClick={handleClick(slug)}
           className="text-custom-dark"
           style={{
             textDecoration: 'none'
@@ -23,20 +25,20 @@ const ListCard = props => {
         >
           <div className="d-flex-column animated fadeIn faster shadow-effect" style={{ boxShadow: '0px 0px 20px -8px rgba(169, 169, 169, 0.4)' }}>
             <div
-              className="d-flex flex-row bg-dark-texts"
+              className="d-flex flex-row"
               style={{
                 minHeight: '200px',
                 maxHeight: '200px',
                 ...backgroundImg,
-                backgroundImage: `url(${props.image_background === undefined ? backgroundUrl : props.image_background})`
+                backgroundImage: `url(${image_background === undefined ? backgroundUrl : image_background})`
               }}
             >
               <div className="d-flex container-fluid p-0 justify-content-between flex-column">
                 <div className="flex-row d-flex p-3">
                   <img
                     className="img-fluid"
-                    src={props.logo}
-                    alt={props.logo}
+                    src={logo}
+                    alt={logo}
                     style={{
                       maxHeight: '100px',
                       maxWidth: '180px',
@@ -53,7 +55,14 @@ const ListCard = props => {
                 </div> */}
             </div>
             <div className="flex-row d-flex flex-column p-3 text-custom-dark bg-light" style={{ minHeight: '200px', maxHeight: '200px' }}>
-              <h5 className=" p-1 card-title">{props.name}</h5>
+              <h5 className=" p-1 card-title">{name}</h5>
+              {edu_start_date !== undefined ? (
+                <p className="text-custom-dark" style={{ fontSize: '13px' }}>
+                  <FontAwesomeIcon icon={faClock} size="1x" /> Начало: {edu_start_date}
+                  <br></br>
+                  <FontAwesomeIcon icon={faClock} size="1x" /> Завершение: {edu_end_date}
+                </p>
+              ) : null}
               <div className="flex-row d-flex flex-column" style={{ position: 'absolute', bottom: '0px' }}>
                 <p className="nav-link text-primary p-1 show-about">Подробнее</p>
               </div>

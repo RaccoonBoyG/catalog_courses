@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NavLink, withRouter, Link } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom'; // Link
 
 // import logo from '../static/img/logo_full.png'
 // import Search from './Search';
@@ -33,6 +33,7 @@ class Header extends Component {
     this._handleTextChange = this._handleTextChange.bind(this);
     this.submitSearch = this.submitSearch.bind(this);
     this.resetInput = this.resetInput.bind(this);
+    this._onButtonClickMenuItem = this._onButtonClickMenuItem.bind(this);
   }
 
   componentDidMount() {
@@ -62,7 +63,15 @@ class Header extends Component {
   }
 
   _onButtonClickFilter() {
+    var header = document.querySelector('.header');
+    header.classList.toggle('menu-open');
     this.updateData({ showComponentFilter: true, showComponentMenu: false });
+  }
+
+  _onButtonClickMenuItem() {
+    var header = document.querySelector('.header');
+    header.classList.toggle('menu-open');
+    this.updateData({ showComponentMenu: false, showComponentFilter: false });
   }
 
   _handleTextChange(e) {
@@ -148,15 +157,15 @@ class Header extends Component {
                 {/* <li className="nav-item">
                     <NavLink to='/programs' className="nav-link">Программы</NavLink>
                 </li> */}
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <NavLink to="/npr" className="nav-link">
                     Обучение НПР
                   </NavLink>
-                </li>
+                </li> */}
                 <li>
-                  <Link to="/npr/IPMG" className="nav-link">
-                    УИС
-                  </Link>
+                  <NavLink to="/projects" className="nav-link">
+                    Программы
+                  </NavLink>
                 </li>
                 <li className="nav-item">
                   {/* <a className="nav-link" href="#">О нас</a> */}
@@ -240,7 +249,7 @@ class Header extends Component {
             this.props.history.location.pathname === `/${this.props.match.params.id}` ? (
               <MobileButtonBack history={this.props.history} />
             ) : null}
-            {this.state.showComponentMenu ? <MobileMenu isAuth={isAuth} /> : null}
+            {this.state.showComponentMenu ? <MobileMenu isAuth={isAuth} onButtonClickMenuItem={this._onButtonClickMenuItem} /> : null}
             {this.state.showComponentFilter && this.props.history.location.pathname === '/' ? (
               <MobileFilter
                 _handleTextChange={this._handleTextChange}

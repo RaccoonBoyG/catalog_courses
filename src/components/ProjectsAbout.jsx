@@ -39,7 +39,7 @@ class ProjectsAbout extends Component {
     return (
       <>
         {data.map(item => {
-          if (item.slug_project === this.props.match.path.replace('/', '')) {
+          if (item.slug_project === this.props.match.url.replace('/projects/', '')) {
             return (
               <React.Fragment key={item.name + item.slug_project}>
                 <div className="d-flex flex-row backImgCourse margin-custom-catalog">
@@ -58,14 +58,16 @@ class ProjectsAbout extends Component {
                   <ArrayContent data_content={data} />
                   <div className="m-3 d-flex flex-wrap flex-row">
                     {data_programs.map(item => {
-                      return item.project_slug === this.props.match.path.replace('/', '') ? (
+                      return item.project_slug === this.props.match.url.replace('/projects/', '') ? (
                         <ListCard
-                          key={item.name + item.slug}
+                          key={item.name + item.slug_program}
                           name={item.name}
                           slug={item.slug_program}
                           logo={item.logo}
                           image_background={item.image_background}
                           url={this.props.match.url}
+                          edu_start_date={item.edu_start_date}
+                          edu_end_date={item.edu_end_date}
                           handleClick={this.postIdAPI}
                         />
                       ) : null;
@@ -95,7 +97,9 @@ const mapDispatchToProps = {
   fetchAboutProgram
 };
 
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ProjectsAbout));
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(ProjectsAbout)
+);
