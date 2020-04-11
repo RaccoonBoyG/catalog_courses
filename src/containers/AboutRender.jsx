@@ -27,6 +27,7 @@ const withEither = (conditionalRenderingFn, EitherComponent) => Component => pro
       <Component
         title={props.name}
         class={props.class}
+        invitation_only={props.invitation_only}
         description={props.description}
         isAuth={props.isAuth}
         course_enroll_user={props.course_enroll_user}

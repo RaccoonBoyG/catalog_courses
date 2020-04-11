@@ -1,10 +1,10 @@
-import * as types from "./actionTypes";
+import * as types from './actionTypes';
 
 const initialState = {
   items: [],
   item_all: [],
   num_obj: 10,
-  input: "",
+  input: '',
   err: null,
   page: 2,
   // isHideButton: true,
@@ -27,11 +27,7 @@ export default function cardsReducer(state = initialState, { type, payload }) {
       };
 
     case types.SEARCH_INPUT:
-      const filter = state.item_all.filter(val =>
-        payload.input.length === 0
-          ? true
-          : val.name.toLowerCase().includes(payload.input.toLowerCase())
-      );
+      const filter = state.item_all.filter(val => (payload.input.length === 0 ? true : val.name.toLowerCase().includes(payload.input.toLowerCase())));
 
       // console.log(state.item_all.filter(val=>val.name)) state.input.length === 0 ? true :
 
@@ -52,7 +48,8 @@ export default function cardsReducer(state = initialState, { type, payload }) {
 
     case types.FETCH_CARDS_START:
       return {
-        ...state
+        ...state,
+        page: 2
       };
 
     case types.FETCH_CARDS_FAILURE:

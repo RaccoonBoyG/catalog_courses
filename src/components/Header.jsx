@@ -162,7 +162,7 @@ class Header extends Component {
                     Обучение НПР
                   </NavLink>
                 </li> */}
-                <li>
+                <li className="nav-item">
                   <NavLink to="/projects" className="nav-link">
                     Программы
                   </NavLink>

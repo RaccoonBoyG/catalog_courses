@@ -29,9 +29,9 @@ import Cookies from 'js-cookie';
 // };
 
 class CourseAbout extends Component {
-  constructor(props){
-    super(props)
-    this.changeEnroll = this.changeEnroll.bind(this)
+  constructor(props) {
+    super(props);
+    this.changeEnroll = this.changeEnroll.bind(this);
   }
 
   async componentDidMount() {
@@ -76,6 +76,7 @@ class CourseAbout extends Component {
       <React.Fragment>
         <AboutRender
           name={data.name}
+          invitation_only={data.invitation_only}
           class={'top-txt-container-sub'}
           height={100}
           isAuth={isAuth}
