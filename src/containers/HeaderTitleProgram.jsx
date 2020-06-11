@@ -106,7 +106,7 @@ let Modal = props => {
                 if (response_json) {
                   let data = response_json;
                   console.log(data);
-                  window.location.href = `${data.payment_url}`;
+                  // window.location.href = `${data.payment_url}`;
                 } else throw Error(response_json);
               }}
             >
