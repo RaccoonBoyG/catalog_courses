@@ -16,12 +16,12 @@ import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import CourseAbout from './CourseAbout';
 import Organization from './Organization';
 import { connect } from 'react-redux';
-import { fetchUserState, fetchEnrollState } from '../store/user/action';
+import { fetchUserState } from '../store/user/action';
 
 class RouterApp extends Component {
   componentDidMount() {
     this.props.fetchUserState();
-    this.props.fetchEnrollState();
+    // this.props.fetchEnrollState();
   }
   render() {
     return (
@@ -54,10 +54,6 @@ class RouterApp extends Component {
 
 const mapDispatchToProps = {
   fetchUserState,
-  fetchEnrollState
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(RouterApp);
+export default connect(null, mapDispatchToProps)(RouterApp);

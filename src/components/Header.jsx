@@ -4,7 +4,7 @@ import { NavLink, withRouter } from 'react-router-dom'; // Link
 
 // import logo from '../static/img/logo_full.png'
 // import Search from './Search';
-import { fetchUserState, fetchEnrollState } from '../store/user/action';
+import { fetchUserState } from '../store/user/action';
 import { searchInput, resetSearch } from '../store/cards/action';
 import RenderProfileYes from '../containers/RenderProfileYes';
 import RenderProfileNo from '../containers/RenderProfileNo';
@@ -26,7 +26,7 @@ class Header extends Component {
     this.state = {
       showComponentMenu: false,
       showComponentFilter: false,
-      term: ''
+      term: '',
     };
     this._onButtonClickMenu = this._onButtonClickMenu.bind(this);
     this._onButtonClickFilter = this._onButtonClickFilter.bind(this);
@@ -37,7 +37,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchEnrollState();
+    // this.props.fetchEnrollState();
     // if(!this.props.loading_user && this.props.match.params.id !== undefined) {
     //   this.props.fetchEnrollState(this.props.match.params.id);
     //   console.log(this.props.match.params.id);
@@ -47,10 +47,10 @@ class Header extends Component {
     var icon = document.querySelector('.icon-container');
     var icon_search = document.querySelector('.icon-container-search');
     if (this.props.history.location.pathname === '/')
-      icon_search.onclick = function() {
+      icon_search.onclick = function () {
         header.classList.toggle('menu-open');
       };
-    icon.onclick = function() {
+    icon.onclick = function () {
       header.classList.toggle('menu-open');
     };
   }
@@ -77,7 +77,7 @@ class Header extends Component {
   _handleTextChange(e) {
     this.updateData({
       ...this.state,
-      term: e.target.value
+      term: e.target.value,
     });
   }
 
@@ -94,7 +94,7 @@ class Header extends Component {
     $('.search-slt').val('');
     this.updateData({
       ...this.state,
-      term: ''
+      term: '',
     });
   }
 
@@ -311,22 +311,16 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.user.items_user,
   isAuth: state.user.isAuth,
-  loading_user: state.user.loading
+  loading_user: state.user.loading,
 });
 
 const mapDispatchToProps = {
   fetchUserState,
   searchInput,
   resetSearch,
-  fetchEnrollState
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Header)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

@@ -9,8 +9,7 @@ import { MEDIA_LS_URL } from '../services/openurfu';
 //   background: "url('http://itoo.urfu.ru/Content/images/bg.jpg') repeat center 0"
 // };
 
-const HeaderTitle = props => {
-  console.log(props);
+const HeaderTitle = (props) => {
   return (
     <>
       {/* <div
@@ -43,7 +42,7 @@ const HeaderTitle = props => {
   );
 };
 
-const HeaderDescription = props => (
+const HeaderDescription = (props) => (
   <>
     <div className="d-flex mobile-action">
       <div className="container mt-5">
@@ -53,7 +52,7 @@ const HeaderDescription = props => (
   </>
 );
 
-const button_enroll = props => (
+const button_enroll = (props) => (
   <button style={{ borderRadius: 0 }} className="animated fadeIn btn btn-light btn-lg mt-2 d-flex shadow" onClick={props.changeEnroll}>
     Записаться на курс
   </button>
@@ -66,7 +65,7 @@ const button_enroll = props => (
 //     </button>
 //   </a>
 // );
-const button_In_only = props => (
+const button_In_only = (props) => (
   <button style={{ borderRadius: 0 }} className="animated fadeIn btn btn-light btn-lg mt-2 d-flex shadow" disabled={props.invitation_only}>
     Запись только по приглашению
   </button>
@@ -80,7 +79,7 @@ const button_auth = () => (
   </a>
 );
 
-const ButtonReadMore = props => {
+const ButtonReadMore = (props) => {
   let url = `${MEDIA_LS_URL}/courses/${props.params.id}/info`;
   return (
     <a href={url} style={{ borderRadius: 0, textDecoration: 'none' }} id="href">
@@ -103,11 +102,11 @@ const ButtonReadMore = props => {
 //   );
 // };
 
-const ButtonsCoursesEnroll = props => (
+const ButtonsCoursesEnroll = (props) => (
   <ButtonEnroll params={props.params.id} isAuth={props.isAuth} changeEnroll={props.changeEnroll} invitation_only={props.invitation_only} />
 );
 
-const withEither = (conditionalRenderingFn, EitherComponent) => Component => props => {
+const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (props) => {
   return conditionalRenderingFn(props) ? (
     <>
       <EitherComponent
@@ -135,9 +134,9 @@ const withEither = (conditionalRenderingFn, EitherComponent) => Component => pro
   );
 };
 
-const isViewConditionFn = props => props.isAuth && props.course_enroll_user;
-const isViewAuthConditionFn = props => props.isAuth;
-const isViewInvitationOnlyConditionFn = props => props.invitation_only;
+const isViewConditionFn = (props) => props.isAuth && props.course_enroll_user;
+const isViewAuthConditionFn = (props) => props.isAuth;
+const isViewInvitationOnlyConditionFn = (props) => props.invitation_only;
 
 const withInvitationOnlyRendering = withEither(isViewInvitationOnlyConditionFn, button_In_only);
 const ButtonInvitationOnly = withInvitationOnlyRendering(button_enroll);
