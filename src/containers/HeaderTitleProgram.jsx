@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import ButtonEnroll from '../containers/ButtonEnroll';
 // import ButtonReadMore from '../containers/ButtonReadMore';
 // import ButtonPay from '../containers/ButtonPay';
@@ -14,7 +14,7 @@ import Cookies from 'js-cookie';
 //   background: "url('http://itoo.urfu.ru/Content/images/bg.jpg') repeat center 0"
 // };
 
-const HeaderTitleProgram = props => {
+const HeaderTitleProgram = (props) => {
   return (
     <>
       {/* <div
@@ -44,7 +44,7 @@ const HeaderTitleProgram = props => {
   );
 };
 
-const HeaderDescription = props => (
+const HeaderDescription = (props) => (
   <>
     <div className="d-flex mobile-action">
       <div className="container mt-5">
@@ -56,10 +56,12 @@ const HeaderDescription = props => (
 // course_id:	`${this.state.value}`,
 // enrollment_action:	`enroll`,
 
-let Modal = props => {
+let Modal = (props) => {
+  const [button_title, setButtonTitle] = useState('Согласен');
+  const [button_style, setButtonStyle] = useState('');
   // const [buttonText, setButtonText] = React.useState('Согласен')
   return (
-    <div className="modal fade show" id="ModalPayment" tabindex="-1" role="dialog" aria-labelledby="ModalPaymentlLabel" aria-hidden="true">
+    <div className="modal fade show" id="ModalPayment" tabIndex="-1" role="dialog" aria-labelledby="ModalPaymentlLabel" aria-hidden="true">
       <div className="modal-dialog modal-lg" role="document">
         <div className="modal-content">
           <div className="modal-header">
@@ -82,7 +84,10 @@ let Modal = props => {
             <button
               type="button"
               className="btn btn-primary"
+              disabled={button_style}
               onClick={async () => {
+                setButtonStyle('disabled');
+                setButtonTitle('Загрузка...');
                 let token = Cookies.get('csrftoken');
                 // let postEnroll = await fetch(`${MEDIA_LS_URL}/api/enrollment/v1/enrollment`, {
                 let postEnroll = await fetch(`${MEDIA_LS_URL}/api/itoo_api/acquiring/payments/create/`, {
@@ -90,15 +95,18 @@ let Modal = props => {
                     'Content-Type': 'application/json',
                     Accept: 'text-plain, */*',
                     'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRFToken': token
+                    'X-CSRFToken': token,
                   },
                   method: 'post',
                   credentials: 'same-origin',
                   body: JSON.stringify({
+                    // username: 'alexKekovich2',
+                    // email: 'alexofficialkek@gmail.com',
+                    // offer_id: '1'
                     username: props.user_data[0].username,
                     email: props.user_data[0].email,
-                    offer_id: props.offer_data.offer_id
-                  })
+                    offer_id: props.offer_data.offer_id,
+                  }),
                 });
                 // const response_text = await postEnroll.text()
                 const response_json = await postEnroll.json();
@@ -106,11 +114,11 @@ let Modal = props => {
                 if (response_json) {
                   let data = response_json;
                   console.log(data);
-                  // window.location.href = `${data.payment_url}`;
+                  window.location.href = `${data.payment_url}`;
                 } else throw Error(response_json);
               }}
             >
-              Согласен
+              {button_title}
             </button>
           </div>
         </div>
@@ -119,15 +127,15 @@ let Modal = props => {
   );
 };
 
-const ButtonEnrollProgramFalse = props => {
+const ButtonEnrollProgramFalse = (props) => {
   // const [showModal, setModal] = React.useState(false);
 
   // const handleCloseModal = () => {
   //   setModal(false);
   // };
-  const offer_data = useSelector(state => state.programs.items_offer_data);
-  const user_data = useSelector(state => state.user.items_user);
-  const loading_offer = useSelector(state => state.programs.loading_offer);
+  const offer_data = useSelector((state) => state.programs.items_offer_data);
+  const user_data = useSelector((state) => state.user.items_user);
+  const loading_offer = useSelector((state) => state.programs.loading_offer);
   const dispatch = useDispatch();
   return (
     <>
@@ -151,9 +159,7 @@ const ButtonEnrollProgramFalse = props => {
                 onClick={() => {
                   // setModal(true);
                   dispatch(fetchOfferData(props.program_slug));
-                  $('#ModalPayment')
-                    .appendTo('body')
-                    .modal('show');
+                  $('#ModalPayment').appendTo('body').modal('show');
                 }}
               >
                 Оплатить
@@ -185,11 +191,11 @@ const ButtonEnrollProgramFalse = props => {
   );
 };
 
-const ButtonProgram = props => {
+const ButtonProgram = (props) => {
   return <ButtonsCoursesEnroll program_slug={props.program_slug} isAuth={props.isAuth} enrollment_allowed={props.enrollment_allowed} />;
 };
 
-const button_enroll_program = props => (
+const button_enroll_program = (props) => (
   <div className="d-flex flex-row justify-content-end">
     <a
       className="btn btn-light btn-lg mt-2 d-flex shadow"
@@ -202,7 +208,7 @@ const button_enroll_program = props => (
   </div>
 );
 
-const button_auth = props => (
+const button_auth = (props) => (
   <div className="d-flex flex-column">
     <div className="d-flex flex-row justify-content-end">
       <button className="pr-5 pl-5 btn btn-light btn-lg mt-2 d-flex shadow disabled" disabled style={{ borderRadius: 0 }}>
@@ -218,7 +224,7 @@ const button_auth = props => (
   </div>
 );
 
-const withEither = (conditionalRenderingFn, EitherComponent) => Component => props => {
+const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (props) => {
   return conditionalRenderingFn(props) ? (
     <>
       <EitherComponent
@@ -242,8 +248,8 @@ const withEither = (conditionalRenderingFn, EitherComponent) => Component => pro
   );
 };
 
-const isViewConditionFn = props => !props.data_enroll.is_active;
-const isViewAuthConditionFn = props => (props.enrollment_allowed === '0' ? false : true);
+const isViewConditionFn = (props) => !props.data_enroll.is_active;
+const isViewAuthConditionFn = (props) => (props.enrollment_allowed === '0' ? false : true);
 
 const withEditContionalRendering = withEither(isViewConditionFn, ButtonProgram);
 const ButtonsProgramsEnroll = withEditContionalRendering(ButtonEnrollProgramFalse);
