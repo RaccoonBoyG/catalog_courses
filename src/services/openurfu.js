@@ -396,7 +396,8 @@ class OpeneduService {
       edu_service_type: data.edu_service_type,
       program_title: data.program_title,
       program_slug: data.program_slug,
-      status: data.status
+      status: data.status,
+      edu_program_cost: data.edu_program_cost
     };
   }
 }

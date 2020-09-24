@@ -14,7 +14,7 @@ import Cookies from 'js-cookie';
 //   background: "url('http://itoo.urfu.ru/Content/images/bg.jpg') repeat center 0"
 // };
 
-const HeaderTitleProgram = (props) => {
+const HeaderTitleProgram = props => {
   return (
     <>
       {/* <div
@@ -44,7 +44,7 @@ const HeaderTitleProgram = (props) => {
   );
 };
 
-const HeaderDescription = (props) => (
+const HeaderDescription = props => (
   <>
     <div className="d-flex mobile-action">
       <div className="container mt-5">
@@ -56,7 +56,7 @@ const HeaderDescription = (props) => (
 // course_id:	`${this.state.value}`,
 // enrollment_action:	`enroll`,
 
-let Modal = (props) => {
+let Modal = props => {
   const [button_title, setButtonTitle] = useState('Согласен');
   const [button_style, setButtonStyle] = useState('');
   // const [buttonText, setButtonText] = React.useState('Согласен')
@@ -95,7 +95,7 @@ let Modal = (props) => {
                     'Content-Type': 'application/json',
                     Accept: 'text-plain, */*',
                     'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRFToken': token,
+                    'X-CSRFToken': token
                   },
                   method: 'post',
                   credentials: 'same-origin',
@@ -105,8 +105,8 @@ let Modal = (props) => {
                     // offer_id: '1'
                     username: props.user_data[0].username,
                     email: props.user_data[0].email,
-                    offer_id: props.offer_data.offer_id,
-                  }),
+                    offer_id: props.offer_data.offer_id
+                  })
                 });
                 // const response_text = await postEnroll.text()
                 const response_json = await postEnroll.json();
@@ -127,48 +127,48 @@ let Modal = (props) => {
   );
 };
 
-const ButtonEnrollProgramFalse = (props) => {
+const ButtonEnrollProgramFalse = props => {
   // const [showModal, setModal] = React.useState(false);
 
   // const handleCloseModal = () => {
   //   setModal(false);
   // };
-  const offer_data = useSelector((state) => state.programs.items_offer_data);
-  const user_data = useSelector((state) => state.user.items_user);
-  const loading_offer = useSelector((state) => state.programs.loading_offer);
+  const offer_data = useSelector(state => state.programs.items_offer_data);
+  const user_data = useSelector(state => state.user.items_user);
+  const loading_offer = useSelector(state => state.programs.loading_offer);
   const dispatch = useDispatch();
   return (
     <>
       <div className="d-flex flex-row mt-5 justify-content-between">
         <div className="d-flex flex-column ">
-          {props.search === '?test=1' ? (
-            <>
-              {/* <a
+          <>
+            {/* <a
                 href="/"
                 // href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/edit_exist/?program_slug=${props.program_slug}`}
                 id="href"
                 style={{ borderRadius: 0, textDecoration: 'none' }}
                 target="blank"
               > */}
-              <button
-                type="button"
-                className="btn btn-light btn-lg mt-2 d-flex shadow"
-                style={{ borderRadius: 0 }}
-                data-toggle="modal"
-                data-target="#ModalPayment"
-                onClick={() => {
-                  // setModal(true);
-                  dispatch(fetchOfferData(props.program_slug));
-                  $('#ModalPayment').appendTo('body').modal('show');
-                }}
-              >
-                Оплатить
-              </button>
-              {/* <p className="d-flex disabled" style={{ borderRadius: 0 }} disabled>
-              15 000р.
-            </p> */}
-            </>
-          ) : null}
+            <button
+              type="button"
+              className="btn btn-light btn-lg mt-2 d-flex shadow"
+              style={{ borderRadius: 0 }}
+              data-toggle="modal"
+              data-target="#ModalPayment"
+              onClick={() => {
+                // setModal(true);
+                dispatch(fetchOfferData(props.program_slug));
+                $('#ModalPayment')
+                  .appendTo('body')
+                  .modal('show');
+              }}
+            >
+              Оплатить
+            </button>
+            <p className="d-flex disabled" style={{ borderRadius: 0 }} disabled>
+              {offer_data.edu_program_cost}
+            </p>
+          </>
         </div>
         <div className="d-flex flex-column ">
           <a
@@ -191,11 +191,11 @@ const ButtonEnrollProgramFalse = (props) => {
   );
 };
 
-const ButtonProgram = (props) => {
+const ButtonProgram = props => {
   return <ButtonsCoursesEnroll program_slug={props.program_slug} isAuth={props.isAuth} enrollment_allowed={props.enrollment_allowed} />;
 };
 
-const button_enroll_program = (props) => (
+const button_enroll_program = props => (
   <div className="d-flex flex-row justify-content-end">
     <a
       className="btn btn-light btn-lg mt-2 d-flex shadow"
@@ -208,7 +208,7 @@ const button_enroll_program = (props) => (
   </div>
 );
 
-const button_auth = (props) => (
+const button_auth = props => (
   <div className="d-flex flex-column">
     <div className="d-flex flex-row justify-content-end">
       <button className="pr-5 pl-5 btn btn-light btn-lg mt-2 d-flex shadow disabled" disabled style={{ borderRadius: 0 }}>
@@ -224,7 +224,7 @@ const button_auth = (props) => (
   </div>
 );
 
-const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (props) => {
+const withEither = (conditionalRenderingFn, EitherComponent) => Component => props => {
   return conditionalRenderingFn(props) ? (
     <>
       <EitherComponent
@@ -248,8 +248,8 @@ const withEither = (conditionalRenderingFn, EitherComponent) => (Component) => (
   );
 };
 
-const isViewConditionFn = (props) => !props.data_enroll.is_active;
-const isViewAuthConditionFn = (props) => (props.enrollment_allowed === '0' ? false : true);
+const isViewConditionFn = props => !props.data_enroll.is_active;
+const isViewAuthConditionFn = props => (props.enrollment_allowed === '0' ? false : true);
 
 const withEditContionalRendering = withEither(isViewConditionFn, ButtonProgram);
 const ButtonsProgramsEnroll = withEditContionalRendering(ButtonEnrollProgramFalse);
