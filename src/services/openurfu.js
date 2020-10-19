@@ -219,7 +219,7 @@ class OpeneduService {
   }
 
   async getProgramsAPI() {
-    let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/programs/`;
+    let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/programs/?page_size=100`;
     let arr = [];
     let data = await this.getDataAPI(url);
     data.results.map(item => {
@@ -242,7 +242,7 @@ class OpeneduService {
   }
 
   async getProjectsAPI() {
-    let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/projects/`;
+    let url = `${OPENEDU_ENDPOINT}/itoo_api/v0/projects/?page_size=100`;
     let arr = [];
     let data = await this.getDataAPI(url);
     data.results.map(item => {
