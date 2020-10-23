@@ -133,6 +133,10 @@ let Modal = (props) => {
   );
 };
 
+function isNullCost(cost) {
+  return cost !== null;
+}
+
 const ButtonEnrollProgramFalse = (props) => {
   // const [showModal, setModal] = React.useState(false);
 
@@ -147,36 +151,38 @@ const ButtonEnrollProgramFalse = (props) => {
     <>
       <div className="d-flex flex-row mt-5 justify-content-between">
         <div className="d-flex flex-row">
-          <>
-            {/* <a
+          {isNullCost(offer_data.edu_program_cost) ? (
+            <>
+              {/* <a
                 href="/"
                 // href={`${MEDIA_LS_URL}/api/itoo_api/verified_profile/profile/edit_exist/?program_slug=${props.program_slug}`}
                 id="href"
                 style={{ borderRadius: 0, textDecoration: 'none' }}
                 target="blank"
               > */}
-            <div className="d-flex flex-column">
-              <button
-                type="button"
-                className="btn btn-light btn-lg mt-2 d-flex shadow"
-                style={{ borderRadius: 0 }}
-                data-toggle="modal"
-                data-target="#ModalPayment"
-                onClick={() => {
-                  // setModal(true);
-                  dispatch(fetchOfferData(props.program_slug));
-                  $('#ModalPayment').appendTo('body').modal('show');
-                }}
-              >
-                Оплатить
-              </button>
-            </div>
-            <div className="d-flex flex-column ml-2 mt-3">
-              <h4 className="d-flex disabled font-weight-bold" style={{ borderRadius: 0 }} disabled>
-                {offer_data.edu_program_cost} ₽
-              </h4>
-            </div>
-          </>
+              <div className="d-flex flex-column">
+                <button
+                  type="button"
+                  className="btn btn-light btn-lg mt-2 d-flex shadow"
+                  style={{ borderRadius: 0 }}
+                  data-toggle="modal"
+                  data-target="#ModalPayment"
+                  onClick={() => {
+                    // setModal(true);
+                    dispatch(fetchOfferData(props.program_slug));
+                    $('#ModalPayment').appendTo('body').modal('show');
+                  }}
+                >
+                  Оплатить
+                </button>
+              </div>
+              <div className="d-flex flex-column ml-2 mt-3">
+                <h4 className="d-flex disabled font-weight-bold" style={{ borderRadius: 0 }} disabled>
+                  {offer_data.edu_program_cost} ₽
+                </h4>
+              </div>
+            </>
+          ) : null}
         </div>
         <div className="d-flex flex-column ">
           <a

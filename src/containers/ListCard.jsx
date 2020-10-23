@@ -8,19 +8,37 @@ let backgroundImg = {
   backgroundPosition: 'center',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
-  backgroundPositionY: 'top'
+  backgroundPositionY: 'top',
 };
+
+function truncate(str, len) {
+  var dots = '...';
+  var object = str.split(' ');
+  var str_truncate = '';
+  if (object.length > len) {
+    str_truncate = object.splice(0, len).join(' ') + dots;
+  } else {
+    str_truncate = object.splice(0, len).join(' ');
+  }
+  return str_truncate;
+}
 
 const ListCard = ({ name, slug, image_background, logo, url, handleClick, edu_start_date, edu_end_date }) => {
   return (
     <React.Fragment>
-      <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 card-height-list mb-3 mt-3" key={name + slug}>
+      <div
+        className="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 card-height-list mb-3 mt-3"
+        key={name + slug}
+        data-toggle="tooltip"
+        data-placement="left"
+        title={name}
+      >
         <Link
           to={{ pathname: `${url}/${slug}` }}
           onClick={handleClick(slug)}
           className="text-custom-dark"
           style={{
-            textDecoration: 'none'
+            textDecoration: 'none',
           }}
         >
           <div className="d-flex-column animated fadeIn faster shadow-effect" style={{ boxShadow: '0px 0px 20px -8px rgba(169, 169, 169, 0.4)' }}>
@@ -30,7 +48,7 @@ const ListCard = ({ name, slug, image_background, logo, url, handleClick, edu_st
                 minHeight: '200px',
                 maxHeight: '200px',
                 ...backgroundImg,
-                backgroundImage: `url(${image_background === undefined ? backgroundUrl : image_background})`
+                backgroundImage: `url(${image_background === undefined ? backgroundUrl : image_background})`,
               }}
             >
               <div className="d-flex container-fluid p-0 justify-content-between flex-column">
@@ -43,7 +61,7 @@ const ListCard = ({ name, slug, image_background, logo, url, handleClick, edu_st
                       maxHeight: '100px',
                       maxWidth: '180px',
                       background: 'white',
-                      boxShadow: '0px 0px 30px -13px #e1e1e1'
+                      boxShadow: '0px 0px 30px -13px #e1e1e1',
                     }}
                   />
                 </div>
@@ -55,7 +73,7 @@ const ListCard = ({ name, slug, image_background, logo, url, handleClick, edu_st
                 </div> */}
             </div>
             <div className="flex-row d-flex flex-column p-3 text-custom-dark bg-light" style={{ minHeight: '200px', maxHeight: '200px' }}>
-              <h5 className=" p-1 card-title">{name}</h5>
+              <h5 className=" p-1 card-title">{truncate(name, 8)}</h5>
               {edu_start_date !== undefined ? (
                 <p className="text-custom-dark" style={{ fontSize: '13px' }}>
                   <FontAwesomeIcon icon={faClock} size="1x" /> Начало: {edu_start_date}

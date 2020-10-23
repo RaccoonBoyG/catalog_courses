@@ -108,7 +108,7 @@ class Header extends Component {
           <nav className="navbar navbar-expand-lg navbar-light container pb-3 pl-0 pr-0">
             <NavLink className="navbar-brand" exact to="/">
               <img
-                src="http://itoo.urfu.ru/uploadfiles/setting/63b0690c4a2440b68312d324f4658526.png?crop=89,94,907,571&width=160&mode=crop&anchor=center"
+                src="https://openedu.urfu.ru/files/courses_catalog/urfu_logo.png"
                 width="110"
                 img-field="img"
                 alt=""
