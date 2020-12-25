@@ -12,6 +12,8 @@ class Catalog extends Component {
   }
 
   render() {
+    let menu = document.getElementsByClassName('navbar');
+    menu[0].setAttribute("style", "display:flex;");
     return (
       <React.Fragment>
         {/* <HeaderBackground /> */}

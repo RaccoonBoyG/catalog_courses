@@ -214,7 +214,8 @@ class OpeneduService {
       logo: data.logo,
       active: data.active,
       content: data.content,
-      program: data.program
+      program: data.program,
+      hide_menu: data.hide_menu
     };
   }
 
@@ -255,7 +256,8 @@ class OpeneduService {
         image_background: item.image_background,
         logo: item.logo,
         active: item.active,
-        content: item.content
+        content: item.content,
+        hide_menu: item.hide_menu,
       });
     });
     return arr;

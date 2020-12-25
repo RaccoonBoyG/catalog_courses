@@ -44,6 +44,8 @@ class Projects extends Component {
     if (loading && data.length === 0) {
       return <Spinner />;
     }
+    let menu = document.getElementsByClassName('navbar');
+    menu[0].setAttribute("style", "display:flex;");
     return (
       <React.Fragment>
         <div className="d-flex flex-column margin-custom-catalog">

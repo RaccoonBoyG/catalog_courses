@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react';
 import { connect } from 'react-redux';
 // import { fetchPrograms, fetchAboutProgram } from '../store/programs/action';
 import { fetchProjects } from '../store/projects/action';
@@ -13,6 +14,7 @@ import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 import ListCard from '../containers/ListCard';
 import { ArrayContent } from '../containers/Content';
 import Spinner from '../containers/Spinner';
+import Courses from "./Courses";
 
 class ProjectsAbout extends Component {
   constructor(props) {
@@ -36,6 +38,18 @@ class ProjectsAbout extends Component {
     if (loading && loading_programs) {
       return <Spinner />;
     }
+   data.map(i => {
+    if (i.slug_project === this.props.match.url.replace('/projects/', '')){
+      if (i.hide_menu) {
+        let menu = document.getElementsByClassName('navbar');
+        menu[0].setAttribute("style", "display:none;")
+      }
+      else {
+        let menu = document.getElementsByClassName('navbar');
+        menu[0].setAttribute("style", "display:flex;")
+      }
+    }
+   })
     return (
       <>
         {data.map(item => {
