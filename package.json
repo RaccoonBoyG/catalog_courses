@@ -119,7 +119,7 @@
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
     "redux-devtools-extension": "^2.13.8",
-    "stylelint": "^13.6.0",
+    "stylelint": "^13.13.1",
     "stylelint-prettier": "^1.1.2",
     "ws": "7.3.0"
   },

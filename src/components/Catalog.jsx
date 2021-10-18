@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import Courses from "./Courses";
+import React, { Component } from 'react';
+import Courses from './Courses';
 // import HeaderBackground from '../containers/HeaderBackground';
 // import HeaderTitle from '../containers/HeaderTitle';
-import scroll from "./scroll";
-import ButtonScrollToTop from "../containers/ButtonScrollToTop";
+import scroll from './scroll';
+import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 
 class Catalog extends Component {
   componentDidMount() {
@@ -13,7 +13,6 @@ class Catalog extends Component {
 
   render() {
     let menu = document.getElementsByClassName('navbar');
-    menu[0].setAttribute("style", "display:flex;");
     return (
       <React.Fragment>
         {/* <HeaderBackground /> */}
