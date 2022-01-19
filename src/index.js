@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/js/bootstrap.min.js';
-
-import './static/css/index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import * as Sentry from '@sentry/browser';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import './static/app.scss';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(  
-      <App />
-      , document.getElementById('root')
-);
+// Sentry.init({ dsn: 'https://92b743637f8f47abbfbae99a1326d9a0@sentry.io/1289601' });
+
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

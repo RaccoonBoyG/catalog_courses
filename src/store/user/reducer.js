@@ -1,25 +1,32 @@
-import * as types from './actionTypes';
+import * as types from "./actionTypes";
 
 const initialState = {
   items_user: [],
   loading: false,
   error: null,
-  isAuth: true,
-  course_enroll_user: false
+  isAuth: false,
+  course_enroll_user: false,
+  course_user_modes: []
 };
 
-export default function usersReducer(state = initialState, {type, payload}) {
-  switch(type) {
-
+export default function usersReducer(state = initialState, { type, payload }) {
+  switch (type) {
     case types.FETCH_USER_STATE_SUCCESS:
       return {
         ...state,
-        items_user: payload.data
-      }
+        items_user: payload.data,
+        loading: true,
+        isAuth: true
+      };
 
     case types.FETCH_USER_STATE_START:
       return {
         ...state
+      };
+    case types.FETCH_USER_STATE_CLEAR:
+      return {
+        ...state,
+        loading: false
       };
 
     case types.FETCH_USER_STATE_FAILURE:
@@ -28,18 +35,21 @@ export default function usersReducer(state = initialState, {type, payload}) {
         payload: payload.err,
         error: true
       };
-    
+
     case types.FETCH_USER_STATE_AUTH:
       return {
         ...state,
-        isAuth: false
+        isAuth: false 
       };
 
     case types.FETCH_USER_COURSE_ENROLL:
       return {
         ...state,
-        course_enroll_user: payload.course
-      }
+        course_enroll_user: payload.course,
+        course_user_modes: payload.modes,
+        loading: true,
+        isAuth: true
+      };
 
     default:
       return state;
@@ -49,12 +59,12 @@ export default function usersReducer(state = initialState, {type, payload}) {
 //selectors
 
 export const fetchUserSuccess = data => ({
-    type: types.FETCH_USER_STATE_SUCCESS,
-    payload: {
-      data
-    }
-  });
-  
+  type: types.FETCH_USER_STATE_SUCCESS,
+  payload: {
+    data
+  }
+});
+
 export const fetchUserFailure = err => ({
   type: types.FETCH_USER_STATE_FAILURE,
   payload: {
@@ -71,11 +81,16 @@ export const UserUnAuth = isAuth => ({
   payload: {
     isAuth
   }
-})
+});
 
-export const fetchCourseEnroll = course => ({
+export const fetchCourseEnroll = (course, modes) => ({
   type: types.FETCH_USER_COURSE_ENROLL,
   payload: {
-    course
+    course,
+    modes
   }
 });
+
+export const clearLoadingUserSelector = () => ({
+  type: types.FETCH_USER_STATE_CLEAR,
+})
