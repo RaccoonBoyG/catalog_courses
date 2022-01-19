@@ -11,7 +11,6 @@ body{
     font-family: 'PFBulletinSansPro-Light';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/PFBulletinSansPro-Light.eot');
     src: url('../fonts/PFBulletinSansPro-Light.woff') format('woff'),
          url('../fonts/PFBulletinSansPro-Light.svg') format('svg')
 }
@@ -20,7 +19,6 @@ body{
     font-family: 'PFBulletinSansPro-Regular';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/PFBulletinSansPro-Regular.eot');
     src: url('../fonts/PFBulletinSansPro-Regular.woff') format('woff'),
          url('../fonts/PFBulletinSansPro-Regular.svg') format('svg')
 }
@@ -29,7 +27,6 @@ body{
     font-family: 'PFBulletinSansPro-Bold';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/PFBulletinSansPro-Bold.eot');
     src: url('../fonts/PFBulletinSansPro-Bold.woff') format('woff'),
          url('../fonts/PFBulletinSansPro-Bold.svg') format('svg')
 }
