@@ -41,7 +41,6 @@ html {
     .top-txt-container {
       min-height: rem(800);
     }
-
     .top-txt-container-sub {
       min-height: rem(200);
     }
@@ -57,14 +56,6 @@ html {
 
     .header {
       display: none;
-    }
-
-    .backImg {
-      background-image: linear-gradient(141deg, $shades-gradient-1 0%, $shades-gradient-2 25%, $shades-gradient 65%),
-        url('https://edcrunch.urfu.ru/assets/images/banner/1-02_2019.png');
-      height: 200px;
-      max-height: 95px;
-      max-width: 95px;
     }
 
     .img-about-size {
@@ -98,14 +89,6 @@ html {
 
     .header {
       display: none;
-    }
-
-    .backImg {
-      background-image: linear-gradient(141deg, $shades-gradient-1 0%, $shades-gradient-2 25%, $shades-gradient 65%),
-        url('https://edcrunch.urfu.ru/assets/images/banner/1-02_2019.png');
-      height: 200px;
-      max-height: 95px;
-      max-width: 95px;
     }
 
     .img-about-size {
@@ -167,11 +150,11 @@ html {
       display: flex !important;
     }
 
-    .filter_pc {
+    .filter-pc {
       display: none;
     }
 
-    .search_pc {
+    .search-pc {
       display: block;
     }
 
@@ -190,14 +173,6 @@ html {
 
     .header {
       display: none;
-    }
-
-    .backImg {
-      background-image: linear-gradient(141deg, $shades-gradient-1 0%, $shades-gradient-2 40%, $shades-gradient 60%),
-        url('https://edcrunch.urfu.ru/assets/images/banner/1-02_2019.png');
-      height: 200px;
-      max-height: 95px;
-      max-width: 95px;
     }
 
     .img-about-size {
@@ -241,11 +216,11 @@ html {
       display: none !important;
     }
 
-    .filter_pc {
+    .filter-pc {
       display: none;
     }
 
-    .search_pc {
+    .search-pc {
       display: none;
     }
 
@@ -253,7 +228,7 @@ html {
       display: block;
     }
 
-    .container-course_about {
+    .container__course-about {
       margin-top: 4rem !important;
     }
 
@@ -267,19 +242,6 @@ html {
 
     .margin-custom-catalog_1 {
       margin-top: rem(90);
-    }
-
-    .backImg {
-      background: linear-gradient(141deg, $shades-gradient-1 0%, $shades-gradient-2 40%, $shades-gradient 60%),
-        url('https://edcrunch.urfu.ru/assets/images/banner/1-02_2019.png') no-repeat auto 100%;
-      background-size: auto 195%;
-      height: 150px;
-      margin-top: rem(59);
-
-      h2 {
-        font-size: 1.8rem;
-        padding-left: 0 !important;
-      }
     }
 
     .img-about-size {
@@ -354,15 +316,15 @@ html {
       display: none;
     }
 
-    .filter_pc {
+    .filter-pc {
       display: none;
     }
 
-    .search_pc {
+    .search-pc {
       display: none;
     }
 
-    .container-course_about {
+    .container__course-about {
       margin-top: 4rem !important;
     }
 
@@ -376,21 +338,6 @@ html {
 
     .margin-custom-catalog_1 {
       margin-top: rem(90);
-    }
-
-    .backImg {
-      background-image: linear-gradient(141deg, $shades-gradient-1 0%, $shades-gradient-2 40%, $shades-gradient 60%),
-        url('https://edcrunch.urfu.ru/assets/images/banner/1-02_2019.png');
-      height: 150px;
-      margin-top: rem(49);
-      padding-left: 0 !important;
-
-      h2 {
-        background-position: -40% -40%;
-        background-repeat: no-repeat;
-        background-size: auto 120%;
-        font-size: 1.5rem;
-      }
     }
 
     .img-about-size {
@@ -465,15 +412,15 @@ html {
       display: none;
     }
 
-    .filter_pc {
+    .filter-pc {
       display: none;
     }
 
-    .search_pc {
+    .search-pc {
       display: none;
     }
 
-    .container-course_about {
+    .container__course-about {
       margin-top: 4rem !important;
     }
 
@@ -493,28 +440,16 @@ html {
       margin-top: rem(90);
     }
 
-    .backImg {
-      background-image: linear-gradient(141deg, $shades-gradient-1 0%, $shades-gradient-2 45%, $shades-gradient 65%),
-        url('https://edcrunch.urfu.ru/assets/images/banner/1-02_2019.png');
-      height: 150px;
-      margin-top: rem(45);
-      padding-left: 0 !important;
-
-      h2 {
-        background-position: -5% -50%;
-        background-repeat: no-repeat;
-        background-size: auto 120%;
-        font-size: 1.5rem;
-      }
-    }
     .title-catalog {
       h2 {
         font-size: 1.8rem;
       }
     }
+
     .course-staff {
       margin: 1rem;
     }
+
     .teacher {
       // padding: rem(20);
       height: 100%;
@@ -524,10 +459,12 @@ html {
         padding-top: rem(20);
       }
     }
+
     .teacher-image {
       max-height: rem(100);
       // margin: rem(20);
     }
+
     .teacher-image img {
       // padding: rem(20);
       margin-right: rem(20);
@@ -538,14 +475,10 @@ html {
 }
 
 body {
-  background-color: $white-color;
+  background-color: $white;
   color: $default-color;
-  // background: url("http://itoo.urfu.ru/Content/images/bg.jpg") repeat center 0;
-  // background: #f1f1f1;
-  // background: #f3f3f3;
   font-family: $main-font;
   font-size: $main-font-size;
-  -moz-osx-font-smoothing: grayscale;
   font-weight: $main-font-weight;
   margin: 0;
   padding: 0;

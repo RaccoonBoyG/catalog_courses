@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 // import HeaderBackground from "./HeaderBackground";
-import scroll from "../components/scroll";
-import ButtonScrollToTop from "./ButtonScrollToTop";
+import scroll from '../components/scroll';
+import ButtonScrollToTop from './ButtonScrollToTop';
 
 class AboutUs extends Component {
   componentDidMount() {
@@ -13,15 +13,10 @@ class AboutUs extends Component {
     return (
       <React.Fragment>
         {/* <HeaderBackground /> */}
-        <div className="d-flex flex-row container-fluid backImgCourse margin-custom-catalog">
-          <h1 className="d-flex align-items-center justify-content-center p-5 text-light container">
-            О нас
-          </h1>
+        <div className="d-flex flex-row container-fluid back-img-course margin-custom-catalog">
+          <h1 className="d-flex align-items-center justify-content-center p-5 text-light container">О нас</h1>
         </div>
-        <div
-          className="d-flex-row container aboutUs text-custom-dark p-5"
-          style={{ borderRadius: 0 }}
-        >
+        <div className="d-flex-row container aboutUs text-custom-dark p-5" style={{ borderRadius: 0 }}>
           <div className="about-back"></div>
 
           {/* <h1 className="d-flex align-items-center justify-content-center">
@@ -38,12 +33,9 @@ class AboutUs extends Component {
                   />
                 </div>
                 <div className="media-body">
-                  Уральский федеральный университет – крупнейший федеральный
-                  университет России, созданный на базе старейших университетов
-                  Урала – УГТУ-УПИ и УрГУ. За 90-летнюю историю было
-                  подготовлено более 300 тысяч выпускников. Университет занимает
-                  ведущие позиции среди вузов России, осуществляющих обучение по
-                  инженерным направлениям подготовки.
+                  Уральский федеральный университет – крупнейший федеральный университет России, созданный на базе старейших университетов Урала –
+                  УГТУ-УПИ и УрГУ. За 90-летнюю историю было подготовлено более 300 тысяч выпускников. Университет занимает ведущие позиции среди
+                  вузов России, осуществляющих обучение по инженерным направлениям подготовки.
                 </div>
               </li>
               <li className="media mt-4 pt-4 pb-4">
@@ -55,12 +47,9 @@ class AboutUs extends Component {
                   />
                 </div>
                 <div className="media-body">
-                  В университете более 10 лет осуществляется подготовка кадров
-                  высшей квалификации с применением дистанционных
-                  образовательных технологий. В основу такой подготовки заложен
-                  большой опыт создании виртуальных лабораторий, тренажеров и
-                  симуляторов, съемки учебных видеофильмов, разработки онлайн
-                  курсов.
+                  В университете более 10 лет осуществляется подготовка кадров высшей квалификации с применением дистанционных образовательных
+                  технологий. В основу такой подготовки заложен большой опыт создании виртуальных лабораторий, тренажеров и симуляторов, съемки
+                  учебных видеофильмов, разработки онлайн курсов.
                 </div>
               </li>
               <li className="media mt-4 pt-4 pb-4">
@@ -72,15 +61,10 @@ class AboutUs extends Component {
                   />
                 </div>
                 <div className="media-body">
-                  В рамках проекта “Открытое образование” Уральский федеральный
-                  университет представит курсы, в первую очередь, обеспечивающие
-                  базовую подготовку по инженерным направлениям. К созданию
-                  курсов привлечены большие коллективы лучших преподавателей
-                  университета, многие из которых имеют многолетний опыт
-                  дистанционного обучения. Наша задача - показать, что даже в
-                  традиционно сложных для дистанционного обучения технических
-                  дисциплинах применение онлайн курсов с современными
-                  технологиями будет высокоэффективным.
+                  В рамках проекта “Открытое образование” Уральский федеральный университет представит курсы, в первую очередь, обеспечивающие базовую
+                  подготовку по инженерным направлениям. К созданию курсов привлечены большие коллективы лучших преподавателей университета, многие из
+                  которых имеют многолетний опыт дистанционного обучения. Наша задача - показать, что даже в традиционно сложных для дистанционного
+                  обучения технических дисциплинах применение онлайн курсов с современными технологиями будет высокоэффективным.
                 </div>
               </li>
             </ul>

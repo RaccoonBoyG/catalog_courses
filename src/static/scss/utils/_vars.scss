@@ -27,8 +27,9 @@ $dark-color: #101b1c;
 $navbar-color: rgba(0, 0, 0, 0.5);
 $dark-color-text: rgba(0, 0, 0, 0.8);
 $dark-color2: #272424;
-$white-color: #fff !default;
-
+$white: #fff !default;
+$black: #000 !default;
+$menu-border-bottom-color: #333 !default;
 // Neutral Color
 $neutral-primary: #303133;
 $neutral-regular: #606266;
@@ -65,3 +66,6 @@ $color-1: #000;
 $color-2: #fff;
 $background-color-1: #ededed99;
 $background-color-2: transparent;
+
+$jumbotron-bg: #e9ecefc4 !default;
+$search-fill-color: #b6b6b6;

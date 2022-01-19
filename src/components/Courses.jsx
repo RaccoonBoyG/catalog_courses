@@ -63,7 +63,7 @@ class Courses extends Component {
           </div>
           ${show_close ? 'show_close' : ''}`}  onClick={clearInput}
         </div> */}
-        <div className="container pt-5 pb-3 mb-3 p-0 search_pc">
+        <div className="container pt-5 pb-3 mb-3 p-0 search-pc">
           <div className="flex-row">
             <div className="d-flex flex-row">
               <div className="flex-column p-0" style={{ width: '100%' }}>
@@ -73,7 +73,7 @@ class Courses extends Component {
                       type="text"
                       className="form-control search-slt t-input"
                       placeholder="Введите название курса"
-                      onChange={e => this._handleTextChange(e)}
+                      onChange={(e) => this._handleTextChange(e)}
                     />
                     <svg
                       className="t-site-search-close"
@@ -141,11 +141,11 @@ class Courses extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.cards.items,
   filter_data: state.cards.filter_data,
   test: state.cards.input,
-  loading: state.cards.loading
+  loading: state.cards.loading,
 });
 
 const mapDispatchToProps = {
@@ -153,10 +153,7 @@ const mapDispatchToProps = {
   LoadMoreTest,
   searchInput,
   resetSearch,
-  fetchCardsAll
+  fetchCardsAll,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Courses);
+export default connect(mapStateToProps, mapDispatchToProps)(Courses);

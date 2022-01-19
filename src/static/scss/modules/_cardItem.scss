@@ -1,72 +1,73 @@
 .card-catalog {
-  border-radius: 0px;
-  border: none;
+  border: 0;
+  border-radius: 0;
   cursor: pointer;
   float: left;
   overflow: hidden;
   position: relative;
+
   &:hover {
+    box-shadow: 0 0 20px 1px transparentize($black, 0.5);
     transition: all 0.1s ease-out 0.1s;
-    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
   }
-  .card-catalog-img {
+
+  &__img {
     display: block;
-    position: relative;
-    -webkit-transition: all 0.4s ease-in;
+    height: 250px;
+    min-width: 350px;
     transition: all 0.4s ease-in;
     width: 100%;
-    min-width: 350px;
-    height: 250px;
   }
-  .overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    overflow: hidden;
-    top: 0;
-    left: 0;
+
+  &__body {
+    border: 0;
+    color: $color-1;
+    font-weight: 300;
+    min-height: 190px;
   }
-  a.info {
-    text-transform: uppercase;
-    text-align: center;
-    position: relative;
+
+  &__title {
     font-size: $main-font-size;
-    background: rgba(0, 0, 0, 0.6);
-    text-decoration: none;
+  }
+
+  .overlay {
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  a.info {
+    background: transparentize($black, 0.4);
     color: $color-2;
     display: inline-block;
+    font-size: $main-font-size;
+    margin: 100px 0 0;
     padding: 10px 30px;
-    margin: 100px 0 0 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
     width: 100%;
   }
 }
 // .card-catalog-img {
 //   border: none;
-//   border-radius: 0px;
+//   border-radius: 0;
 //   height: 250px;
 // }
-.card-catalog-body {
-  color: $color-1;
-  font-weight: 300;
-  min-height: 190px;
-  border: none;
-}
-.card-catalog-title {
-  font-size: $main-font-size;
-}
+
 .card-text {
   font-size: $small-font-size;
 }
 .hovereffect {
-  width: 100%;
-  height: 100%;
   float: left;
+  height: 100%;
   overflow: hidden;
   position: relative;
-}
-.back {
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)),
-    url('https://static.tildacdn.com/tild6432-6361-4433-a233-366431333938/top622259.jpg');
+  width: 100%;
 }
 
 .card-height {
@@ -78,26 +79,24 @@
 }
 
 .line {
-  position: absolute;
-  bottom: -19px;
   border: 0;
+  bottom: -19px;
   height: 2px;
-  width: 0%;
   left: 50%;
-}
-.line-2 {
   position: absolute;
-  bottom: -19px;
-  border: 0;
-  height: 5px;
-  width: 0%;
-  left: 50%;
+  width: 0;
 }
+
+.line-2 {
+  border: 0;
+  bottom: -19px;
+  height: 5px;
+  left: 50%;
+  position: absolute;
+  width: 0;
+}
+
 .shadow-effect {
-  -ms-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 
@@ -108,44 +107,32 @@
 .card-height:hover,
 .card-height-list:hover {
   .shadow-effect {
-    box-shadow: 0px 0px 20px -10px rgba(95, 160, 168, 0.3);
-    -ms-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 20px -10px transparentize($shades-secondary, 0.7);
     transition: all 0.3s ease-in-out;
   }
+
   .line-2 {
+    box-shadow: 0 0 20px 1px transparentize($shades-secondary, 0.5);
+    display: inline-block;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
     width: 100%;
-    display: inline-block;
-    -webkit-transition: width 0.3s ease-in-out;
-    -moz--transition: width 0.3s ease-in-out;
-    transition: width 0.3s ease-in-out;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    transform: translateX(-50%);
-    box-shadow: 0px 0px 20px 1px rgba(95, 160, 168, 0.5);
   }
+
   .line {
-    width: 91%;
+    box-shadow: 0 0 20px 1px transparentize($shades-secondary, 0.5);
     display: inline-block;
-    -webkit-transition: width 0.3s ease-in-out;
-    -moz--transition: width 0.3s ease-in-out;
-    transition: width 0.3s ease-in-out;
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
     transform: translateX(-50%);
-    box-shadow: 0px 0px 20px 1px rgba(95, 160, 168, 0.5);
+    transition: width 0.3s ease-in-out;
+    width: 91%;
   }
 
   .show-about {
-    display: block;
-    -webkit-animation: fadeInUp 0.3s;
     animation: fadeInUp 0.3s;
+    display: block;
   }
 
-  .img_org_logo {
-    -webkit-animation: pulse 0.3s;
+  .img-org-logo {
     animation: pulse 0.3s;
   }
 }

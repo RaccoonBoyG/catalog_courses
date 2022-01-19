@@ -1,27 +1,30 @@
 .card-org {
-  border-radius: 0px;
-  border: none;
-  margin-bottom: 50px;
+  border: 0;
+  border-radius: 0;
+  color: $color-1;
   cursor: pointer;
-  z-index: 2;
   display: inline-block;
   height: auto;
+  margin-bottom: 50px;
   max-width: 100%;
-  color: $color-1;
+  z-index: 2;
+
   &:hover {
+    box-shadow: 0 0 20px 1px transparentize($black, 0.5);
     transition: all 0.1s ease-in-out 0.1s;
-    -webkit-transition: all 0.1s ease-in-out;
-    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
+  }
+
+  &__img {
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  &__body {
+    background-color: $background-color-1;
   }
 }
-.card-org-img {
-  display: inline-block;
-  height: auto;
-  max-width: 100%;
-}
-.card-org-body {
-  background-color: $background-color-1;
-}
+
 a {
   text-decoration: none;
 }
@@ -30,10 +33,10 @@ a {
 // }
 
 .button-custom {
-  bottom: 0px;
-  position: absolute;
-  margin: auto;
+  bottom: 0;
   left: 0;
-  right: 0;
+  margin: auto;
   min-height: rem(50);
+  position: absolute;
+  right: 0;
 }

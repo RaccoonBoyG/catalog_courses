@@ -55,8 +55,8 @@ class ProjectsAbout extends Component {
           if (item.slug_project === this.props.match.url.replace('/projects/', '')) {
             return (
               <React.Fragment key={item.name + item.slug_project}>
-                <div className="d-flex flex-row backImgCourse margin-custom-catalog">
-                  <div className={`container container-course_about p-custom-2 pb-4 pl-2 d-flex flex-column text-light animated fadeIn faster mb-3`}>
+                <div className="d-flex flex-row back-img-course margin-custom-catalog">
+                  <div className={`container container__course-about p-custom-2 pb-4 pl-2 d-flex flex-column text-light animated fadeIn faster mb-3`}>
                     <div className=" d-flex title-catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
                       <h2 className="d-flex align-items-start justify-content-start">{item.name}</h2>
                     </div>

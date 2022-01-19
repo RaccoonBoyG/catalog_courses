@@ -12,7 +12,7 @@ let backgroundImg = {
   backgroundSize: 'contain',
   backgroundRepeat: 'no-repeat',
   backgroundPositionY: 'top',
-  minHeight: '200px'
+  minHeight: '200px',
 };
 
 class CourseCard extends Component {
@@ -91,7 +91,7 @@ class CourseCard extends Component {
               className="d-flex flex-row"
               style={{
                 ...backgroundImg,
-                backgroundImage: `url(${image})`
+                backgroundImage: `url(${image})`,
               }}
             ></div>
             <div className="d-flex-row container-fluid p-0">
@@ -101,7 +101,7 @@ class CourseCard extends Component {
                     <FontAwesomeIcon icon={faGraduationCap} size="1x" /> УрФУ
                   </small>
                 </p>
-                <p className="card-catalog-title p-1 mb-0 card-title">{this.truncate(name, 6)}</p>
+                <p className="card-catalog__title p-1 mb-0 card-title">{this.truncate(name, 6)}</p>
                 <p className="card-catalog-text p-1 m-0 card-text">
                   <FontAwesomeIcon icon={faClock} size="1x" /> Начало: {start_display}
                 </p>
@@ -160,10 +160,7 @@ class CourseCard extends Component {
 }
 
 const mapDispatchToProps = {
-  fetchAbout
+  fetchAbout,
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(CourseCard);
+export default connect(null, mapDispatchToProps)(CourseCard);

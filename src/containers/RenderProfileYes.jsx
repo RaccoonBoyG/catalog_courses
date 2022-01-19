@@ -14,7 +14,7 @@ class RenderProfileYes extends Component {
               <img className="rounded" src={item.profile_image} alt={item.username} style={{ maxWidth: '40px', maxHeight: '40px' }} />
             </li>
           </a>
-          <li className="nav-item dropdown" style={{ listStyle: 'none' }}>
+          <div className="nav-item dropdown" style={{ listStyle: 'none' }}>
             <a
               className="nav-link dropdown-toggle text-neutral-regular"
               href={`${MEDIA_LS_URL}/dashboard`}
@@ -37,15 +37,15 @@ class RenderProfileYes extends Component {
                 Выйти
               </a>
             </div>
-          </li>
+          </div>
         </React.Fragment>
       );
     });
   }
 }
 
-const mapStateToProps = state => ({
-  data: state.user.items_user
+const mapStateToProps = (state) => ({
+  data: state.user.items_user,
 });
 
 export default connect(mapStateToProps)(RenderProfileYes);
