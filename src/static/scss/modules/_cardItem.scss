@@ -30,10 +30,10 @@
     text-transform: uppercase;
     text-align: center;
     position: relative;
-    font-size: $mainFontSize;
+    font-size: $main-font-size;
     background: rgba(0, 0, 0, 0.6);
     text-decoration: none;
-    color: $color_2;
+    color: $color-2;
     display: inline-block;
     padding: 10px 30px;
     margin: 100px 0 0 0;
@@ -46,16 +46,16 @@
 //   height: 250px;
 // }
 .card-catalog-body {
-  color: $color_1;
+  color: $color-1;
   font-weight: 300;
   min-height: 190px;
   border: none;
 }
 .card-catalog-title {
-  font-size: $mainFontSize;
+  font-size: $main-font-size;
 }
 .card-text {
-  font-size: $smallFontSize;
+  font-size: $small-font-size;
 }
 .hovereffect {
   width: 100%;

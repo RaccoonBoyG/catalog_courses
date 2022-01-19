@@ -19,7 +19,7 @@ const HeaderTitle = (props) => {
     > */}
       <div className="animated fadeIn d-flex flex-row backImgCourse margin-custom-catalog">
         <div className={`container container-course_about p-custom-2 pb-4 pl-2 d-flex flex-column text-light animated fadeIn faster mb-3`}>
-          <div className=" d-flex title_catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
+          <div className=" d-flex title-catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
             <h2 className="d-flex align-items-start justify-content-start">{props.title}</h2>
           </div>
           <div className="d-flex flex-row mt-5 justify-content-between">

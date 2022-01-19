@@ -102,18 +102,13 @@ class Header extends Component {
     const { isAuth } = this.props;
     return (
       <React.Fragment>
-        {/* <div className="bg_img" style={backgroundImg}></div> */}
-        {/* <img className="bg_img" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt=""/> */}
+        {/* <div className="bg-img" style={backgroundImg}></div> */}
+        {/* <img className="bg-img" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt=""/> */}
         <div className="container-fluid shadow-sm">
           <nav className="navbar navbar-expand-lg navbar-light container pb-3 pl-0 pr-0">
             <NavLink className="navbar-brand" exact to="/">
-              <img
-                src="https://openedu.urfu.ru/files/courses_catalog/urfu_logo.png"
-                width="110"
-                img-field="img"
-                alt=""
-              />
-              {/* <svg version="1.0" className="brand_img" xmlns="http://www.w3.org/2000/svg"
+              <img src="https://openedu.urfu.ru/files/courses_catalog/urfu_logo.png" width="110" img-field="img" alt="" />
+              {/* <svg version="1.0" className="brand-img" xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 490.000000 466.000000" preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(0.000000,466.000000) scale(0.100000,-0.100000)">
                     <path d="M406 4228 c-3 -7 -11 -35 -20 -62 -25 -77 -22 -86 22 -86 52 0 142
@@ -134,7 +129,7 @@ class Header extends Component {
                             -629 0 -10 -37z" />
                 </g>
             </svg> */}
-              {/* <p className="navbar_text_small mt-2">
+              {/* <p className="navbar-text-small mt-2">
                 Институт технологий <br />
                 открытого образования
             </p> */}

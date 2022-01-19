@@ -1,25 +1,25 @@
 .back_to_top {
-  position: fixed;
   bottom: rem(30);
-  right: rem(20);
-  z-index: 9999;
   cursor: pointer;
   display: none;
+  position: fixed;
+  right: rem(20);
+  z-index: 9999;
 }
 
 .btn-circle {
-  width: rem(50);
+  border-radius: 35px;
   height: rem(50);
-  border-radius: 35px;
+  width: rem(50);
 }
 
-.btn-circle-search{
-  width: rem(40);
+.btn-circle-search {
+  border-radius: 35px;
   height: rem(40);
-  border-radius: 35px;
+  width: rem(40);
 }
 
-.btn-circle-search-svg{
+.btn-circle-search-svg {
   transform: translate(-7.5px, -2px);
 }
 

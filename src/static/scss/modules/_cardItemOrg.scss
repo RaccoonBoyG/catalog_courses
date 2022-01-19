@@ -7,7 +7,7 @@
   display: inline-block;
   height: auto;
   max-width: 100%;
-  color: $color_1;
+  color: $color-1;
   &:hover {
     transition: all 0.1s ease-in-out 0.1s;
     -webkit-transition: all 0.1s ease-in-out;
@@ -20,7 +20,7 @@
   max-width: 100%;
 }
 .card-org-body {
-  background-color: $background_color_1;
+  background-color: $background-color-1;
 }
 a {
   text-decoration: none;

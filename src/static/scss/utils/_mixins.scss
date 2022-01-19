@@ -1,4 +1,6 @@
-@function rem($pixels, $context: $mainFontSize) {
+@use 'sass:math';
+
+@function rem($pixels, $context: $main-font-size) {
   @if (unitless($pixels)) {
     $pixels: $pixels * 1px;
   }
@@ -7,7 +9,7 @@
     $context: $context * 1px;
   }
 
-  @return $pixels / $context * 1rem;
+  @return math.div($pixels, $context) * 1rem;
 }
 
 @mixin size($width, $height: $width) {
@@ -19,12 +21,15 @@
   ::-webkit-input-placeholder {
     @content;
   }
+
   :-moz-placeholder {
     @content;
   }
+
   ::-moz-placeholder {
     @content;
   }
+
   :-ms-input-placeholder {
     @content;
   }

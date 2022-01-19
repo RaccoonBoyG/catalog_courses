@@ -1,11 +1,11 @@
-$mainFont: "Roboto", Arial, sans-serif;
+$main-font: 'Roboto', Arial, sans-serif;
 
 // Size
-$mainFontColor: #101010;
-$mainFontSize: 16px;
-$smallFontSize: 14px;
-$mainFontWeight: 400;
-$mainLineHeight: 1.4;
+$main-font-color: #101010;
+$main-font-size: 16px;
+$small-font-size: 14px;
+$main-font-weight: 400;
+$main-line-height: 1.4;
 
 $lgDesktopWidth: 2560px;
 $desktopWidth: 1280px;
@@ -15,18 +15,19 @@ $phoneWidth: 480px;
 $smPhoneWidth: 320px;
 
 // Main color
-$default-color: #ffffff;
+$default-color: #fff;
 $primary-color: #7fd5e0;
 $primary-color-dark: #406b70;
 $success-color: #26de81;
 $danger-color: #fc5c65;
 $warning-color: #fed330;
-$light-color: #999999;
+$light-color: #999;
 $purple-color: #8854d0;
 $dark-color: #101b1c;
 $navbar-color: rgba(0, 0, 0, 0.5);
 $dark-color-text: rgba(0, 0, 0, 0.8);
 $dark-color2: #272424;
+$white-color: #fff !default;
 
 // Neutral Color
 $neutral-primary: #303133;
@@ -45,11 +46,12 @@ $shades-mid-dark-second: #3e5255;
 $shades-hight-dark: #203538;
 $shades-over-dark: #101b1c;
 
-$shades-gradient_1: rgba(0, 169, 196, 1);
-$shades-gradient_2: rgba(57, 177, 197, 0.8715861344537815);
+$shades-gradient-1: rgba(0, 169, 196, 1);
+$shades-gradient-2: rgba(57, 177, 197, 0.8715861344537815);
 
-$shades-gradient_3: #00a9c4;
-$shades-gradient_4: #0088d6;
+$shades-gradient-3: #00a9c4;
+$shades-gradient-4: #0088d6;
+$shades-gradient: rgba(247, 247, 247, 0) !default;
 
 // Border Color
 $border-base: #dcdfe6;
@@ -59,7 +61,7 @@ $border-lightex: #f2f6fc;
 
 //Card Item Color
 
-$color_1: black;
-$color_2: #fff;
-$background_color_1: #ededed99;
-$background_color_2: transparent;
+$color-1: #000;
+$color-2: #fff;
+$background-color-1: #ededed99;
+$background-color-2: transparent;

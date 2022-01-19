@@ -15,7 +15,7 @@ class OrganizationAbout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data_local: []
+      data_local: [],
     };
   }
 
@@ -23,9 +23,9 @@ class OrganizationAbout extends Component {
     window.scrollTo(0, 0);
     await this.props.fetchAboutOrg(this.props.match.params.org);
     await this.props.fetchAboutOrgList(this.props.match.params.org);
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       ...prevState,
-      data_local: this.props.data_card.courses
+      data_local: this.props.data_card.courses,
     }));
     scroll();
   }
@@ -37,7 +37,7 @@ class OrganizationAbout extends Component {
       <React.Fragment>
         <div className="d-flex flex-row backImgCourse margin-custom-catalog p-5">
           <div className={`container container-course_about d-flex flex-column text-light animated fadeIn faster`}>
-            <div className=" d-flex title_catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
+            <div className=" d-flex title-catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
               <h2 className="d-flex align-items-start justify-content-start">{data.name}</h2>
             </div>
           </div>
@@ -66,17 +66,14 @@ class OrganizationAbout extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.organizations.items_about,
-  data_card: state.organizations.items_card_about
+  data_card: state.organizations.items_card_about,
 });
 
 const mapDispatchToProps = {
   fetchAboutOrg,
-  fetchAboutOrgList
+  fetchAboutOrgList,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(OrganizationAbout);
+export default connect(mapStateToProps, mapDispatchToProps)(OrganizationAbout);

@@ -14,7 +14,7 @@ import ButtonScrollToTop from '../containers/ButtonScrollToTop';
 import ListCard from '../containers/ListCard';
 import { ArrayContent } from '../containers/Content';
 import Spinner from '../containers/Spinner';
-import Courses from "./Courses";
+import Courses from './Courses';
 
 class ProjectsAbout extends Component {
   constructor(props) {
@@ -38,27 +38,26 @@ class ProjectsAbout extends Component {
     if (loading && loading_programs) {
       return <Spinner />;
     }
-   data.map(i => {
-    if (i.slug_project === this.props.match.url.replace('/projects/', '')){
-      if (i.hide_menu) {
-        let menu = document.getElementsByClassName('navbar');
-        menu[0].setAttribute("style", "display:none;")
+    data.map((i) => {
+      if (i.slug_project === this.props.match.url.replace('/projects/', '')) {
+        if (i.hide_menu) {
+          let menu = document.getElementsByClassName('navbar');
+          menu[0].setAttribute('style', 'display:none;');
+        } else {
+          let menu = document.getElementsByClassName('navbar');
+          menu[0].setAttribute('style', 'display:flex;');
+        }
       }
-      else {
-        let menu = document.getElementsByClassName('navbar');
-        menu[0].setAttribute("style", "display:flex;")
-      }
-    }
-   })
+    });
     return (
       <>
-        {data.map(item => {
+        {data.map((item) => {
           if (item.slug_project === this.props.match.url.replace('/projects/', '')) {
             return (
               <React.Fragment key={item.name + item.slug_project}>
                 <div className="d-flex flex-row backImgCourse margin-custom-catalog">
                   <div className={`container container-course_about p-custom-2 pb-4 pl-2 d-flex flex-column text-light animated fadeIn faster mb-3`}>
-                    <div className=" d-flex title_catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
+                    <div className=" d-flex title-catalog align-items-start justify-content-start " style={{ textAlign: 'left' }}>
                       <h2 className="d-flex align-items-start justify-content-start">{item.name}</h2>
                     </div>
                   </div>
@@ -71,7 +70,7 @@ class ProjectsAbout extends Component {
                   })}
                   <ArrayContent data_content={data} />
                   <div className="m-3 d-flex flex-wrap flex-row">
-                    {data_programs.map(item => {
+                    {data_programs.map((item) => {
                       return item.project_slug === this.props.match.url.replace('/projects/', '') ? (
                         <ListCard
                           key={item.name + item.slug_program}
@@ -98,22 +97,17 @@ class ProjectsAbout extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   data: state.projects.items,
   loading: state.projects.loading,
   data_programs: state.programs.items,
-  loading_programs: state.programs.loading
+  loading_programs: state.programs.loading,
 });
 
 const mapDispatchToProps = {
   fetchProjects,
   fetchPrograms,
-  fetchAboutProgram
+  fetchAboutProgram,
 };
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(ProjectsAbout)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProjectsAbout));

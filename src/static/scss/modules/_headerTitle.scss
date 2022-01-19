@@ -1,4 +1,4 @@
-.title_catalog {
+.title-catalog {
   position: relative;
   text-align: center;
   // padding: 1rem;
@@ -6,21 +6,21 @@
   // text-transform: uppercase;
   // font-family: 'Intro';
   h1 {
-    margin: 0;
     line-height: 1;
+    margin: 0;
   }
 }
 
 .top-txt-container {
-  display: flex;
-  position: relative;
   align-items: center;
+  display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .top-txt-container-sub {
-  display: flex;
-  position: relative;
   align-items: center;
+  display: flex;
   justify-content: center;
+  position: relative;
 }

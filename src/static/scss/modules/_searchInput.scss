@@ -1,15 +1,15 @@
 .t-site-search-close {
+  bottom: 0;
+  box-sizing: content-box;
+  display: none;
   fill: #b6b6b6;
-  width: 1.5rem;
-  position: absolute;
   margin: auto 0;
+  padding-left: 20px;
+  padding-right: 10px;
+  position: absolute;
   right: 0;
   top: 0;
-  bottom: 0;
-  padding-right: 10px;
-  padding-left: 20px;
-  display: none;
-  box-sizing: content-box;
+  width: 1.5rem;
 }
 
 .show_close {
@@ -18,10 +18,10 @@
 
 .t838__blockinput {
   display: table-cell;
-  vertical-align: middle;
   height: 100%;
-  width: 100%;
   position: relative;
+  vertical-align: middle;
+  width: 100%;
 }
 
 .t-site-search-input {
@@ -30,8 +30,8 @@
 }
 
 .t-input {
-  padding-right: rem(54);
   border-radius: 35px;
+  padding-right: rem(54);
 }
 
 .is-show {
