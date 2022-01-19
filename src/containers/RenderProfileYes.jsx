@@ -10,11 +10,11 @@ class RenderProfileYes extends Component {
       return (
         <React.Fragment key={item.username + i}>
           <a href={`${MEDIA_LS_URL}/u/${item.username}`} style={{ listStyle: 'none' }} className="custom-profile-img">
-            <li className="nav-item">
+            <div className="nav-item">
               <img className="rounded" src={item.profile_image} alt={item.username} style={{ maxWidth: '40px', maxHeight: '40px' }} />
-            </li>
+            </div>
           </a>
-          <div className="nav-item dropdown" style={{ listStyle: 'none' }}>
+          <li className="nav-item dropdown" style={{ listStyle: 'none' }}>
             <a
               className="nav-link dropdown-toggle text-neutral-regular"
               href={`${MEDIA_LS_URL}/dashboard`}
@@ -37,7 +37,7 @@ class RenderProfileYes extends Component {
                 Выйти
               </a>
             </div>
-          </div>
+          </li>
         </React.Fragment>
       );
     });
