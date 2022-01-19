@@ -1,41 +1,41 @@
-body{
+body {
     /* background-color: #282c34; */
-    background-color:#ffffff;
-    font-family: 'PFBulletinSansPro-Regular';
+    background-color: #ffffff;
+    font-family: 'PFBulletinSansPro-Regular', sans-serif;
     font-style: normal;
     line-height: 1.2em;
     letter-spacing: 0.03em;
 }
 
-@font-face{
+@font-face {
     font-family: 'PFBulletinSansPro-Light';
     font-style: normal;
     font-weight: 400;
     src: url('../fonts/PFBulletinSansPro-Light.woff') format('woff'),
-         url('../fonts/PFBulletinSansPro-Light.svg') format('svg')
+    url('../fonts/PFBulletinSansPro-Light.svg') format('svg')
 }
 
-@font-face{
+@font-face {
     font-family: 'PFBulletinSansPro-Regular';
     font-style: normal;
     font-weight: 400;
     src: url('../fonts/PFBulletinSansPro-Regular.woff') format('woff'),
-         url('../fonts/PFBulletinSansPro-Regular.svg') format('svg')
+    url('../fonts/PFBulletinSansPro-Regular.svg') format('svg')
 }
 
-@font-face{
+@font-face {
     font-family: 'PFBulletinSansPro-Bold';
     font-style: normal;
     font-weight: 400;
     src: url('../fonts/PFBulletinSansPro-Bold.woff') format('woff'),
-         url('../fonts/PFBulletinSansPro-Bold.svg') format('svg')
+    url('../fonts/PFBulletinSansPro-Bold.svg') format('svg')
 }
 
-.btn{
+.btn {
     padding: 5px 10px;
     /* color: rgb(143, 143, 143); */
     border: 1px solid rgb(143, 143, 143);
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 .container {
