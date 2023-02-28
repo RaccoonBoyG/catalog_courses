@@ -1,19 +1,19 @@
-@import './scss/utils/vars';
-@import './scss/modules/bootstrapTheme';
-@import './scss/utils/libs';
-// @import "./scss/utils/_fonts.scss";
-@import './scss/utils/mixins';
-@import './scss/modules/header';
-@import './scss/modules/headerTitle';
-@import './scss/modules/footer';
-@import './scss/modules/cardItem';
-@import './scss/modules/aboutUsPage';
-@import './scss/modules/cardItemOrg';
-@import './scss/modules/buttonUp';
-@import './scss/modules/mobileFilter';
-@import './scss/modules/mobileMenu';
-@import './scss/modules/searchInput';
-@import './scss/modules/courseAbout';
+@import 'scss/utils/vars';
+@import 'scss/modules/bootstrapTheme';
+@import 'scss/utils/libs';
+@import 'scss/utils/mixins';
+@import 'scss/modules/header';
+@import 'scss/modules/headerTitle';
+@import 'scss/modules/footer';
+@import 'scss/modules/cardItem';
+@import 'scss/modules/aboutUsPage';
+@import 'scss/modules/cardItemOrg';
+@import 'scss/modules/buttonUp';
+@import 'scss/modules/mobileFilter';
+@import 'scss/modules/mobileMenu';
+@import 'scss/modules/searchInput';
+@import 'scss/modules/courseAbout';
+@import '~video-react/styles/scss/video-react';
 
 html {
   color: $main-font-color;
@@ -102,7 +102,6 @@ html {
     }
 
     .teacher {
-      // padding: rem(20);
       height: rem(150);
       margin: rem(20);
 
@@ -123,6 +122,9 @@ html {
       max-width: rem(150);
     }
   }
+
+  //height: 6rem;
+  //margin: 0 1rem;
 
   @media only screen and (min-width: $tableWidth) and (max-width: $desktopWidth) {
     .bg-img {
@@ -179,6 +181,28 @@ html {
       background-position: center;
       background-repeat: no-repeat;
       background-size: auto 200%;
+    }
+
+    .teacher {
+      // padding: rem(20);
+      height: 100%;
+      margin: rem(20);
+
+      h3 {
+        padding-top: rem(20);
+      }
+
+      .teacher-image {
+        max-height: rem(100);
+        // margin: rem(20);
+      }
+
+      img {
+        // padding: rem(20);
+        margin-right: 2rem;
+        max-height: rem(150);
+        max-width: rem(150);
+      }
     }
   }
 
